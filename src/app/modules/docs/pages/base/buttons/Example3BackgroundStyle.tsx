@@ -1,8 +1,5 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable jsx-a11y/anchor-has-content */
-/* eslint-disable no-unreachable */
-import React from "react";
-import { CodeBlock } from "../../../../../../_start/partials";
+import React from 'react'
+import { CodeBlock } from '../../../../../../_start/partials'
 
 export function Example3BackgroundStyle() {
   return (
@@ -12,7 +9,7 @@ export function Example3BackgroundStyle() {
       </h1>
       <div className="py-5">
         Use
-        <code>.btn-bg-{`{color}`}</code>class to set a button's background color
+        <code>.btn-bg-{'{color}'}</code>class to set a button's background color
         only without hover or active states:
       </div>
       <div className="py-5">
@@ -63,7 +60,7 @@ export function Example3BackgroundStyle() {
       </div>
       <CodeBlock language="markup" code={code} />
     </div>
-  );
+  )
 }
 
 const code = `<a href="#" className="btn btn-bg-white">White</a>
@@ -74,4 +71,4 @@ const code = `<a href="#" className="btn btn-bg-white">White</a>
 <a href="#" className="btn btn-bg-info">Info</a>
 <a href="#" className="btn btn-bg-warning">Warning</a>
 <a href="#" className="btn btn-bg-danger">Danger</a>
-<a href="#" className="btn btn-bg-dark">Dark</a>`;
+<a href="#" className="btn btn-bg-dark">Dark</a>`

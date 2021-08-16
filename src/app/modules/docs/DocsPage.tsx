@@ -1,48 +1,48 @@
-import React from "react";
-import { Switch, Route, Redirect } from "react-router-dom";
-import { PageDescription, PageTitle } from "../../../_start/layout/core";
-import { Overview } from "./pages/gettings-started/Overview";
-import { Accordion } from "./pages/base/Accordion";
-import { Badges } from "./pages/base/Badges";
-import { Breadcrumb } from "./pages/base/Breadcrumb";
-import { Bullets } from "./pages/base/Bullets";
-import { Buttons } from "./pages/base/buttons/Buttons";
-import { Cards } from "./pages/base/Cards";
-import { Carousel } from "./pages/base/Carousel";
-import { Forms } from "./pages/base/Forms";
-import { HelpersBackground } from "./pages/base/HelpersBackground";
-import { HelpersBorders } from "./pages/base/HelpersBorders";
-import { HelpersFlexLayout } from "./pages/base/HelpersFlexLayout";
-import { HelpersText } from "./pages/base/HelpersText";
-import { Indicator } from "./pages/base/Indicator";
-import { Modal } from "./pages/base/Modal";
-import { Overlay } from "./pages/base/Overlay";
-import { Pagination } from "./pages/base/Pagination";
-import { Pulse } from "./pages/base/Pulse";
-import { Rating } from "./pages/base/Rating";
-import { Rotate } from "./pages/base/Rotate";
-import { Separator } from "./pages/base/Separator";
-import { Symbol } from "./pages/base/Symbol";
-import { Tables } from "./pages/base/Tables";
-import { Tabs } from "./pages/base/Tabs";
-import { Utilities } from "./pages/base/utilities/Utilities";
-import { NouiSlider } from "./pages/base/NouiSlider";
-import { BootstrapIcons } from "./pages/icons/BootstrapIcons";
-import { DuotoneIcons } from "./pages/icons/DuotoneIcons";
-// import { StockholmIcons } from "./pages/icons/StockholmIcons";
-import { FontAwesomeIcons } from "./pages/icons/FontAwesomeIcons";
-import { Changelog } from "./pages/gettings-started/Changelog";
-import { CreatePage } from "./pages/gettings-started/CreatePage";
-import { Deployment } from "./pages/gettings-started/Deployment";
-import { Internationalization } from "./pages/gettings-started/Internationalization";
-import { MockBackend } from "./pages/gettings-started/MockBackend";
-import { References } from "./pages/gettings-started/References";
-import { RTL } from "./pages/gettings-started/RTL";
-import { SASSCustomization } from "./pages/gettings-started/SASSCustomization";
-import { Skeleton } from "./pages/gettings-started/Skeleton";
-import { Updates } from "./pages/gettings-started/Updates";
-import { QuickStart } from "./pages/gettings-started/QuickStart";
-import { LineAwesomeIcons } from "./pages/icons/LineAwesomeIcons";
+import React from 'react'
+import { Switch, Route, Redirect } from 'react-router-dom'
+import { PageDescription, PageTitle } from '../../../_start/layout/core'
+import { Overview } from './pages/gettings-started/Overview'
+import { Accordion } from './pages/base/Accordion'
+import { Badges } from './pages/base/Badges'
+import { Breadcrumb } from './pages/base/Breadcrumb'
+import { Bullets } from './pages/base/Bullets'
+import { Buttons } from './pages/base/buttons/Buttons'
+import { Cards } from './pages/base/Cards'
+import { Carousel } from './pages/base/Carousel'
+import { Forms } from './pages/base/Forms'
+import { HelpersBackground } from './pages/base/HelpersBackground'
+import { HelpersBorders } from './pages/base/HelpersBorders'
+import { HelpersFlexLayout } from './pages/base/HelpersFlexLayout'
+import { HelpersText } from './pages/base/HelpersText'
+import { Indicator } from './pages/base/Indicator'
+import { Modal } from './pages/base/Modal'
+import { Overlay } from './pages/base/Overlay'
+import { Pagination } from './pages/base/Pagination'
+import { Pulse } from './pages/base/Pulse'
+import { Rating } from './pages/base/Rating'
+import { Rotate } from './pages/base/Rotate'
+import { Separator } from './pages/base/Separator'
+import { Symbol } from './pages/base/Symbol'
+import { Tables } from './pages/base/Tables'
+import { Tabs } from './pages/base/Tabs'
+import { Utilities } from './pages/base/utilities/Utilities'
+import { NouiSlider } from './pages/base/NouiSlider'
+import { BootstrapIcons } from './pages/icons/BootstrapIcons'
+import { DuotoneIcons } from './pages/icons/DuotoneIcons'
+//import { StockholmIcons } from "./pages/icons/StockholmIcons";
+import { FontAwesomeIcons } from './pages/icons/FontAwesomeIcons'
+import { Changelog } from './pages/gettings-started/Changelog'
+import { CreatePage } from './pages/gettings-started/CreatePage'
+import { Deployment } from './pages/gettings-started/Deployment'
+import { Internationalization } from './pages/gettings-started/Internationalization'
+import { MockBackend } from './pages/gettings-started/MockBackend'
+import { References } from './pages/gettings-started/References'
+import { RTL } from './pages/gettings-started/RTL'
+import { SASSCustomization } from './pages/gettings-started/SASSCustomization'
+import { Skeleton } from './pages/gettings-started/Skeleton'
+import { Updates } from './pages/gettings-started/Updates'
+import { QuickStart } from './pages/gettings-started/QuickStart'
+import { LineAwesomeIcons } from './pages/icons/LineAwesomeIcons'
 
 const DocsPage = () => {
   return (
@@ -234,7 +234,7 @@ const DocsPage = () => {
             <DuotoneIcons />
             <PageDescription>duotone svg icons</PageDescription>
           </Route>
-          {/* <Route path="/docs/icons/stockholm">
+          {/*<Route path="/docs/icons/stockholm">
             <PageTitle>Stockholm</PageTitle>
             <StockholmIcons />
             <PageDescription>stockholm svg icon set</PageDescription>
@@ -254,7 +254,7 @@ const DocsPage = () => {
         </Switch>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export { DocsPage };
+export { DocsPage }

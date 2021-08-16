@@ -1,11 +1,8 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable jsx-a11y/anchor-has-content */
-/* eslint-disable no-unreachable */
-import React from "react";
-import { CodeBlock } from "../../../../../../_start/partials";
+import React from 'react'
+import { CodeBlock } from '../../../../../../_start/partials'
 
 export function Example3FontSize() {
-  const { REACT_APP_THEME_NAME, REACT_APP_BOOTSTRAP_DOCS_LINK } = process.env;
+  const { REACT_APP_THEME_NAME, REACT_APP_BOOTSTRAP_DOCS_LINK } = process.env
   return (
     <div className="pb-10">
       <h1 className="anchor fw-bolder mb-5" id="font-size">
@@ -24,7 +21,7 @@ export function Example3FontSize() {
       </div>
       <CodeBlock language="scss" code={code} />
     </div>
-  );
+  )
 }
 
 const code = `$font-sizes: (
@@ -62,4 +59,4 @@ const code = `$font-sizes: (
   5qx: $font-size-base * 5.25,    // 68.25px
   5hx: $font-size-base * 5.5,     // 71.5px
   5tx: $font-size-base * 5.75     // 74.75px
-) !default;`;
+) !default;`

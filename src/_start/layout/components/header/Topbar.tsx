@@ -1,21 +1,21 @@
-import React, { useState } from "react";
-import { KTSVG } from "../../../helpers";
+import React, { useState } from 'react'
+import { KTSVG } from '../../../helpers'
 import {
   HeaderNotificationsMenu,
   SearchModal,
   HeaderUserMenu,
-  InboxCompose,
-} from "../../../partials";
-import { useTheme } from "../../core";
+  InboxCompose
+} from '../../../partials'
+import { useTheme } from '../../core'
 
 export function Topbar() {
-  const { config } = useTheme();
-  const [showSearchModal, setShowSearchModal] = useState(false);
-  const [showInboxComposeModal, setShowInboxComposeModal] = useState(false);
+  const { config } = useTheme()
+  const [showSearchModal, setShowSearchModal] = useState(false)
+  const [showInboxComposeModal, setShowInboxComposeModal] = useState(false)
 
   return (
     <>
-      {/* begin::Search */}
+      {/*begin::Search */}
       <button
         className="btn btn-icon btn-sm btn-active-bg-accent ms-1 ms-lg-6"
         onClick={() => setShowSearchModal(true)}
@@ -29,9 +29,9 @@ export function Topbar() {
         show={showSearchModal}
         handleClose={() => setShowSearchModal(false)}
       />
-      {/* end::Search */}
+      {/*end::Search */}
 
-      {/* begin::Message */}
+      {/*begin::Message */}
       <button
         className="btn btn-icon btn-sm btn-active-bg-accent ms-1 ms-lg-6"
         onClick={() => setShowInboxComposeModal(true)}
@@ -45,11 +45,11 @@ export function Topbar() {
         show={showInboxComposeModal}
         handleClose={() => setShowInboxComposeModal(false)}
       />
-      {/* end::Message */}
+      {/*end::Message */}
 
-      {/* begin::User */}
+      {/*begin::User */}
       <div className="ms-1 ms-lg-6">
-        {/* begin::Toggle */}
+        {/*begin::Toggle */}
         <div
           className="btn btn-icon btn-sm btn-active-bg-accent"
           data-kt-menu-trigger="click"
@@ -61,13 +61,13 @@ export function Topbar() {
           />
         </div>
         <HeaderUserMenu />
-        {/* end::Toggle */}
+        {/*end::Toggle */}
       </div>
-      {/* end::User */}
+      {/*end::User */}
 
-      {/* begin::Notifications */}
+      {/*begin::Notifications */}
       <div className="ms-1 ms-lg-6">
-        {/* begin::Dropdown */}
+        {/*begin::Dropdown */}
         <button
           className="btn btn-icon btn-sm btn-light-danger fw-bolder pulse pulse-danger"
           data-kt-menu-trigger="click"
@@ -77,11 +77,11 @@ export function Topbar() {
           <span className="pulse-ring"></span>
         </button>
         <HeaderNotificationsMenu />
-        {/* end::Dropdown */}
+        {/*end::Dropdown */}
       </div>
-      {/* end::Notifications */}
+      {/*end::Notifications */}
 
-      {/* begin::Aside Toggler */}
+      {/*begin::Aside Toggler */}
       {config.aside.display && (
         <button
           className="btn btn-icon btn-sm btn-active-bg-accent d-lg-none ms-1 ms-lg-6"
@@ -93,9 +93,9 @@ export function Topbar() {
           />
         </button>
       )}
-      {/* end::Aside Toggler */}
+      {/*end::Aside Toggler */}
 
-      {/* begin::Sidebar Toggler */}
+      {/*begin::Sidebar Toggler */}
       {config.sidebar.display && (
         <button
           className="btn btn-icon btn-sm btn-active-bg-accent d-lg-none ms-1 ms-lg-6"
@@ -107,7 +107,7 @@ export function Topbar() {
           />
         </button>
       )}
-      {/* end::Sidebar Toggler */}
+      {/*end::Sidebar Toggler */}
     </>
-  );
+  )
 }

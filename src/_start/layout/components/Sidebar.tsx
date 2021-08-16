@@ -1,28 +1,27 @@
-import React, { useRef, useEffect } from "react";
-import { SidebarGeneral, SidebarShop, SidebarUser } from "../../partials";
-import { useTheme } from "../core";
+import React, { useRef, useEffect } from 'react'
+import { SidebarGeneral, SidebarShop, SidebarUser } from '../../partials'
+import { useTheme } from '../core'
 
-const BG_COLORS = ['bg-white' , 'bg-info'];
+const BG_COLORS = ['bg-white', 'bg-info']
 
 export function Sidebar() {
-  const { config, classes } = useTheme();
-  const sidebarCSSClass = classes.sidebar;
-  const sideBarRef = useRef<HTMLDivElement | null>(null);
-  
+  const { config, classes } = useTheme()
+  const sidebarCSSClass = classes.sidebar
+  const sideBarRef = useRef<HTMLDivElement | null>(null)
+
   useEffect(() => {
     if (!sidebarCSSClass) {
-      return;
+      return
     }
 
     BG_COLORS.forEach(cssClass => {
-      sideBarRef.current?.classList.remove(cssClass);
+      sideBarRef.current?.classList.remove(cssClass)
     })
 
     sidebarCSSClass.forEach(cssClass => {
-      sideBarRef.current?.classList.add(cssClass);
+      sideBarRef.current?.classList.add(cssClass)
     })
-   
-  }, [sidebarCSSClass]);
+  }, [sidebarCSSClass])
 
   return (
     <>
@@ -39,17 +38,17 @@ export function Sidebar() {
           data-kt-drawer-direction="end"
           data-kt-drawer-toggle="#kt_sidebar_toggler"
         >
-          {/* begin::Sidebar Content */}
+          {/*begin::Sidebar Content */}
           <div className="d-flex flex-column sidebar-body">
-            {config.sidebar.content === "general" && <SidebarGeneral />}
-            {config.sidebar.content === "shop" && (
+            {config.sidebar.content === 'general' && <SidebarGeneral />}
+            {config.sidebar.content === 'shop' && (
               <SidebarShop sidebarRef={sideBarRef} />
             )}
-            {config.sidebar.content === "user" && <SidebarUser />}
+            {config.sidebar.content === 'user' && <SidebarUser />}
           </div>
-          {/* end::Sidebar Content */}
+          {/*end::Sidebar Content */}
         </div>
       )}
     </>
-  );
+  )
 }

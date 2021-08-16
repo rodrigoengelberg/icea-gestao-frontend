@@ -1,8 +1,5 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable jsx-a11y/anchor-has-content */
-/* eslint-disable no-unreachable */
-import React from "react";
-import { CodeBlock } from "../../../../../../_start/partials";
+import React from 'react'
+import { CodeBlock } from '../../../../../../_start/partials'
 
 export function Example4OutlinedDashedStyle() {
   return (
@@ -15,8 +12,8 @@ export function Example4OutlinedDashedStyle() {
         <code>.btn-outline</code>and
         <code>.btn-outline-dashed</code>classes with the standard outline theme
         color
-        <code>.btn-outline-`{"color"}`</code>and
-        <code>.btn-active-light-`{"color"}`</code>classes to have a button with
+        <code>.btn-outline-`{'color'}`</code>and
+        <code>.btn-active-light-`{'color'}`</code>classes to have a button with
         outline dashed border style:
       </div>
       <div className="py-5">
@@ -68,7 +65,7 @@ export function Example4OutlinedDashedStyle() {
 
       <CodeBlock language="markup" code={code} />
     </div>
-  );
+  )
 }
 
 const code = `<a href="#" class="btn btn-outline btn-outline-dashed btn-outline-default me-2 mb-2">Default</a>
@@ -77,4 +74,4 @@ const code = `<a href="#" class="btn btn-outline btn-outline-dashed btn-outline-
 <a href="#" class="btn btn-outline btn-outline-dashed btn-outline-info btn-active-light-info">Info</a>
 <a href="#" class="btn btn-outline btn-outline-dashed btn-outline-warning btn-active-light-warning">Warning</a>
 <a href="#" class="btn btn-outline btn-outline-dashed btn-outline-danger btn-active-light-danger">Danger</a>
-<a href="#" class="btn btn-outline btn-outline-dashed btn-outline-dark btn-active-light-dark">Dark</a>`;
+<a href="#" class="btn btn-outline btn-outline-dashed btn-outline-dark btn-active-light-dark">Dark</a>`

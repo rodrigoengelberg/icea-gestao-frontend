@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 
 const Toggle = () => (
   <button
@@ -11,6 +11,6 @@ const Toggle = () => (
   >
     <span id="kt_explore_toggle_label">Upgrade to Pro</span>
   </button>
-);
+)
 
-export { Toggle };
+export { Toggle }

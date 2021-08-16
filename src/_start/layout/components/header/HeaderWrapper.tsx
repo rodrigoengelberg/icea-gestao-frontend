@@ -1,11 +1,11 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-import React from "react";
-import { IThemeCSSClasses, useTheme } from "../../core";
-import { Header } from "./Header";
+/*eslint-disable react-hooks/exhaustive-deps */
+import React from 'react'
+import { IThemeCSSClasses, useTheme } from '../../core'
+import { Header } from './Header'
 
 type Props = {
-  classes: IThemeCSSClasses;
-};
+  classes: IThemeCSSClasses
+}
 
 const HeaderDesktopFixedTabletFixed: React.FC<Props> = ({ classes }) => {
   return (
@@ -18,8 +18,8 @@ const HeaderDesktopFixedTabletFixed: React.FC<Props> = ({ classes }) => {
     >
       <Header></Header>
     </div>
-  );
-};
+  )
+}
 
 const HeaderDesktopFixedTabletFluid: React.FC<Props> = ({ classes }) => {
   return (
@@ -32,8 +32,8 @@ const HeaderDesktopFixedTabletFluid: React.FC<Props> = ({ classes }) => {
     >
       <Header></Header>
     </div>
-  );
-};
+  )
+}
 
 const HeaderDesktopFluidTabletFixed: React.FC<Props> = ({ classes }) => {
   return (
@@ -46,12 +46,12 @@ const HeaderDesktopFluidTabletFixed: React.FC<Props> = ({ classes }) => {
     >
       <Header></Header>
     </div>
-  );
-};
+  )
+}
 
 export function HeaderWrapper() {
-  const { config, classes } = useTheme();
-  const { header } = config;
+  const { config, classes } = useTheme()
+  const { header } = config
   return (
     <>
       {header.fixed.desktop && header.fixed.tabletAndMobile && (
@@ -72,5 +72,5 @@ export function HeaderWrapper() {
         </div>
       )}
     </>
-  );
+  )
 }

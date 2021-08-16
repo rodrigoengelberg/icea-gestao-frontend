@@ -1,30 +1,34 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useEffect, useRef } from "react";
-import { Carousel } from "bootstrap";
+/*eslint-disable react-hooks/exhaustive-deps */
+
+import React, { useEffect, useRef } from 'react'
+import { Carousel } from 'bootstrap'
 
 type Props = {
-  className: string;
-  innerPadding?: string;
-};
+  className: string
+  innerPadding?: string
+}
 
-const StatsWidget9: React.FC<Props> = ({ className, innerPadding = "", children }) => {
-  const carouselRef = useRef<HTMLDivElement | null>(null);
+const StatsWidget9: React.FC<Props> = ({
+  className,
+  innerPadding = '',
+  children
+}) => {
+  const carouselRef = useRef<HTMLDivElement | null>(null)
   useEffect(() => {
-    const element = carouselRef.current;
+    const element = carouselRef.current
     if (!element) {
-      return;
+      return
     }
 
-    const carousel = new Carousel(element);
+    const carousel = new Carousel(element)
     return function cleanUp() {
-      carousel.dispose();
-    };
-  }, []);
-  
+      carousel.dispose()
+    }
+  }, [])
+
   return (
     <div className={`card ${className}`}>
-      {/* begin::Body */}
+      {/*begin::Body */}
       <div className={`card-body ${innerPadding}`}>
         <div
           id="kt_stats_widget_9_carousel"
@@ -33,13 +37,13 @@ const StatsWidget9: React.FC<Props> = ({ className, innerPadding = "", children 
           data-bs-interval="8000"
           ref={carouselRef}
         >
-          {/* begin::Top */}
+          {/*begin::Top */}
           <div className="d-flex align-items-center justify-content-between flex-wrap">
-            {/* begin::Label */}
+            {/*begin::Label */}
             <span className="text-muted fw-bolder pe-2">Today’s Schedule</span>
-            {/* end::Label */}
+            {/*end::Label */}
 
-            {/* begin::Carousel Indicators */}
+            {/*begin::Carousel Indicators */}
             <ol className="p-0 m-0 carousel-indicators carousel-indicators-dots">
               <li
                 data-bs-target="#kt_stats_widget_9_carousel"
@@ -57,11 +61,11 @@ const StatsWidget9: React.FC<Props> = ({ className, innerPadding = "", children 
                 className="ms-1"
               ></li>
             </ol>
-            {/* end::Carousel Indicators */}
+            {/*end::Carousel Indicators */}
           </div>
-          {/* end::Top */}
+          {/*end::Top */}
 
-          {/* begin::Carousel */}
+          {/*begin::Carousel */}
           <div className="carousel-inner pt-9">
             <div className="carousel-item active">
               <div className="flex-grow-1">
@@ -99,18 +103,18 @@ const StatsWidget9: React.FC<Props> = ({ className, innerPadding = "", children 
               </div>
             </div>
           </div>
-          {/* end::Carousel */}
+          {/*end::Carousel */}
         </div>
       </div>
-      {/* end::Body */}
+      {/*end::Body */}
 
-      {/* begin::Footer */}
+      {/*begin::Footer */}
       <div className="card-footer border-0 d-flex align-items-center justify-content-between pt-0 pb-10">
         {children}
       </div>
-      {/* end::Footer */}
+      {/*end::Footer */}
     </div>
-  );
-};
+  )
+}
 
-export { StatsWidget9 };
+export { StatsWidget9 }

@@ -1,14 +1,14 @@
-import React from "react";
-import { AsideDefault } from "./components/aside/AsideDefault";
-import { Footer } from "./components/Footer";
-import { HeaderWrapper } from "./components/header/HeaderWrapper";
-import { Sidebar } from "./components/Sidebar";
-import { Toolbar } from "./components/Toolbar";
-import { ScrollTop } from "./components/ScrollTop";
-import { Content } from "./components/Content";
-import { MasterInit } from "./MasterInit";
-import { PageDataProvider } from "./core";
-import { ExploreMain } from "../partials";
+import React from 'react'
+import { AsideDefault } from './components/aside/AsideDefault'
+import { Footer } from './components/Footer'
+import { HeaderWrapper } from './components/header/HeaderWrapper'
+import { Sidebar } from './components/Sidebar'
+import { Toolbar } from './components/Toolbar'
+import { ScrollTop } from './components/ScrollTop'
+import { Content } from './components/Content'
+import { MasterInit } from './MasterInit'
+import { PageDataProvider } from './core'
+import { ExploreMain } from '../partials'
 
 const MasterLayout: React.FC = ({ children }) => {
   return (
@@ -39,7 +39,7 @@ const MasterLayout: React.FC = ({ children }) => {
       <MasterInit />
       <ExploreMain />
     </PageDataProvider>
-  );
-};
+  )
+}
 
-export { MasterLayout };
+export { MasterLayout }

@@ -1,7 +1,6 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-import React from "react";
-import SVG from "react-inlinesvg";
-import { toAbsoluteUrl } from "../../_start/helpers";
+import React from 'react'
+import SVG from 'react-inlinesvg'
+import { toAbsoluteUrl } from '../../_start/helpers'
 
 export const MenuTestPage: React.FC = () => {
   return (
@@ -43,7 +42,7 @@ export const MenuTestPage: React.FC = () => {
                   </span>
                   <div
                     className="menu-sub menu-sub-lg-down-accordion menu-sub-lg-dropdown menu-rounded-0 py-lg-4 w-100 w-lg-225px"
-                    style={{ margin: "0px" }}
+                    style={{ margin: '0px' }}
                   >
                     <div
                       data-kt-menu-trigger="click"
@@ -55,7 +54,7 @@ export const MenuTestPage: React.FC = () => {
                           <span className="svg-icon">
                             <SVG
                               src={toAbsoluteUrl(
-                                "/media/logos/logo-compact.svg"
+                                '/media/logos/logo-compact.svg'
                               )}
                             />
                           </span>
@@ -65,7 +64,7 @@ export const MenuTestPage: React.FC = () => {
                       </span>
                       <div
                         className="menu-sub menu-sub-accordion menu-sub-lg-dropdown menu-active-bg py-4 w-100 w-lg-225px"
-                        style={{ margin: "0px" }}
+                        style={{ margin: '0px' }}
                       >
                         <div className="menu-item">
                           <span className="menu-link py-3">
@@ -107,7 +106,7 @@ export const MenuTestPage: React.FC = () => {
                               <span className="svg-icon">
                                 <SVG
                                   src={toAbsoluteUrl(
-                                    "/media/logos/logo-compact.svg"
+                                    '/media/logos/logo-compact.svg'
                                   )}
                                 />
                               </span>
@@ -227,7 +226,7 @@ export const MenuTestPage: React.FC = () => {
                               <span className="svg-icon">
                                 <SVG
                                   src={toAbsoluteUrl(
-                                    "/media/logos/logo-compact.svg"
+                                    '/media/logos/logo-compact.svg'
                                   )}
                                 />
                               </span>
@@ -349,7 +348,7 @@ export const MenuTestPage: React.FC = () => {
                           <span className="svg-icon">
                             <SVG
                               src={toAbsoluteUrl(
-                                "/media/logos/logo-compact.svg"
+                                '/media/logos/logo-compact.svg'
                               )}
                             />
                           </span>
@@ -432,7 +431,7 @@ export const MenuTestPage: React.FC = () => {
                           <span className="svg-icon">
                             <SVG
                               src={toAbsoluteUrl(
-                                "/media/logos/logo-compact.svg"
+                                '/media/logos/logo-compact.svg'
                               )}
                             />
                           </span>
@@ -473,7 +472,7 @@ export const MenuTestPage: React.FC = () => {
                           <span className="svg-icon">
                             <SVG
                               src={toAbsoluteUrl(
-                                "/media/logos/logo-compact.svg"
+                                '/media/logos/logo-compact.svg'
                               )}
                             />
                           </span>
@@ -521,7 +520,7 @@ export const MenuTestPage: React.FC = () => {
                   </span>
                   <div
                     className="menu-sub menu-sub-lg-down-accordion menu-sub-lg-dropdown menu-rounded-0 py-lg-4 w-100 w-lg-225px"
-                    style={{ margin: "0px" }}
+                    style={{ margin: '0px' }}
                   >
                     <div className="menu-item">
                       <a
@@ -532,7 +531,7 @@ export const MenuTestPage: React.FC = () => {
                           <span className="svg-icon svg-icon-1">
                             <SVG
                               src={toAbsoluteUrl(
-                                "/media/logos/logo-compact.svg"
+                                '/media/logos/logo-compact.svg'
                               )}
                             />
                           </span>
@@ -549,7 +548,7 @@ export const MenuTestPage: React.FC = () => {
                           <span className="svg-icon svg-icon-1">
                             <SVG
                               src={toAbsoluteUrl(
-                                "/media/logos/logo-compact.svg"
+                                '/media/logos/logo-compact.svg'
                               )}
                             />
                           </span>
@@ -566,7 +565,7 @@ export const MenuTestPage: React.FC = () => {
                           <span className="svg-icon svg-icon-1">
                             <SVG
                               src={toAbsoluteUrl(
-                                "/media/logos/logo-compact.svg"
+                                '/media/logos/logo-compact.svg'
                               )}
                             />
                           </span>
@@ -587,7 +586,7 @@ export const MenuTestPage: React.FC = () => {
                   </span>
                   <div
                     className="menu-sub menu-sub-lg-down-accordion menu-sub-lg-dropdown w-100 w-lg-600px p-5 p-lg-5"
-                    style={{ margin: "0px" }}
+                    style={{ margin: '0px' }}
                   >
                     <div className="row" data-kt-menu-dismiss="true">
                       <div className="col-lg-4 border-left-lg-1">
@@ -703,7 +702,7 @@ export const MenuTestPage: React.FC = () => {
             >
               <div className="btn btn-icon btn-active-light-primary w-30px h-30px w-lg-40px h-lg-40px">
                 <span className="svg-icon svg-icon-2 svg-icon-lg-1">
-                  <SVG src={toAbsoluteUrl("/media/logos/logo-compact.svg")} />
+                  <SVG src={toAbsoluteUrl('/media/logos/logo-compact.svg')} />
                 </span>
               </div>
             </div>
@@ -711,7 +710,7 @@ export const MenuTestPage: React.FC = () => {
               className="menu menu-sub menu-sub-dropdown w-250px w-lg-300px px-7 py-5"
               data-kt-menu="true"
               id="kt_header_search_menu"
-              style={{ margin: "0px" }}
+              style={{ margin: '0px' }}
             >
               <div
                 id="kt_header_search"
@@ -730,7 +729,7 @@ export const MenuTestPage: React.FC = () => {
               >
                 <div className="position-relative">
                   <span className="svg-icon svg-icon-1 svg-icon-gray-500 position-absolute top-50 translate-middle-y ms-0">
-                    <SVG src={toAbsoluteUrl("/media/logos/logo-compact.svg")} />
+                    <SVG src={toAbsoluteUrl('/media/logos/logo-compact.svg')} />
                   </span>
                   <input
                     type="text"
@@ -753,7 +752,7 @@ export const MenuTestPage: React.FC = () => {
                   >
                     <span className="svg-icon svg-icon-1 me-0">
                       <SVG
-                        src={toAbsoluteUrl("/media/logos/logo-compact.svg")}
+                        src={toAbsoluteUrl('/media/logos/logo-compact.svg')}
                       />
                     </span>
                   </span>
@@ -781,7 +780,7 @@ export const MenuTestPage: React.FC = () => {
                   <span className="menu-icon">
                     <span className="svg-icon svg-icon-1">
                       <SVG
-                        src={toAbsoluteUrl("/media/logos/logo-compact.svg")}
+                        src={toAbsoluteUrl('/media/logos/logo-compact.svg')}
                       />
                     </span>
                   </span>
@@ -800,7 +799,7 @@ export const MenuTestPage: React.FC = () => {
                   <span className="menu-icon">
                     <span className="svg-icon svg-icon-1">
                       <SVG
-                        src={toAbsoluteUrl("/media/logos/logo-compact.svg")}
+                        src={toAbsoluteUrl('/media/logos/logo-compact.svg')}
                       />
                     </span>
                   </span>
@@ -1059,7 +1058,7 @@ export const MenuTestPage: React.FC = () => {
                   <span className="menu-icon">
                     <span className="svg-icon svg-icon-1">
                       <SVG
-                        src={toAbsoluteUrl("/media/logos/logo-compact.svg")}
+                        src={toAbsoluteUrl('/media/logos/logo-compact.svg')}
                       />
                     </span>
                   </span>
@@ -1074,9 +1073,9 @@ export const MenuTestPage: React.FC = () => {
                   <span className="menu-icon">
                     <span className="svg-icon svg-icon-1">
                       <SVG
-                        src={toAbsoluteUrl("/media/logos/logo-compact.svg")}
+                        src={toAbsoluteUrl('/media/logos/logo-compact.svg')}
                       />
-                    </span>{" "}
+                    </span>{' '}
                   </span>
                   <span className="menu-title">Layout Builder</span>
                 </a>
@@ -1089,7 +1088,7 @@ export const MenuTestPage: React.FC = () => {
                   <span className="menu-icon">
                     <span className="svg-icon svg-icon-1">
                       <SVG
-                        src={toAbsoluteUrl("/media/logos/logo-compact.svg")}
+                        src={toAbsoluteUrl('/media/logos/logo-compact.svg')}
                       />
                     </span>
                   </span>
@@ -1101,5 +1100,5 @@ export const MenuTestPage: React.FC = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}

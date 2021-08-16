@@ -1,16 +1,13 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable jsx-a11y/anchor-has-content */
-/* eslint-disable no-unreachable */
-import React from "react";
-import { CodeBlock } from "../../../../../_start/partials";
+import React from 'react'
+import { CodeBlock } from '../../../../../_start/partials'
 
 export function Tabs() {
   const {
     REACT_APP_THEME_NAME,
     REACT_APP_BOOTSTRAP_DOCS_LINK,
     REACT_APP_SASS_PATH,
-    REACT_APP_SASS_VARIABLES_PATH,
-  } = process.env;
+    REACT_APP_SASS_VARIABLES_PATH
+  } = process.env
 
   return (
     <>
@@ -20,7 +17,7 @@ export function Tabs() {
         </h1>
 
         <div className="py-5">
-          <strong>{REACT_APP_THEME_NAME}</strong>&nbsp; customizes the{" "}
+          <strong>{REACT_APP_THEME_NAME}</strong>&nbsp; customizes the{' '}
           <a
             href={`${REACT_APP_BOOTSTRAP_DOCS_LINK}/components/navs-tabs/#tabs`}
             className="fw-bold"
@@ -28,7 +25,8 @@ export function Tabs() {
             Bootstrap Tabs
           </a>
           &nbsp; through the SASS variables in
-          <code>{REACT_APP_SASS_VARIABLES_PATH}</code>and adds additonal options in
+          <code>{REACT_APP_SASS_VARIABLES_PATH}</code>and adds additonal options
+          in
           <code>{REACT_APP_SASS_PATH}/_nav.scss</code>.
         </div>
       </div>
@@ -301,7 +299,7 @@ export function Tabs() {
         <CodeBlock code={code3} language="markup" />
       </div>
     </>
-  );
+  )
 }
 
 const code = `   <ul className="nav nav-tabs nav-line-tabs mb-5 fs-6">
@@ -371,7 +369,7 @@ const code = `   <ul className="nav nav-tabs nav-line-tabs mb-5 fs-6">
     eiusmod et amet.
   </div>
 </div>
-`;
+`
 
 const code2 = `<ul className="nav nav-tabs nav-line-tabs nav-line-tabs-2x mb-5 fs-6">
   <li className="nav-item">
@@ -440,7 +438,7 @@ const code2 = `<ul className="nav nav-tabs nav-line-tabs nav-line-tabs-2x mb-5 f
     eiusmod et amet.
   </div>
 </div>
-`;
+`
 
 const code3 = `
 <div className="card card-custom shadow">
@@ -529,4 +527,4 @@ const code3 = `
     </div>
   </div>
 </div>
-`;
+`

@@ -1,9 +1,6 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable jsx-a11y/anchor-has-content */
-/* eslint-disable no-unreachable */
-import React from "react";
-import { KTSVG } from "../../../../../_start/helpers";
-import { CodeBlock } from "../../../../../_start/partials";
+import React from 'react'
+import { KTSVG } from '../../../../../_start/helpers'
+import { CodeBlock } from '../../../../../_start/partials'
 
 export function Pulse() {
   return (
@@ -83,7 +80,7 @@ export function Pulse() {
 
         <div className="py-5">
           Use
-          <code>.pulse-{"{color}"}</code>class to set a pulse's color:
+          <code>.pulse-{'{color}'}</code>class to set a pulse's color:
         </div>
         <div className="py-5">
           <div className="rounded border p-10 pb-0 d-flex flex-wrap align-items-center">
@@ -188,7 +185,7 @@ export function Pulse() {
         </h1>
         <div className="py-5">
           Use the standard
-          <code>.border-{"{width}"}</code>class with
+          <code>.border-{'{width}'}</code>class with
           <code>.pulse-ring</code>to set a pulse ring's border width.
         </div>
         <div className="py-5">
@@ -282,7 +279,7 @@ export function Pulse() {
         <CodeBlock language="tsx" code={code3} />
       </div>
     </>
-  );
+  )
 }
 
 const code = `<a href="#" className="btn btn-icon btn-light pulse me-10 mb-10">
@@ -291,7 +288,7 @@ const code = `<a href="#" className="btn btn-icon btn-light pulse me-10 mb-10">
     className="svg-icon svg-icon-1"
   />
   <span className="pulse-ring"></span>
-</a>`;
+</a>`
 
 const code2 = ` <a href="#"
   className="btn btn-icon btn-light pulse pulse-white me-10 mb-10"
@@ -373,7 +370,7 @@ const code2 = ` <a href="#"
     className="svg-icon svg-icon-1"
   />
   <span className="pulse-ring"></span>
-</a>`;
+</a>`
 
 const code3 = `<a href="#"
   className="btn btn-icon btn-light pulse pulse-primary me-10 mb-10"
@@ -428,4 +425,4 @@ const code3 = `<a href="#"
     className="svg-icon svg-icon-1"
   />
   <span className="pulse-ring border-5"></span>
-</a>`;
+</a>`

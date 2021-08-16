@@ -1,8 +1,5 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable jsx-a11y/anchor-has-content */
-/* eslint-disable no-unreachable */
-import React from "react";
-import { CodeBlock } from "../../../../../../_start/partials";
+import React from 'react'
+import { CodeBlock } from '../../../../../../_start/partials'
 
 export function Example7OpacityHover() {
   return (
@@ -13,7 +10,7 @@ export function Example7OpacityHover() {
 
       <div className="py-5">
         Use
-        <code>.opacity-{`{0, 5, 10, 15, 20, 25, 50, 75, 100}`}-hover</code>
+        <code>.opacity-{'{0, 5, 10, 15, 20, 25, 50, 75, 100}'}-hover</code>
         &nbsp;class to set an element's opacity on hover:
       </div>
       <div className="py-5">
@@ -58,7 +55,7 @@ export function Example7OpacityHover() {
       </div>
       <CodeBlock language="markup" code={code} />
     </div>
-  );
+  )
 }
 
 const code = `<div className="opacity-hover-0"></div>
@@ -69,4 +66,4 @@ const code = `<div className="opacity-hover-0"></div>
 <div className="opacity-hover-25"></div>
 <div className="opacity-hover-50"></div>
 <div className="opacity-hover-75"></div>
-<div className="opacity-hover-100"></div>`;
+<div className="opacity-hover-100"></div>`

@@ -1,8 +1,5 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable jsx-a11y/anchor-has-content */
-/* eslint-disable no-unreachable */
-import React from "react";
-import { CodeBlock } from "../../../../../../_start/partials";
+import React from 'react'
+import { CodeBlock } from '../../../../../../_start/partials'
 
 export function Example8WidthAndHeight() {
   return (
@@ -17,9 +14,9 @@ export function Example8WidthAndHeight() {
         <code>width</code>,<code>min-with</code>and
         <code>max-width</code>values to an element with shorthand classes. The
         classes are named using the format
-        <code>{`{property}-{size}`}</code>for
+        <code>{'{property}-{size}'}</code>for
         <code>xs</code>and
-        <code>{`{property}-{breakpoint}-{size}`}</code>for
+        <code>{'{property}-{breakpoint}-{size}'}</code>for
         <code>sm</code>,<code>md</code>,<code>lg</code>,<code>xl</code>, and
         <code>xxl</code>.
       </div>
@@ -276,7 +273,7 @@ export function Example8WidthAndHeight() {
       </div>
       <CodeBlock language="markup" code={code} />
     </div>
-  );
+  )
 }
 
 const code = `<div className="w-100px h-100px"></div>
@@ -286,4 +283,4 @@ const code = `<div className="w-100px h-100px"></div>
 <div className="min-w-100px min-h-100px mw-100px mh-100px"></div>
 <div className="min-w-150px min-h-150px mw-150px mh-150px"></div>
 <div className="min-w-200px min-h-200px mw-200px mh-200px"></div>
-<div className="min-w-250px min-h-250px mw-250px mh-250px"></div>`;
+<div className="min-w-250px min-h-250px mw-250px mh-250px"></div>`

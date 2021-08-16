@@ -1,12 +1,8 @@
-/* eslint-disable react/jsx-no-target-blank */
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable jsx-a11y/anchor-has-content */
-/* eslint-disable no-unreachable */
-import React from "react";
-import { CodeBlock } from "../../../../../_start/partials";
+import React from 'react'
+import { CodeBlock } from '../../../../../_start/partials'
 
 export function BootstrapIcons() {
-  const { REACT_APP_SASS_VARIABLES_PATH } = process.env;
+  const { REACT_APP_SASS_VARIABLES_PATH } = process.env
   return (
     <>
       <div className="pb-10">
@@ -63,7 +59,7 @@ export function BootstrapIcons() {
 
         <div className="py-5">
           The inline icons can be colored using
-          <code>.text-{`{color}`}</code>class that defined with
+          <code>.text-{'{color}'}</code>class that defined with
           <code>$theme-text-colors</code>variable in
           <code>{REACT_APP_SASS_VARIABLES_PATH}</code>:
         </div>
@@ -155,7 +151,7 @@ export function BootstrapIcons() {
         </h1>
         <div className="py-5">
           The font icons can be sized using
-          <code>.fs-{`{size}`}</code>class that defined with
+          <code>.fs-{'{size}'}</code>class that defined with
           <code>$font-sizes</code>variable in
           <code>{REACT_APP_SASS_VARIABLES_PATH}</code>
         </div>
@@ -381,7 +377,7 @@ export function BootstrapIcons() {
         <CodeBlock code={code3} language="markup" />
       </div>
     </>
-  );
+  )
 }
 
 const code = `<i className="bi bi-bookmarks-fill fs-2x"></i>
@@ -391,7 +387,7 @@ const code = `<i className="bi bi-bookmarks-fill fs-2x"></i>
 <i className="bi bi-gear fs-2x "></i>
 <i className="bi bi-circle-square fs-2x"></i>
 <i className="bi bi-graph-down fs-2x"></i>
-<i className="bi bi-vector-pen fs-2x"></i>`;
+<i className="bi bi-vector-pen fs-2x"></i>`
 
 const code2 = `<i className="bi bi-droplet-half text-white"></i>
 <i className="bi bi-droplet-half text-primary"></i>
@@ -411,7 +407,7 @@ const code2 = `<i className="bi bi-droplet-half text-white"></i>
 <i className="bi bi-droplet-half text-gray-600"></i>
 <i className="bi bi-droplet-half text-gray-700"></i>
 <i className="bi bi-droplet-half text-gray-800"></i>
-<i className="bi bi-droplet-half text-gray-900"></i>`;
+<i className="bi bi-droplet-half text-gray-900"></i>`
 
 const code3 = `<i className="bi bi-droplet-half fs-5x"></i>
 <i className="bi bi-droplet-half fs-4x"></i>
@@ -424,4 +420,4 @@ const code3 = `<i className="bi bi-droplet-half fs-5x"></i>
 <i className="bi bi-droplet-half fs-2"></i>
 <i className="bi bi-droplet-half fs-3"></i>
 <i className="bi bi-droplet-half fs-5"></i>
-<i className="bi bi-droplet-half fs-6"></i>`;
+<i className="bi bi-droplet-half fs-6"></i>`

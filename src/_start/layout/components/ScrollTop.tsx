@@ -1,66 +1,64 @@
-import React, { useEffect, useRef } from "react";
-import { useLocation } from "react-router-dom";
+import React, { useEffect, useRef } from 'react'
+import { useLocation } from 'react-router-dom'
 import {
   ScrollComponent,
   ScrollTopComponent,
   MenuComponent,
   DrawerComponent,
   ToggleComponent,
-  StickyComponent,
-} from "../../assets/ts/components";
-import { KTSVG } from "../../helpers";
+  StickyComponent
+} from '../../assets/ts/components'
+import { KTSVG } from '../../helpers'
 
 export function ScrollTop() {
-  const { pathname } = useLocation();
-  const isFirstRun = useRef(true);
+  const { pathname } = useLocation()
+  const isFirstRun = useRef(true)
 
   const pluginsReinitialization = () => {
     setTimeout(() => {
-      ScrollTopComponent.reinitialization();
-      MenuComponent.reinitialization();
-      StickyComponent.reInitialization();
+      ScrollTopComponent.reinitialization()
+      MenuComponent.reinitialization()
+      StickyComponent.reInitialization()
       setTimeout(() => {
-        ToggleComponent.reinitialization();
-        DrawerComponent.reinitialization();
-        ScrollComponent.reinitialization();
-      }, 70);
-    }, 140);
-  };
+        ToggleComponent.reinitialization()
+        DrawerComponent.reinitialization()
+        ScrollComponent.reinitialization()
+      }, 70)
+    }, 140)
+  }
 
   const scrollTop = () => {
-    ScrollTopComponent.goTop();
-  };
+    ScrollTopComponent.goTop()
+  }
 
   const updateHeaderSticky = () => {
     const stickyHeader = document.body.querySelectorAll(
-      `[data-kt-sticky-name="header"]`
-    );
+      '[data-kt-sticky-name="header"]'
+    )
     if (stickyHeader && stickyHeader.length > 0) {
-      const sticky = StickyComponent.getInstance(
-        stickyHeader[0] as HTMLElement
-      );
+      const sticky = StickyComponent.getInstance(stickyHeader[0] as HTMLElement)
       if (sticky) {
-        sticky.update();
+        sticky.update()
       }
     }
-  };
+  }
 
   useEffect(() => {
     if (isFirstRun.current) {
-      isFirstRun.current = false;
+      isFirstRun.current = false
     } else {
-      pluginsReinitialization();
+      pluginsReinitialization()
     }
 
-    updateHeaderSticky();
+    updateHeaderSticky()
     setTimeout(() => {
-      scrollTop();
-    }, 0);
-  }, [pathname]);
+      scrollTop()
+    }, 0)
+  }, [pathname])
 
   return (
     <div id="kt_scrolltop" className="scrolltop" data-kt-scrolltop="true">
       <KTSVG path="/media/icons/duotone/Navigation/Up-2.svg" />
     </div>
-  );
+  )
 }

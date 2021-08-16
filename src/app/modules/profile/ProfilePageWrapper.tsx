@@ -1,46 +1,45 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect } from "react";
+import React, { useEffect } from 'react'
 import {
   getConfig,
   IThemeConfig,
   PageDataContainer,
   PageLink,
-  useTheme,
-} from "../../../_start/layout/core";
-import { profileSubmenu } from "./ProfileData";
-import { ProfilePage } from "./ProfilePage";
+  useTheme
+} from '../../../_start/layout/core'
+import { profileSubmenu } from './ProfileData'
+import { ProfilePage } from './ProfilePage'
 
 const profileBreadCrumbs: Array<PageLink> = [
   {
-    title: "Home",
-    path: "/",
-    isActive: false,
+    title: 'Home',
+    path: '/',
+    isActive: false
   },
   {
-    title: "Profile",
-    path: "",
-    isActive: false,
-  },
-];
+    title: 'Profile',
+    path: '',
+    isActive: false
+  }
+]
 
-const defaultPageConfig = getConfig();
+const defaultPageConfig = getConfig()
 const profilePageConfig: Partial<IThemeConfig> = {
   sidebar: {
     ...defaultPageConfig.sidebar,
-    content: "user",
-    bgColor: "bg-info",
-  },
-};
+    content: 'user',
+    bgColor: 'bg-info'
+  }
+}
 
 const ProfilePageWrapper: React.FC = () => {
-  const { setTheme } = useTheme();
-  // Refresh UI after config updates
+  const { setTheme } = useTheme()
+  //Refresh UI after config updates
   useEffect(() => {
-    setTheme(profilePageConfig);
+    setTheme(profilePageConfig)
     return () => {
-      setTheme(defaultPageConfig);
-    };
-  }, []);
+      setTheme(defaultPageConfig)
+    }
+  }, [])
 
   return (
     <>
@@ -50,7 +49,7 @@ const ProfilePageWrapper: React.FC = () => {
       />
       <ProfilePage />
     </>
-  );
-};
+  )
+}
 
-export default ProfilePageWrapper;
+export default ProfilePageWrapper

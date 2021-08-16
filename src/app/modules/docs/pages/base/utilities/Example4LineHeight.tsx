@@ -1,11 +1,8 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable jsx-a11y/anchor-has-content */
-/* eslint-disable no-unreachable */
-import React from "react";
-import { CodeBlock } from "../../../../../../_start/partials";
+import React from 'react'
+import { CodeBlock } from '../../../../../../_start/partials'
 
 export function Example4LineHeight() {
-  const { REACT_APP_THEME_NAME, REACT_APP_BOOTSTRAP_DOCS_LINK } = process.env;
+  const { REACT_APP_THEME_NAME, REACT_APP_BOOTSTRAP_DOCS_LINK } = process.env
 
   return (
     <div className="pb-10">
@@ -13,7 +10,7 @@ export function Example4LineHeight() {
         <a href="#line-height"></a>Line Height
       </h1>
       <div className="py-5">
-        <strong>{REACT_APP_THEME_NAME}</strong>&nbsp; extends {' '}
+        <strong>{REACT_APP_THEME_NAME}</strong>&nbsp; extends{' '}
         <a
           href={`${REACT_APP_BOOTSTRAP_DOCS_LINK}/utilities/text/#line-height`}
           className="fw-bold"
@@ -94,7 +91,7 @@ export function Example4LineHeight() {
 
       <CodeBlock language="markup" code={code} />
     </div>
-  );
+  )
 }
 
 const code = `<div className="lh-1">Example text for .lh-1</div>
@@ -102,4 +99,4 @@ const code = `<div className="lh-1">Example text for .lh-1</div>
 <div className="lh-base">Example text for .lh-base</div>
 <div className="lh-lg">Example text for .lh-lg</div>
 <div className="lh-xl">Example text for .lh-xl</div>
-<div className="lh-xxl">Example text for .lh-xxl</div>`;
+<div className="lh-xxl">Example text for .lh-xxl</div>`

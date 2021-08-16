@@ -1,28 +1,28 @@
-import React, { Dispatch, SetStateAction, useState, useEffect } from "react";
-import { Modal } from "react-bootstrap-v5";
-import { KTSVG } from "../../../../../_start/helpers";
+import React, { Dispatch, SetStateAction, useState, useEffect } from 'react'
+import { Modal } from 'react-bootstrap-v5'
+import { KTSVG } from '../../../../../_start/helpers'
 
 type Props = {
-  data: { location: string; setLocation: Dispatch<SetStateAction<string>> };
-  show: boolean;
-  handleClose: () => void;
-};
+  data: { location: string; setLocation: Dispatch<SetStateAction<string>> }
+  show: boolean
+  handleClose: () => void
+}
 
 const SelectLocationModal: React.FC<Props> = ({ show, handleClose, data }) => {
   useEffect(() => {
-    initMap();
-  }, []);
+    initMap()
+  }, [])
 
-  const [location, setLocation] = useState(data.location);
+  const [location, setLocation] = useState(data.location)
   const dissmissLocation = () => {
-    setLocation(data.location);
-    handleClose();
-  };
+    setLocation(data.location)
+    handleClose()
+  }
   const applyLocation = () => {
-    data.setLocation(location);
-    handleClose();
-  };
-  const initMap = () => {};
+    data.setLocation(location)
+    handleClose()
+  }
+  const initMap = () => {}
 
   return (
     <Modal
@@ -54,7 +54,7 @@ const SelectLocationModal: React.FC<Props> = ({ show, handleClose, data }) => {
           <input
             type="text"
             value={location}
-            onChange={(e) => setLocation(e.target.value)}
+            onChange={e => setLocation(e.target.value)}
           />
           <div id="kt_modal_select_location_map" className="map h-450px"></div>
         </div>
@@ -77,7 +77,7 @@ const SelectLocationModal: React.FC<Props> = ({ show, handleClose, data }) => {
         </div>
       </div>
     </Modal>
-  );
-};
+  )
+}
 
-export { SelectLocationModal };
+export { SelectLocationModal }

@@ -1,21 +1,18 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable jsx-a11y/anchor-has-content */
-/* eslint-disable no-unreachable */
-import React, { useRef } from "react";
-import { CodeBlock } from "../../../../../_start/partials";
+import React, { useRef } from 'react'
+import { CodeBlock } from '../../../../../_start/partials'
 
 export function Indicator() {
-  const btnRef = useRef<HTMLButtonElement | null>(null);
+  const btnRef = useRef<HTMLButtonElement | null>(null)
   const onClick = () => {
-    // Disable indicator after 3 seconds
-    btnRef.current?.setAttribute("data-kt-indicator", "on");
+    //Disable indicator after 3 seconds
+    btnRef.current?.setAttribute('data-kt-indicator', 'on')
     setTimeout(() => {
-      // Activate indicator
-      btnRef.current?.removeAttribute("data-kt-indicator");
-    }, 3000);
-  };
+      //Activate indicator
+      btnRef.current?.removeAttribute('data-kt-indicator')
+    }, 3000)
+  }
 
-  const { REACT_APP_BOOTSTRAP_DOCS_LINK } = process.env;
+  const { REACT_APP_BOOTSTRAP_DOCS_LINK } = process.env
 
   return (
     <>
@@ -24,7 +21,7 @@ export function Indicator() {
           <a href="#overview"></a>Overview
         </h1>
         <div className="py-5">
-          Indicator is a custom component used in combination with{" "}
+          Indicator is a custom component used in combination with{' '}
           <a
             href={`${REACT_APP_BOOTSTRAP_DOCS_LINK}/components/buttons/`}
             className="fw-bold"
@@ -105,7 +102,7 @@ export function Indicator() {
         <CodeBlock language="tsx" code={code2} />
       </div>
     </>
-  );
+  )
 }
 
 const code = `<!-- Default state -->
@@ -126,7 +123,7 @@ const code = `<!-- Default state -->
     <span className="indicator-progress">
         Please wait... <span className="spinner-border spinner-border-sm align-middle ms-2"></span>
     </span>
-</button>`;
+</button>`
 
 const code2 = `// import {useRef} from 'react';
 // in your function add rows =>
@@ -145,4 +142,4 @@ const onClick = () => {
   <span className="indicator-progress">Please wait... 
   <span className="spinner-border spinner-border-sm align-middle ms-2"></span></span>
 </button>
-`;
+`

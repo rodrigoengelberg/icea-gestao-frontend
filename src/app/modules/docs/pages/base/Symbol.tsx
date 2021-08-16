@@ -1,9 +1,7 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable jsx-a11y/anchor-has-content */
-/* eslint-disable no-unreachable */
-import React from "react";
-import { toAbsoluteUrl } from "../../../../../_start/helpers";
-import { CodeBlock } from "../../../../../_start/partials";
+/*eslint-disable no-template-curly-in-string */
+import React from 'react'
+import { toAbsoluteUrl } from '../../../../../_start/helpers'
+import { CodeBlock } from '../../../../../_start/partials'
 
 export function Symbol() {
   return (
@@ -27,25 +25,22 @@ export function Symbol() {
         <div className="py-5">
           <div className="rounded border p-10 pb-0 d-flex flex-wrap">
             <div className="symbol symbol-50px me-10 mb-10">
-              <img src={toAbsoluteUrl("/media/avatars/150-1.jpg")} alt="" />
+              <img src={toAbsoluteUrl('/media/avatars/150-1.jpg')} alt="" />
             </div>
             <div className="symbol symbol-50px me-10 mb-10">
-              <img src={toAbsoluteUrl("/media/avatars/150-2.jpg")} alt="" />
+              <img src={toAbsoluteUrl('/media/avatars/150-2.jpg')} alt="" />
             </div>
             <div className="symbol symbol-50px me-10 mb-10">
-              <img src={toAbsoluteUrl("/media/avatars/150-3.jpg")} alt="" />
+              <img src={toAbsoluteUrl('/media/avatars/150-3.jpg')} alt="" />
             </div>
             <div className="symbol symbol-50px me-10 mb-10">
-              <img
-                src={toAbsoluteUrl("/media/avatars/150-4.jpg")}
-                alt=""
-              />
+              <img src={toAbsoluteUrl('/media/avatars/150-4.jpg')} alt="" />
             </div>
             <div className="symbol symbol-50px me-10 mb-10">
-              <img src={toAbsoluteUrl("/media/avatars/150-5.jpg")} alt="" />
+              <img src={toAbsoluteUrl('/media/avatars/150-5.jpg')} alt="" />
             </div>
             <div className="symbol symbol-50px me-10 mb-10">
-              <img src={toAbsoluteUrl("/media/avatars/150-6.jpg")} alt="" />
+              <img src={toAbsoluteUrl('/media/avatars/150-6.jpg')} alt="" />
             </div>
           </div>
         </div>
@@ -66,8 +61,8 @@ export function Symbol() {
                 className="symbol-label"
                 style={{
                   backgroundImage: `url('${toAbsoluteUrl(
-                    "/media/avatars/150-7.jpg"
-                  )}')`,
+                    '/media/avatars/150-7.jpg'
+                  )}')`
                 }}
               ></div>
             </div>
@@ -76,8 +71,8 @@ export function Symbol() {
                 className="symbol-label"
                 style={{
                   backgroundImage: `url('${toAbsoluteUrl(
-                    "/media/avatars/150-8.jpg"
-                  )}')`,
+                    '/media/avatars/150-8.jpg'
+                  )}')`
                 }}
               ></div>
             </div>
@@ -86,8 +81,8 @@ export function Symbol() {
                 className="symbol-label"
                 style={{
                   backgroundImage: `url('${toAbsoluteUrl(
-                    "/media/avatars/150-9.jpg"
-                  )}')`,
+                    '/media/avatars/150-9.jpg'
+                  )}')`
                 }}
               ></div>
             </div>
@@ -96,8 +91,8 @@ export function Symbol() {
                 className="symbol-label"
                 style={{
                   backgroundImage: `url('${toAbsoluteUrl(
-                    "/media/avatars/150-10.jpg"
-                  )}')`,
+                    '/media/avatars/150-10.jpg'
+                  )}')`
                 }}
               ></div>
             </div>
@@ -106,8 +101,8 @@ export function Symbol() {
                 className="symbol-label"
                 style={{
                   backgroundImage: `url('${toAbsoluteUrl(
-                    "/media/avatars/150-11.jpg"
-                  )}')`,
+                    '/media/avatars/150-11.jpg'
+                  )}')`
                 }}
               ></div>
             </div>
@@ -116,8 +111,8 @@ export function Symbol() {
                 className="symbol-label"
                 style={{
                   backgroundImage: `url('${toAbsoluteUrl(
-                    "/media/avatars/150-12.jpg"
-                  )}')`,
+                    '/media/avatars/150-12.jpg'
+                  )}')`
                 }}
               ></div>
             </div>
@@ -142,8 +137,8 @@ export function Symbol() {
                 className="symbol-label"
                 style={{
                   backgroundImage: `url('${toAbsoluteUrl(
-                    "/media/avatars/150-1.jpg"
-                  )}')`,
+                    '/media/avatars/150-1.jpg'
+                  )}')`
                 }}
               ></div>
             </div>
@@ -152,8 +147,8 @@ export function Symbol() {
                 className="symbol-label"
                 style={{
                   backgroundImage: `url('${toAbsoluteUrl(
-                    "/media/avatars/150-2.jpg"
-                  )}')`,
+                    '/media/avatars/150-2.jpg'
+                  )}')`
                 }}
               ></div>
             </div>
@@ -162,40 +157,40 @@ export function Symbol() {
                 className="symbol-label"
                 style={{
                   backgroundImage: `url('${toAbsoluteUrl(
-                    "/media/avatars/150-3.jpg"
-                  )}')`,
+                    '/media/avatars/150-3.jpg'
+                  )}')`
                 }}
-              ></div>{" "}
+              ></div>{' '}
             </div>
             <div className="symbol symbol-50px symbol-2by3 me-10 mb-10">
               <div
                 className="symbol-label"
                 style={{
                   backgroundImage: `url('${toAbsoluteUrl(
-                    "/media/avatars/150-4.jpg"
-                  )}')`,
+                    '/media/avatars/150-4.jpg'
+                  )}')`
                 }}
-              ></div>{" "}
+              ></div>{' '}
             </div>
             <div className="symbol symbol-50px symbol-2by3 me-10 mb-10">
               <div
                 className="symbol-label"
                 style={{
                   backgroundImage: `url('${toAbsoluteUrl(
-                    "/media/avatars/150-5.jpg"
-                  )}')`,
+                    '/media/avatars/150-5.jpg'
+                  )}')`
                 }}
-              ></div>{" "}
+              ></div>{' '}
             </div>
             <div className="symbol symbol-50px symbol-2by3 me-10 mb-10">
               <div
                 className="symbol-label"
                 style={{
                   backgroundImage: `url('${toAbsoluteUrl(
-                    "/media/avatars/150-6.jpg"
-                  )}')`,
+                    '/media/avatars/150-6.jpg'
+                  )}')`
                 }}
-              ></div>{" "}
+              ></div>{' '}
             </div>
           </div>
         </div>
@@ -293,8 +288,8 @@ export function Symbol() {
                 className="symbol-label"
                 style={{
                   backgroundImage: `url('${toAbsoluteUrl(
-                    "/media/avatars/150-1.jpg"
-                  )}')`,
+                    '/media/avatars/150-1.jpg'
+                  )}')`
                 }}
               ></div>
             </div>
@@ -306,8 +301,8 @@ export function Symbol() {
                 className="symbol-label"
                 style={{
                   backgroundImage: `url('${toAbsoluteUrl(
-                    "/media/avatars/150-1.jpg"
-                  )}')`,
+                    '/media/avatars/150-1.jpg'
+                  )}')`
                 }}
               ></div>
             </div>
@@ -319,10 +314,10 @@ export function Symbol() {
                 className="symbol-label"
                 style={{
                   backgroundImage: `url('${toAbsoluteUrl(
-                    "/media/avatars/150-1.jpg"
-                  )}')`,
+                    '/media/avatars/150-1.jpg'
+                  )}')`
                 }}
-              ></div>{" "}
+              ></div>{' '}
             </div>
             <div className="symbol symbol-50px symbol-square me-10 mb-10">
               <div className="symbol-label fs-2 fw-bold text-success">A</div>
@@ -339,9 +334,9 @@ export function Symbol() {
         <div className="py-5">
           Assign responsive-friendly size to a symbol element with shorthand
           classes. The classes are named using the format
-          <code>.symbol-{`{size}`}</code>for
+          <code>.symbol-{'{size}'}</code>for
           <code>xs</code>and
-          <code>.symbol-{`{breakpoint}-{size}`}</code>for
+          <code>.symbol-{'{breakpoint}-{size}'}</code>for
           <code>sm</code>,<code>md</code>,<code>lg</code>,<code>xl</code>, and
           <code>xxl</code>.
         </div>
@@ -444,22 +439,22 @@ export function Symbol() {
           <div className="rounded border p-10 pb-0 d-flex flex-wrap">
             <div className="symbol-group symbol-hover">
               <div className="symbol symbol-circle symbol-50px mb-10">
-                <img src={toAbsoluteUrl("/media/avatars/150-1.jpg")} alt="" />
+                <img src={toAbsoluteUrl('/media/avatars/150-1.jpg')} alt="" />
               </div>
               <div className="symbol symbol-circle symbol-50px mb-10">
-                <img src={toAbsoluteUrl("/media/avatars/150-2.jpg")} alt="" />
+                <img src={toAbsoluteUrl('/media/avatars/150-2.jpg')} alt="" />
               </div>
               <div className="symbol symbol-circle symbol-50px mb-10">
-                <img src={toAbsoluteUrl("/media/avatars/150-3.jpg")} alt="" />
+                <img src={toAbsoluteUrl('/media/avatars/150-3.jpg')} alt="" />
               </div>
               <div className="symbol symbol-circle symbol-50px mb-10">
-                <img src={toAbsoluteUrl("/media/avatars/150-4.jpg")} alt="" />
+                <img src={toAbsoluteUrl('/media/avatars/150-4.jpg')} alt="" />
               </div>
               <div className="symbol symbol-circle symbol-50px mb-10">
-                <img src={toAbsoluteUrl("/media/avatars/150-5.jpg")} alt="" />
+                <img src={toAbsoluteUrl('/media/avatars/150-5.jpg')} alt="" />
               </div>
               <div className="symbol symbol-circle symbol-50px mb-10">
-                <img src={toAbsoluteUrl("/media/avatars/150-6.jpg")} alt="" />
+                <img src={toAbsoluteUrl('/media/avatars/150-6.jpg')} alt="" />
               </div>
             </div>
           </div>
@@ -467,14 +462,15 @@ export function Symbol() {
         <CodeBlock language="markup" code={code8} />
       </div>
     </>
-  );
+  )
 }
 
 const code = `<div className="symbol symbol-50px me-10 mb-10">
   <img src={toAbsoluteUrl("/media/avatars/150-1.jpg")} alt="" />
-</div>`;
+</div>`
 
-const code2 = `<div className="symbol symbol-50px me-10 mb-10"><div className="symbol-label" style={{backgroundImage: \`url('\${toAbsoluteUrl("/media/avatars/150-11.jpg")}')\`}}></div></div>`;
+const code2 =
+  '<div className="symbol symbol-50px me-10 mb-10"><div className="symbol-label" style={{backgroundImage: `url(\'${toAbsoluteUrl("/media/avatars/150-11.jpg")}\')`}}></div></div>'
 const code3 = `<div className="symbol symbol-50px symbol-2by3 me-10 mb-10">
   <div className="symbol-label"
     style={{
@@ -483,7 +479,7 @@ const code3 = `<div className="symbol symbol-50px symbol-2by3 me-10 mb-10">
       )}')\`,
     }}
   ></div>
-</div>`;
+</div>`
 
 const code4 = `<div className="symbol symbol-50px">
   <div className="symbol-label fs-2 fw-bold text-success">A</div>
@@ -507,7 +503,7 @@ const code4 = `<div className="symbol symbol-50px">
 
 <div className="symbol symbol-50px">
   <div className="symbol-label fs-2 fw-bold bg-info text-inverse-info">S</div>
-</div>`;
+</div>`
 
 const code5 = `<div className="symbol symbol-50px">
   <div className="symbol-label fs-2 fw-bold">A</div>
@@ -527,7 +523,7 @@ const code5 = `<div className="symbol symbol-50px">
 <div className="symbol symbol-50px">
   <div className="symbol-label fs-2 fw-bold">A</div>
   <span className="badge badge-circle bg-danger start-0 top-100">3</span>
-</div>`;
+</div>`
 
 const code6 = `<div className="symbol symbol-50px symbol-circle me-10 mb-10">
   <div className="symbol-label"
@@ -536,7 +532,7 @@ const code6 = `<div className="symbol symbol-50px symbol-circle me-10 mb-10">
         "/media/avatars/150-1.jpg"
       )}')\`,
     }}></div>
-</div>`;
+</div>`
 
 const code7 = `<div className="symbol symbol-30px me-10 mb-10">
   <div className="symbol-label fs-2 fw-bold text-success">A</div>
@@ -555,7 +551,7 @@ const code7 = `<div className="symbol symbol-30px me-10 mb-10">
 </div>
 <div className="symbol symbol-150px me-10 mb-10">
   <div className="symbol-label fs-2 fw-bold text-success">A</div>
-</div>`;
+</div>`
 
 const code8 = `<div className="symbol-group symbol-hover">
   <div className="symbol symbol-circle symbol-50px mb-10">
@@ -576,4 +572,4 @@ const code8 = `<div className="symbol-group symbol-hover">
   <div className="symbol symbol-circle symbol-50px mb-10">
     <img src={toAbsoluteUrl("/media/avatars/150-6.jpg")} alt="" />
   </div>
-</div>`;
+</div>`

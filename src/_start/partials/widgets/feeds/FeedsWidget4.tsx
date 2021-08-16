@@ -1,34 +1,33 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-import React from "react";
-import { KTSVG, toAbsoluteUrl } from "../../../helpers";
-import { Dropdown1 } from "../../content/dropdown/Dropdown1";
+import React from 'react'
+import { KTSVG, toAbsoluteUrl } from '../../../helpers'
+import { Dropdown1 } from '../../content/dropdown/Dropdown1'
 
 type Props = {
-  className: string;
-};
+  className: string
+}
 
 const FeedsWidget4: React.FC<Props> = ({ className }) => {
   return (
     <div className={`card ${className}`}>
-      {/*begin::Body*/}
+      {/*begin::Body */}
       <div className="card-body pb-0">
-        {/*begin::Container*/}
+        {/*begin::Container */}
         <div className="">
-          {/*begin::Header*/}
+          {/*begin::Header */}
           <div className="d-flex align-items-center pb-4">
-            {/*begin::Symbol*/}
+            {/*begin::Symbol */}
             <div className="symbol symbol-45px symbol-light me-5">
               <span className="symbol-label align-items-end">
                 <img
                   alt="Logo"
-                  src={toAbsoluteUrl("/media/svg/avatars/018-girl-9.svg")}
+                  src={toAbsoluteUrl('/media/svg/avatars/018-girl-9.svg')}
                   className="mh-40px"
                 />
               </span>
             </div>
-            {/*end::Symbol*/}
+            {/*end::Symbol */}
 
-            {/*begin::Info*/}
+            {/*begin::Info */}
             <div className="d-flex flex-column flex-grow-1">
               <a
                 href="#"
@@ -38,9 +37,9 @@ const FeedsWidget4: React.FC<Props> = ({ className }) => {
               </a>
               <span className="text-muted fw-bold">Yestarday at 5:06 PM</span>
             </div>
-            {/*end::Info*/}
+            {/*end::Info */}
 
-            {/*begin::Dropdown*/}
+            {/*begin::Dropdown */}
             <button
               type="button"
               className="btn btn-sm btn-icon btn-color-primary btn-active-light-primary"
@@ -54,21 +53,21 @@ const FeedsWidget4: React.FC<Props> = ({ className }) => {
               />
             </button>
             <Dropdown1 />
-            {/*end::Dropdown*/}
+            {/*end::Dropdown */}
           </div>
-          {/*end::Header*/}
+          {/*end::Header */}
 
-          {/*begin::Body*/}
+          {/*begin::Body */}
           <div>
-            {/*begin::Text*/}
+            {/*begin::Text */}
             <p className="text-gray-800 fs-6 fw-normal">
               Outlines keep you honest. They stop you from indulging in poorly
               thought-out metaphors about driving and keep you focused on the
               overall structure of your post
             </p>
-            {/*end::Text*/}
+            {/*end::Text */}
 
-            {/*begin::Action*/}
+            {/*begin::Action */}
             <div className="d-flex align-items-center">
               <a
                 href="#"
@@ -92,25 +91,25 @@ const FeedsWidget4: React.FC<Props> = ({ className }) => {
                 75
               </a>
             </div>
-            {/*end::Action*/}
+            {/*end::Action */}
 
-            {/*begin::Item*/}
+            {/*begin::Item */}
             <div className="d-flex py-5">
-              {/*begin::Symbol*/}
+              {/*begin::Symbol */}
               <div className="symbol symbol-40px me-5">
                 <span className="symbol-label bg-light align-items-end">
                   <img
                     alt="Logo"
-                    src={toAbsoluteUrl("/media/svg/avatars/009-boy-4.svg")}
+                    src={toAbsoluteUrl('/media/svg/avatars/009-boy-4.svg')}
                     className="mh-35px"
                   />
                 </span>
               </div>
-              {/*end::Symbol*/}
+              {/*end::Symbol */}
 
-              {/*begin::Info*/}
+              {/*begin::Info */}
               <div className="d-flex flex-column flex-row-fluid">
-                {/*begin::Info*/}
+                {/*begin::Info */}
                 <div className="d-flex align-items-center flex-wrap">
                   <a
                     href="#"
@@ -133,29 +132,29 @@ const FeedsWidget4: React.FC<Props> = ({ className }) => {
                   Long before you sit dow to put digital pen to paper you need
                   to make sure you have to sit down and write.
                 </span>
-                {/*end::Info*/}
+                {/*end::Info */}
               </div>
-              {/*end::Info*/}
+              {/*end::Info */}
             </div>
-            {/*end::Item*/}
+            {/*end::Item */}
 
-            {/*begin::Item*/}
+            {/*begin::Item */}
             <div className="d-flex">
-              {/*begin::Symbol*/}
+              {/*begin::Symbol */}
               <div className="symbol symbol-40px me-5">
                 <span className="symbol-label bg-light align-items-end">
                   <img
                     alt="Logo"
-                    src={toAbsoluteUrl("/media/svg/avatars/003-girl-1.svg")}
+                    src={toAbsoluteUrl('/media/svg/avatars/003-girl-1.svg')}
                     className="mh-35px"
                   />
                 </span>
               </div>
-              {/*end::Symbol*/}
+              {/*end::Symbol */}
 
-              {/*begin::Info*/}
+              {/*begin::Info */}
               <div className="d-flex flex-column flex-row-fluid">
-                {/*begin::Info*/}
+                {/*begin::Info */}
                 <div className="d-flex align-items-center flex-wrap">
                   <a
                     href="#"
@@ -177,21 +176,21 @@ const FeedsWidget4: React.FC<Props> = ({ className }) => {
                 <span className="text-gray-800 fs-7 fw-normal pt-1">
                   Long before you sit down to put digital pen to paper
                 </span>
-                {/*end::Info*/}
+                {/*end::Info */}
               </div>
-              {/*end::Info*/}
+              {/*end::Info */}
             </div>
-            {/*end::Item*/}
+            {/*end::Item */}
           </div>
-          {/*end::Body*/}
+          {/*end::Body */}
         </div>
-        {/*end::Container*/}
+        {/*end::Container */}
 
-        {/*begin::Separator*/}
+        {/*begin::Separator */}
         <div className="separator mt-5"></div>
-        {/*end::Separator*/}
+        {/*end::Separator */}
 
-        {/*begin::Editor*/}
+        {/*begin::Editor */}
         <form className="position-relative py-4 d-flex align-items-center pb-5">
           <textarea
             id="kt_forms_widget_4_input"
@@ -209,11 +208,11 @@ const FeedsWidget4: React.FC<Props> = ({ className }) => {
             </span>
           </div>
         </form>
-        {/*edit::Editor*/}
+        {/*edit::Editor */}
       </div>
-      {/*end::Body*/}
+      {/*end::Body */}
     </div>
-  );
-};
+  )
+}
 
-export { FeedsWidget4 };
+export { FeedsWidget4 }

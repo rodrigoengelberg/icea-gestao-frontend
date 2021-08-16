@@ -1,21 +1,21 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable jsx-a11y/anchor-is-valid */
-import React from "react";
-import { KTSVG } from "../../../helpers";
+/*eslint-disable react-hooks/exhaustive-deps */
+
+import React from 'react'
+import { KTSVG } from '../../../helpers'
 
 type Props = {
-  className: string;
-  innerPadding?: string;
-};
+  className: string
+  innerPadding?: string
+}
 
-const StatsWidget4: React.FC<Props> = ({ className, innerPadding = "" }) => {
+const StatsWidget4: React.FC<Props> = ({ className, innerPadding = '' }) => {
   return (
     <div className={`card ${className}`}>
-      {/* begin::Body */}
+      {/*begin::Body */}
       <div className={`card-body ${innerPadding}`}>
-        {/* begin::Section */}
+        {/*begin::Section */}
         <div className="d-flex align-items-center">
-          {/* begin::Symbol */}
+          {/*begin::Symbol */}
           <div className="symbol symbol-50px me-5">
             <span className="symbol-label bg-light-success">
               <KTSVG
@@ -24,9 +24,9 @@ const StatsWidget4: React.FC<Props> = ({ className, innerPadding = "" }) => {
               />
             </span>
           </div>
-          {/* end::Symbol */}
+          {/*end::Symbol */}
 
-          {/* begin::Title */}
+          {/*begin::Title */}
           <div>
             <a
               href="#"
@@ -36,33 +36,33 @@ const StatsWidget4: React.FC<Props> = ({ className, innerPadding = "" }) => {
             </a>
             <div className="fs-7 text-muted fw-bold mt-1">VueJS, Laravel</div>
           </div>
-          {/* end::Title */}
+          {/*end::Title */}
         </div>
-        {/* end::Section */}
+        {/*end::Section */}
 
-        {/* begin::Info */}
+        {/*begin::Info */}
         <div className="fw-bolder text-muted pt-7">
           <span className="d-block">26 Authors</span>
           <span className="d-block pt-2">140 Comments</span>
         </div>
-        {/* end::Info */}
+        {/*end::Info */}
 
-        {/* begin::Progress */}
+        {/*begin::Progress */}
         <div className="progress h-6px  bg-light-success mt-7">
           <div
             className="progress-bar bg-success"
             role="progressbar"
-            style={{ width: "80%" }}
+            style={{ width: '80%' }}
             aria-valuenow={50}
             aria-valuemin={0}
             aria-valuemax={100}
           ></div>
         </div>
-        {/* end::Progress */}
+        {/*end::Progress */}
       </div>
-      {/* end::Body */}
+      {/*end::Body */}
     </div>
-  );
-};
+  )
+}
 
-export { StatsWidget4 };
+export { StatsWidget4 }

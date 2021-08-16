@@ -1,18 +1,17 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-import React from "react";
+import React from 'react'
 
 type Props = {
-  className: string;
-  imagePath?: string;
-  innerPadding?: string;
-  color?: string;
-};
+  className: string
+  imagePath?: string
+  innerPadding?: string
+  color?: string
+}
 
 const EngageWidget2: React.FC<Props> = ({
   className,
-  imagePath = "",
-  innerPadding = "",
-  color = "primary",
+  imagePath = '',
+  innerPadding = '',
+  color = 'primary'
 }) => {
   return (
     <div className={`card overflow-hidden ${className}`}>
@@ -31,14 +30,14 @@ const EngageWidget2: React.FC<Props> = ({
           <div
             className="d-none d-md-flex flex-row-fluid bgi-no-repeat bgi-position-y-center bgi-position-x-right bgi-size-cover"
             style={{
-              transform: "translateX(10%) rotate(-26deg)",
-              backgroundImage: `url('${imagePath}')`,
+              transform: 'translateX(10%) rotate(-26deg)',
+              backgroundImage: `url('${imagePath}')`
             }}
           ></div>
         )}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export { EngageWidget2 };
+export { EngageWidget2 }

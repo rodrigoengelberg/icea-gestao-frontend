@@ -1,16 +1,13 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable jsx-a11y/anchor-has-content */
-/* eslint-disable no-unreachable */
-import React from "react";
-import { CodeBlock } from "../../../../../_start/partials";
+import React from 'react'
+import { CodeBlock } from '../../../../../_start/partials'
 
 export function Carousel() {
   const {
     REACT_APP_THEME_NAME,
     REACT_APP_BOOTSTRAP_DOCS_LINK,
     REACT_APP_SASS_PATH,
-    REACT_APP_SASS_VARIABLES_PATH,
-  } = process.env;
+    REACT_APP_SASS_VARIABLES_PATH
+  } = process.env
 
   return (
     <>
@@ -19,7 +16,7 @@ export function Carousel() {
           <a href="#overview"></a>Overview
         </h1>
         <div className="py-5">
-          <strong>{REACT_APP_THEME_NAME}</strong>&nbsp; customizes the{" "}
+          <strong>{REACT_APP_THEME_NAME}</strong>&nbsp; customizes the{' '}
           <a
             href={`${REACT_APP_BOOTSTRAP_DOCS_LINK}/components/carousel`}
             className="fw-bold"
@@ -27,7 +24,8 @@ export function Carousel() {
             Bootstrap Carousel
           </a>
           &nbsp; through the SASS variables in
-          <code>{REACT_APP_SASS_VARIABLES_PATH}</code>and adds additonal options in
+          <code>{REACT_APP_SASS_VARIABLES_PATH}</code>and adds additonal options
+          in
           <code>{REACT_APP_SASS_PATH}/_carousel.scss</code>.
         </div>
       </div>
@@ -103,7 +101,7 @@ export function Carousel() {
         <CodeBlock code={code} language="markup" />
       </div>
     </>
-  );
+  )
 }
 
 const code = `<div id="kt_carousel_1_carousel"
@@ -160,4 +158,4 @@ const code = `<div id="kt_carousel_1_carousel"
     </div>
   </div>
 </div>
-`;
+`

@@ -1,17 +1,15 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-import React from "react";
-import { toAbsoluteUrl } from "../../../helpers";
-import { KTSVG } from "../../../helpers";
+import React from 'react'
+import { toAbsoluteUrl, KTSVG } from '../../../helpers'
 
 type Props = {
-  className: string;
-  innerPadding?: string;
-};
+  className: string
+  innerPadding?: string
+}
 
-const TablesWidget2: React.FC<Props> = ({ className, innerPadding = "" }) => {
+const TablesWidget2: React.FC<Props> = ({ className, innerPadding = '' }) => {
   return (
     <div className={`card ${className}`}>
-      {/* begin::Header */}
+      {/*begin::Header */}
       <div className={`card-header border-0 pt-5 ${innerPadding}`}>
         <h3 className="card-title align-items-start flex-column">
           <span className="card-label fw-bolder text-dark fs-3">
@@ -51,19 +49,19 @@ const TablesWidget2: React.FC<Props> = ({ className, innerPadding = "" }) => {
           </ul>
         </div>
       </div>
-      {/* end::Header */}
+      {/*end::Header */}
 
-      {/* begin::Body */}
+      {/*begin::Body */}
       <div className="card-body pt-3 pb-0 mt-n3">
         <div className="tab-content mt-4" id="myTabTables2">
-          {/* begin::Tap pane */}
+          {/*begin::Tap pane */}
           <div
             id="kt_tab_pane_2_1"
             role="tabpanel"
             aria-labelledby="kt_tab_pane_2_1"
             className="tab-pane fade active show"
           >
-            {/* begin::Table */}
+            {/*begin::Table */}
             <div className="table-responsive">
               <table className="table table-borderless align-middle">
                 <thead>
@@ -84,7 +82,7 @@ const TablesWidget2: React.FC<Props> = ({ className, innerPadding = "" }) => {
                           <img
                             alt="Logo"
                             src={toAbsoluteUrl(
-                              "/media/svg/avatars/001-boy.svg"
+                              '/media/svg/avatars/001-boy.svg'
                             )}
                             className="mh-40px"
                           />
@@ -127,7 +125,7 @@ const TablesWidget2: React.FC<Props> = ({ className, innerPadding = "" }) => {
                           <img
                             alt="Logo"
                             src={toAbsoluteUrl(
-                              "/media/svg/avatars/018-girl-9.svg"
+                              '/media/svg/avatars/018-girl-9.svg'
                             )}
                             className="mh-40px"
                           />
@@ -170,7 +168,7 @@ const TablesWidget2: React.FC<Props> = ({ className, innerPadding = "" }) => {
                           <img
                             alt="Logo"
                             src={toAbsoluteUrl(
-                              "/media/svg/avatars/047-girl-25.svg"
+                              '/media/svg/avatars/047-girl-25.svg'
                             )}
                             className="mh-40px"
                           />
@@ -213,7 +211,7 @@ const TablesWidget2: React.FC<Props> = ({ className, innerPadding = "" }) => {
                           <img
                             alt="Logo"
                             src={toAbsoluteUrl(
-                              "/media/svg/avatars/043-boy-18.svg"
+                              '/media/svg/avatars/043-boy-18.svg'
                             )}
                             className="mh-40px"
                           />
@@ -256,7 +254,7 @@ const TablesWidget2: React.FC<Props> = ({ className, innerPadding = "" }) => {
                           <img
                             alt="Logo"
                             src={toAbsoluteUrl(
-                              "/media/svg/avatars/024-boy-9.svg"
+                              '/media/svg/avatars/024-boy-9.svg'
                             )}
                             className="mh-40px"
                           />
@@ -295,18 +293,18 @@ const TablesWidget2: React.FC<Props> = ({ className, innerPadding = "" }) => {
                 </tbody>
               </table>
             </div>
-            {/* end::Table */}
+            {/*end::Table */}
           </div>
-          {/* end::Tap pane */}
+          {/*end::Tap pane */}
 
-          {/* begin::Tap pane */}
+          {/*begin::Tap pane */}
           <div
             id="kt_tab_pane_2_2"
             role="tabpanel"
             aria-labelledby="kt_tab_pane_2_2"
             className="tab-pane fade"
           >
-            {/* begin::Table */}
+            {/*begin::Table */}
             <div className="table-responsive">
               <table className="table table-borderless align-middle">
                 <thead>
@@ -327,7 +325,7 @@ const TablesWidget2: React.FC<Props> = ({ className, innerPadding = "" }) => {
                           <img
                             alt="Logo"
                             src={toAbsoluteUrl(
-                              "/media/svg/avatars/047-girl-25.svg"
+                              '/media/svg/avatars/047-girl-25.svg'
                             )}
                             className="mh-40px"
                           />
@@ -370,7 +368,7 @@ const TablesWidget2: React.FC<Props> = ({ className, innerPadding = "" }) => {
                           <img
                             alt="Logo"
                             src={toAbsoluteUrl(
-                              "/media/svg/avatars/043-boy-18.svg"
+                              '/media/svg/avatars/043-boy-18.svg'
                             )}
                             className="mh-40px"
                           />
@@ -413,7 +411,7 @@ const TablesWidget2: React.FC<Props> = ({ className, innerPadding = "" }) => {
                           <img
                             alt="Logo"
                             src={toAbsoluteUrl(
-                              "/media/svg/avatars/024-boy-9.svg"
+                              '/media/svg/avatars/024-boy-9.svg'
                             )}
                             className="mh-40px"
                           />
@@ -456,7 +454,7 @@ const TablesWidget2: React.FC<Props> = ({ className, innerPadding = "" }) => {
                           <img
                             alt="Logo"
                             src={toAbsoluteUrl(
-                              "/media/svg/avatars/001-boy.svg"
+                              '/media/svg/avatars/001-boy.svg'
                             )}
                             className="mh-40px"
                           />
@@ -499,7 +497,7 @@ const TablesWidget2: React.FC<Props> = ({ className, innerPadding = "" }) => {
                           <img
                             alt="Logo"
                             src={toAbsoluteUrl(
-                              "/media/svg/avatars/018-girl-9.svg"
+                              '/media/svg/avatars/018-girl-9.svg'
                             )}
                             className="mh-40px"
                           />
@@ -538,18 +536,18 @@ const TablesWidget2: React.FC<Props> = ({ className, innerPadding = "" }) => {
                 </tbody>
               </table>
             </div>
-            {/* end::Table */}
+            {/*end::Table */}
           </div>
-          {/* end::Tap pane */}
+          {/*end::Tap pane */}
 
-          {/* begin::Tap pane */}
+          {/*begin::Tap pane */}
           <div
             id="kt_tab_pane_2_3"
             role="tabpanel"
             aria-labelledby="kt_tab_pane_2_3"
             className="tab-pane fade"
           >
-            {/* begin::Table */}
+            {/*begin::Table */}
             <div className="table-responsive">
               <table className="table table-borderless align-middle">
                 <thead>
@@ -570,7 +568,7 @@ const TablesWidget2: React.FC<Props> = ({ className, innerPadding = "" }) => {
                           <img
                             alt="Logo"
                             src={toAbsoluteUrl(
-                              "/media/svg/avatars/018-girl-9.svg"
+                              '/media/svg/avatars/018-girl-9.svg'
                             )}
                             className="mh-40px"
                           />
@@ -613,7 +611,7 @@ const TablesWidget2: React.FC<Props> = ({ className, innerPadding = "" }) => {
                           <img
                             alt="Logo"
                             src={toAbsoluteUrl(
-                              "/media/svg/avatars/047-girl-25.svg"
+                              '/media/svg/avatars/047-girl-25.svg'
                             )}
                             className="mh-40px"
                           />
@@ -656,7 +654,7 @@ const TablesWidget2: React.FC<Props> = ({ className, innerPadding = "" }) => {
                           <img
                             alt="Logo"
                             src={toAbsoluteUrl(
-                              "/media/svg/avatars/043-boy-18.svg"
+                              '/media/svg/avatars/043-boy-18.svg'
                             )}
                             className="mh-40px"
                           />
@@ -699,7 +697,7 @@ const TablesWidget2: React.FC<Props> = ({ className, innerPadding = "" }) => {
                           <img
                             alt="Logo"
                             src={toAbsoluteUrl(
-                              "/media/svg/avatars/001-boy.svg"
+                              '/media/svg/avatars/001-boy.svg'
                             )}
                             className="mh-40px"
                           />
@@ -742,7 +740,7 @@ const TablesWidget2: React.FC<Props> = ({ className, innerPadding = "" }) => {
                           <img
                             alt="Logo"
                             src={toAbsoluteUrl(
-                              "/media/svg/avatars/024-boy-9.svg"
+                              '/media/svg/avatars/024-boy-9.svg'
                             )}
                             className="mh-40px"
                           />
@@ -781,14 +779,14 @@ const TablesWidget2: React.FC<Props> = ({ className, innerPadding = "" }) => {
                 </tbody>
               </table>
             </div>
-            {/* end::Table */}
+            {/*end::Table */}
           </div>
-          {/* end::Tap pane */}
+          {/*end::Tap pane */}
         </div>
       </div>
-      {/* end::Body */}
+      {/*end::Body */}
     </div>
-  );
-};
+  )
+}
 
-export { TablesWidget2 };
+export { TablesWidget2 }

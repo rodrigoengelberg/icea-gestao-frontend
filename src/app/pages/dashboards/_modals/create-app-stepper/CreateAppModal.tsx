@@ -1,82 +1,80 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useState, useRef } from "react";
-import { Modal } from "react-bootstrap-v5";
-import { StepperComponent } from "../../../../../_start/assets/ts/components";
-import { KTSVG } from "../../../../../_start/helpers";
-import { defaultCreateAppData, ICreateAppData } from "./IAppModels";
+import React, { useState, useRef } from 'react'
+import { Modal } from 'react-bootstrap-v5'
+import { StepperComponent } from '../../../../../_start/assets/ts/components'
+import { KTSVG } from '../../../../../_start/helpers'
+import { defaultCreateAppData, ICreateAppData } from './IAppModels'
 
 type Props = {
-  show: boolean;
-  handleClose: () => void;
-};
+  show: boolean
+  handleClose: () => void
+}
 
 const CreateAppModal: React.FC<Props> = ({ show, handleClose }) => {
-  const stepperRef = useRef<HTMLDivElement | null>(null);
-  const stepper = useRef<StepperComponent | null>(null);
-  const [data, setData] = useState<ICreateAppData>(defaultCreateAppData);
-  const [hasError, setHasError] = useState(false);
+  const stepperRef = useRef<HTMLDivElement | null>(null)
+  const stepper = useRef<StepperComponent | null>(null)
+  const [data, setData] = useState<ICreateAppData>(defaultCreateAppData)
+  const [hasError, setHasError] = useState(false)
 
   const loadStepper = () => {
     stepper.current = StepperComponent.createInsance(
       stepperRef.current as HTMLDivElement
-    );
-  };
+    )
+  }
 
   const updateData = (fieldsToUpdate: Partial<ICreateAppData>) => {
-    const updatedData = { ...data, ...fieldsToUpdate };
-    setData(updatedData);
-  };
+    const updatedData = { ...data, ...fieldsToUpdate }
+    setData(updatedData)
+  }
 
   const checkAppBasic = (): boolean => {
     if (!data.appBasic.appName || !data.appBasic.appType) {
-      return false;
+      return false
     }
-    return true;
-  };
+    return true
+  }
 
   const checkAppDataBase = (): boolean => {
     if (!data.appDatabase.databaseName || !data.appDatabase.databaseSolution) {
-      return false;
+      return false
     }
 
-    return true;
-  };
+    return true
+  }
 
   const prevStep = () => {
     if (!stepper.current) {
-      return;
+      return
     }
 
-    stepper.current.goPrev();
-  };
+    stepper.current.goPrev()
+  }
 
   const nextStep = () => {
-    setHasError(false);
+    setHasError(false)
     if (!stepper.current) {
-      return;
+      return
     }
 
     if (stepper.current.getCurrentStepIndex() === 1) {
       if (!checkAppBasic()) {
-        setHasError(true);
-        return;
+        setHasError(true)
+        return
       }
     }
 
     if (stepper.current.getCurrentStepIndex() === 3) {
       if (!checkAppDataBase()) {
-        setHasError(true);
-        return;
+        setHasError(true)
+        return
       }
     }
 
-    stepper.current.goNext();
-  };
+    stepper.current.goNext()
+  }
 
   const submit = () => {
-    window.location.reload();
-  };
+    window.location.reload()
+  }
 
   return (
     <Modal
@@ -90,7 +88,7 @@ const CreateAppModal: React.FC<Props> = ({ show, handleClose }) => {
     >
       <div className="container px-10 py-10">
         <div className="modal-header py-2 d-flex justify-content-end border-0">
-          {/* begin::Close */}
+          {/*begin::Close */}
           <div
             className="btn btn-icon btn-sm btn-light-primary"
             onClick={handleClose}
@@ -100,7 +98,7 @@ const CreateAppModal: React.FC<Props> = ({ show, handleClose }) => {
               path="/media/icons/duotone/Navigation/Close.svg"
             />
           </div>
-          {/* end::Close */}
+          {/*end::Close */}
         </div>
 
         <div className="modal-body">
@@ -232,12 +230,12 @@ const CreateAppModal: React.FC<Props> = ({ show, handleClose }) => {
                         name="appname"
                         placeholder=""
                         value={data.appBasic.appName}
-                        onChange={(e) =>
+                        onChange={e =>
                           updateData({
                             appBasic: {
                               appName: e.target.value,
-                              appType: data.appBasic.appType,
-                            },
+                              appType: data.appBasic.appType
+                            }
                           })
                         }
                       />
@@ -286,14 +284,14 @@ const CreateAppModal: React.FC<Props> = ({ show, handleClose }) => {
                             name="appType"
                             value="Quick Online Courses"
                             checked={
-                              data.appBasic.appType === "Quick Online Courses"
+                              data.appBasic.appType === 'Quick Online Courses'
                             }
                             onChange={() =>
                               updateData({
                                 appBasic: {
                                   appName: data.appBasic.appName,
-                                  appType: "Quick Online Courses",
-                                },
+                                  appType: 'Quick Online Courses'
+                                }
                               })
                             }
                           />
@@ -331,14 +329,14 @@ const CreateAppModal: React.FC<Props> = ({ show, handleClose }) => {
                             value="Face to Face Discussions"
                             checked={
                               data.appBasic.appType ===
-                              "Face to Face Discussions"
+                              'Face to Face Discussions'
                             }
                             onChange={() =>
                               updateData({
                                 appBasic: {
                                   appName: data.appBasic.appName,
-                                  appType: "Face to Face Discussions",
-                                },
+                                  appType: 'Face to Face Discussions'
+                                }
                               })
                             }
                           />
@@ -375,14 +373,14 @@ const CreateAppModal: React.FC<Props> = ({ show, handleClose }) => {
                             name="appType"
                             value="Full Intro Training"
                             checked={
-                              data.appBasic.appType === "Full Intro Training"
+                              data.appBasic.appType === 'Full Intro Training'
                             }
                             onChange={() =>
                               updateData({
                                 appBasic: {
                                   appName: data.appBasic.appName,
-                                  appType: "Full Intro Training",
-                                },
+                                  appType: 'Full Intro Training'
+                                }
                               })
                             }
                           />
@@ -435,9 +433,9 @@ const CreateAppModal: React.FC<Props> = ({ show, handleClose }) => {
                             type="radio"
                             name="appFramework"
                             value="HTML5"
-                            checked={data.appFramework === "HTML5"}
+                            checked={data.appFramework === 'HTML5'}
                             onChange={() =>
-                              updateData({ appFramework: "HTML5" })
+                              updateData({ appFramework: 'HTML5' })
                             }
                           />
                         </span>
@@ -467,9 +465,9 @@ const CreateAppModal: React.FC<Props> = ({ show, handleClose }) => {
                             type="radio"
                             name="appFramework"
                             value="ReactJS"
-                            checked={data.appFramework === "ReactJS"}
+                            checked={data.appFramework === 'ReactJS'}
                             onChange={() =>
-                              updateData({ appFramework: "ReactJS" })
+                              updateData({ appFramework: 'ReactJS' })
                             }
                           />
                         </span>
@@ -499,9 +497,9 @@ const CreateAppModal: React.FC<Props> = ({ show, handleClose }) => {
                             type="radio"
                             name="appFramework"
                             value="Angular"
-                            checked={data.appFramework === "Angular"}
+                            checked={data.appFramework === 'Angular'}
                             onChange={() =>
-                              updateData({ appFramework: "Angular" })
+                              updateData({ appFramework: 'Angular' })
                             }
                           />
                         </span>
@@ -531,8 +529,8 @@ const CreateAppModal: React.FC<Props> = ({ show, handleClose }) => {
                             type="radio"
                             name="appFramework"
                             value="Vue"
-                            checked={data.appFramework === "Vue"}
-                            onChange={() => updateData({ appFramework: "Vue" })}
+                            checked={data.appFramework === 'Vue'}
+                            onChange={() => updateData({ appFramework: 'Vue' })}
                           />
                         </span>
                       </label>
@@ -564,13 +562,13 @@ const CreateAppModal: React.FC<Props> = ({ show, handleClose }) => {
                         className="form-control form-control-lg form-control-solid"
                         name="dbname"
                         value={data.appDatabase.databaseName}
-                        onChange={(e) =>
+                        onChange={e =>
                           updateData({
                             appDatabase: {
                               databaseName: e.target.value,
                               databaseSolution:
-                                data.appDatabase.databaseSolution,
-                            },
+                                data.appDatabase.databaseSolution
+                            }
                           })
                         }
                       />
@@ -618,14 +616,14 @@ const CreateAppModal: React.FC<Props> = ({ show, handleClose }) => {
                             name="databaseSolution"
                             value="MySQL"
                             checked={
-                              data.appDatabase.databaseSolution === "MySQL"
+                              data.appDatabase.databaseSolution === 'MySQL'
                             }
                             onChange={() =>
                               updateData({
                                 appDatabase: {
                                   databaseName: data.appDatabase.databaseName,
-                                  databaseSolution: "MySQL",
-                                },
+                                  databaseSolution: 'MySQL'
+                                }
                               })
                             }
                           />
@@ -657,14 +655,14 @@ const CreateAppModal: React.FC<Props> = ({ show, handleClose }) => {
                             name="databaseSolution"
                             value="Firebase"
                             checked={
-                              data.appDatabase.databaseSolution === "Firebase"
+                              data.appDatabase.databaseSolution === 'Firebase'
                             }
                             onChange={() =>
                               updateData({
                                 appDatabase: {
                                   databaseName: data.appDatabase.databaseName,
-                                  databaseSolution: "Firebase",
-                                },
+                                  databaseSolution: 'Firebase'
+                                }
                               })
                             }
                           />
@@ -696,14 +694,14 @@ const CreateAppModal: React.FC<Props> = ({ show, handleClose }) => {
                             name="databaseSolution"
                             value="DynamoDB"
                             checked={
-                              data.appDatabase.databaseSolution === "DynamoDB"
+                              data.appDatabase.databaseSolution === 'DynamoDB'
                             }
                             onChange={() =>
                               updateData({
                                 appDatabase: {
                                   databaseName: data.appDatabase.databaseName,
-                                  databaseSolution: "DynamoDB",
-                                },
+                                  databaseSolution: 'DynamoDB'
+                                }
                               })
                             }
                           />
@@ -756,9 +754,9 @@ const CreateAppModal: React.FC<Props> = ({ show, handleClose }) => {
                             type="radio"
                             name="appStorage"
                             value="Basic Server"
-                            checked={data.appStorage === "Basic Server"}
+                            checked={data.appStorage === 'Basic Server'}
                             onChange={() =>
-                              updateData({ appStorage: "Basic Server" })
+                              updateData({ appStorage: 'Basic Server' })
                             }
                           />
                         </span>
@@ -788,8 +786,8 @@ const CreateAppModal: React.FC<Props> = ({ show, handleClose }) => {
                             type="radio"
                             name="appStorage"
                             value="AWS"
-                            checked={data.appStorage === "AWS"}
-                            onChange={() => updateData({ appStorage: "AWS" })}
+                            checked={data.appStorage === 'AWS'}
+                            onChange={() => updateData({ appStorage: 'AWS' })}
                           />
                         </span>
                       </label>
@@ -818,9 +816,9 @@ const CreateAppModal: React.FC<Props> = ({ show, handleClose }) => {
                             type="radio"
                             name="appStorage"
                             value="Google"
-                            checked={data.appStorage === "Google"}
+                            checked={data.appStorage === 'Google'}
                             onChange={() =>
-                              updateData({ appStorage: "Google" })
+                              updateData({ appStorage: 'Google' })
                             }
                           />
                         </span>
@@ -835,7 +833,7 @@ const CreateAppModal: React.FC<Props> = ({ show, handleClose }) => {
                 {/*begin::Step 5 */}
                 <div className="pb-5" data-kt-stepper-element="content">
                   <div className="w-100">
-                    {/* begin::Heading */}
+                    {/*begin::Heading */}
                     <div className="pb-10 pb-lg-15">
                       <h3 className="fw-bolder text-dark display-6">
                         Complete
@@ -844,37 +842,37 @@ const CreateAppModal: React.FC<Props> = ({ show, handleClose }) => {
                         Review your setup to kickstart your app!
                       </div>
                     </div>
-                    {/* end::Heading */}
+                    {/*end::Heading */}
 
-                    {/* begin::Section */}
+                    {/*begin::Section */}
                     <h4 className="fw-bolder mb-3">App Basics</h4>
                     <div className="text-gray-600 fw-bold lh-lg mb-8">
                       <div>{data.appBasic.appName}</div>
                       <div>{data.appBasic.appType}</div>
                     </div>
-                    {/* end::Section */}
+                    {/*end::Section */}
 
-                    {/* begin::Section */}
+                    {/*begin::Section */}
                     <h4 className="fw-bolder mb-3">App Framework</h4>
                     <div className="text-gray-600 fw-bold lh-lg mb-8">
                       <div>{data.appFramework}</div>
                     </div>
-                    {/* end::Section */}
+                    {/*end::Section */}
 
-                    {/* begin::Section */}
+                    {/*begin::Section */}
                     <h4 className="fw-bolder mb-3">App Database</h4>
                     <div className="text-gray-600 fw-bold lh-lg mb-8">
                       <div>{data.appDatabase.databaseName}</div>
                       <div>{data.appDatabase.databaseSolution}</div>
                     </div>
-                    {/* end::Section */}
+                    {/*end::Section */}
 
-                    {/* begin::Section */}
+                    {/*begin::Section */}
                     <h4 className="fw-bolder mb-3">App Storage</h4>
                     <div className="text-gray-600 fw-bold lh-lg mb-8">
                       <div>{data.appStorage}</div>
                     </div>
-                    {/* end::Section */}
+                    {/*end::Section */}
                   </div>
                 </div>
                 {/*end::Step 5 */}
@@ -891,7 +889,7 @@ const CreateAppModal: React.FC<Props> = ({ show, handleClose }) => {
                       <KTSVG
                         path="/media/icons/duotone/Navigation/Left-2.svg"
                         className="svg-icon-3 me-1"
-                      />{" "}
+                      />{' '}
                       Previous
                     </button>
                   </div>
@@ -902,7 +900,7 @@ const CreateAppModal: React.FC<Props> = ({ show, handleClose }) => {
                       data-kt-stepper-action="submit"
                       onClick={submit}
                     >
-                      Submit{" "}
+                      Submit{' '}
                       <KTSVG
                         path="/media/icons/duotone/Navigation/Right-2.svg"
                         className="svg-icon-3 ms-2"
@@ -915,7 +913,7 @@ const CreateAppModal: React.FC<Props> = ({ show, handleClose }) => {
                       data-kt-stepper-action="next"
                       onClick={nextStep}
                     >
-                      Next Step{" "}
+                      Next Step{' '}
                       <KTSVG
                         path="/media/icons/duotone/Navigation/Right-2.svg"
                         className="svg-icon-3 ms-1"
@@ -929,11 +927,11 @@ const CreateAppModal: React.FC<Props> = ({ show, handleClose }) => {
             </div>
             {/*end::Content */}
           </div>
-          {/* end::Stepper */}
+          {/*end::Stepper */}
         </div>
       </div>
     </Modal>
-  );
-};
+  )
+}
 
-export { CreateAppModal };
+export { CreateAppModal }

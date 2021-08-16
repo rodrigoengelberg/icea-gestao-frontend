@@ -1,7 +1,5 @@
-/* eslint-disable react/jsx-no-target-blank */
-/* eslint-disable jsx-a11y/anchor-has-content */
-import React from "react";
-import { CodeBlock } from "../../../../../_start/partials";
+import React from 'react'
+import { CodeBlock } from '../../../../../_start/partials'
 
 export function MockBackend() {
   return (
@@ -19,7 +17,7 @@ export function MockBackend() {
         </div>
         <div className="py-5">
           <span>
-            For more info on the library:{" "}
+            For more info on the library:{' '}
             <a
               href="https://github.com/ctimmerm/axios-mock-adapter"
               target="_blank"
@@ -42,7 +40,7 @@ export function MockBackend() {
         <CodeBlock code={code} language="tsx" />
       </div>
     </>
-  );
+  )
 }
 
 const code = `/**
@@ -59,4 +57,4 @@ const { PUBLIC_URL } = process.env;
 -/* const mock = */_redux.mockAxios(axios);
 
 /**
-* Inject Start interceptors for axios.`;
+* Inject Start interceptors for axios.`

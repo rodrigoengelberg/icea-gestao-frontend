@@ -1,9 +1,6 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable jsx-a11y/anchor-has-content */
-/* eslint-disable no-unreachable */
-import React from "react";
-import { KTSVG, toAbsoluteUrl } from "../../../../../_start/helpers";
-import { CodeBlock } from "../../../../../_start/partials";
+import React from 'react'
+import { KTSVG, toAbsoluteUrl } from '../../../../../_start/helpers'
+import { CodeBlock } from '../../../../../_start/partials'
 
 export function Overlay() {
   return (
@@ -38,7 +35,7 @@ export function Overlay() {
                   <div className="card-body p-0">
                     <div className="overlay-wrapper">
                       <img
-                        src={toAbsoluteUrl("/media/stock/600x400/img-1.jpg")}
+                        src={toAbsoluteUrl('/media/stock/600x400/img-1.jpg')}
                         alt=""
                         className="w-100 rounded"
                       />
@@ -62,7 +59,7 @@ export function Overlay() {
                   <div className="card-body p-0">
                     <div className="overlay-wrapper">
                       <img
-                        src={toAbsoluteUrl("/media/stock/600x400/img-2.jpg")}
+                        src={toAbsoluteUrl('/media/stock/600x400/img-2.jpg')}
                         alt=""
                         className="w-100 rounded"
                       />
@@ -88,7 +85,7 @@ export function Overlay() {
                   <div className="card-body p-0">
                     <div className="overlay-wrapper">
                       <img
-                        src={toAbsoluteUrl("/media/stock/600x400/img-3.jpg")}
+                        src={toAbsoluteUrl('/media/stock/600x400/img-3.jpg')}
                         alt=""
                         className="w-100 rounded"
                       />
@@ -226,7 +223,7 @@ export function Overlay() {
                   id="exampleModal"
                   tabIndex={-1}
                   aria-labelledby="exampleModalLabel"
-                  style={{ display: "none" }}
+                  style={{ display: 'none' }}
                   aria-hidden="true"
                 >
                   <div
@@ -294,7 +291,7 @@ export function Overlay() {
         <CodeBlock code={code4} language="markup" />
       </div>
     </>
-  );
+  )
 }
 
 const code = `  <div className="row">
@@ -375,7 +372,7 @@ const code = `  <div className="row">
     </div>
   </div>
 </div>
-`;
+`
 
 const code2 = `<div className="card card-custom shadow">
   <div className="card-header">
@@ -401,7 +398,7 @@ const code2 = `<div className="card card-custom shadow">
     </div>
   </div>
 </div>
-`;
+`
 
 const code3 = `<div className="card card-custom card-border overlay overlay-block">
   <div className="card-header">
@@ -424,7 +421,7 @@ const code3 = `<div className="card card-custom card-border overlay overlay-bloc
     </div>
   </div>
 </div>
-`;
+`
 
 const code4 = `<button
   type="button"
@@ -500,4 +497,4 @@ const code4 = `<button
     </div>
   </div>
 </div>
-`;
+`

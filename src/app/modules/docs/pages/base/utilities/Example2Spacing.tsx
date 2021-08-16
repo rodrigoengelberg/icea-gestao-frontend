@@ -1,11 +1,8 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable jsx-a11y/anchor-has-content */
-/* eslint-disable no-unreachable */
-import React from "react";
-import { CodeBlock } from "../../../../../../_start/partials";
+import React from 'react'
+import { CodeBlock } from '../../../../../../_start/partials'
 
 export function Example2Spacing() {
-  const { REACT_APP_THEME_NAME, REACT_APP_BOOTSTRAP_DOCS_LINK } = process.env;
+  const { REACT_APP_THEME_NAME, REACT_APP_BOOTSTRAP_DOCS_LINK } = process.env
   return (
     <div className="pb-10">
       <h1 className="anchor fw-bolder mb-5" id="spacing">
@@ -25,7 +22,7 @@ export function Example2Spacing() {
 
       <CodeBlock language="scss" code={code} />
     </div>
-  );
+  )
 }
 
 const code = `$spacers: (
@@ -50,4 +47,4 @@ const code = `$spacers: (
   18: ($spacer * 4.5),
   19: ($spacer * 4.75),
   20: ($spacer * 5)
-);`;
+);`

@@ -1,18 +1,18 @@
-import React, { Suspense, lazy } from "react";
-import { Redirect, Route, Switch } from "react-router-dom";
-import { FallbackView } from "../../_start/partials";
-import { LightDashboardWrapper } from "../pages/dashboards/light-dashboard/LightDashboardWrapper";
-import { StartDashboardWrapper } from "../pages/dashboards/start-dashboard/StartDashboardWrapper";
-import { MenuTestPage } from "../pages/MenuTestPage";
+import React, { Suspense, lazy } from 'react'
+import { Redirect, Route, Switch } from 'react-router-dom'
+import { FallbackView } from '../../_start/partials'
+import { LightDashboardWrapper } from '../pages/dashboards/light-dashboard/LightDashboardWrapper'
+import { StartDashboardWrapper } from '../pages/dashboards/start-dashboard/StartDashboardWrapper'
+import { MenuTestPage } from '../pages/MenuTestPage'
 
 export function PrivateRoutes() {
   const ProfilePageWrapper = lazy(
-    () => import("../modules/profile/ProfilePageWrapper")
-  );
+    () => import('../modules/profile/ProfilePageWrapper')
+  )
   const GeneralPageWrapper = lazy(
-    () => import("../modules/general/GeneralPageWrapper")
-  );
-  const DocsPageWrapper = lazy(() => import("../modules/docs/DocsPageWrapper"));
+    () => import('../modules/general/GeneralPageWrapper')
+  )
+  const DocsPageWrapper = lazy(() => import('../modules/docs/DocsPageWrapper'))
 
   return (
     <Suspense fallback={<FallbackView />}>
@@ -28,5 +28,5 @@ export function PrivateRoutes() {
         <Redirect to="dashboard" />
       </Switch>
     </Suspense>
-  );
+  )
 }

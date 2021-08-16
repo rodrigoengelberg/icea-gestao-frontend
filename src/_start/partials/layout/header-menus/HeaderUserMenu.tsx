@@ -1,6 +1,6 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { KTSVG, toAbsoluteUrl } from "../../../helpers";
+import React from 'react'
+import { Link } from 'react-router-dom'
+import { KTSVG, toAbsoluteUrl } from '../../../helpers'
 
 export function HeaderUserMenu() {
   return (
@@ -12,15 +12,15 @@ export function HeaderUserMenu() {
         className="menu-content fw-bold d-flex align-items-center bgi-no-repeat bgi-position-y-top rounded-top"
         style={{
           backgroundImage: `url('${toAbsoluteUrl(
-            "/media//misc/dropdown-header-bg.jpg"
-          )}')`,
+            '/media//misc/dropdown-header-bg.jpg'
+          )}')`
         }}
       >
         <div className="symbol symbol-45px mx-5 py-5">
           <span className="symbol-label bg-primary align-items-end">
             <img
               alt="Logo"
-              src={toAbsoluteUrl("/media/svg/avatars/001-boy.svg")}
+              src={toAbsoluteUrl('/media/svg/avatars/001-boy.svg')}
               className="mh-35px"
             />
           </span>
@@ -33,7 +33,7 @@ export function HeaderUserMenu() {
         </div>
       </div>
 
-      {/* begin::Row */}
+      {/*begin::Row */}
       <div className="row row-cols-2 g-0">
         <Link
           to="/profile"
@@ -83,7 +83,7 @@ export function HeaderUserMenu() {
           <span className="fw-bolder fs-6 d-block pt-3">Sign Out</span>
         </Link>
       </div>
-      {/* end::Row */}
+      {/*end::Row */}
     </div>
-  );
+  )
 }

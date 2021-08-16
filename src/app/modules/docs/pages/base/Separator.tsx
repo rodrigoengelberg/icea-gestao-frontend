@@ -1,11 +1,8 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable jsx-a11y/anchor-has-content */
-/* eslint-disable no-unreachable */
-import React from "react";
-import { CodeBlock } from "../../../../../_start/partials";
+import React from 'react'
+import { CodeBlock } from '../../../../../_start/partials'
 
 export function Separator() {
-  const { REACT_APP_BOOTSTRAP_DOCS_LINK } = process.env;
+  const { REACT_APP_BOOTSTRAP_DOCS_LINK } = process.env
   return (
     <>
       <div className="pb-10">
@@ -40,7 +37,7 @@ export function Separator() {
         </h1>
         <div className="py-5">
           Use
-          <code>.separator</code>class in combination with{" "}
+          <code>.separator</code>class in combination with{' '}
           <a
             href={`${REACT_APP_BOOTSTRAP_DOCS_LINK}/utilities/borders/#border-width`}
             className="fw-bold"
@@ -66,7 +63,7 @@ export function Separator() {
         </h1>
         <div className="py-5">
           Use
-          <code>.separator</code>class in combination with{" "}
+          <code>.separator</code>class in combination with{' '}
           <a
             href={`${REACT_APP_BOOTSTRAP_DOCS_LINK}/utilities/borders/#border-color`}
             className="fw-bold"
@@ -111,16 +108,16 @@ export function Separator() {
         <CodeBlock language="markup" code={code4} />
       </div>
     </>
-  );
+  )
 }
 
-const code = `<div className="separator my-10"></div>`;
+const code = '<div className="separator my-10"></div>'
 
 const code2 = `<div className="separator my-10"></div>
 <div className="separator border-2 my-10"></div>
 <div className="separator border-3 my-10"></div>
 <div className="separator border-4 my-10"></div>
-<div className="separator border-5 my-10"></div>`;
+<div className="separator border-5 my-10"></div>`
 
 const code3 = `<div className="separator border-white my-10"></div>
 <div className="separator border-primary my-10"></div>
@@ -130,7 +127,7 @@ const code3 = `<div className="separator border-white my-10"></div>
 <div className="separator border-info my-10"></div>
 <div className="separator border-warning my-10"></div>
 <div className="separator border-danger my-10"></div>
-<div className="separator border-dark my-10"></div>`;
+<div className="separator border-dark my-10"></div>`
 
 const code4 = `<div className="separator separator-dotted border-dark my-10"></div>
-<div className="separator separator-dashed border-dark my-10"></div>`;
+<div className="separator separator-dashed border-dark my-10"></div>`

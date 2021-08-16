@@ -1,24 +1,25 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-import React, { createContext, useContext, useEffect, useState } from "react";
+/*eslint-disable react-hooks/exhaustive-deps */
+/*eslint-disable no-array-constructor */
+import React, { createContext, useContext, useEffect, useState } from 'react'
 
 export interface PageLink {
-  title: string;
-  path: string;
-  isActive: boolean;
-  isPro?: boolean;
+  title: string
+  path: string
+  isActive: boolean
+  isPro?: boolean
 }
 
 export interface PageDataContextModel {
-  moduleName?: string;
-  setModuleName: (_moduleName: string) => void;
-  pageTitle?: string;
-  setPageTitle: (_title: string) => void;
-  pageDescription?: string;
-  setPageDescription: (_description: string) => void;
-  pageBreadcrumbs?: Array<PageLink>;
-  setPageBreadcrumbs: (_breadcrumbs: Array<PageLink>) => void;
-  pageSubmenu?: Array<PageLink>;
-  setPageSubmenu: (_submenu: Array<PageLink>) => void;
+  moduleName?: string
+  setModuleName: (_moduleName: string) => void
+  pageTitle?: string
+  setPageTitle: (_title: string) => void
+  pageDescription?: string
+  setPageDescription: (_description: string) => void
+  pageBreadcrumbs?: Array<PageLink>
+  setPageBreadcrumbs: (_breadcrumbs: Array<PageLink>) => void
+  pageSubmenu?: Array<PageLink>
+  setPageSubmenu: (_submenu: Array<PageLink>) => void
 }
 
 const PageDataContext = createContext<PageDataContextModel>({
@@ -26,15 +27,15 @@ const PageDataContext = createContext<PageDataContextModel>({
   setPageSubmenu: (_submenu: Array<PageLink>) => {},
   setPageTitle: (_title: string) => {},
   setPageBreadcrumbs: (_breadcrumbs: Array<PageLink>) => {},
-  setPageDescription: (_description: string) => {},
-});
+  setPageDescription: (_description: string) => {}
+})
 
 const PageDataProvider: React.FC = ({ children }) => {
-  const [moduleName, setModuleName] = useState<string>("");
-  const [pageTitle, setPageTitle] = useState<string>("");
-  const [pageDescription, setPageDescription] = useState<string>("");
-  const [pageBreadcrumbs, setPageBreadcrumbs] = useState<Array<PageLink>>([]);
-  const [pageSubmenu, setPageSubmenu] = useState<Array<PageLink>>([]);
+  const [moduleName, setModuleName] = useState<string>('')
+  const [pageTitle, setPageTitle] = useState<string>('')
+  const [pageDescription, setPageDescription] = useState<string>('')
+  const [pageBreadcrumbs, setPageBreadcrumbs] = useState<Array<PageLink>>([])
+  const [pageSubmenu, setPageSubmenu] = useState<Array<PageLink>>([])
   const value: PageDataContextModel = {
     moduleName,
     setModuleName,
@@ -45,88 +46,88 @@ const PageDataProvider: React.FC = ({ children }) => {
     pageBreadcrumbs,
     setPageBreadcrumbs,
     pageSubmenu,
-    setPageSubmenu,
-  };
+    setPageSubmenu
+  }
   return (
     <PageDataContext.Provider value={value}>
       {children}
     </PageDataContext.Provider>
-  );
-};
+  )
+}
 
 function usePageData() {
-  return useContext(PageDataContext);
+  return useContext(PageDataContext)
 }
 
 type Props = {
-  title?: string;
-  description?: string;
-  submenu?: Array<PageLink>;
-  breadcrumbs?: Array<PageLink>;
-};
+  title?: string
+  description?: string
+  submenu?: Array<PageLink>
+  breadcrumbs?: Array<PageLink>
+}
 
 const PageDataContainer: React.FC<Props> = ({
   submenu,
   breadcrumbs,
-  children,
+  children
 }) => {
-  const { setPageBreadcrumbs, setPageSubmenu } = usePageData();
+  const { setPageBreadcrumbs, setPageSubmenu } = usePageData()
 
   useEffect(() => {
     if (breadcrumbs) {
-      setPageBreadcrumbs(breadcrumbs);
+      setPageBreadcrumbs(breadcrumbs)
     }
 
     if (submenu) {
-      setPageSubmenu(submenu);
+      setPageSubmenu(submenu)
     }
 
     return () => {
-      setPageBreadcrumbs(new Array<PageLink>());
-      setPageSubmenu(new Array<PageLink>());
-    };
-  }, []);
-  return <>{children}</>;
-};
+      setPageBreadcrumbs(new Array<PageLink>())
+      setPageSubmenu(new Array<PageLink>())
+    }
+  }, [])
+  return <>{children}</>
+}
 
 const PageTitle: React.FC = ({ children }) => {
-  const { setPageTitle } = usePageData();
+  const { setPageTitle } = usePageData()
   useEffect(() => {
     if (children) {
-      setPageTitle(children.toString());
+      setPageTitle(children.toString())
     }
     return () => {
-      setPageTitle("");
-    };
-  }, [children]);
-  return <></>;
-};
+      setPageTitle('')
+    }
+  }, [children])
+  return <></>
+}
 
 const PageDescription: React.FC = ({ children }) => {
-  const { setPageDescription } = usePageData();
+  const { setPageDescription } = usePageData()
   useEffect(() => {
     if (children) {
-      setPageDescription(children.toString());
+      setPageDescription(children.toString())
     }
     return () => {
-      setPageDescription("");
-    };
-  }, [children]);
-  return <></>;
-};
+      setPageDescription('')
+    }
+  }, [children])
+  return <></>
+}
 
 const ModuleName: React.FC = ({ children }) => {
-  const { setModuleName } = usePageData();
+  const { setModuleName } = usePageData()
   useEffect(() => {
     if (children) {
-      setModuleName(children.toString());
+      setModuleName(children.toString())
     }
     return () => {
-      setModuleName("");
-    };
-  }, [children]);
-  return <></>;
-};
+      setModuleName('')
+    }
+  }, [children])
+  return <></>
+}
 
 export {
   ModuleName,
@@ -134,5 +135,5 @@ export {
   PageTitle,
   PageDataContainer,
   PageDataProvider,
-  usePageData,
-};
+  usePageData
+}

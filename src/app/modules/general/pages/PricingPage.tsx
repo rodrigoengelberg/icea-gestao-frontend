@@ -1,6 +1,5 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-import React from "react";
-import { KTSVG } from "../../../../_start/helpers";
+import React from 'react'
+import { KTSVG } from '../../../../_start/helpers'
 
 export function PricingPage() {
   return (
@@ -8,7 +7,7 @@ export function PricingPage() {
       <div className="card-body p-12">
         <div className="row mb-12">
           <div className="col-md-4 col-lg-12 col-xl-4 col-xxl-3 d-flex flex-center">
-            {/*begin::Tabs*/}
+            {/*begin::Tabs */}
             <div
               className="nav bg-light rounded p-3"
               id="nav-tab"
@@ -37,12 +36,12 @@ export function PricingPage() {
                 Annually
               </a>
             </div>
-            {/*end::Tabs*/}
+            {/*end::Tabs */}
           </div>
           <div className="col-md-8 col-lg-12 col-xl-8 col-xxl-9">
-            {/*begin::Tab content*/}
+            {/*begin::Tab content */}
             <div className="tab-content" id="nav-tabContent">
-              {/*begin::Monthly Prices*/}
+              {/*begin::Monthly Prices */}
               <div
                 id="kt_nav_monthly_content"
                 className="tab-pane fade show active"
@@ -103,9 +102,9 @@ export function PricingPage() {
                   </div>
                 </div>
               </div>
-              {/*end::Monthly Prices*/}
+              {/*end::Monthly Prices */}
 
-              {/*begin::Annually Prices*/}
+              {/*begin::Annually Prices */}
               <div
                 id="kt_nav_annually_content"
                 className="tab-pane fade"
@@ -166,13 +165,13 @@ export function PricingPage() {
                   </div>
                 </div>
               </div>
-              {/*end::Annually Prices*/}
+              {/*end::Annually Prices */}
             </div>
-            {/*begin::Tab content*/}
+            {/*begin::Tab content */}
           </div>
         </div>
 
-        {/*begin::Table*/}
+        {/*begin::Table */}
         <div className="table-responsive">
           <table className="table">
             <tbody>
@@ -293,8 +292,8 @@ export function PricingPage() {
             </tbody>
           </table>
         </div>
-        {/*end::Table*/}
+        {/*end::Table */}
       </div>
     </div>
-  );
+  )
 }

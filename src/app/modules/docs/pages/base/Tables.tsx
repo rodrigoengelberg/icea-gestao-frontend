@@ -1,11 +1,8 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable jsx-a11y/anchor-has-content */
-/* eslint-disable no-unreachable */
-import React from "react";
-import { CodeBlock } from "../../../../../_start/partials";
+import React from 'react'
+import { CodeBlock } from '../../../../../_start/partials'
 
 export function Tables() {
-  const { REACT_APP_THEME_NAME, REACT_APP_BOOTSTRAP_DOCS_LINK } = process.env;
+  const { REACT_APP_THEME_NAME, REACT_APP_BOOTSTRAP_DOCS_LINK } = process.env
   return (
     <>
       <div className="pb-10">
@@ -13,7 +10,7 @@ export function Tables() {
           <a href="#overview"></a>Overview
         </h1>
         <div className="py-5">
-          {REACT_APP_THEME_NAME} extends{" "}
+          {REACT_APP_THEME_NAME} extends{' '}
           <a
             className="fw-bolder me-1"
             href={`${REACT_APP_BOOTSTRAP_DOCS_LINK}/content/tables/`}
@@ -207,7 +204,7 @@ export function Tables() {
           <code>.table-row-bordered</code>&nbsp; or
           <code>.table-row-dashed</code>&nbsp; class to set border bottom style
           row cells. To change the row border color
-          <code>.table-row-gray-{"{100-900}"}</code>&nbsp; classes can be used.
+          <code>.table-row-gray-{'{100-900}'}</code>&nbsp; classes can be used.
         </div>
         <div className="py-5 pb-6">
           <table className="table table-row-bordered gy-7">
@@ -906,7 +903,7 @@ export function Tables() {
         <CodeBlock code={code10} language="markup" />
       </div>
     </>
-  );
+  )
 }
 
 const code = `<table className="table table-row-dashed table-row-gray-300 gy-7">
@@ -938,7 +935,7 @@ const code = `<table className="table table-row-dashed table-row-gray-300 gy-7">
           <td>$170,750</td>
       </tr>
   </tbody>
-</table>`;
+</table>`
 
 const code2 = `<table className="table gs-7 gy-7 gx-7">
   <thead>
@@ -969,7 +966,7 @@ const code2 = `<table className="table gs-7 gy-7 gx-7">
           <td>$170,750</td>
       </tr>
   </tbody>
-</table>`;
+</table>`
 
 const code3 = `<div className="py-5">
   <table className="table table-row-dashed table-row-gray-300 gy-7">
@@ -1035,7 +1032,7 @@ const code3 = `<div className="py-5">
           </tr>
       </tbody>
   </table>
-</div>`;
+</div>`
 
 const code4 = `<table className="table table-striped gy-7 gs-7">
   <thead>
@@ -1066,7 +1063,7 @@ const code4 = `<table className="table table-striped gy-7 gs-7">
           <td>$170,750</td>
       </tr>
   </tbody>
-</table>`;
+</table>`
 
 const code5 = `<table className="table table-rounded table-striped border gy-7 gs-7">
   <thead>
@@ -1097,7 +1094,7 @@ const code5 = `<table className="table table-rounded table-striped border gy-7 g
           <td>$170,750</td>
       </tr>
   </tbody>
-</table>`;
+</table>`
 
 const code6 = `<table className="table table-rounded table-flush">
   <thead>
@@ -1128,7 +1125,7 @@ const code6 = `<table className="table table-rounded table-flush">
           <td>$170,750</td>
       </tr>
   </tbody>
-</table>`;
+</table>`
 
 const code7 = `<table className="table table-hover table-rounded table-striped border gy-7 gs-7">
   <thead>
@@ -1159,7 +1156,7 @@ const code7 = `<table className="table table-hover table-rounded table-striped b
           <td>$170,750</td>
       </tr>
   </tbody>
-</table>`;
+</table>`
 
 const code8 = `<table className="table table-rounded table-row-bordered border gy-7 gs-7">
   <thead>
@@ -1190,7 +1187,7 @@ const code8 = `<table className="table table-rounded table-row-bordered border g
           <td>$170,750</td>
       </tr>
   </tbody>
-</table>`;
+</table>`
 
 const code9 = `<table className="table table-striped table-rounded border border-gray-300 table-row-bordered table-row-gray-300 gy-7 gs-7">
   <thead>
@@ -1245,7 +1242,7 @@ const code9 = `<table className="table table-striped table-rounded border border
           <td>@twitter</td>
       </tr>
   </tbody>
-</table>`;
+</table>`
 
 const code10 = `<div className="table-responsive">
   <table className="table table-striped gy-7 gs-7">
@@ -1278,4 +1275,4 @@ const code10 = `<div className="table-responsive">
           </tr>
       </tbody>
   </table>
-</div>`;
+</div>`

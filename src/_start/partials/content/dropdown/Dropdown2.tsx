@@ -1,16 +1,15 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useState } from "react";
-import { KTSVG } from "../../../helpers";
+import React, { useState } from 'react'
+import { KTSVG } from '../../../helpers'
 
 export function Dropdown2() {
-  const [activeTab, setActiveTab] = useState("tab1");
-  const [searchVal, setSearchVal] = useState("");
+  const [activeTab, setActiveTab] = useState('tab1')
+  const [searchVal, setSearchVal] = useState('')
   return (
     <div
       className="menu menu-sub menu-sub-dropdown menu-column w-300px w-lg-350px p-5"
       data-kt-menu="true"
     >
-      {/* <!--begin::Input--> */}
+      {/*<!--begin::Input--> */}
       <div className="input-group input-group-solid mb-5">
         <div className="input-group-prepend">
           <span className="input-group-text">
@@ -26,19 +25,19 @@ export function Dropdown2() {
           name="search"
           value={searchVal}
           placeholder="Filter reports"
-          onChange={(e) => {
-            setSearchVal(e.target.value);
+          onChange={e => {
+            setSearchVal(e.target.value)
           }}
         />
       </div>
-      {/* <!--end::Input--> */}
+      {/*<!--end::Input--> */}
 
-      {/* <!--begin::Tabs--> */}
+      {/*<!--begin::Tabs--> */}
       <ul className="nav nav-line-tabs nav-line-tabs-2x border-light fw-bold mb-5">
         <li className="nav-item">
           <a
-            onClick={() => setActiveTab("tab1")}
-            className={`nav-link ${activeTab === "tab1" ? "active" : ""}`}
+            onClick={() => setActiveTab('tab1')}
+            className={`nav-link ${activeTab === 'tab1' ? 'active' : ''}`}
           >
             Today
           </a>
@@ -46,20 +45,20 @@ export function Dropdown2() {
 
         <li className="nav-item">
           <a
-            onClick={() => setActiveTab("tab2")}
-            className={`nav-link ${activeTab === "tab2" ? "active" : ""}`}
+            onClick={() => setActiveTab('tab2')}
+            className={`nav-link ${activeTab === 'tab2' ? 'active' : ''}`}
           >
             Last Week
           </a>
         </li>
       </ul>
-      {/* <!--end::Tabs--> */}
+      {/*<!--end::Tabs--> */}
 
-      {/* <!--begin::Tab Content--> */}
+      {/*<!--begin::Tab Content--> */}
       <div className="tab-content">
-        {/* <!--begin::Tab Pane--> */}
+        {/*<!--begin::Tab Pane--> */}
         <div
-          className={`tab-pane ${activeTab === "tab1" ? "active" : ""}`}
+          className={`tab-pane ${activeTab === 'tab1' ? 'active' : ''}`}
           id="kt_dropdown_2_tab_1"
         >
           <ul className="menu menu-custom menu-column menu-rounded menu-title-gray-600 menu-icon-muted menu-hover-bg-light-primary menu-active-bg-light-primary fw-bold">
@@ -134,11 +133,11 @@ export function Dropdown2() {
             </li>
           </ul>
         </div>
-        {/* <!--end::Tab Pane--> */}
+        {/*<!--end::Tab Pane--> */}
 
-        {/* <!--begin::Tab Pane--> */}
+        {/*<!--begin::Tab Pane--> */}
         <div
-          className={`tab-pane ${activeTab === "tab2" ? "active" : ""}`}
+          className={`tab-pane ${activeTab === 'tab2' ? 'active' : ''}`}
           id="kt_dropdown_2_tab_2"
         >
           <ul className="menu menu-custom menu-column menu-rounded menu-title-gray-600 menu-icon-muted menu-hover-bg-light-primary menu-active-bg-light-primary fw-bold">
@@ -218,9 +217,9 @@ export function Dropdown2() {
             </li>
           </ul>
         </div>
-        {/* <!--end::Tab Pane--> */}
+        {/*<!--end::Tab Pane--> */}
       </div>
-      {/* <!--end::Tab Content--> */}
+      {/*<!--end::Tab Content--> */}
     </div>
-  );
+  )
 }

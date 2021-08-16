@@ -1,17 +1,16 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-import React from "react";
-import { KTSVG, toAbsoluteUrl } from "../../../helpers";
-import { Dropdown1 } from "../../content/dropdown/Dropdown1";
-// import { KTSVG } from "../../../helpers";
+import React from 'react'
+import { KTSVG, toAbsoluteUrl } from '../../../helpers'
+import { Dropdown1 } from '../../content/dropdown/Dropdown1'
+//import { KTSVG } from "../../../helpers";
 
 type Props = {
-  className: string;
-};
+  className: string
+}
 
 const TablesWidget3: React.FC<Props> = ({ className }) => {
   return (
     <div className={`card ${className}`}>
-      {/* begin::Header*/}
+      {/*begin::Header */}
       <div className="card-header align-items-center border-0 mt-5">
         <h3 className="card-title align-items-start flex-column">
           <span className="fw-bolder text-dark fs-3">My Agents</span>
@@ -20,7 +19,7 @@ const TablesWidget3: React.FC<Props> = ({ className }) => {
           </span>
         </h3>
         <div className="card-toolbar">
-          {/* begin::Dropdown*/}
+          {/*begin::Dropdown */}
           <button
             type="button"
             className="btn btn-sm btn-icon btn-color-primary btn-active-light-primary"
@@ -34,14 +33,14 @@ const TablesWidget3: React.FC<Props> = ({ className }) => {
             />
           </button>
           <Dropdown1 />
-          {/* end::Dropdown*/}
+          {/*end::Dropdown */}
         </div>
       </div>
-      {/* end::Header*/}
+      {/*end::Header */}
 
-      {/* begin::Body*/}
+      {/*begin::Body */}
       <div className="card-body pt-0">
-        {/* begin::Table*/}
+        {/*begin::Table */}
         <div className="table-responsive">
           <table className="table table-borderless align-middle mb-0">
             <thead>
@@ -59,7 +58,7 @@ const TablesWidget3: React.FC<Props> = ({ className }) => {
                     <span className="symbol-label align-items-end">
                       <img
                         alt="icon"
-                        src={toAbsoluteUrl("/media/svg/avatars/001-boy.svg")}
+                        src={toAbsoluteUrl('/media/svg/avatars/001-boy.svg')}
                         className="mh-40px"
                       />
                     </span>
@@ -103,7 +102,7 @@ const TablesWidget3: React.FC<Props> = ({ className }) => {
                     <span className="symbol-label align-items-end">
                       <img
                         alt="icon"
-                        src={toAbsoluteUrl("/media/svg/avatars/018-girl-9.svg")}
+                        src={toAbsoluteUrl('/media/svg/avatars/018-girl-9.svg')}
                         className="mh-40px"
                       />
                     </span>
@@ -148,7 +147,7 @@ const TablesWidget3: React.FC<Props> = ({ className }) => {
                       <img
                         alt="icon"
                         src={toAbsoluteUrl(
-                          "/media/svg/avatars/047-girl-25.svg"
+                          '/media/svg/avatars/047-girl-25.svg'
                         )}
                         className="mh-40px"
                       />
@@ -193,7 +192,7 @@ const TablesWidget3: React.FC<Props> = ({ className }) => {
                     <span className="symbol-label align-items-end">
                       <img
                         alt="icon"
-                        src={toAbsoluteUrl("/media/svg/avatars/043-boy-18.svg")}
+                        src={toAbsoluteUrl('/media/svg/avatars/043-boy-18.svg')}
                         className="mh-40px"
                       />
                     </span>
@@ -233,11 +232,11 @@ const TablesWidget3: React.FC<Props> = ({ className }) => {
             </tbody>
           </table>
         </div>
-        {/* end::Table*/}
+        {/*end::Table */}
       </div>
-      {/* end: Card Body*/}
+      {/*end: Card Body */}
     </div>
-  );
-};
+  )
+}
 
-export { TablesWidget3 };
+export { TablesWidget3 }

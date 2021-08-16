@@ -1,9 +1,6 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable jsx-a11y/anchor-has-content */
-/* eslint-disable no-unreachable */
-import React from "react";
-import { KTSVG } from "../../../../../../_start/helpers";
-import { CodeBlock } from "../../../../../../_start/partials";
+import React from 'react'
+import { KTSVG } from '../../../../../../_start/helpers'
+import { CodeBlock } from '../../../../../../_start/partials'
 
 export function Example11UtilityClasses() {
   return (
@@ -48,14 +45,14 @@ export function Example11UtilityClasses() {
       </div>
       <CodeBlock language="markup" code={code2} />
     </div>
-  );
+  )
 }
 
-const code = `<a href="#" className="btn btn-flush">Flushed button</a>`;
+const code = '<a href="#" className="btn btn-flush">Flushed button</a>'
 const code2 = `<a href="#" className="btn btn-flex btn-primary px-6">
   <span className="svg-icon svg-icon-2x"><svg>...</svg></span>
   <span className="d-flex flex-column align-items-start ms-2">
       <span className="fs-3 fw-bolder">Caption</span>
       <span className="fs-7">Some description</span>
   </span>
-</a>`;
+</a>`

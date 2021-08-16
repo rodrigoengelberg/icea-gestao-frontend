@@ -1,17 +1,14 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable jsx-a11y/anchor-has-content */
-/* eslint-disable no-unreachable */
-import React from "react";
-import { KTSVG } from "../../../../../_start/helpers";
-import { CodeBlock } from "../../../../../_start/partials";
+import React from 'react'
+import { KTSVG } from '../../../../../_start/helpers'
+import { CodeBlock } from '../../../../../_start/partials'
 
 export function Modal() {
   const {
     REACT_APP_THEME_NAME,
     REACT_APP_BOOTSTRAP_DOCS_LINK,
     REACT_APP_SASS_PATH,
-    REACT_APP_SASS_VARIABLES_PATH,
-  } = process.env;
+    REACT_APP_SASS_VARIABLES_PATH
+  } = process.env
 
   return (
     <>
@@ -21,7 +18,7 @@ export function Modal() {
         </h1>
 
         <div className="py-5">
-          <strong>{REACT_APP_THEME_NAME}</strong>&nbsp; customizes the{" "}
+          <strong>{REACT_APP_THEME_NAME}</strong>&nbsp; customizes the{' '}
           <a
             href={`${REACT_APP_BOOTSTRAP_DOCS_LINK}/components/modal/`}
             className="fw-bold"
@@ -157,7 +154,7 @@ export function Modal() {
         <CodeBlock code={code2} language="markup" />
       </div>
     </>
-  );
+  )
 }
 
 const code = `<button type="button"
@@ -201,7 +198,7 @@ const code = `<button type="button"
     </div>
   </div>
 </div>
-`;
+`
 
 const code2 = `<button type="button"
   className="btn btn-primary"
@@ -244,4 +241,4 @@ const code2 = `<button type="button"
     </div>
   </div>
 </div>
-`;
+`

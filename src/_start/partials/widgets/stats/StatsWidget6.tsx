@@ -1,55 +1,55 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable jsx-a11y/anchor-is-valid */
-import React from "react";
-import { KTSVG, toAbsoluteUrl } from "../../../helpers";
+/*eslint-disable react-hooks/exhaustive-deps */
+
+import React from 'react'
+import { KTSVG, toAbsoluteUrl } from '../../../helpers'
 
 type Props = {
-  className: string;
-  innerPadding?: string;
-};
+  className: string
+  innerPadding?: string
+}
 
 const StatsWidget6: React.FC<Props> = ({
   className,
-  innerPadding = "",
-  children,
+  innerPadding = '',
+  children
 }) => {
   return (
     <div className={`card ${className}`}>
-      {/* begin::Body */}
+      {/*begin::Body */}
       <div className={`card-body ${innerPadding}`}>
-        {/* begin::Top */}
+        {/*begin::Top */}
         <div className="d-flex bg-light-primary card-rounded flex-grow-1">
-          {/* begin::Section */}
+          {/*begin::Section */}
           <div className="py-10 ps-7">
-            {/* begin::Text */}
+            {/*begin::Text */}
             <div className="">
               <span className="text-primary d-block mb-n1">Your Storage</span>
               <span className="font-weight-light fs-1 text-gray-800">
-                GB{" "}
+                GB{' '}
                 <span className="fw-bolder fs-1 text-gray-800">7,562.00</span>
               </span>
             </div>
-            {/* end::Text */}
+            {/*end::Text */}
             {children}
           </div>
-          {/* end::Section */}
+          {/*end::Section */}
 
-          {/* begin::Pic */}
+          {/*begin::Pic */}
           <div
             className="position-relative bgi-no-repeat bgi-size-contain bgi-position-y-bottom bgi-position-x-end mt-6 flex-grow-1"
             style={{
               backgroundImage: `url('${toAbsoluteUrl(
-                "/media/misc/illustration-1.png"
-              )}')`,
+                '/media/misc/illustration-1.png'
+              )}')`
             }}
           ></div>
-          {/* end::Pic */}
+          {/*end::Pic */}
         </div>
-        {/* end::Top */}
+        {/*end::Top */}
 
-        {/* begin::Stats */}
+        {/*begin::Stats */}
         <div className="pt-9">
-          {/* begin::Row */}
+          {/*begin::Row */}
           <div className="row">
             <div className="col me-n2 mb-5">
               <button
@@ -59,7 +59,7 @@ const StatsWidget6: React.FC<Props> = ({
                 <KTSVG
                   className="svg-icon-2x ms-n1"
                   path="/media/icons/duotone/Files/Media.svg"
-                />{" "}
+                />{' '}
                 <span className="text-gray-800 fw-bolder fs-6 d-block pt-6">
                   Upload File
                 </span>
@@ -73,16 +73,16 @@ const StatsWidget6: React.FC<Props> = ({
                 <KTSVG
                   className="svg-icon-2x ms-n1"
                   path="/media/icons/duotone/General/Clipboard.svg"
-                />{" "}
+                />{' '}
                 <span className="text-gray-800 fw-bolder fs-6 d-block pt-6">
                   Read Docs
                 </span>
               </button>
             </div>
           </div>
-          {/* end::Row */}
+          {/*end::Row */}
 
-          {/* begin::Row */}
+          {/*begin::Row */}
           <div className="row">
             <div className="col me-n2 mb-5">
               <button
@@ -92,7 +92,7 @@ const StatsWidget6: React.FC<Props> = ({
                 <KTSVG
                   className="svg-icon-2x ms-n1"
                   path="/media/icons/duotone/Files/Media.svg"
-                />{" "}
+                />{' '}
                 <span className="text-gray-800 fw-bolder fs-6 d-block pt-6">
                   MRC 22 XML
                 </span>
@@ -106,16 +106,16 @@ const StatsWidget6: React.FC<Props> = ({
                 <KTSVG
                   className="svg-icon-2x ms-n1"
                   path="/media/icons/duotone/General/Clipboard.svg"
-                />{" "}
+                />{' '}
                 <span className="text-gray-800 fw-bolder fs-6 d-block pt-6">
                   CTI Tech Specs
                 </span>
               </button>
             </div>
           </div>
-          {/* end::Row */}
+          {/*end::Row */}
 
-          {/* begin::Row */}
+          {/*begin::Row */}
           <div className="row">
             <div className="col mb-5 me-n2">
               <button
@@ -125,7 +125,7 @@ const StatsWidget6: React.FC<Props> = ({
                 <KTSVG
                   className="svg-icon-2x ms-n1"
                   path="/media/icons/duotone/Files/Compiled-file.svg"
-                />{" "}
+                />{' '}
                 <span className="text-gray-800 fw-bolder fs-6 d-block pt-6">
                   Check List
                 </span>
@@ -139,20 +139,20 @@ const StatsWidget6: React.FC<Props> = ({
                 <KTSVG
                   className="svg-icon-2x ms-n1"
                   path="/media/icons/duotone/Files/File-cloud.svg"
-                />{" "}
+                />{' '}
                 <span className="text-gray-800 fw-bolder fs-6 d-block pt-6">
                   Reports
                 </span>
               </button>
             </div>
           </div>
-          {/* end::Row */}
+          {/*end::Row */}
         </div>
-        {/* end::Stats */}
+        {/*end::Stats */}
       </div>
-      {/* end::Body */}
+      {/*end::Body */}
     </div>
-  );
-};
+  )
+}
 
-export { StatsWidget6 };
+export { StatsWidget6 }

@@ -1,16 +1,15 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-import React from "react";
-import { useTheme } from "../core";
+import React from 'react'
+import { useTheme } from '../core'
 
 export function Footer() {
-  const { classes } = useTheme();
+  const { classes } = useTheme()
   return (
-    <div className={`footer py-4 d-flex flex-lg-column`} id="kt_footer">
-      {/* begin::Container */}
+    <div className={'footer py-4 d-flex flex-lg-column'} id="kt_footer">
+      {/*begin::Container */}
       <div
         className={`${classes.footerContainer} d-flex flex-column flex-md-row align-items-center justify-content-between`}
       >
-        {/* begin::Copyright */}
+        {/*begin::Copyright */}
         <div className="text-dark order-2 order-md-1">
           <span className="text-muted fw-bold me-2">
             {new Date().getFullYear()} &copy;
@@ -19,9 +18,9 @@ export function Footer() {
             Keenthemes
           </a>
         </div>
-        {/* end::Copyright */}
+        {/*end::Copyright */}
 
-        {/* begin::Nav */}
+        {/*begin::Nav */}
         <ul className="menu menu-gray-600 menu-hover-primary fw-bold order-1">
           <li className="menu-item">
             <a href="#" className="menu-link ps-0 pe-2">
@@ -39,9 +38,9 @@ export function Footer() {
             </a>
           </li>
         </ul>
-        {/* end::Nav */}
+        {/*end::Nav */}
       </div>
-      {/* end::Container */}
+      {/*end::Container */}
     </div>
-  );
+  )
 }

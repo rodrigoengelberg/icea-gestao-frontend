@@ -1,7 +1,6 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-import React from "react";
-import { Link } from "react-router-dom";
-import { MenuItem } from "./MenuItem";
+import React from 'react'
+import { Link } from 'react-router-dom'
+import { MenuItem } from './MenuItem'
 
 export function MenuInner() {
   return (
@@ -30,7 +29,7 @@ export function MenuInner() {
             <li className="menu-item">
               <MenuItem to="/chat" title="Chat" free={true} />
             </li>
-            {/* <li className="menu-item">
+            {/*<li className="menu-item">
               <MenuItem to="/mail" title="Inbox" />
             </li> */}
             <li className="menu-item">
@@ -123,5 +122,5 @@ export function MenuInner() {
         </div>
       </div>
     </>
-  );
+  )
 }

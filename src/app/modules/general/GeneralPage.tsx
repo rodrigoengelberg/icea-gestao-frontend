@@ -1,9 +1,9 @@
-import React from "react";
-import { Redirect, Route, Switch } from "react-router-dom";
-import { FAQPage } from "./pages/FAQPage";
-import { PricingPage } from "./pages/PricingPage";
-import { InvoicePage } from "./pages/InvoicePage";
-import { PageTitle } from "../../../_start/layout/core";
+import React from 'react'
+import { Redirect, Route, Switch } from 'react-router-dom'
+import { FAQPage } from './pages/FAQPage'
+import { PricingPage } from './pages/PricingPage'
+import { InvoicePage } from './pages/InvoicePage'
+import { PageTitle } from '../../../_start/layout/core'
 
 export function GeneralPage() {
   return (
@@ -29,5 +29,5 @@ export function GeneralPage() {
       <Redirect from="/general" exact={true} to="/general/faq" />
       <Redirect to="/general/faq" />
     </Switch>
-  );
+  )
 }

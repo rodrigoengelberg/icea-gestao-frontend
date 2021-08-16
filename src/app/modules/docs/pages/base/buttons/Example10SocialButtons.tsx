@@ -1,9 +1,5 @@
-/* eslint-disable react/jsx-no-target-blank */
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable jsx-a11y/anchor-has-content */
-/* eslint-disable no-unreachable */
-import React from "react";
-import { CodeBlock } from "../../../../../../_start/partials";
+import React from 'react'
+import { CodeBlock } from '../../../../../../_start/partials'
 
 export function Example10SocialButtons() {
   return (
@@ -13,8 +9,8 @@ export function Example10SocialButtons() {
       </h1>
       <div className="py-5">
         Use
-        <code>.btn-{"{social}"}</code>and
-        <code>.btn-light-{"{social}"}</code>classes with
+        <code>.btn-{'{social}'}</code>and
+        <code>.btn-light-{'{social}'}</code>classes with
         <a href="https://fontawesome.com" className="fw-bold" target="_blank">
           Font Awesome
         </a>
@@ -104,7 +100,7 @@ export function Example10SocialButtons() {
       </div>
       <CodeBlock language="markup" code={code} />
     </div>
-  );
+  )
 }
 
 const code = `<a href="#" className="btn btn-icon btn-facebook me-5 "><i className="fab fa-facebook-f fs-4"></i></a>
@@ -119,4 +115,4 @@ const code = `<a href="#" className="btn btn-icon btn-facebook me-5 "><i classNa
 <a href="#" className="btn btn-icon btn-light-twitter me-5 "><i className="fab fa-twitter fs-4"></i></a>
 <a href="#" className="btn btn-icon btn-light-instagram me-5 "><i className="fab fa-instagram fs-4"></i></a>
 <a href="#" className="btn btn-icon btn-light-youtube me-5 "><i className="fab fa-youtube fs-4"></i></a>
-<a href="#" className="btn btn-icon btn-light-linkedin me-5 "><i className="fab fa-linkedin fs-4"></i></a>`;
+<a href="#" className="btn btn-icon btn-light-linkedin me-5 "><i className="fab fa-linkedin fs-4"></i></a>`

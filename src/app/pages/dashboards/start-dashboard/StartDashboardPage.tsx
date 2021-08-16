@@ -1,24 +1,23 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useState } from "react";
+import React, { useState } from 'react'
 import {
   EngageWidget5,
   ListsWidget1,
   StatsWidget1,
   StatsWidget2,
   TablesWidget1,
-  TablesWidget2,
-} from "../../../../_start/partials/widgets";
-import { CreateAppModal } from "../_modals/create-app-stepper/CreateAppModal";
+  TablesWidget2
+} from '../../../../_start/partials/widgets'
+import { CreateAppModal } from '../_modals/create-app-stepper/CreateAppModal'
 
 export const StartDashboardPage: React.FC = () => {
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState(false)
   return (
     <>
-      {/* begin::Row */}
+      {/*begin::Row */}
       <div className="row g-0 g-xl-5 g-xxl-8">
         <div className="col-xl-4">
           <EngageWidget5 className="card-stretch mb-5 mb-xxl-8">
-            {/* begin::Action */}
+            {/*begin::Action */}
             <div className="text-center pt-7">
               <a
                 className="btn btn-primary fw-bolder fs-6 px-7 py-3"
@@ -27,7 +26,7 @@ export const StartDashboardPage: React.FC = () => {
                 Create App
               </a>
             </div>
-            {/* end::Action */}
+            {/*end::Action */}
           </EngageWidget5>
         </div>
 
@@ -35,9 +34,9 @@ export const StartDashboardPage: React.FC = () => {
           <TablesWidget1 className="card-stretch mb-5 mb-xxl-8" />
         </div>
       </div>
-      {/* end::Row */}
+      {/*end::Row */}
 
-      {/* begin::Row */}
+      {/*begin::Row */}
       <div className="row g-0 g-xl-5 g-xxl-8">
         <div className="col-xl-4">
           <StatsWidget1 className="card-stretch mb-5 mb-xxl-8" />
@@ -47,9 +46,9 @@ export const StartDashboardPage: React.FC = () => {
           <StatsWidget2 className="card-stretch mb-5 mb-xxl-8" />
         </div>
       </div>
-      {/* end::Row */}
+      {/*end::Row */}
 
-      {/* begin::Row */}
+      {/*begin::Row */}
       <div className="row g-0 g-xl-5 g-xxl-8">
         <div className="col-xl-4">
           <ListsWidget1 className="card-stretch mb-5 mb-xxl-8" />
@@ -59,11 +58,11 @@ export const StartDashboardPage: React.FC = () => {
           <TablesWidget2 className="card-stretch mb-5 mb-xxl-8" />
         </div>
       </div>
-      {/* end::Row */}
+      {/*end::Row */}
 
-      {/* begin::Modals */}
+      {/*begin::Modals */}
       <CreateAppModal show={show} handleClose={() => setShow(false)} />
-      {/* end::Modals */}
+      {/*end::Modals */}
     </>
-  );
-};
+  )
+}

@@ -1,29 +1,29 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import * as Yup from "yup";
-import clsx from "clsx";
-import { Link } from "react-router-dom";
-import { useFormik } from "formik";
-import * as auth from "../redux/AuthRedux";
-import { login } from "../redux/AuthCRUD";
-import { toAbsoluteUrl } from "../../../../_start/helpers";
+import clsx from 'clsx'
+import { useFormik } from 'formik'
+import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { Link } from 'react-router-dom'
+import * as Yup from 'yup'
+import { toAbsoluteUrl } from '../../../../_start/helpers'
+import { login } from '../redux/AuthCRUD'
+import * as auth from '../redux/AuthRedux'
 
 const loginSchema = Yup.object().shape({
   email: Yup.string()
-    .email("Wrong email format")
-    .min(3, "Minimum 3 symbols")
-    .max(50, "Maximum 50 symbols")
-    .required("Email is required"),
+    .email('Wrong email format')
+    .min(3, 'Minimum 3 symbols')
+    .max(50, 'Maximum 50 symbols')
+    .required('Email is required'),
   password: Yup.string()
-    .min(3, "Minimum 3 symbols")
-    .max(50, "Maximum 50 symbols")
-    .required("Password is required"),
-});
+    .min(3, 'Minimum 3 symbols')
+    .max(50, 'Maximum 50 symbols')
+    .required('Password is required')
+})
 
 const initialValues = {
-  email: "admin@demo.com",
-  password: "demo",
-};
+  email: 'admin@demo.com',
+  password: 'demo'
+}
 
 /*
   Formik+YUP+Typescript:
@@ -32,27 +32,27 @@ const initialValues = {
 */
 
 export function Login() {
-  const [loading, setLoading] = useState(false);
-  const dispatch = useDispatch();
+  const [loading, setLoading] = useState(false)
+  const dispatch = useDispatch()
   const formik = useFormik({
     initialValues,
     validationSchema: loginSchema,
     onSubmit: (values, { setStatus, setSubmitting }) => {
-      setLoading(true);
+      setLoading(true)
       setTimeout(() => {
         login(values.email, values.password)
           .then(({ data: { accessToken } }) => {
-            setLoading(false);
-            dispatch(auth.actions.login(accessToken));
+            setLoading(false)
+            dispatch(auth.actions.login(accessToken))
           })
           .catch(() => {
-            setLoading(false);
-            setSubmitting(false);
-            setStatus("The login detail is incorrect");
-          });
-      }, 1000);
-    },
-  });
+            setLoading(false)
+            setSubmitting(false)
+            setStatus('The login detail is incorrect')
+          })
+      }, 1000)
+    }
+  })
 
   return (
     <form
@@ -61,11 +61,11 @@ export function Login() {
       noValidate
       id="kt_login_signin_form"
     >
-      {/* begin::Title */}
+      {/*begin::Title */}
       <div className="pb-lg-15">
         <h3 className="fw-bolder text-dark display-6">Welcome to Start</h3>
         <div className="text-muted fw-bold fs-3">
-          New Here?{" "}
+          New Here?{' '}
           <Link
             to="/auth/registration"
             className="text-primary fw-bolder"
@@ -75,7 +75,7 @@ export function Login() {
           </Link>
         </div>
       </div>
-      {/* begin::Title */}
+      {/*begin::Title */}
 
       {formik.status ? (
         <div className="mb-lg-15 alert alert-danger">
@@ -84,23 +84,23 @@ export function Login() {
       ) : (
         <div className="mb-lg-15 alert alert-info">
           <div className="alert-text ">
-            Use credentials <strong>admin@demo.com</strong> and{" "}
+            Use credentials <strong>admin@demo.com</strong> and{' '}
             <strong>demo</strong> to sign in.
           </div>
         </div>
       )}
 
-      {/* begin::Form group */}
+      {/*begin::Form group */}
       <div className="v-row mb-10 fv-plugins-icon-container">
         <label className="form-label fs-6 fw-bolder text-dark">Email</label>
         <input
           placeholder="Email"
-          {...formik.getFieldProps("email")}
+          {...formik.getFieldProps('email')}
           className={clsx(
-            "form-control form-control-lg form-control-solid",
-            { "is-invalid": formik.touched.email && formik.errors.email },
+            'form-control form-control-lg form-control-solid',
+            { 'is-invalid': formik.touched.email && formik.errors.email },
             {
-              "is-valid": formik.touched.email && !formik.errors.email,
+              'is-valid': formik.touched.email && !formik.errors.email
             }
           )}
           type="email"
@@ -113,9 +113,9 @@ export function Login() {
           </div>
         )}
       </div>
-      {/* end::Form group */}
+      {/*end::Form group */}
 
-      {/* begin::Form group */}
+      {/*begin::Form group */}
       <div className="fv-row mb-10 fv-plugins-icon-container">
         <div className="d-flex justify-content-between mt-n5">
           <label className="form-label fs-6 fw-bolder text-dark pt-5">
@@ -133,14 +133,14 @@ export function Login() {
         <input
           type="password"
           autoComplete="off"
-          {...formik.getFieldProps("password")}
+          {...formik.getFieldProps('password')}
           className={clsx(
-            "form-control form-control-lg form-control-solid",
+            'form-control form-control-lg form-control-solid',
             {
-              "is-invalid": formik.touched.password && formik.errors.password,
+              'is-invalid': formik.touched.password && formik.errors.password
             },
             {
-              "is-valid": formik.touched.password && !formik.errors.password,
+              'is-valid': formik.touched.password && !formik.errors.password
             }
           )}
         />
@@ -150,9 +150,9 @@ export function Login() {
           </div>
         )}
       </div>
-      {/* end::Form group */}
+      {/*end::Form group */}
 
-      {/* begin::Action */}
+      {/*begin::Action */}
       <div className="pb-lg-0 pb-5">
         <button
           type="submit"
@@ -162,8 +162,8 @@ export function Login() {
         >
           {!loading && <span className="indicator-label">Sign In</span>}
           {loading && (
-            <span className="indicator-progress" style={{ display: "block" }}>
-              Please wait...{" "}
+            <span className="indicator-progress" style={{ display: 'block' }}>
+              Please wait...{' '}
               <span className="spinner-border spinner-border-sm align-middle ms-2"></span>
             </span>
           )}
@@ -173,14 +173,14 @@ export function Login() {
           className="btn btn-light-primary fw-bolder px-8 py-4 my-3 fs-6 mr-3"
         >
           <img
-            src={toAbsoluteUrl("/media/svg/brand-logos/google-icon.svg")}
+            src={toAbsoluteUrl('/media/svg/brand-logos/google-icon.svg')}
             className="w-20px h-20px me-3"
             alt=""
           />
           Sign in with Google
         </button>
       </div>
-      {/* end::Action */}
+      {/*end::Action */}
     </form>
-  );
+  )
 }

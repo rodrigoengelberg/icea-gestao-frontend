@@ -1,11 +1,12 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable jsx-a11y/anchor-has-content */
-/* eslint-disable no-unreachable */
-import React from "react";
-import { CodeBlock } from "../../../../../_start/partials";
+import React from 'react'
+import { CodeBlock } from '../../../../../_start/partials'
 
 export function HelpersBorders() {
-  const { REACT_APP_THEME_NAME, REACT_APP_SASS_PATH, REACT_APP_BOOTSTRAP_DOCS_LINK } = process.env;
+  const {
+    REACT_APP_THEME_NAME,
+    REACT_APP_SASS_PATH,
+    REACT_APP_BOOTSTRAP_DOCS_LINK
+  } = process.env
 
   return (
     <>
@@ -15,7 +16,7 @@ export function HelpersBorders() {
         </h1>
 
         <div className="py-5">
-          <strong>{REACT_APP_THEME_NAME}</strong>&nbsp; extends{" "}
+          <strong>{REACT_APP_THEME_NAME}</strong>&nbsp; extends{' '}
           <a
             href={`${REACT_APP_BOOTSTRAP_DOCS_LINK}/utilities/borders`}
             className="fw-bold"
@@ -23,8 +24,8 @@ export function HelpersBorders() {
             Bootstrap Borders
           </a>
           &nbsp; in
-          <code>{REACT_APP_SASS_PATH}/helpers/_borders.scss</code>to provide additional
-          border utility classes to cover its own design system.
+          <code>{REACT_APP_SASS_PATH}/helpers/_borders.scss</code>to provide
+          additional border utility classes to cover its own design system.
         </div>
       </div>
       <div className="py-10">
@@ -92,7 +93,7 @@ export function HelpersBorders() {
         <div className="py-5">
           Use
           <code>
-            .border-gray-{`{100, 200, 300, 400, 500, 600, 700, 800, 900}`}
+            .border-gray-{'{100, 200, 300, 400, 500, 600, 700, 800, 900}'}
           </code>
           to set an element's border color.
         </div>
@@ -133,7 +134,7 @@ export function HelpersBorders() {
         <CodeBlock language="markup" code={code3} />
       </div>
     </>
-  );
+  )
 }
 
 const code = `<div className="border">
@@ -146,7 +147,7 @@ const code = `<div className="border">
 
 <div className="border border-dotted">
   .border-dotted
-</div>`;
+</div>`
 
 const code2 = `<div className="border border-primary border-hover">
   .border-hover
@@ -154,7 +155,7 @@ const code2 = `<div className="border border-primary border-hover">
 
 <div className="border border-primary border-active active">
   .border-dashed
-</div>`;
+</div>`
 
 const code3 = `<div className="border border-gray-100"></div>
 <div className="border border-gray-200"></div>
@@ -164,4 +165,4 @@ const code3 = `<div className="border border-gray-100"></div>
 <div className="border border-gray-600"></div>
 <div className="border border-gray-700"></div>
 <div className="border border-gray-800"></div>
-<div className="border border-gray-900"></div>`;
+<div className="border border-gray-900"></div>`

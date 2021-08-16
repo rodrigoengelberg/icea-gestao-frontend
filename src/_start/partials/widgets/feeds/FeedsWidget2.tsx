@@ -1,32 +1,31 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-import React from "react";
-import { KTSVG, toAbsoluteUrl } from "../../../helpers";
-import { Dropdown1 } from "../../content/dropdown/Dropdown1";
+import React from 'react'
+import { KTSVG, toAbsoluteUrl } from '../../../helpers'
+import { Dropdown1 } from '../../content/dropdown/Dropdown1'
 
 type Props = {
-  className: string;
-};
+  className: string
+}
 
 const FeedsWidget2: React.FC<Props> = ({ className }) => {
   return (
     <div className={`card ${className}`}>
-      {/* begin::Body */}
+      {/*begin::Body */}
       <div className="card-body pb-0">
-        {/* begin::Header */}
+        {/*begin::Header */}
         <div className="d-flex align-items-center">
-          {/* begin::Symbol */}
+          {/*begin::Symbol */}
           <div className="symbol symbol-45px me-5">
             <span className="symbol-label bg-light align-items-end">
               <img
                 alt="Logo"
-                src={toAbsoluteUrl("/media/svg/avatars/018-girl-9.svg")}
+                src={toAbsoluteUrl('/media/svg/avatars/018-girl-9.svg')}
                 className="mh-40px"
               />
             </span>
           </div>
-          {/* end::Symbol */}
+          {/*end::Symbol */}
 
-          {/* begin::Info */}
+          {/*begin::Info */}
           <div className="d-flex flex-column flex-grow-1">
             <a
               href="#"
@@ -36,9 +35,9 @@ const FeedsWidget2: React.FC<Props> = ({ className }) => {
             </a>
             <span className="text-muted fw-bold">Yestarday at 5:06 PM</span>
           </div>
-          {/* end::Info */}
+          {/*end::Info */}
 
-          {/* begin::Dropdown */}
+          {/*begin::Dropdown */}
           <button
             type="button"
             className="btn btn-sm btn-icon btn-color-primary btn-active-light-primary"
@@ -52,21 +51,21 @@ const FeedsWidget2: React.FC<Props> = ({ className }) => {
             />
           </button>
           <Dropdown1 />
-          {/* end::Dropdown */}
+          {/*end::Dropdown */}
         </div>
-        {/* end::Header */}
+        {/*end::Header */}
 
-        {/* begin::Body */}
+        {/*begin::Body */}
         <div className="pt-5">
-          {/* begin::Text */}
+          {/*begin::Text */}
           <p className="text-gray-800 fs-6 fw-normal mb-2">
             Outlines keep you honest. They stop you from indulging in poorly
             thought-out metaphors about driving and keep you focused on the
             overall structure of your post
           </p>
-          {/* end::Text */}
+          {/*end::Text */}
 
-          {/* begin::Action */}
+          {/*begin::Action */}
           <div className="d-flex align-items-center">
             <a
               href="#"
@@ -90,15 +89,15 @@ const FeedsWidget2: React.FC<Props> = ({ className }) => {
               75
             </a>
           </div>
-          {/* end::Action */}
+          {/*end::Action */}
         </div>
-        {/* end::Body */}
+        {/*end::Body */}
 
-        {/* begin::Separator */}
+        {/*begin::Separator */}
         <div className="separator pt-4"></div>
-        {/* end::Separator */}
+        {/*end::Separator */}
 
-        {/* begin::Editor */}
+        {/*begin::Editor */}
         <form className="position-relative py-4 d-flex align-items-center pb-5">
           <textarea
             id="kt_forms_widget_2_input"
@@ -116,11 +115,11 @@ const FeedsWidget2: React.FC<Props> = ({ className }) => {
             </span>
           </div>
         </form>
-        {/* edit::Editor */}
+        {/*edit::Editor */}
       </div>
-      {/* end::Body */}
+      {/*end::Body */}
     </div>
-  );
-};
+  )
+}
 
-export { FeedsWidget2 };
+export { FeedsWidget2 }

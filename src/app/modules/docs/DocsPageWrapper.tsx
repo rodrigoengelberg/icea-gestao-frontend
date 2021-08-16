@@ -1,50 +1,50 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect } from "react";
+/*eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect } from 'react'
 import {
   IThemeConfig,
   useTheme,
   getConfig,
-  ModuleName,
-} from "../../../_start/layout/core";
-import { DocsPage } from "./DocsPage";
+  ModuleName
+} from '../../../_start/layout/core'
+import { DocsPage } from './DocsPage'
 
-const defaultPageConfig = getConfig();
+const defaultPageConfig = getConfig()
 const dashboardPageConfig: Partial<IThemeConfig> = {
   aside: {
     ...defaultPageConfig.aside,
     display: true,
     primaryDisplay: false,
     secondaryDisplay: true,
-    menu: "documentation",
+    menu: 'documentation',
     toggle: false,
-    content: "docs",
+    content: 'docs'
   },
   toolbar: {
     ...defaultPageConfig.toolbar,
-    breadcrumb: false,
+    breadcrumb: false
   },
   sidebar: {
     ...defaultPageConfig.sidebar,
-    display: false,
-  },
-};
+    display: false
+  }
+}
 
 const DocsPageWrapper: React.FC = () => {
-  const { setTheme } = useTheme();
-  // Refresh UI after config updates
+  const { setTheme } = useTheme()
+  //Refresh UI after config updates
   useEffect(() => {
-    setTheme(dashboardPageConfig);
+    setTheme(dashboardPageConfig)
     return () => {
-      setTheme(defaultPageConfig);
-    };
-  }, []);
+      setTheme(defaultPageConfig)
+    }
+  }, [])
 
   return (
     <>
       <ModuleName>Documentation</ModuleName>
       <DocsPage />
     </>
-  );
-};
+  )
+}
 
-export default DocsPageWrapper;
+export default DocsPageWrapper

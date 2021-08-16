@@ -1,18 +1,17 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-import React from "react";
-import { Link } from "react-router-dom";
-import { useLocation } from "react-router";
-import clsx from "clsx";
-import { checkIsActive } from "../../../helpers";
+import React from 'react'
+import { Link } from 'react-router-dom'
+import { useLocation } from 'react-router'
+import clsx from 'clsx'
+import { checkIsActive } from '../../../helpers'
 
 type Props = {
-  to: string;
-  title: string;
-  free?: boolean;
-};
+  to: string
+  title: string
+  free?: boolean
+}
 
 const MenuItem: React.FC<Props> = ({ children, to, title, free = false }) => {
-  const { pathname } = useLocation();
+  const { pathname } = useLocation()
   return (
     <>
       {free ? (
@@ -25,8 +24,8 @@ const MenuItem: React.FC<Props> = ({ children, to, title, free = false }) => {
         </a>
       ) : (
         <Link
-          className={clsx("menu-link ps-0 py-2", {
-            active: checkIsActive(pathname, to),
+          className={clsx('menu-link ps-0 py-2', {
+            active: checkIsActive(pathname, to)
           })}
           to={to}
         >
@@ -35,7 +34,7 @@ const MenuItem: React.FC<Props> = ({ children, to, title, free = false }) => {
         </Link>
       )}
     </>
-  );
-};
+  )
+}
 
-export { MenuItem };
+export { MenuItem }

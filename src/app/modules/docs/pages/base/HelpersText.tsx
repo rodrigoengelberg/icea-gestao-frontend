@@ -1,11 +1,8 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable jsx-a11y/anchor-has-content */
-/* eslint-disable no-unreachable */
-import React from "react";
-import { CodeBlock } from "../../../../../_start/partials";
+import React from 'react'
+import { CodeBlock } from '../../../../../_start/partials'
 
 export function HelpersText() {
-  const { REACT_APP_SASS_PATH } = process.env;
+  const { REACT_APP_SASS_PATH } = process.env
 
   return (
     <>
@@ -15,8 +12,8 @@ export function HelpersText() {
         </h1>
         <div className="py-5">
           Use extended text helper classes defined in
-          <code>{REACT_APP_SASS_PATH}/helpers/_text.scss</code>for more advance use cases.
-          Colorize text with color utilities as shown
+          <code>{REACT_APP_SASS_PATH}/helpers/_text.scss</code>for more advance
+          use cases. Colorize text with color utilities as shown
         </div>
 
         <div className="py-5">
@@ -54,7 +51,7 @@ export function HelpersText() {
 
         <div className="py-5">
           Use
-          <code>.text-light-{`{color}`}</code>class to set an element's light
+          <code>.text-light-{'{color}'}</code>class to set an element's light
           color defined with
           <code>$theme-light-colors</code>in
           <code>sass/_variables.scss</code>:
@@ -92,7 +89,7 @@ export function HelpersText() {
 
         <div className="py-5">
           Use
-          <code>.text-inverse-{`{color}`}</code>class to set an element's
+          <code>.text-inverse-{'{color}'}</code>class to set an element's
           inverse color defined with
           <code>$theme-inverse-colors</code>in
           <code>sass/_variables.scss</code>:
@@ -139,7 +136,7 @@ export function HelpersText() {
 
         <div className="py-5">
           Use
-          <code>.text-hover-inverse-{`{color}`}</code>class to set an element's
+          <code>.text-hover-inverse-{'{color}'}</code>class to set an element's
           hover inverse color defined with
           <code>$theme-inverse-colors</code>in
           <code>sass/_variables.scss</code>:
@@ -186,7 +183,7 @@ export function HelpersText() {
 
         <div className="py-5">
           Use
-          <code>.text-active-inverse-{`{color}`}</code>class to set an element's
+          <code>.text-active-inverse-{'{color}'}</code>class to set an element's
           active inverse color when it has
           <code>.active</code>class:
         </div>
@@ -226,7 +223,7 @@ export function HelpersText() {
         <CodeBlock language="markup" code={code5} />
       </div>
     </>
-  );
+  )
 }
 
 const code = `<div className="text-white"></div>
@@ -247,14 +244,14 @@ const code = `<div className="text-white"></div>
 <div className="text-gray-600"></div>
 <div className="text-gray-700"></div>
 <div className="text-gray-800"></div>
-<div className="text-gray-900"></div>`;
+<div className="text-gray-900"></div>`
 
 const code2 = `<div className="text-light-primary bg-primary"></div>
 <div className="text-light-success bg-success"></div>
 <div className="text-light-info bg-info"></div>
 <div className="text-light-warning bg-warning"></div>
 <div className="text-light-danger bg-danger"></div>
-<div className="text-light-dark bg-dark"></div>`;
+<div className="text-light-dark bg-dark"></div>`
 
 const code3 = `<div className="text-inverse-white bg-white"></div>
 <div className="text-inverse-primary bg-primary"></div>
@@ -264,7 +261,7 @@ const code3 = `<div className="text-inverse-white bg-white"></div>
 <div className="text-inverse-info bg-info"></div>
 <div className="text-inverse-warning bg-warning"></div>
 <div className="text-inverse-danger bg-danger"></div>
-<div className="text-inverse-dark bg-dark"></div>`;
+<div className="text-inverse-dark bg-dark"></div>`
 
 const code4 = `<div className="text-hover-inverse-white bg-hover-white"></div>
 <div className="text-hover-inverse-primary bg-hover-primary"></div>
@@ -274,7 +271,7 @@ const code4 = `<div className="text-hover-inverse-white bg-hover-white"></div>
 <div className="text-hover-inverse-info bg-hover-info"></div>
 <div className="text-hover-inverse-warning bg-hover-warning"></div>
 <div className="text-hover-inverse-danger bg-hover-danger"></div>
-<div className="text-hover-inverse-dark bg-hover-dark"></div>`;
+<div className="text-hover-inverse-dark bg-hover-dark"></div>`
 
 const code5 = `<div className="text-active-inverse-white bg-active-white active"></div>
 <div className="text-active-inverse-primary bg-active-primary active"></div>
@@ -284,4 +281,4 @@ const code5 = `<div className="text-active-inverse-white bg-active-white active"
 <div className="text-active-inverse-info bg-active-info active"></div>
 <div className="text-active-inverse-warning bg-active-warning active"></div>
 <div className="text-active-inverse-danger bg-active-danger active"></div>
-<div className="text-active-inverse-dark bg-active-dark active"></div>`;
+<div className="text-active-inverse-dark bg-active-dark active"></div>`

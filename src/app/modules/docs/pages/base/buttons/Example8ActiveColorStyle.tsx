@@ -1,8 +1,5 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable jsx-a11y/anchor-has-content */
-/* eslint-disable no-unreachable */
-import React from "react";
-import { CodeBlock } from "../../../../../../_start/partials";
+import React from 'react'
+import { CodeBlock } from '../../../../../../_start/partials'
 
 export function Example8ActiveColorStyle() {
   return (
@@ -12,7 +9,7 @@ export function Example8ActiveColorStyle() {
       </h1>
       <div className="py-5">
         Use
-        <code>.btn-active-color-{"{color}"}</code>class to set a button's text
+        <code>.btn-active-color-{'{color}'}</code>class to set a button's text
         and icon colors for active and hover states only:
       </div>
 
@@ -58,7 +55,7 @@ export function Example8ActiveColorStyle() {
       </div>
       <CodeBlock language="markup" code={code} />
     </div>
-  );
+  )
 }
 
 const code = `<a href="#" className="btn btn-bg-light btn-active-color-primary">Primary</a>
@@ -66,4 +63,4 @@ const code = `<a href="#" className="btn btn-bg-light btn-active-color-primary">
 <a href="#" className="btn btn-bg-light btn-active-color-info">Info</a>
 <a href="#" className="btn btn-bg-light btn-active-color-warning">Warning</a>
 <a href="#" className="btn btn-bg-light btn-active-color-danger">Danger</a>
-<a href="#" className="btn btn-bg-light btn-active-color-dark">Dark</a>`;
+<a href="#" className="btn btn-bg-light btn-active-color-dark">Dark</a>`

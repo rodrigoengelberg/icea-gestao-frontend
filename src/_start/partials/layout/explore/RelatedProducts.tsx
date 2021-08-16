@@ -1,13 +1,13 @@
-import { toAbsoluteUrl } from "../../../helpers";
+import { toAbsoluteUrl } from '../../../helpers'
 
 const RelatedProducts = () => (
   <div className="pt-15 mb-0">
-    {/* begin::Heading */}
+    {/*begin::Heading */}
     <div className="d-flex flex-stack mb-5">
-      {/* begin::Title */}
+      {/*begin::Title */}
       <h3 className="fw-bolder text-dark me-2 mb-0">Related Products</h3>
-      {/* end::Title */}
-      {/* begin::Link */}
+      {/*end::Title */}
+      {/*begin::Link */}
       <a
         href="https://keenthemes.com"
         target="_black"
@@ -15,21 +15,21 @@ const RelatedProducts = () => (
       >
         All Products
       </a>
-      {/* end::Link */}
+      {/*end::Link */}
     </div>
-    {/* end::Heading */}
-    {/* begin::Products */}
+    {/*end::Heading */}
+    {/*begin::Products */}
     <div className="mb-0">
-      {/* begin::Product */}
+      {/*begin::Product */}
       <a
         href="https://keenthemes.com/products/start-html-pro"
         className="btn btn-flex explore-btn-outline w-100 flex-stack  px-4 mb-4"
       >
-        {/* begin::Info */}
+        {/*begin::Info */}
         <div className="d-flex align-items-center me-1">
           <img
             alt=""
-            src={toAbsoluteUrl("/media/technology-logos/Html5.png")}
+            src={toAbsoluteUrl('/media/technology-logos/Html5.png')}
             className="h-30px me-3"
           />
           <div className="d-flex flex-column align-items-start">
@@ -39,22 +39,22 @@ const RelatedProducts = () => (
             </div>
           </div>
         </div>
-        {/* end::Info */}
-        {/* begin::Label */}
+        {/*end::Info */}
+        {/*begin::Label */}
         <span className="badge badge-inline explore-label-pro py-2">Pro</span>
-        {/* end::Label */}
+        {/*end::Label */}
       </a>
-      {/* end::Product */}
-      {/* begin::Product */}
+      {/*end::Product */}
+      {/*begin::Product */}
       <a
         href="https://keenthemes.com/products/start-vuejs-pro"
         className="btn btn-flex explore-btn-outline w-100 flex-stack px-4 mb-4"
       >
-        {/* begin::Info */}
+        {/*begin::Info */}
         <div className="d-flex align-items-center me-1">
           <img
             alt=""
-            src={toAbsoluteUrl("/media/technology-logos/VueJS.png")}
+            src={toAbsoluteUrl('/media/technology-logos/VueJS.png')}
             className="h-30px me-3"
           />
           <div className="d-flex flex-column align-items-start">
@@ -64,22 +64,22 @@ const RelatedProducts = () => (
             </div>
           </div>
         </div>
-        {/* end::Info */}
-        {/* begin::Label */}
+        {/*end::Info */}
+        {/*begin::Label */}
         <span className="badge badge-inline explore-label-pro py-2">Pro</span>
-        {/* end::Label */}
+        {/*end::Label */}
       </a>
-      {/* end::Product */}
-      {/* begin::Product */}
+      {/*end::Product */}
+      {/*begin::Product */}
       <a
         href="https://keenthemes.com/products/start-react-pro"
         className="btn btn-flex explore-btn-outline w-100 flex-stack active px-4 mb-4"
       >
-        {/* begin::Info */}
+        {/*begin::Info */}
         <div className="d-flex align-items-center me-1">
           <img
             alt=""
-            src={toAbsoluteUrl("/media/technology-logos/React.png")}
+            src={toAbsoluteUrl('/media/technology-logos/React.png')}
             className="h-30px me-3"
           />
           <div className="d-flex flex-column align-items-start">
@@ -89,15 +89,15 @@ const RelatedProducts = () => (
             </div>
           </div>
         </div>
-        {/* end::Info */}
-        {/* begin::Label */}
+        {/*end::Info */}
+        {/*begin::Label */}
         <span className="badge badge-inline explore-label-pro py-2">Pro</span>
-        {/* end::Label */}
+        {/*end::Label */}
       </a>
-      {/* end::Product */}
+      {/*end::Product */}
     </div>
-    {/* end::Products */}
+    {/*end::Products */}
   </div>
-);
+)
 
-export { RelatedProducts };
+export { RelatedProducts }

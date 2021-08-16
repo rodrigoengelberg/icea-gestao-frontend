@@ -1,21 +1,20 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-import React from "react";
-import { KTSVG } from "../../../helpers";
+import React from 'react'
+import { KTSVG } from '../../../helpers'
 
 type Props = {
-  className: string;
-  innerPadding?: string;
-  color?: string;
-};
+  className: string
+  innerPadding?: string
+  color?: string
+}
 
 const TablesWidget4: React.FC<Props> = ({
   className,
-  innerPadding = "",
-  color = "primary",
+  innerPadding = '',
+  color = 'primary'
 }) => {
   return (
     <div className={`card ${className}`}>
-      {/* begin::Header */}
+      {/*begin::Header */}
       <div className="card-header border-0 py-5">
         <h3 className="card-title align-items-start flex-column">
           <span className="card-label fw-bolder text-dark">New Arrivals</span>
@@ -29,11 +28,11 @@ const TablesWidget4: React.FC<Props> = ({
           </a>
         </div>
       </div>
-      {/* end::Header*/}
+      {/*end::Header */}
 
-      {/* begin::Body*/}
+      {/*begin::Body */}
       <div className="card-body py-0">
-        {/* begin::Table*/}
+        {/*begin::Table */}
         <div className="table-responsive">
           <table
             className="table align-middle border-gray-100"
@@ -291,11 +290,11 @@ const TablesWidget4: React.FC<Props> = ({
             </tbody>
           </table>
         </div>
-        {/* end::Table*/}
+        {/*end::Table */}
       </div>
-      {/* end::Body*/}
+      {/*end::Body */}
     </div>
-  );
-};
+  )
+}
 
-export { TablesWidget4 };
+export { TablesWidget4 }

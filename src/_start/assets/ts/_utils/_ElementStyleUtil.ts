@@ -6,17 +6,17 @@ export class ElementStyleUtil {
     important?: boolean
   ) {
     if (important) {
-      element.style.setProperty(property, value, 'important');
+      element.style.setProperty(property, value, 'important')
     } else {
-      element.style[property] = value;
+      element.style[property] = value
     }
   }
 
   public static get(element: HTMLElement, attributeName: string) {
-    return element.style.getPropertyValue(attributeName);
+    return element.style.getPropertyValue(attributeName)
   }
 
   public static remove(element: HTMLElement, attibuteName: string) {
-    element.style.removeProperty(attibuteName);
+    element.style.removeProperty(attibuteName)
   }
 }

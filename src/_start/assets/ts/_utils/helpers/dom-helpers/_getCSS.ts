@@ -1,13 +1,13 @@
 export function getCSS(el: HTMLElement, styleProp: string) {
-  const defaultView = (el.ownerDocument || document).defaultView;
-  
+  const defaultView = (el.ownerDocument || document).defaultView
+
   if (!defaultView) {
-    return "";
+    return ''
   }
 
   // sanitize property name to css notation
   // (hyphen separated words eg. font-Size)
-  styleProp = styleProp.replace(/([A-Z])/g, "-$1").toLowerCase();
-  
-  return defaultView.getComputedStyle(el, null).getPropertyValue(styleProp);
+  styleProp = styleProp.replace(/([A-Z])/g, '-$1').toLowerCase()
+
+  return defaultView.getComputedStyle(el, null).getPropertyValue(styleProp)
 }

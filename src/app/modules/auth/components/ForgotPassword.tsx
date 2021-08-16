@@ -1,46 +1,46 @@
-import React, { useState } from "react";
-import * as Yup from "yup";
-import clsx from "clsx";
-import { Link } from "react-router-dom";
-import { useFormik } from "formik";
-import { requestPassword } from "../redux/AuthCRUD";
+import React, { useState } from 'react'
+import * as Yup from 'yup'
+import clsx from 'clsx'
+import { Link } from 'react-router-dom'
+import { useFormik } from 'formik'
+import { requestPassword } from '../redux/AuthCRUD'
 
 const initialValues = {
-  email: "admin@demo.com",
-};
+  email: 'admin@demo.com'
+}
 
 const forgotPasswordSchema = Yup.object().shape({
   email: Yup.string()
-    .email("Wrong email format")
-    .min(3, "Minimum 3 symbols")
-    .max(50, "Maximum 50 symbols")
-    .required("Email is required"),
-});
+    .email('Wrong email format')
+    .min(3, 'Minimum 3 symbols')
+    .max(50, 'Maximum 50 symbols')
+    .required('Email is required')
+})
 
 export function ForgotPassword() {
-  const [loading, setLoading] = useState(false);
-  const [hasErrors, setHasErrors] = useState<boolean | undefined>(undefined);
+  const [loading, setLoading] = useState(false)
+  const [hasErrors, setHasErrors] = useState<boolean | undefined>(undefined)
   const formik = useFormik({
     initialValues,
     validationSchema: forgotPasswordSchema,
     onSubmit: (values, { setStatus, setSubmitting }) => {
-      setLoading(true);
-      setHasErrors(undefined);
+      setLoading(true)
+      setHasErrors(undefined)
       setTimeout(() => {
         requestPassword(values.email)
           .then(({ data: { result } }) => {
-            setHasErrors(false);
-            setLoading(false);
+            setHasErrors(false)
+            setLoading(false)
           })
           .catch(() => {
-            setHasErrors(true);
-            setLoading(false);
-            setSubmitting(false);
-            setStatus("The login detail is incorrect");
-          });
-      }, 1000);
-    },
-  });
+            setHasErrors(true)
+            setLoading(false)
+            setSubmitting(false)
+            setStatus('The login detail is incorrect')
+          })
+      }, 1000)
+    }
+  })
 
   return (
     <>
@@ -59,7 +59,7 @@ export function ForgotPassword() {
           </p>
         </div>
 
-        {/* begin::Title */}
+        {/*begin::Title */}
         {hasErrors === true && (
           <div className="mb-lg-15 alert alert-danger">
             <div className="alert-text font-weight-bold">
@@ -76,9 +76,9 @@ export function ForgotPassword() {
             </div>
           </div>
         )}
-        {/* end::Title */}
+        {/*end::Title */}
 
-        {/* begin::Form group */}
+        {/*begin::Form group */}
         <div className="fv-row mb-10">
           <label className="form-label fs-6 fw-bolder text-dark pt-5">
             Email
@@ -87,12 +87,12 @@ export function ForgotPassword() {
             type="email"
             placeholder=""
             autoComplete="off"
-            {...formik.getFieldProps("email")}
+            {...formik.getFieldProps('email')}
             className={clsx(
-              "form-control form-control-lg form-control-solid",
-              { "is-invalid": formik.touched.email && formik.errors.email },
+              'form-control form-control-lg form-control-solid',
+              { 'is-invalid': formik.touched.email && formik.errors.email },
               {
-                "is-valid": formik.touched.email && !formik.errors.email,
+                'is-valid': formik.touched.email && !formik.errors.email
               }
             )}
           />
@@ -102,9 +102,9 @@ export function ForgotPassword() {
             </div>
           )}
         </div>
-        {/* end::Form group */}
+        {/*end::Form group */}
 
-        {/* begin::Form group */}
+        {/*begin::Form group */}
         <div className="d-flex flex-wrap pb-lg-0">
           <button
             type="submit"
@@ -122,7 +122,7 @@ export function ForgotPassword() {
             >
               Cancel
             </button>
-          </Link>{" "}
+          </Link>{' '}
           {loading && (
             <span
               className="spinner-border text-primary ms-3 mt-6"
@@ -132,8 +132,8 @@ export function ForgotPassword() {
             </span>
           )}
         </div>
-        {/* end::Form group */}
+        {/*end::Form group */}
       </form>
     </>
-  );
+  )
 }

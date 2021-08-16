@@ -1,8 +1,5 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable jsx-a11y/anchor-has-content */
-/* eslint-disable no-unreachable */
-import React from "react";
-import { CodeBlock } from "../../../../../../_start/partials";
+import React from 'react'
+import { CodeBlock } from '../../../../../../_start/partials'
 
 export function Example9ZIndex() {
   return (
@@ -13,8 +10,7 @@ export function Example9ZIndex() {
         </h1>
         <div className="py-5">
           Use
-          <code>.z-index-{`{value}`}</code>class to set an element's
-          z-index:
+          <code>.z-index-{'{value}'}</code>class to set an element's z-index:
         </div>
 
         <div className="py-5">
@@ -50,7 +46,7 @@ export function Example9ZIndex() {
         <CodeBlock language="markup" code={code} />
       </div>
     </>
-  );
+  )
 }
 
 const code = `<div className="z-index-n1"></div>
@@ -58,4 +54,4 @@ const code = `<div className="z-index-n1"></div>
 <div className="z-index-0"></div>
 <div className="z-index-1"></div>
 <div className="z-index-2"></div>
-<div className="z-index-3"></div>`;
+<div className="z-index-3"></div>`

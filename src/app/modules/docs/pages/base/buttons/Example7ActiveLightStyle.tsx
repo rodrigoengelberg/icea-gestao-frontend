@@ -1,8 +1,5 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable jsx-a11y/anchor-has-content */
-/* eslint-disable no-unreachable */
-import React from "react";
-import { CodeBlock } from "../../../../../../_start/partials";
+import React from 'react'
+import { CodeBlock } from '../../../../../../_start/partials'
 
 export function Example7ActiveLightStyle() {
   return (
@@ -12,7 +9,7 @@ export function Example7ActiveLightStyle() {
       </h1>
       <div className="py-5">
         Use
-        <code>.btn-active-light-{"{color}"}</code>class to set a button's light
+        <code>.btn-active-light-{'{color}'}</code>class to set a button's light
         color for active &amp; hover states only:
       </div>
       <div className="py-5">
@@ -39,7 +36,7 @@ export function Example7ActiveLightStyle() {
       </div>
       <CodeBlock language="markup" code={code} />
     </div>
-  );
+  )
 }
 
 const code = `<a href="#" className="btn btn-active-light-primary">Primary</a>
@@ -47,4 +44,4 @@ const code = `<a href="#" className="btn btn-active-light-primary">Primary</a>
 <a href="#" className="btn btn-active-light-info">Info</a>
 <a href="#" className="btn btn-active-light-warning">Warning</a>
 <a href="#" className="btn btn-active-light-danger">Danger</a>
-<a href="#" className="btn btn-active-light-dark">Dark</a>`;
+<a href="#" className="btn btn-active-light-dark">Dark</a>`

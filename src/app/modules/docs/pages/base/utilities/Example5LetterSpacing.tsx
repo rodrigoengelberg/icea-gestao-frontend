@@ -1,8 +1,5 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable jsx-a11y/anchor-has-content */
-/* eslint-disable no-unreachable */
-import React from "react";
-import { CodeBlock } from "../../../../../../_start/partials";
+import React from 'react'
+import { CodeBlock } from '../../../../../../_start/partials'
 
 export function Example5LetterSpacing() {
   return (
@@ -12,7 +9,7 @@ export function Example5LetterSpacing() {
       </h1>
       <div className="py-5">
         Use
-        <code>.ls-{`{value}`}</code>class to set an element's letter spacing
+        <code>.ls-{'{value}'}</code>class to set an element's letter spacing
         where
         <code>value</code>is one of:
       </div>
@@ -66,11 +63,11 @@ export function Example5LetterSpacing() {
 
       <CodeBlock language="markup" code={code} />
     </div>
-  );
+  )
 }
 
 const code = `<div className="ls-1">Example text for .ls-1</div>
 <div className="ls-2">Example text for .ls-2</div>
 <div className="ls-3">Example text for .ls-3</div>
 <div className="ls-4">Example text for .ls-4</div>
-<div className="ls-5">Example text for .ls-5</div>`;
+<div className="ls-5">Example text for .ls-5</div>`

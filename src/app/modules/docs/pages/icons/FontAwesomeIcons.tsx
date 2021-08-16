@@ -1,12 +1,8 @@
-/* eslint-disable react/jsx-no-target-blank */
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable jsx-a11y/anchor-has-content */
-/* eslint-disable no-unreachable */
-import React from "react";
-import { CodeBlock } from "../../../../../_start/partials";
+import React from 'react'
+import { CodeBlock } from '../../../../../_start/partials'
 
 export function FontAwesomeIcons() {
-  const { REACT_APP_THEME_NAME, REACT_APP_SASS_VARIABLES_PATH } = process.env;
+  const { REACT_APP_THEME_NAME, REACT_APP_SASS_VARIABLES_PATH } = process.env
 
   return (
     <>
@@ -15,7 +11,7 @@ export function FontAwesomeIcons() {
           <a href="#overview"></a>Overview
         </h1>
         <div className="py-5">
-          Get vector icons and social logos on your website with{" "}
+          Get vector icons and social logos on your website with{' '}
           <a
             href="https://fontawesome.com/"
             className="fw-bold"
@@ -24,8 +20,8 @@ export function FontAwesomeIcons() {
             Font Awesome
           </a>
           , the web's most popular icon set and toolkit. Font Awesome Free
-          package included in <strong>{REACT_APP_THEME_NAME}</strong>&nbsp;and can be used
-          right away by browsing the{' '}
+          package included in <strong>{REACT_APP_THEME_NAME}</strong>&nbsp;and
+          can be used right away by browsing the{' '}
           <a
             href="https://fontawesome.com/icons?d=gallery&amp;m=free"
             className="fw-bold"
@@ -41,7 +37,7 @@ export function FontAwesomeIcons() {
           <a href="#usage"></a>Ugage
         </h1>
         <div className="py-5">
-          Use Font Awesome icons with spesific class as explained in the{" "}
+          Use Font Awesome icons with spesific class as explained in the{' '}
           <a
             className="fw-bold"
             href="https://fontawesome.com/icons/affiliatetheme?style=brands"
@@ -71,7 +67,7 @@ export function FontAwesomeIcons() {
         </h1>
         <div className="py-5">
           The inline icons can be colored using
-          <code>.text-{`{color}`}</code>class that defined with
+          <code>.text-{'{color}'}</code>class that defined with
           <code>$theme-text-colors</code>variable in
           <code>{REACT_APP_SASS_VARIABLES_PATH}</code>:
         </div>
@@ -163,7 +159,7 @@ export function FontAwesomeIcons() {
         </h1>
         <div className="py-5">
           The font icons can be sized using
-          <code>.fs-{`{size}`}</code>class that defined with
+          <code>.fs-{'{size}'}</code>class that defined with
           <code>$font-sizes</code>variable in
           <code>{REACT_APP_SASS_VARIABLES_PATH}</code>
         </div>
@@ -389,7 +385,7 @@ export function FontAwesomeIcons() {
         <CodeBlock code={code3} language="markup" />
       </div>
     </>
-  );
+  )
 }
 
 const code = `<i className="fas fa-envelope-open-tex"></i>
@@ -399,7 +395,7 @@ const code = `<i className="fas fa-envelope-open-tex"></i>
 <i className="fas fa-chart-pie"></i>
 <i className="fas fa-percentage"></i>
 <i className="fas fa-print"></i>
-<i className="fas fa-pen-nib"></i>`;
+<i className="fas fa-pen-nib"></i>`
 
 const code2 = `<i className="far fa-lightbulb text-white"></i>
 <i className="far fa-lightbulb text-primary"></i>
@@ -419,7 +415,7 @@ const code2 = `<i className="far fa-lightbulb text-white"></i>
 <i className="far fa-lightbulb text-gray-600"></i>
 <i className="far fa-lightbulb text-gray-700"></i>
 <i className="far fa-lightbulb text-gray-800"></i>
-<i className="far fa-lightbulb text-gray-900"></i>`;
+<i className="far fa-lightbulb text-gray-900"></i>`
 
 const code3 = `<i className="far fa-lightbulb fs-5x"></i>
 <i className="far fa-lightbulb fs-4x"></i>
@@ -432,4 +428,4 @@ const code3 = `<i className="far fa-lightbulb fs-5x"></i>
 <i className="far fa-lightbulb fs-2"></i>
 <i className="far fa-lightbulb fs-3"></i>
 <i className="far fa-lightbulb fs-5"></i>
-<i className="far fa-lightbulb fs-6"></i>`;
+<i className="far fa-lightbulb fs-6"></i>`

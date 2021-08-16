@@ -1,32 +1,31 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-import React from "react";
-import { KTSVG, toAbsoluteUrl } from "../../../helpers";
-import { Dropdown2 } from "../../content/dropdown/Dropdown2";
+import React from 'react'
+import { KTSVG, toAbsoluteUrl } from '../../../helpers'
+import { Dropdown2 } from '../../content/dropdown/Dropdown2'
 
 type Props = {
-  className: string;
-};
+  className: string
+}
 
 const FeedsWidget3: React.FC<Props> = ({ className }) => {
   return (
     <div className={`card ${className}`}>
-      {/* begin::Body*/}
+      {/*begin::Body */}
       <div className="card-body pb-0">
-        {/* begin::Top*/}
+        {/*begin::Top */}
         <div className="d-flex align-items-center">
-          {/* begin::Symbol*/}
+          {/*begin::Symbol */}
           <div className="symbol symbol-45px me-5">
             <span className="symbol-label bg-light align-items-end">
               <img
                 alt="Logo"
-                src={toAbsoluteUrl("/media/svg/avatars/047-girl-25.svg")}
+                src={toAbsoluteUrl('/media/svg/avatars/047-girl-25.svg')}
                 className="mh-40px"
               />
             </span>
           </div>
-          {/* end::Symbol*/}
+          {/*end::Symbol */}
 
-          {/* begin::Info*/}
+          {/*begin::Info */}
           <div className="d-flex flex-column flex-grow-1">
             <a
               href="#"
@@ -36,9 +35,9 @@ const FeedsWidget3: React.FC<Props> = ({ className }) => {
             </a>
             <span className="text-muted fw-bold">Yestarday at 5:06 PM</span>
           </div>
-          {/* end::Info*/}
+          {/*end::Info */}
 
-          {/* begin::Dropdown Menu*/}
+          {/*begin::Dropdown Menu */}
           <div className="dropdown dropdown-inline">
             <button
               type="button"
@@ -54,32 +53,32 @@ const FeedsWidget3: React.FC<Props> = ({ className }) => {
               <Dropdown2 />
             </div>
           </div>
-          {/* end::Dropdown Menu*/}
+          {/*end::Dropdown Menu */}
         </div>
-        {/* end::Top*/}
+        {/*end::Top */}
 
-        {/* begin::Bottom*/}
+        {/*begin::Bottom */}
         <div className="pt-4">
-          {/* begin::Image*/}
+          {/*begin::Image */}
           <div
             className="bgi-no-repeat bgi-size-cover rounded min-h-250px"
             style={{
               backgroundImage: `url('${toAbsoluteUrl(
-                "/media/stock/900x600/3.jpg"
-              )}')`,
+                '/media/stock/900x600/3.jpg'
+              )}')`
             }}
           ></div>
-          {/* end::Image*/}
+          {/*end::Image */}
 
-          {/* begin::Text*/}
+          {/*begin::Text */}
           <p className="text-gray-800 fs-6 fw-normal pt-5 mb-2">
             Outlines keep you honest. They stop you from indulging in poorly
             thought-out metaphors about driving and keep you focused on the
             overall structure of your post
           </p>
-          {/* end::Text*/}
+          {/*end::Text */}
 
-          {/* begin::Action*/}
+          {/*begin::Action */}
           <div className="d-flex align-items-center">
             <a
               href="#"
@@ -103,15 +102,15 @@ const FeedsWidget3: React.FC<Props> = ({ className }) => {
               75
             </a>
           </div>
-          {/* end::Action*/}
+          {/*end::Action */}
         </div>
-        {/* end::Bottom*/}
+        {/*end::Bottom */}
 
-        {/* begin::Separator*/}
+        {/*begin::Separator */}
         <div className="separator mt-2"></div>
-        {/* end::Separator*/}
+        {/*end::Separator */}
 
-        {/* begin::Editor*/}
+        {/*begin::Editor */}
         <form className="position-relative py-4 d-flex align-items-center pb-5">
           <textarea
             id="kt_forms_widget_3_input"
@@ -129,11 +128,11 @@ const FeedsWidget3: React.FC<Props> = ({ className }) => {
             </span>
           </div>
         </form>
-        {/* edit::Editor*/}
+        {/*edit::Editor */}
       </div>
-      {/* end::Body*/}
+      {/*end::Body */}
     </div>
-  );
-};
+  )
+}
 
-export { FeedsWidget3 };
+export { FeedsWidget3 }

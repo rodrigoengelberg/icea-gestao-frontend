@@ -1,16 +1,16 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable jsx-a11y/anchor-is-valid */
-import React from "react";
-import { Toggle } from "./Toggle";
-import { Free } from "./Free";
-import { FreeRelatedProducts } from "./FreeRelatedProducts";
-import { KTSVG } from "../../../helpers";
+/*eslint-disable react-hooks/exhaustive-deps */
+
+import React from 'react'
+import { Toggle } from './Toggle'
+import { Free } from './Free'
+import { FreeRelatedProducts } from './FreeRelatedProducts'
+import { KTSVG } from '../../../helpers'
 
 export function ExploreMain() {
   return (
     <>
       <Toggle />
-      {/* begin::Exolore drawer */}
+      {/*begin::Exolore drawer */}
       <div
         id="kt_explore"
         className="explore bg-white"
@@ -23,9 +23,9 @@ export function ExploreMain() {
         data-kt-drawer-toggle="#kt_explore_toggle"
         data-kt-drawer-close="#kt_explore_close"
       >
-        {/* begin::Card  */}
+        {/*begin::Card  */}
         <div className="card shadow-none w-100">
-          {/* begin::Header */}
+          {/*begin::Header */}
           <div className="card-header" id="kt_explore_header">
             <h5 className="card-title fw-bold text-gray-600">Upgrade to Pro</h5>
 
@@ -42,10 +42,10 @@ export function ExploreMain() {
               </button>
             </div>
           </div>
-          {/* end::Header */}
-          {/* begin::Body */}
+          {/*end::Header */}
+          {/*begin::Body */}
           <div className="card-body" id="kt_explore_body">
-            {/* begin::Content */}
+            {/*begin::Content */}
             <div
               id="kt_explore_scroll"
               className="scroll-y me-n5 pe-5"
@@ -58,10 +58,10 @@ export function ExploreMain() {
               <Free />
               <FreeRelatedProducts />
             </div>
-            {/* end::Content */}
+            {/*end::Content */}
           </div>
-          {/* end::Body */}
-          {/* begin::Footer */}
+          {/*end::Body */}
+          {/*begin::Footer */}
           <div className="card-footer py-5 text-center" id="kt_explore_footer">
             <a
               href="https://keenthemes.com/products/start-react-free"
@@ -71,11 +71,11 @@ export function ExploreMain() {
               <span className="fw-bolder ms-1">Start React Free</span>
             </a>
           </div>
-          {/* end::Footer */}
+          {/*end::Footer */}
         </div>
-        {/* begin::Card */}
+        {/*begin::Card */}
       </div>
-      {/* end::Exolore drawer */}
+      {/*end::Exolore drawer */}
     </>
-  );
+  )
 }

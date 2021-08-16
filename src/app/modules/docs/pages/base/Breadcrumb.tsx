@@ -1,16 +1,13 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable jsx-a11y/anchor-has-content */
-/* eslint-disable no-unreachable */
-import React from "react";
-import { CodeBlock } from "../../../../../_start/partials";
+import React from 'react'
+import { CodeBlock } from '../../../../../_start/partials'
 
 export function Breadcrumb() {
   const {
     REACT_APP_THEME_NAME,
     REACT_APP_BOOTSTRAP_DOCS_LINK,
     REACT_APP_SASS_PATH,
-    REACT_APP_SASS_VARIABLES_PATH,
-  } = process.env;
+    REACT_APP_SASS_VARIABLES_PATH
+  } = process.env
   return (
     <>
       <div className="card-body p-10 p-lg-15">
@@ -154,7 +151,7 @@ export function Breadcrumb() {
         </div>
       </div>
     </>
-  );
+  )
 }
 
 const code = `<ol className="breadcrumb text-muted fs-6 fw-bold">
@@ -169,7 +166,7 @@ const code = `<ol className="breadcrumb text-muted fs-6 fw-bold">
     </a>
   </li>
   <li className="breadcrumb-item px-3 text-muted">Active</li>
-</ol>`;
+</ol>`
 
 const code2 = `<ol className="breadcrumb breadcrumb-line text-muted fs-6 fw-bold">
   <li className="breadcrumb-item pe-3">
@@ -183,7 +180,7 @@ const code2 = `<ol className="breadcrumb breadcrumb-line text-muted fs-6 fw-bold
     </a>
   </li>
   <li className="breadcrumb-item px-3 text-muted">Active</li>
-</ol>`;
+</ol>`
 
 const code3 = `<ol className="breadcrumb breadcrumb-dot text-muted fs-6 fw-bold">
   <li className="breadcrumb-item pe-3">
@@ -197,7 +194,7 @@ const code3 = `<ol className="breadcrumb breadcrumb-dot text-muted fs-6 fw-bold"
     </a>
   </li>
   <li className="breadcrumb-item px-3 text-muted">Active</li>
-</ol>`;
+</ol>`
 
 const code4 = `<ol className="breadcrumb breadcrumb-separatorless text-muted fs-6 fw-bold">
   <li className="breadcrumb-item pe-3">
@@ -211,4 +208,4 @@ const code4 = `<ol className="breadcrumb breadcrumb-separatorless text-muted fs-
     </a>
   </li>
   <li className="breadcrumb-item px-3 text-muted">Active</li>
-</ol>`;
+</ol>`

@@ -1,11 +1,8 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable jsx-a11y/anchor-has-content */
-/* eslint-disable no-unreachable */
-import React from "react";
-import { CodeBlock } from "../../../../../_start/partials";
+import React from 'react'
+import { CodeBlock } from '../../../../../_start/partials'
 
 export function HelpersBackground() {
-  const { REACT_APP_SASS_VARIABLES_PATH } = process.env;
+  const { REACT_APP_SASS_VARIABLES_PATH } = process.env
 
   return (
     <>
@@ -60,7 +57,7 @@ export function HelpersBackground() {
 
         <div className="py-5">
           Use
-          <code>.bg-light-{`{color}`}</code>class to set an element's light
+          <code>.bg-light-{'{color}'}</code>class to set an element's light
           background color defined with
           <code>$theme-light-colors</code>in
           <code>{REACT_APP_SASS_VARIABLES_PATH}</code>:
@@ -99,7 +96,7 @@ export function HelpersBackground() {
 
         <div className="py-5">
           Use
-          <code>.bg-active-{`{color}`}</code>class to toggle an element's active
+          <code>.bg-active-{'{color}'}</code>class to toggle an element's active
           background color state with
           <code>.active</code>class:
         </div>
@@ -146,7 +143,7 @@ export function HelpersBackground() {
 
         <div className="py-5">
           Use
-          <code>.bg-hover-{`{color}`}</code>class to set an element's hover
+          <code>.bg-hover-{'{color}'}</code>class to set an element's hover
           background color:
         </div>
 
@@ -191,7 +188,7 @@ export function HelpersBackground() {
 
         <div className="py-5">
           Use
-          <code>.bg-hover-light-{`{color}`}</code>class to set an element's
+          <code>.bg-hover-light-{'{color}'}</code>class to set an element's
           hover light background color:
         </div>
 
@@ -228,7 +225,7 @@ export function HelpersBackground() {
         <div className="py-5">
           Use
           <code>.hoverable</code>with
-          <code>.bg-{`{color}`}</code>class to set an element's background color
+          <code>.bg-{'{color}'}</code>class to set an element's background color
           with hover state:
         </div>
 
@@ -274,7 +271,7 @@ export function HelpersBackground() {
         <div className="py-5">
           Use
           <code>.hoverable</code>with
-          <code>.bg-light-{`{color}`}</code>class to set an element's light
+          <code>.bg-light-{'{color}'}</code>class to set an element's light
           background color with hover state:
         </div>
 
@@ -310,10 +307,10 @@ export function HelpersBackground() {
 
         <div className="py-5">
           Use
-          <code>.bg-opacity-{`{0, 5, 10, 15, 20, 25, 50, 75, 100}`}</code>class
+          <code>.bg-opacity-{'{0, 5, 10, 15, 20, 25, 50, 75, 100}'}</code>class
           with
-          <code>.bg-{`{color}`}</code>or
-          <code>.bg-light-{`{color}`}</code>to set an element's background color
+          <code>.bg-{'{color}'}</code>or
+          <code>.bg-light-{'{color}'}</code>to set an element's background color
           with opacity:
         </div>
 
@@ -368,7 +365,7 @@ export function HelpersBackground() {
         <div className="py-5">
           Assign background image style values to an element with shorthand
           classes with the format
-          <code>bgi-{`{property}`}</code>.
+          <code>bgi-{'{property}'}</code>.
         </div>
 
         <div className="py-5">
@@ -424,11 +421,11 @@ export function HelpersBackground() {
         <div className="py-5">
           Use responsive-friendly background image size style values for an
           element with shorthand classes with the format
-          <code>.bgi-size-{`{breakpoint}-{property}`}</code>. The classes are
+          <code>.bgi-size-{'{breakpoint}-{property}'}</code>. The classes are
           named using the format
-          <code>.bgi-size-{`{property}`}</code>for
+          <code>.bgi-size-{'{property}'}</code>for
           <code>xs</code>and
-          <code>.bgi-size-{`{breakpoint}-{property}`}</code>for
+          <code>.bgi-size-{'{breakpoint}-{property}'}</code>for
           <code>sm</code>,<code>md</code>,<code>lg</code>,<code>xl</code>, and
           <code>xxl</code>.
         </div>
@@ -454,7 +451,7 @@ export function HelpersBackground() {
         <CodeBlock language="markup" code={code10} />
       </div>
     </>
-  );
+  )
 }
 
 const code = `<div className="bg-white"></div>
@@ -465,14 +462,14 @@ const code = `<div className="bg-white"></div>
 <div className="bg-info"></div>
 <div className="bg-warning"></div>
 <div className="bg-danger"></div>
-<div className="bg-dark"></div>`;
+<div className="bg-dark"></div>`
 
 const code2 = `<div className="bg-light-primary text-primary"></div>
 <div className="bg-light-success text-success"></div>
 <div className="bg-light-info text-info"></div>
 <div className="bg-light-warning text-warning"></div>
 <div className="bg-light-danger text-danger"></div>
-<div className="bg-light-dark text-dark"></div>`;
+<div className="bg-light-dark text-dark"></div>`
 
 const code3 = `<div className="bg-active-white text-active-inverse-white active"></div>
 <div className="bg-active-primary text-active-inverse-primary active"></div>
@@ -482,7 +479,7 @@ const code3 = `<div className="bg-active-white text-active-inverse-white active"
 <div className="bg-active-info text-active-inverse-info active"></div>
 <div className="bg-active-warning text-active-inverse-warning active"></div>
 <div className="bg-active-danger text-active-inverse-danger active"></div>
-<div className="bg-active-dark text-active-inverse-dark active"></div>`;
+<div className="bg-active-dark text-active-inverse-dark active"></div>`
 
 const code4 = `<div className="bg-hover-white text-hover-inverse-white"></div>
 <div className="bg-hover-primary text-hover-inverse-primary"></div>
@@ -492,14 +489,14 @@ const code4 = `<div className="bg-hover-white text-hover-inverse-white"></div>
 <div className="bg-hover-info text-hover-inverse-info"></div>
 <div className="bg-hover-warning text-hover-inverse-warning"></div>
 <div className="bg-hover-danger text-hover-inverse-danger"></div>
-<div className="bg-hover-dark text-hover-inverse-dark"></div>`;
+<div className="bg-hover-dark text-hover-inverse-dark"></div>`
 
 const code5 = `<div className="bg-hover-light-primary text-hover-primary"></div>
 <div className="bg-hover-light-success text-hover-success"></div>
 <div className="bg-hover-light-info text-hover-info"></div>
 <div className="bg-hover-light-warning text-hover-warning"></div>
 <div className="bg-hover-light-danger text-hover-danger"></div>
-<div className="bg-hover-light-dark text-hover-dark"></div>`;
+<div className="bg-hover-light-dark text-hover-dark"></div>`
 
 const code6 = `<div className="bg-white hoverable"></div>
 <div className="bg-primary hoverable"></div>
@@ -509,14 +506,14 @@ const code6 = `<div className="bg-white hoverable"></div>
 <div className="bg-info hoverable"></div>
 <div className="bg-warning hoverable"></div>
 <div className="bg-danger hoverable"></div>
-<div className="bg-dark hoverable"></div>`;
+<div className="bg-dark hoverable"></div>`
 
 const code7 = `<div className="bg-light-primary hoverable"></div>
 <div className="bg-light-success hoverable"></div>
 <div className="bg-light-info hoverable"></div>
 <div className="bg-light-warning hoverable"></div>
 <div className="bg-light-danger hoverable"></div>
-<div className="bg-light-dark hoverable"></div>`;
+<div className="bg-light-dark hoverable"></div>`
 
 const code8 = `<div className="bg-hover-opacity-0 bg-primary"></div>
 <div className="bg-hover-opacity-5 bg-primary"></div>
@@ -526,8 +523,10 @@ const code8 = `<div className="bg-hover-opacity-0 bg-primary"></div>
 <div className="bg-hover-opacity-25 bg-primary"></div>
 <div className="bg-hover-opacity-50 bg-primary"></div>
 <div className="bg-hover-opacity-75 bg-primary"></div>
-<div className="bg-hover-opacity-100 bg-primary"></div>`;
+<div className="bg-hover-opacity-100 bg-primary"></div>`
 
-const code9 = `<div style="background-image: url(image.png)" className="bgi-no-repeat bgi-position-center"></div>`;
+const code9 =
+  '<div style="background-image: url(image.png)" className="bgi-no-repeat bgi-position-center"></div>'
 
-const code10 = `<div style="background-image: url(image.png)" className="bgi-size-contain bgi-size-lg-auto bgi-no-repeat bgi-position-center"></div>`;
+const code10 =
+  '<div style="background-image: url(image.png)" className="bgi-size-contain bgi-size-lg-auto bgi-no-repeat bgi-position-center"></div>'

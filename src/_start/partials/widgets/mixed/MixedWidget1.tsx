@@ -1,56 +1,55 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useEffect, useRef } from "react";
-import ApexCharts, { ApexOptions } from "apexcharts";
-import { toAbsoluteUrl } from "../../../helpers";
-import { getCSS, getCSSVariableValue } from "../../../assets/ts/_utils";
+import React, { useEffect, useRef } from 'react'
+import ApexCharts, { ApexOptions } from 'apexcharts'
+import { toAbsoluteUrl } from '../../../helpers'
+import { getCSS, getCSSVariableValue } from '../../../assets/ts/_utils'
 
 type Props = {
-  className: string;
-};
+  className: string
+}
 
 const MixedWidget1: React.FC<Props> = ({ className }) => {
-  const chart1Ref = useRef<HTMLDivElement | null>(null);
-  const chart2Ref = useRef<HTMLDivElement | null>(null);
+  const chart1Ref = useRef<HTMLDivElement | null>(null)
+  const chart2Ref = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
     if (!chart1Ref.current) {
-      return;
+      return
     }
 
-    const heigh1 = parseInt(getCSS(chart1Ref.current, "height"));
-    const chart1 = new ApexCharts(chart1Ref.current, chart1Options(heigh1));
+    const heigh1 = parseInt(getCSS(chart1Ref.current, 'height'))
+    const chart1 = new ApexCharts(chart1Ref.current, chart1Options(heigh1))
     if (chart1) {
-      chart1.render();
+      chart1.render()
     }
 
     return () => {
       if (chart1) {
-        chart1.destroy();
+        chart1.destroy()
       }
-    };
-  }, [chart1Ref]);
+    }
+  }, [chart1Ref])
 
   useEffect(() => {
     if (!chart2Ref.current) {
-      return;
+      return
     }
 
-    const heigh2 = parseInt(getCSS(chart2Ref.current, "height"));
-    const chart2 = new ApexCharts(chart2Ref.current, chart2Options(heigh2));
+    const heigh2 = parseInt(getCSS(chart2Ref.current, 'height'))
+    const chart2 = new ApexCharts(chart2Ref.current, chart2Options(heigh2))
     if (chart2) {
-      chart2.render();
+      chart2.render()
     }
 
     return () => {
       if (chart2) {
-        chart2.destroy();
+        chart2.destroy()
       }
-    };
-  }, [chart2Ref]);
+    }
+  }, [chart2Ref])
 
   return (
     <div className={`card ${className}`}>
-      {/* begin::Header */}
+      {/*begin::Header */}
       <div className="card-header border-0 pt-5">
         <h3 className="card-title align-items-start flex-column">
           <span className="card-label fw-bolder text-dark fs-3">
@@ -101,7 +100,7 @@ const MixedWidget1: React.FC<Props> = ({ className }) => {
                 <div
                   ref={chart1Ref}
                   id="kt_mixed_widget_1_chart"
-                  style={{ height: "150px" }}
+                  style={{ height: '150px' }}
                 ></div>
               </div>
               {/*end::Chart */}
@@ -117,7 +116,7 @@ const MixedWidget1: React.FC<Props> = ({ className }) => {
                       <span className="symbol-label">
                         <img
                           src={toAbsoluteUrl(
-                            "/media/svg/brand-logos/plurk.svg"
+                            '/media/svg/brand-logos/plurk.svg'
                           )}
                           alt=""
                           className="mw-75"
@@ -159,7 +158,7 @@ const MixedWidget1: React.FC<Props> = ({ className }) => {
                       <span className="symbol-label">
                         <img
                           src={toAbsoluteUrl(
-                            "/media/svg/brand-logos/telegram.svg"
+                            '/media/svg/brand-logos/telegram.svg'
                           )}
                           alt=""
                           className="mw-75"
@@ -200,7 +199,7 @@ const MixedWidget1: React.FC<Props> = ({ className }) => {
                     <div className="symbol symbol-50px symbol-light me-5">
                       <span className="symbol-label">
                         <img
-                          src={toAbsoluteUrl("/media/svg/misc/puzzle.svg")}
+                          src={toAbsoluteUrl('/media/svg/misc/puzzle.svg')}
                           alt=""
                           className="mw-75"
                         />
@@ -250,7 +249,7 @@ const MixedWidget1: React.FC<Props> = ({ className }) => {
                 <div
                   ref={chart2Ref}
                   id="kt_mixed_widget_2_chart"
-                  style={{ height: "150px" }}
+                  style={{ height: '150px' }}
                 ></div>
               </div>
               {/*end::Chart */}
@@ -266,7 +265,7 @@ const MixedWidget1: React.FC<Props> = ({ className }) => {
                       <span className="symbol-label">
                         <img
                           src={toAbsoluteUrl(
-                            "/media/svg/brand-logos/telegram.svg"
+                            '/media/svg/brand-logos/telegram.svg'
                           )}
                           alt=""
                           className="mw-75"
@@ -308,7 +307,7 @@ const MixedWidget1: React.FC<Props> = ({ className }) => {
                       <span className="symbol-label">
                         <img
                           src={toAbsoluteUrl(
-                            "/media/svg/brand-logos/plurk.svg"
+                            '/media/svg/brand-logos/plurk.svg'
                           )}
                           alt=""
                           className="mw-75"
@@ -349,7 +348,7 @@ const MixedWidget1: React.FC<Props> = ({ className }) => {
                     <div className="symbol symbol-50px symbol-light me-5">
                       <span className="symbol-label">
                         <img
-                          src={toAbsoluteUrl("/media/svg/misc/puzzle.svg")}
+                          src={toAbsoluteUrl('/media/svg/misc/puzzle.svg')}
                           alt=""
                           className="mw-75"
                         />
@@ -388,87 +387,87 @@ const MixedWidget1: React.FC<Props> = ({ className }) => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
 const chart1Options = (height: string | number | undefined): ApexOptions => {
   return {
     series: [
       {
-        name: "Net Profit",
-        data: [30, 30, 43, 43, 34, 34, 26, 26, 47, 47],
-      },
+        name: 'Net Profit',
+        data: [30, 30, 43, 43, 34, 34, 26, 26, 47, 47]
+      }
     ],
     chart: {
-      fontFamily: "inherit",
-      type: "area",
+      fontFamily: 'inherit',
+      type: 'area',
       height: height,
       toolbar: {
-        show: false,
+        show: false
       },
       zoom: {
-        enabled: false,
+        enabled: false
       },
       sparkline: {
-        enabled: true,
-      },
+        enabled: true
+      }
     },
     plotOptions: {},
     legend: {
-      show: false,
+      show: false
     },
     dataLabels: {
-      enabled: false,
+      enabled: false
     },
     stroke: {
-      curve: "smooth",
+      curve: 'smooth',
       show: true,
       width: 3,
-      colors: ["#20D489", ""],
+      colors: ['#20D489', '']
     },
     xaxis: {
       categories: [
-        "Feb",
-        "Mar",
-        "Apr",
-        "May",
-        "Jun",
-        "Jul",
-        "Aug",
-        "Sep",
-        "Oct",
-        "Nov",
+        'Feb',
+        'Mar',
+        'Apr',
+        'May',
+        'Jun',
+        'Jul',
+        'Aug',
+        'Sep',
+        'Oct',
+        'Nov'
       ],
       axisBorder: {
-        show: false,
+        show: false
       },
       axisTicks: {
-        show: false,
+        show: false
       },
       labels: {
         show: false,
         style: {
-          colors: "#A1A5B7",
-          fontSize: "12px",
-        },
+          colors: '#A1A5B7',
+          fontSize: '12px'
+        }
       },
       crosshairs: {
         show: false,
-        position: "front",
+        position: 'front',
         stroke: {
-          color: getCSSVariableValue("--bs-primary"),
+          color: getCSSVariableValue('--bs-primary'),
           width: 1,
-          dashArray: 3,
-        },
+          dashArray: 3
+        }
       },
       tooltip: {
         enabled: true,
         formatter: undefined,
         offsetY: 0,
         style: {
-          fontSize: "12px",
-        },
-      },
+          fontSize: '12px'
+        }
+      }
     },
     yaxis: {
       min: 0,
@@ -476,200 +475,200 @@ const chart1Options = (height: string | number | undefined): ApexOptions => {
       labels: {
         show: false,
         style: {
-          colors: "#A1A5B7",
-          fontSize: "12px",
-        },
-      },
+          colors: '#A1A5B7',
+          fontSize: '12px'
+        }
+      }
     },
     states: {
       normal: {
         filter: {
-          type: "none",
-          value: 0,
-        },
+          type: 'none',
+          value: 0
+        }
       },
       hover: {
         filter: {
-          type: "none",
-          value: 0,
-        },
+          type: 'none',
+          value: 0
+        }
       },
       active: {
         allowMultipleDataPointsSelection: false,
         filter: {
-          type: "none",
-          value: 0,
-        },
-      },
+          type: 'none',
+          value: 0
+        }
+      }
     },
     tooltip: {
       style: {
-        fontSize: "12px",
+        fontSize: '12px'
       },
       y: {
         formatter: function (val) {
-          return "$" + val + " thousands";
-        },
-      },
+          return '$' + val + ' thousands'
+        }
+      }
     },
     fill: {
-      type: "gradient",
+      type: 'gradient',
       gradient: {
         shadeIntensity: 1,
         opacityFrom: 0.7,
         opacityTo: 0.6,
-        stops: [0, 100],
-      },
-      // opacity: 1
+        stops: [0, 100]
+      }
+      //opacity: 1
     },
-    colors: [getCSSVariableValue("--bs-primary")],
+    colors: [getCSSVariableValue('--bs-primary')],
     markers: {
-      colors: [getCSSVariableValue("--bs-light-primary")],
-      strokeColors: [getCSSVariableValue("--bs-primary")],
-      strokeWidth: 3,
-    },
-  };
-};
+      colors: [getCSSVariableValue('--bs-light-primary')],
+      strokeColors: [getCSSVariableValue('--bs-primary')],
+      strokeWidth: 3
+    }
+  }
+}
 
 const chart2Options = (height: string | number | undefined): ApexOptions => {
   return {
     series: [
       {
-        name: "Net Profit",
-        data: [30, 30, 43, 43, 34, 34, 26, 26, 47, 47],
-      },
+        name: 'Net Profit',
+        data: [30, 30, 43, 43, 34, 34, 26, 26, 47, 47]
+      }
     ],
     chart: {
-      fontFamily: "inherit",
-      type: "area",
+      fontFamily: 'inherit',
+      type: 'area',
       height: height,
       toolbar: {
-        show: false,
+        show: false
       },
       zoom: {
-        enabled: false,
+        enabled: false
       },
       sparkline: {
-        enabled: true,
-      },
+        enabled: true
+      }
     },
     plotOptions: {},
     legend: {
-      show: false,
+      show: false
     },
     dataLabels: {
-      enabled: false,
+      enabled: false
     },
-    // fill: {
-    //     type: 'solid',
-    //     opacity: 1
-    // },
+    //fill: {
+    //type: 'solid',
+    //opacity: 1
+    //},
     stroke: {
-      curve: "smooth",
+      curve: 'smooth',
       show: true,
       width: 3,
-      colors: [getCSSVariableValue("--bs-info")],
+      colors: [getCSSVariableValue('--bs-info')]
     },
     xaxis: {
       categories: [
-        "Feb",
-        "Mar",
-        "Apr",
-        "May",
-        "Jun",
-        "Jul",
-        "Aug",
-        "Sep",
-        "Oct",
-        "Nov",
+        'Feb',
+        'Mar',
+        'Apr',
+        'May',
+        'Jun',
+        'Jul',
+        'Aug',
+        'Sep',
+        'Oct',
+        'Nov'
       ],
       axisBorder: {
-        show: false,
+        show: false
       },
       axisTicks: {
-        show: false,
+        show: false
       },
       labels: {
         show: false,
         style: {
-          colors: "#A1A5B7",
-          fontSize: "12px",
-        },
+          colors: '#A1A5B7',
+          fontSize: '12px'
+        }
       },
       crosshairs: {
         show: false,
-        position: "front",
+        position: 'front',
         stroke: {
-          color: "#E4E6EF",
+          color: '#E4E6EF',
           width: 1,
-          dashArray: 3,
-        },
+          dashArray: 3
+        }
       },
       tooltip: {
         enabled: true,
         formatter: undefined,
         offsetY: 0,
         style: {
-          fontSize: "12px",
-        },
-      },
+          fontSize: '12px'
+        }
+      }
     },
     yaxis: {
       labels: {
         show: false,
         style: {
-          colors: "#A1A5B7",
-          fontSize: "12px",
-        },
-      },
+          colors: '#A1A5B7',
+          fontSize: '12px'
+        }
+      }
     },
     states: {
       normal: {
         filter: {
-          type: "none",
-          value: 0,
-        },
+          type: 'none',
+          value: 0
+        }
       },
       hover: {
         filter: {
-          type: "none",
-          value: 0,
-        },
+          type: 'none',
+          value: 0
+        }
       },
       active: {
         allowMultipleDataPointsSelection: false,
         filter: {
-          type: "none",
-          value: 0,
-        },
-      },
+          type: 'none',
+          value: 0
+        }
+      }
     },
     tooltip: {
       style: {
-        fontSize: "12px",
+        fontSize: '12px'
       },
       y: {
         formatter: function (val) {
-          return "$" + val + " thousands";
-        },
-      },
+          return '$' + val + ' thousands'
+        }
+      }
     },
     fill: {
-      type: "gradient",
+      type: 'gradient',
       gradient: {
         shadeIntensity: 1,
         opacityFrom: 0.7,
         opacityTo: 0.6,
-        stops: [0, 100],
-      },
+        stops: [0, 100]
+      }
     },
-    colors: [getCSSVariableValue("--bs-info")],
+    colors: [getCSSVariableValue('--bs-info')],
     markers: {
-      colors: [getCSSVariableValue("--bs-light-info")],
-      strokeColors: [getCSSVariableValue("--bs-info")],
-      strokeWidth: 3,
-    },
-  };
-};
+      colors: [getCSSVariableValue('--bs-light-info')],
+      strokeColors: [getCSSVariableValue('--bs-info')],
+      strokeWidth: 3
+    }
+  }
+}
 
-export { MixedWidget1 };
+export { MixedWidget1 }

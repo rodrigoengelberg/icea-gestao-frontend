@@ -1,5 +1,5 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable jsx-a11y/anchor-is-valid */
+/*eslint-disable react-hooks/exhaustive-deps */
+
 import clsx from 'clsx'
 import React, { useState, useEffect } from 'react'
 import ApexCharts from 'apexcharts'
@@ -190,7 +190,7 @@ export function SidebarGeneral() {
 
   return (
     <>
-      {/* begin::Sidebar Nav */}
+      {/*begin::Sidebar Nav */}
       <ul
         className="sidebar-nav nav nav-tabs pt-15 pb-5 px-5"
         id="kt_sidebar_tabs"
@@ -306,10 +306,10 @@ export function SidebarGeneral() {
           </a>
         </li>
       </ul>
-      {/* end::Sidebar Nav */}
+      {/*end::Sidebar Nav */}
 
-      {/* begin::Sidebar Content */}
-      {/* begin::Sidebar Content */}
+      {/*begin::Sidebar Content */}
+      {/*begin::Sidebar Content */}
       <div id="kt_sidebar_content" className="py-10 px-5 px-lg-5">
         <div
           className="hover-scroll-y me-lg-n2 pe-lg-2"
@@ -325,9 +325,9 @@ export function SidebarGeneral() {
               id="kt_sidebar_tab_pane_1"
               role="tabpanel"
             >
-              {/* begin::Card */}
+              {/*begin::Card */}
               <div className="card card-custom bg-transparent">
-                {/* begin::Header */}
+                {/*begin::Header */}
                 <div className="card-header align-items-center border-0">
                   <h3 className="card-title fw-bolder text-white fs-3">
                     Aven Sales
@@ -349,25 +349,25 @@ export function SidebarGeneral() {
                     <Dropdown1 />
                   </div>
                 </div>
-                {/* end::Header */}
+                {/*end::Header */}
 
-                {/* begin::Body */}
+                {/*begin::Body */}
                 <div className="card-body px-3 py-0">
-                  {/* begin::Chart */}
+                  {/*begin::Chart */}
                   <div
                     id="kt_sidebar_tab_1_chart"
                     className="apexcharts-bar-hover-danger"
                     style={{ height: '250px' }}
                   ></div>
-                  {/* end::Chart */}
+                  {/*end::Chart */}
                 </div>
-                {/* end: Card Body */}
+                {/*end: Card Body */}
               </div>
-              {/* end::Card */}
+              {/*end::Card */}
 
-              {/* begin::Card */}
+              {/*begin::Card */}
               <div className="card card-custom bg-transparent">
-                {/* begin::Header */}
+                {/*begin::Header */}
                 <div className="card-header align-items-center border-0">
                   <h3 className="card-title fw-bolder text-white fs-3">
                     Tasks Overview
@@ -389,13 +389,13 @@ export function SidebarGeneral() {
                     <Dropdown1 />
                   </div>
                 </div>
-                {/* end::Header */}
+                {/*end::Header */}
 
-                {/* begin::Body */}
+                {/*begin::Body */}
                 <div className="card-body pt-0">
-                  {/* begin::Item */}
+                  {/*begin::Item */}
                   <div className="d-flex flex-wrap align-items-center mb-7">
-                    {/* begin::Symbol */}
+                    {/*begin::Symbol */}
                     <div className="symbol symbol-40px symbol-2by3 me-4">
                       <img
                         alt=""
@@ -403,9 +403,9 @@ export function SidebarGeneral() {
                         className="mw-100"
                       />
                     </div>
-                    {/* end::Symbol */}
+                    {/*end::Symbol */}
 
-                    {/* begin::Title */}
+                    {/*begin::Title */}
                     <div className="d-flex flex-column flex-grow-1 my-lg-0 my-2 pe-3">
                       <a
                         href="#"
@@ -417,13 +417,13 @@ export function SidebarGeneral() {
                         Mark, Rowling, Esther
                       </span>
                     </div>
-                    {/* end::Title */}
+                    {/*end::Title */}
                   </div>
-                  {/* end::Item */}
+                  {/*end::Item */}
 
-                  {/* begin: Item */}
+                  {/*begin: Item */}
                   <div className="d-flex flex-wrap align-items-center mb-7">
-                    {/* begin::Symbol */}
+                    {/*begin::Symbol */}
                     <div className="symbol symbol-40px symbol-2by3 me-4">
                       <img
                         alt=""
@@ -431,9 +431,9 @@ export function SidebarGeneral() {
                         className="mw-100"
                       />
                     </div>
-                    {/* end::Symbol */}
+                    {/*end::Symbol */}
 
-                    {/* begin::Title */}
+                    {/*begin::Title */}
                     <div className="d-flex flex-column flex-grow-1 my-lg-0 my-2 pe-3">
                       <a
                         href="#"
@@ -445,13 +445,13 @@ export function SidebarGeneral() {
                         Study the highway types
                       </span>
                     </div>
-                    {/* end::Title */}
+                    {/*end::Title */}
                   </div>
-                  {/* end: Item */}
+                  {/*end: Item */}
 
-                  {/* begin::Item */}
+                  {/*begin::Item */}
                   <div className="d-flex flex-wrap align-items-center mb-7">
-                    {/* begin::Symbol */}
+                    {/*begin::Symbol */}
                     <div className="symbol symbol-40px symbol-2by3 me-4">
                       <img
                         alt=""
@@ -459,9 +459,9 @@ export function SidebarGeneral() {
                         className="mw-100"
                       />
                     </div>
-                    {/* end::Symbol */}
+                    {/*end::Symbol */}
 
-                    {/* begin::Title */}
+                    {/*begin::Title */}
                     <div className="d-flex flex-column flex-grow-1 pe-3">
                       <a
                         href="#"
@@ -473,13 +473,13 @@ export function SidebarGeneral() {
                         HTML, CSS. jQuery
                       </span>
                     </div>
-                    {/* end::Title */}
+                    {/*end::Title */}
                   </div>
-                  {/* end::Item */}
+                  {/*end::Item */}
 
-                  {/* begin::Item */}
+                  {/*begin::Item */}
                   <div className="d-flex flex-wrap align-items-center mb-7">
-                    {/* begin::Symbol */}
+                    {/*begin::Symbol */}
                     <div className="symbol symbol-40px symbol-2by3 me-4">
                       <img
                         alt=""
@@ -487,9 +487,9 @@ export function SidebarGeneral() {
                         className="mw-100"
                       />
                     </div>
-                    {/* end::Symbol */}
+                    {/*end::Symbol */}
 
-                    {/* begin::Title */}
+                    {/*begin::Title */}
                     <div className="d-flex flex-column flex-grow-1 my-lg-0 my-2 pe-3">
                       <a
                         href="#"
@@ -501,13 +501,13 @@ export function SidebarGeneral() {
                         ASP.NET Developer
                       </span>
                     </div>
-                    {/* end::Title */}
+                    {/*end::Title */}
                   </div>
-                  {/* end::Item */}
+                  {/*end::Item */}
 
-                  {/* begin::Item */}
+                  {/*begin::Item */}
                   <div className="d-flex flex-wrap align-items-center">
-                    {/* begin::Symbol */}
+                    {/*begin::Symbol */}
                     <div className="symbol symbol-40px symbol-2by3 me-4">
                       <img
                         alt=""
@@ -515,9 +515,9 @@ export function SidebarGeneral() {
                         className="mw-100"
                       />
                     </div>
-                    {/* end::Symbol */}
+                    {/*end::Symbol */}
 
-                    {/* begin::Title */}
+                    {/*begin::Title */}
                     <div className="d-flex flex-column flex-grow-1 my-lg-0 my-2 pe-3">
                       <a
                         href="#"
@@ -529,13 +529,13 @@ export function SidebarGeneral() {
                         Study the highway types
                       </span>
                     </div>
-                    {/* end::Title */}
+                    {/*end::Title */}
                   </div>
-                  {/* end::Item */}
+                  {/*end::Item */}
                 </div>
-                {/* end: Card Body */}
+                {/*end: Card Body */}
               </div>
-              {/* end::Card */}
+              {/*end::Card */}
             </div>
 
             <div
@@ -543,9 +543,9 @@ export function SidebarGeneral() {
               id="kt_sidebar_tab_pane_2"
               role="tabpanel"
             >
-              {/* begin::Card */}
+              {/*begin::Card */}
               <div className="card card-custom bg-transparent">
-                {/* begin::Header */}
+                {/*begin::Header */}
                 <div className="card-header align-items-center border-0">
                   <h3 className="card-title fw-bolder text-white fs-3">
                     Kanba Sales
@@ -567,25 +567,25 @@ export function SidebarGeneral() {
                     <Dropdown1 />
                   </div>
                 </div>
-                {/* end::Header */}
+                {/*end::Header */}
 
-                {/* begin::Body */}
+                {/*begin::Body */}
                 <div className="card-body px-3 py-0">
-                  {/* begin::Chart */}
+                  {/*begin::Chart */}
                   <div
                     id="kt_sidebar_tab_2_chart"
                     className="apexcharts-bar-hover-danger"
                     style={{ height: '250px' }}
                   ></div>
-                  {/* end::Chart */}
+                  {/*end::Chart */}
                 </div>
-                {/* end: Card Body */}
+                {/*end: Card Body */}
               </div>
-              {/* end::Card */}
+              {/*end::Card */}
 
-              {/* begin::Card */}
+              {/*begin::Card */}
               <div className="card card-custom bg-transparent">
-                {/* begin::Header */}
+                {/*begin::Header */}
                 <div className="card-header align-items-center border-0">
                   <h3 className="card-title fw-bolder text-white fs-3">
                     Kanba Products
@@ -607,13 +607,13 @@ export function SidebarGeneral() {
                     <Dropdown1 />
                   </div>
                 </div>
-                {/* end::Header */}
+                {/*end::Header */}
 
-                {/* begin::Body */}
+                {/*begin::Body */}
                 <div className="card-body pt-0">
-                  {/* begin::Item */}
+                  {/*begin::Item */}
                   <div className="d-flex flex-wrap align-items-center mb-7">
-                    {/* begin::Symbol */}
+                    {/*begin::Symbol */}
                     <div className="symbol symbol-40px symbol-2by3 me-4">
                       <img
                         src={toAbsoluteUrl('/media/stock/600x400/img-7.jpg')}
@@ -621,9 +621,9 @@ export function SidebarGeneral() {
                         className="mw-100"
                       />
                     </div>
-                    {/* end::Symbol */}
+                    {/*end::Symbol */}
 
-                    {/* begin::Title */}
+                    {/*begin::Title */}
                     <div className="d-flex flex-column flex-grow-1 my-lg-0 my-2 pe-3">
                       <a
                         href="#"
@@ -635,13 +635,13 @@ export function SidebarGeneral() {
                         Successful Fellas
                       </span>
                     </div>
-                    {/* end::Title */}
+                    {/*end::Title */}
                   </div>
-                  {/* end::Item */}
+                  {/*end::Item */}
 
-                  {/* begin: Item */}
+                  {/*begin: Item */}
                   <div className="d-flex flex-wrap align-items-center mb-7">
-                    {/* begin::Symbol */}
+                    {/*begin::Symbol */}
                     <div className="symbol symbol-40px symbol-2by3 me-4">
                       <img
                         alt=""
@@ -649,9 +649,9 @@ export function SidebarGeneral() {
                         className="mw-100"
                       />
                     </div>
-                    {/* end::Symbol */}
+                    {/*end::Symbol */}
 
-                    {/* begin::Title */}
+                    {/*begin::Title */}
                     <div className="d-flex flex-column flex-grow-1 my-lg-0 my-2 pe-3">
                       <a
                         href="#"
@@ -663,13 +663,13 @@ export function SidebarGeneral() {
                         Successful Fellas
                       </span>
                     </div>
-                    {/* end::Title */}
+                    {/*end::Title */}
                   </div>
-                  {/* end: Item */}
+                  {/*end: Item */}
 
-                  {/* begin::Item */}
+                  {/*begin::Item */}
                   <div className="d-flex flex-wrap align-items-center mb-7">
-                    {/* begin::Symbol */}
+                    {/*begin::Symbol */}
                     <div className="symbol symbol-40px symbol-2by3 me-4">
                       <img
                         alt=""
@@ -677,9 +677,9 @@ export function SidebarGeneral() {
                         className="mw-100"
                       />
                     </div>
-                    {/* end::Symbol */}
+                    {/*end::Symbol */}
 
-                    {/* begin::Title */}
+                    {/*begin::Title */}
                     <div className="d-flex flex-column flex-grow-1 pe-3">
                       <a
                         href="#"
@@ -691,13 +691,13 @@ export function SidebarGeneral() {
                         Most Successful
                       </span>
                     </div>
-                    {/* end::Title */}
+                    {/*end::Title */}
                   </div>
-                  {/* end::Item */}
+                  {/*end::Item */}
 
-                  {/* begin::Item */}
+                  {/*begin::Item */}
                   <div className="d-flex flex-wrap align-items-center mb-7">
-                    {/* begin::Symbol */}
+                    {/*begin::Symbol */}
                     <div className="symbol symbol-40px symbol-2by3 me-4">
                       <img
                         alt=""
@@ -705,9 +705,9 @@ export function SidebarGeneral() {
                         className="mw-100"
                       />
                     </div>
-                    {/* end::Symbol */}
+                    {/*end::Symbol */}
 
-                    {/* begin::Title */}
+                    {/*begin::Title */}
                     <div className="d-flex flex-column flex-grow-1 my-lg-0 my-2 pe-3">
                       <a
                         href="#"
@@ -719,13 +719,13 @@ export function SidebarGeneral() {
                         ASP.NET Developer
                       </span>
                     </div>
-                    {/* end::Title */}
+                    {/*end::Title */}
                   </div>
-                  {/* end::Item */}
+                  {/*end::Item */}
 
-                  {/* begin::Item */}
+                  {/*begin::Item */}
                   <div className="d-flex flex-wrap align-items-center">
-                    {/* begin::Symbol */}
+                    {/*begin::Symbol */}
                     <div className="symbol symbol-40px symbol-2by3 me-4">
                       <img
                         alt=""
@@ -733,9 +733,9 @@ export function SidebarGeneral() {
                         className="mw-100"
                       />
                     </div>
-                    {/* end::Symbol */}
+                    {/*end::Symbol */}
 
-                    {/* begin::Title */}
+                    {/*begin::Title */}
                     <div className="d-flex flex-column flex-grow-1 my-lg-0 my-2 pe-3">
                       <a
                         href="#"
@@ -747,13 +747,13 @@ export function SidebarGeneral() {
                         Best Customers
                       </span>
                     </div>
-                    {/* end::Title */}
+                    {/*end::Title */}
                   </div>
-                  {/* end::Item */}
+                  {/*end::Item */}
                 </div>
-                {/* end: Card Body */}
+                {/*end: Card Body */}
               </div>
-              {/* end::Card */}
+              {/*end::Card */}
             </div>
 
             <div
@@ -761,9 +761,9 @@ export function SidebarGeneral() {
               id="kt_sidebar_tab_pane_3"
               role="tabpanel"
             >
-              {/* begin::Card */}
+              {/*begin::Card */}
               <div className="card card-custom bg-transparent">
-                {/* begin::Header */}
+                {/*begin::Header */}
                 <div className="card-header align-items-center border-0">
                   <h3 className="card-title fw-bolder text-white fs-3">
                     Fox Sales
@@ -785,25 +785,25 @@ export function SidebarGeneral() {
                     <Dropdown1 />
                   </div>
                 </div>
-                {/* end::Header */}
+                {/*end::Header */}
 
-                {/* begin::Body */}
+                {/*begin::Body */}
                 <div className="card-body px-3 py-0">
-                  {/* begin::Chart */}
+                  {/*begin::Chart */}
                   <div
                     id="kt_sidebar_tab_3_chart"
                     className="apexcharts-bar-hover-danger"
                     style={{ height: '250px' }}
                   ></div>
-                  {/* end::Chart */}
+                  {/*end::Chart */}
                 </div>
-                {/* end: Card Body */}
+                {/*end: Card Body */}
               </div>
-              {/* end::Card */}
+              {/*end::Card */}
 
-              {/* begin::Card */}
+              {/*begin::Card */}
               <div className="card card-custom bg-transparent">
-                {/* begin::Header */}
+                {/*begin::Header */}
                 <div className="card-header align-items-center border-0">
                   <h3 className="card-title fw-bolder text-white fs-3">
                     Fox Bestsellers
@@ -825,13 +825,13 @@ export function SidebarGeneral() {
                     <Dropdown1 />
                   </div>
                 </div>
-                {/* end::Header */}
+                {/*end::Header */}
 
-                {/* begin::Body */}
+                {/*begin::Body */}
                 <div className="card-body pt-0">
-                  {/* begin::Item */}
+                  {/*begin::Item */}
                   <div className="d-flex flex-wrap align-items-center mb-7">
-                    {/* begin::Symbol */}
+                    {/*begin::Symbol */}
                     <div className="symbol symbol-40px symbol-2by3 me-4">
                       <img
                         src={toAbsoluteUrl('/media/stock/600x400/img-17.jpg')}
@@ -839,9 +839,9 @@ export function SidebarGeneral() {
                         className="mw-100"
                       />
                     </div>
-                    {/* end::Symbol */}
+                    {/*end::Symbol */}
 
-                    {/* begin::Title */}
+                    {/*begin::Title */}
                     <div className="d-flex flex-column flex-grow-1 my-lg-0 my-2 pe-3">
                       <a
                         href="#"
@@ -853,13 +853,13 @@ export function SidebarGeneral() {
                         Study the highway types
                       </span>
                     </div>
-                    {/* end::Title */}
+                    {/*end::Title */}
                   </div>
-                  {/* end::Item */}
+                  {/*end::Item */}
 
-                  {/* begin: Item */}
+                  {/*begin: Item */}
                   <div className="d-flex flex-wrap align-items-center mb-7">
-                    {/* begin::Symbol */}
+                    {/*begin::Symbol */}
                     <div className="symbol symbol-40px symbol-2by3 me-4">
                       <img
                         alt=""
@@ -867,9 +867,9 @@ export function SidebarGeneral() {
                         className="mw-100"
                       />
                     </div>
-                    {/* end::Symbol */}
+                    {/*end::Symbol */}
 
-                    {/* begin::Title */}
+                    {/*begin::Title */}
                     <div className="d-flex flex-column flex-grow-1 my-lg-0 my-2 pe-3">
                       <a
                         href="#"
@@ -881,13 +881,13 @@ export function SidebarGeneral() {
                         Study the highway types
                       </span>
                     </div>
-                    {/* end::Title */}
+                    {/*end::Title */}
                   </div>
-                  {/* end: Item */}
+                  {/*end: Item */}
 
-                  {/* begin::Item */}
+                  {/*begin::Item */}
                   <div className="d-flex flex-wrap align-items-center mb-7">
-                    {/* begin::Symbol */}
+                    {/*begin::Symbol */}
                     <div className="symbol symbol-40px symbol-2by3 me-4">
                       <img
                         alt=""
@@ -895,9 +895,9 @@ export function SidebarGeneral() {
                         className="mw-100"
                       />
                     </div>
-                    {/* end::Symbol */}
+                    {/*end::Symbol */}
 
-                    {/* begin::Title */}
+                    {/*begin::Title */}
                     <div className="d-flex flex-column flex-grow-1 pe-3">
                       <a
                         href="#"
@@ -909,13 +909,13 @@ export function SidebarGeneral() {
                         Study the highway types
                       </span>
                     </div>
-                    {/* end::Title */}
+                    {/*end::Title */}
                   </div>
-                  {/* end::Item */}
+                  {/*end::Item */}
 
-                  {/* begin::Item */}
+                  {/*begin::Item */}
                   <div className="d-flex flex-wrap align-items-center mb-7">
-                    {/* begin::Symbol */}
+                    {/*begin::Symbol */}
                     <div className="symbol symbol-40px symbol-2by3 me-4">
                       <img
                         alt=""
@@ -923,9 +923,9 @@ export function SidebarGeneral() {
                         className="mw-100"
                       />
                     </div>
-                    {/* end::Symbol */}
+                    {/*end::Symbol */}
 
-                    {/* begin::Title */}
+                    {/*begin::Title */}
                     <div className="d-flex flex-column flex-grow-1 my-lg-0 my-2 pe-3">
                       <a
                         href="#"
@@ -937,13 +937,13 @@ export function SidebarGeneral() {
                         Study the highway types
                       </span>
                     </div>
-                    {/* end::Title */}
+                    {/*end::Title */}
                   </div>
-                  {/* end::Item */}
+                  {/*end::Item */}
 
-                  {/* begin::Item */}
+                  {/*begin::Item */}
                   <div className="d-flex flex-wrap align-items-center">
-                    {/* begin::Symbol */}
+                    {/*begin::Symbol */}
                     <div className="symbol symbol-40px symbol-2by3 me-4">
                       <img
                         alt=""
@@ -951,9 +951,9 @@ export function SidebarGeneral() {
                         className="mw-100"
                       />
                     </div>
-                    {/* end::Symbol */}
+                    {/*end::Symbol */}
 
-                    {/* begin::Title */}
+                    {/*begin::Title */}
                     <div className="d-flex flex-column flex-grow-1 my-lg-0 my-2 pe-3">
                       <a
                         href="#"
@@ -965,13 +965,13 @@ export function SidebarGeneral() {
                         Study the highway types
                       </span>
                     </div>
-                    {/* end::Title */}
+                    {/*end::Title */}
                   </div>
-                  {/* end::Item */}
+                  {/*end::Item */}
                 </div>
-                {/* end: Card Body */}
+                {/*end: Card Body */}
               </div>
-              {/* end::Card */}
+              {/*end::Card */}
             </div>
 
             <div
@@ -979,9 +979,9 @@ export function SidebarGeneral() {
               id="kt_sidebar_tab_pane_4"
               role="tabpanel"
             >
-              {/* begin::Card */}
+              {/*begin::Card */}
               <div className="card card-custom bg-transparent">
-                {/* begin::Header */}
+                {/*begin::Header */}
                 <div className="card-header align-items-center border-0">
                   <h3 className="card-title fw-bolder text-white fs-3">
                     Tower Sales
@@ -1003,25 +1003,25 @@ export function SidebarGeneral() {
                     <Dropdown1 />
                   </div>
                 </div>
-                {/* end::Header */}
+                {/*end::Header */}
 
-                {/* begin::Body */}
+                {/*begin::Body */}
                 <div className="card-body px-3 py-0">
-                  {/* begin::Chart */}
+                  {/*begin::Chart */}
                   <div
                     id="kt_sidebar_tab_4_chart"
                     className="apexcharts-bar-hover-danger"
                     style={{ height: '250px' }}
                   ></div>
-                  {/* end::Chart */}
+                  {/*end::Chart */}
                 </div>
-                {/* end: Card Body */}
+                {/*end: Card Body */}
               </div>
-              {/* end::Card */}
+              {/*end::Card */}
 
-              {/* begin::Card */}
+              {/*begin::Card */}
               <div className="card card-custom bg-transparent">
-                {/* begin::Header */}
+                {/*begin::Header */}
                 <div className="card-header align-items-center border-0">
                   <h3 className="card-title fw-bolder text-white fs-3">
                     Tower Latest Products
@@ -1043,13 +1043,13 @@ export function SidebarGeneral() {
                     <Dropdown1 />
                   </div>
                 </div>
-                {/* end::Header */}
+                {/*end::Header */}
 
-                {/* begin::Body */}
+                {/*begin::Body */}
                 <div className="card-body pt-0">
-                  {/* begin: Item */}
+                  {/*begin: Item */}
                   <div className="d-flex flex-wrap align-items-center mb-7">
-                    {/* begin::Symbol */}
+                    {/*begin::Symbol */}
                     <div className="symbol symbol-40px symbol-2by3 me-4">
                       <img
                         alt=""
@@ -1057,9 +1057,9 @@ export function SidebarGeneral() {
                         className="mw-100"
                       />
                     </div>
-                    {/* end::Symbol */}
+                    {/*end::Symbol */}
 
-                    {/* begin::Title */}
+                    {/*begin::Title */}
                     <div className="d-flex flex-column flex-grow-1 my-lg-0 my-2 pe-3">
                       <a
                         href="#"
@@ -1071,13 +1071,13 @@ export function SidebarGeneral() {
                         Successful Fellas
                       </span>
                     </div>
-                    {/* end::Title */}
+                    {/*end::Title */}
                   </div>
-                  {/* end: Item */}
+                  {/*end: Item */}
 
-                  {/* begin::Item */}
+                  {/*begin::Item */}
                   <div className="d-flex flex-wrap align-items-center mb-7">
-                    {/* begin::Symbol */}
+                    {/*begin::Symbol */}
                     <div className="symbol symbol-40px symbol-2by3 me-4">
                       <img
                         alt=""
@@ -1085,9 +1085,9 @@ export function SidebarGeneral() {
                         className="mw-100"
                       />
                     </div>
-                    {/* end::Symbol */}
+                    {/*end::Symbol */}
 
-                    {/* begin::Title */}
+                    {/*begin::Title */}
                     <div className="d-flex flex-column flex-grow-1 my-lg-0 my-2 pe-3">
                       <a
                         href="#"
@@ -1099,13 +1099,13 @@ export function SidebarGeneral() {
                         Successful Fellas
                       </span>
                     </div>
-                    {/* end::Title */}
+                    {/*end::Title */}
                   </div>
-                  {/* end::Item */}
+                  {/*end::Item */}
 
-                  {/* begin::Item */}
+                  {/*begin::Item */}
                   <div className="d-flex flex-wrap align-items-center mb-7">
-                    {/* begin::Symbol */}
+                    {/*begin::Symbol */}
                     <div className="symbol symbol-40px symbol-2by3 me-4">
                       <img
                         alt=""
@@ -1113,9 +1113,9 @@ export function SidebarGeneral() {
                         className="mw-100"
                       />
                     </div>
-                    {/* end::Symbol */}
+                    {/*end::Symbol */}
 
-                    {/* begin::Title */}
+                    {/*begin::Title */}
                     <div className="d-flex flex-column flex-grow-1 my-lg-0 my-2 pe-3">
                       <a
                         href="#"
@@ -1127,13 +1127,13 @@ export function SidebarGeneral() {
                         ASP.NET Developer
                       </span>
                     </div>
-                    {/* end::Title */}
+                    {/*end::Title */}
                   </div>
-                  {/* end::Item */}
+                  {/*end::Item */}
 
-                  {/* begin::Item */}
+                  {/*begin::Item */}
                   <div className="d-flex flex-wrap align-items-center mb-7">
-                    {/* begin::Symbol */}
+                    {/*begin::Symbol */}
                     <div className="symbol symbol-40px symbol-2by3 me-4">
                       <img
                         src={toAbsoluteUrl('/media/stock/600x400/img-9.jpg')}
@@ -1141,9 +1141,9 @@ export function SidebarGeneral() {
                         className="mw-100"
                       />
                     </div>
-                    {/* end::Symbol */}
+                    {/*end::Symbol */}
 
-                    {/* begin::Title */}
+                    {/*begin::Title */}
                     <div className="d-flex flex-column flex-grow-1 pe-3">
                       <a
                         href="#"
@@ -1155,13 +1155,13 @@ export function SidebarGeneral() {
                         Most Successful
                       </span>
                     </div>
-                    {/* end::Title */}
+                    {/*end::Title */}
                   </div>
-                  {/* end::Item */}
+                  {/*end::Item */}
 
-                  {/* begin::Item */}
+                  {/*begin::Item */}
                   <div className="d-flex flex-wrap align-items-center">
-                    {/* begin::Symbol */}
+                    {/*begin::Symbol */}
                     <div className="symbol symbol-40px symbol-2by3 me-4">
                       <img
                         alt=""
@@ -1169,9 +1169,9 @@ export function SidebarGeneral() {
                         className="mw-100"
                       />
                     </div>
-                    {/* end::Symbol */}
+                    {/*end::Symbol */}
 
-                    {/* begin::Title */}
+                    {/*begin::Title */}
                     <div className="d-flex flex-column flex-grow-1 my-lg-0 my-2 pe-3">
                       <a
                         href="#"
@@ -1183,13 +1183,13 @@ export function SidebarGeneral() {
                         Best Customers
                       </span>
                     </div>
-                    {/* end::Title */}
+                    {/*end::Title */}
                   </div>
-                  {/* end::Item */}
+                  {/*end::Item */}
                 </div>
-                {/* end: Card Body */}
+                {/*end: Card Body */}
               </div>
-              {/* end::Card */}
+              {/*end::Card */}
             </div>
 
             <div
@@ -1197,9 +1197,9 @@ export function SidebarGeneral() {
               id="kt_sidebar_tab_pane_5"
               role="tabpanel"
             >
-              {/* begin::Card */}
+              {/*begin::Card */}
               <div className="card card-custom bg-transparent">
-                {/* begin::Header */}
+                {/*begin::Header */}
                 <div className="card-header align-items-center border-0">
                   <h3 className="card-title fw-bolder text-white fs-3">
                     Treva Sales
@@ -1221,25 +1221,25 @@ export function SidebarGeneral() {
                     <Dropdown1 />
                   </div>
                 </div>
-                {/* end::Header */}
+                {/*end::Header */}
 
-                {/* begin::Body */}
+                {/*begin::Body */}
                 <div className="card-body px-3 py-0">
-                  {/* begin::Chart */}
+                  {/*begin::Chart */}
                   <div
                     id="kt_sidebar_tab_5_chart"
                     className="apexcharts-bar-hover-danger"
                     style={{ height: '250px' }}
                   ></div>
-                  {/* end::Chart */}
+                  {/*end::Chart */}
                 </div>
-                {/* end: Card Body */}
+                {/*end: Card Body */}
               </div>
-              {/* end::Card */}
+              {/*end::Card */}
 
-              {/* begin::Card */}
+              {/*begin::Card */}
               <div className="card card-custom bg-transparent">
-                {/* begin::Header */}
+                {/*begin::Header */}
                 <div className="card-header align-items-center border-0">
                   <h3 className="card-title fw-bolder text-white fs-3">
                     Treva's Products
@@ -1261,13 +1261,13 @@ export function SidebarGeneral() {
                     <Dropdown1 />
                   </div>
                 </div>
-                {/* end::Header */}
+                {/*end::Header */}
 
-                {/* begin::Body */}
+                {/*begin::Body */}
                 <div className="card-body pt-0">
-                  {/* begin::Item */}
+                  {/*begin::Item */}
                   <div className="d-flex flex-wrap align-items-center mb-7">
-                    {/* begin::Symbol */}
+                    {/*begin::Symbol */}
                     <div className="symbol symbol-40px symbol-2by3 me-4">
                       <img
                         alt=""
@@ -1275,9 +1275,9 @@ export function SidebarGeneral() {
                         className="mw-100"
                       />
                     </div>
-                    {/* end::Symbol */}
+                    {/*end::Symbol */}
 
-                    {/* begin::Title */}
+                    {/*begin::Title */}
                     <div className="d-flex flex-column flex-grow-1 my-lg-0 my-2 pe-3">
                       <a
                         href="#"
@@ -1289,13 +1289,13 @@ export function SidebarGeneral() {
                         Successful Fellas
                       </span>
                     </div>
-                    {/* end::Title */}
+                    {/*end::Title */}
                   </div>
-                  {/* end::Item */}
+                  {/*end::Item */}
 
-                  {/* begin: Item */}
+                  {/*begin: Item */}
                   <div className="d-flex flex-wrap align-items-center mb-7">
-                    {/* begin::Symbol */}
+                    {/*begin::Symbol */}
                     <div className="symbol symbol-40px symbol-2by3 me-4">
                       <img
                         alt=""
@@ -1303,9 +1303,9 @@ export function SidebarGeneral() {
                         className="mw-100"
                       />
                     </div>
-                    {/* end::Symbol */}
+                    {/*end::Symbol */}
 
-                    {/* begin::Title */}
+                    {/*begin::Title */}
                     <div className="d-flex flex-column flex-grow-1 my-lg-0 my-2 pe-3">
                       <a
                         href="#"
@@ -1317,13 +1317,13 @@ export function SidebarGeneral() {
                         Most Successful
                       </span>
                     </div>
-                    {/* end::Title */}
+                    {/*end::Title */}
                   </div>
-                  {/* end: Item */}
+                  {/*end: Item */}
 
-                  {/* begin::Item */}
+                  {/*begin::Item */}
                   <div className="d-flex flex-wrap align-items-center mb-7">
-                    {/* begin::Symbol */}
+                    {/*begin::Symbol */}
                     <div className="symbol symbol-40px symbol-2by3 me-4">
                       <img
                         alt=""
@@ -1331,9 +1331,9 @@ export function SidebarGeneral() {
                         className="mw-100"
                       />
                     </div>
-                    {/* end::Symbol */}
+                    {/*end::Symbol */}
 
-                    {/* begin::Title */}
+                    {/*begin::Title */}
                     <div className="d-flex flex-column flex-grow-1 pe-3">
                       <a
                         href="#"
@@ -1345,13 +1345,13 @@ export function SidebarGeneral() {
                         HTML, CSS. jQuery
                       </span>
                     </div>
-                    {/* end::Title */}
+                    {/*end::Title */}
                   </div>
-                  {/* end::Item */}
+                  {/*end::Item */}
 
-                  {/* begin::Item */}
+                  {/*begin::Item */}
                   <div className="d-flex flex-wrap align-items-center mb-7">
-                    {/* begin::Symbol */}
+                    {/*begin::Symbol */}
                     <div className="symbol symbol-40px symbol-2by3 me-4">
                       <img
                         alt=""
@@ -1359,9 +1359,9 @@ export function SidebarGeneral() {
                         className="mw-100"
                       />
                     </div>
-                    {/* end::Symbol */}
+                    {/*end::Symbol */}
 
-                    {/* begin::Title */}
+                    {/*begin::Title */}
                     <div className="d-flex flex-column flex-grow-1 my-lg-0 my-2 pe-3">
                       <a
                         href="#"
@@ -1373,13 +1373,13 @@ export function SidebarGeneral() {
                         Awesome Users
                       </span>
                     </div>
-                    {/* end::Title */}
+                    {/*end::Title */}
                   </div>
-                  {/* end::Item */}
+                  {/*end::Item */}
 
-                  {/* begin::Item */}
+                  {/*begin::Item */}
                   <div className="d-flex flex-wrap align-items-center">
-                    {/* begin::Symbol */}
+                    {/*begin::Symbol */}
                     <div className="symbol symbol-40px symbol-2by3 me-4">
                       <img
                         alt=""
@@ -1387,9 +1387,9 @@ export function SidebarGeneral() {
                         className="mw-100"
                       />
                     </div>
-                    {/* end::Symbol */}
+                    {/*end::Symbol */}
 
-                    {/* begin::Title */}
+                    {/*begin::Title */}
                     <div className="d-flex flex-column flex-grow-1 my-lg-0 my-2 pe-3">
                       <a
                         href="#"
@@ -1401,20 +1401,20 @@ export function SidebarGeneral() {
                         Best Customers
                       </span>
                     </div>
-                    {/* end::Title */}
+                    {/*end::Title */}
                   </div>
-                  {/* end::Item */}
+                  {/*end::Item */}
                 </div>
-                {/* end: Card Body */}
+                {/*end: Card Body */}
               </div>
-              {/* end::Card */}
+              {/*end::Card */}
             </div>
           </div>
         </div>
       </div>
-      {/* end::Sidebar Content */}
+      {/*end::Sidebar Content */}
 
-      {/* begin::Sidebar footer */}
+      {/*begin::Sidebar footer */}
       <div id="kt_sidebar_footer" className="py-2 px-5 pb-md-6 text-center">
         <a
           href="#"
@@ -1423,7 +1423,7 @@ export function SidebarGeneral() {
           View Extended Layout
         </a>
       </div>
-      {/* end::Sidebar footer */}
+      {/*end::Sidebar footer */}
     </>
   )
 }
@@ -1434,8 +1434,8 @@ function getCss(el: HTMLElement, styleProp: string) {
     return ''
   }
 
-  // sanitize property name to css notation
-  // (hyphen separated words eg. font-Size)
+  //sanitize property name to css notation
+  //(hyphen separated words eg. font-Size)
   styleProp = styleProp.replace(/([A-Z])/g, '-$1').toLowerCase()
   return defaultView.getComputedStyle(el, null).getPropertyValue(styleProp)
 }

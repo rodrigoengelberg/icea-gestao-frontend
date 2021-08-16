@@ -1,19 +1,18 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-import React from "react";
-import { KTSVG } from "../../../../_start/helpers";
+import React from 'react'
+import { KTSVG } from '../../../../_start/helpers'
 
 export function FAQPage() {
   return (
     <div className="d-flex flex-column flex-md-row">
       {/*begin::Aside */}
       <div className="flex-column flex-md-row-auto w-100 w-md-250px w-xxl-350px">
-        {/*begin::List Widget 2*/}
+        {/*begin::List Widget 2 */}
         <div className="card card-custom mb-10 mb-md-0">
-          {/*begin::Body*/}
+          {/*begin::Body */}
           <div className="card-body py-10 px-6">
-            {/*begin::Search Input*/}
+            {/*begin::Search Input */}
             <div className="d-flex flex-column mb-10 px-3">
-              {/*begin::Form*/}
+              {/*begin::Form */}
               <form>
                 <div
                   className="input-group input-group-solid"
@@ -32,11 +31,11 @@ export function FAQPage() {
                   />
                 </div>
               </form>
-              {/*end::Form*/}
+              {/*end::Form */}
             </div>
-            {/*end::Search Input*/}
+            {/*end::Search Input */}
 
-            {/*begin::Authors List*/}
+            {/*begin::Authors List */}
             <ul className="menu menu-column menu-rounded menu-gray-600 menu-hover-bg-light-primary menu-active-bg-light-primary fw-bold mb-10">
               <li className="menu-content fw-bold pb-2 px-3">
                 <span className="fs-3 fw-bolder">Premium Authors</span>
@@ -62,9 +61,9 @@ export function FAQPage() {
                 </a>
               </li>
             </ul>
-            {/*end::Authors List*/}
+            {/*end::Authors List */}
 
-            {/*begin::Theme List*/}
+            {/*begin::Theme List */}
             <ul className="menu menu-column menu-rounded menu-gray-600 menu-hover-bg-light-primary menu-active-bg-light-primary fw-bold">
               <li className="menu-content fw-bold pb-2 px-3">
                 <span className="fs-3 fw-bolder">Theme Customers</span>
@@ -90,29 +89,29 @@ export function FAQPage() {
                 </a>
               </li>
             </ul>
-            {/*end::Theme List*/}
+            {/*end::Theme List */}
           </div>
-          {/*end::Body*/}
+          {/*end::Body */}
         </div>
-        {/*end::List Widget 2*/}
+        {/*end::List Widget 2 */}
       </div>
-      {/*end::Aside*/}
+      {/*end::Aside */}
 
-      {/*begin::Layout*/}
+      {/*begin::Layout */}
       <div className="flex-md-row-fluid ms-md-12">
-        {/*begin::Card*/}
+        {/*begin::Card */}
         <div className="card card-custom">
           <div className="card-body py-10">
             <h2 className="text-dark fw-bolder fs-1 mb-5">Popular Articles</h2>
 
-            {/*begin::Accordion*/}
+            {/*begin::Accordion */}
             <div
               className="accordion accordion-icon-toggle"
               id="kt_accordion_1"
             >
-              {/*begin::Item*/}
+              {/*begin::Item */}
               <div className="mb-5">
-                {/*begin::Header*/}
+                {/*begin::Header */}
                 <div
                   className="accordion-header py-3 d-flex"
                   data-bs-toggle="collapse"
@@ -128,9 +127,9 @@ export function FAQPage() {
                     The best way to quick start business
                   </h3>
                 </div>
-                {/*end::Header*/}
+                {/*end::Header */}
 
-                {/*begin::Body*/}
+                {/*begin::Body */}
                 <div
                   id="kt_accordion_1_item_1"
                   className="fs-6 collapse show ps-10"
@@ -153,13 +152,13 @@ export function FAQPage() {
                     including versions of Lorem Ipsum.
                   </div>
                 </div>
-                {/*end::Body*/}
+                {/*end::Body */}
               </div>
-              {/*end::Item*/}
+              {/*end::Item */}
 
-              {/*begin::Item*/}
+              {/*begin::Item */}
               <div className="mb-5">
-                {/*begin::Header*/}
+                {/*begin::Header */}
                 <div
                   className="accordion-header py-3 d-flex collapsed"
                   data-bs-toggle="collapse"
@@ -175,9 +174,9 @@ export function FAQPage() {
                     How To Create Channel ?
                   </h3>
                 </div>
-                {/*end::Header*/}
+                {/*end::Header */}
 
-                {/*begin::Body*/}
+                {/*begin::Body */}
                 <div
                   id="kt_accordion_1_item_2"
                   className="collapse fs-6 ps-10"
@@ -207,13 +206,13 @@ export function FAQPage() {
                     including versions of Lorem Ipsum.
                   </div>
                 </div>
-                {/*end::Body*/}
+                {/*end::Body */}
               </div>
-              {/*end::Item*/}
+              {/*end::Item */}
 
-              {/*begin::Item*/}
+              {/*begin::Item */}
               <div className="mb-5">
-                {/*begin::Header*/}
+                {/*begin::Header */}
                 <div
                   className="accordion-header py-3 d-flex collapsed"
                   data-bs-toggle="collapse"
@@ -229,9 +228,9 @@ export function FAQPage() {
                     What are the support terms & conditions ?
                   </h3>
                 </div>
-                {/*end::Header*/}
+                {/*end::Header */}
 
-                {/*begin::Body*/}
+                {/*begin::Body */}
                 <div
                   id="kt_accordion_1_item_3"
                   className="collapse fs-6 ps-10"
@@ -242,13 +241,13 @@ export function FAQPage() {
                   simply ignore these messages as bundled plugins do not require
                   activation or registration.
                 </div>
-                {/*end::Body*/}
+                {/*end::Body */}
               </div>
-              {/*end::Item*/}
+              {/*end::Item */}
 
-              {/*begin::Item*/}
+              {/*begin::Item */}
               <div className="mb-5">
-                {/*begin::Header*/}
+                {/*begin::Header */}
                 <div
                   className="accordion-header py-3 d-flex collapsed"
                   data-bs-toggle="collapse"
@@ -264,9 +263,9 @@ export function FAQPage() {
                     What is the 6 Months support extention ?
                   </h3>
                 </div>
-                {/*end::Header*/}
+                {/*end::Header */}
 
-                {/*begin::Body*/}
+                {/*begin::Body */}
                 <div
                   id="kt_accordion_1_item_4"
                   className="collapse fs-6 ps-10"
@@ -281,13 +280,13 @@ export function FAQPage() {
                   author will include the latest version of the bundled plugin
                   with their next theme update.
                 </div>
-                {/*end::Body*/}
+                {/*end::Body */}
               </div>
-              {/*end::Item*/}
+              {/*end::Item */}
 
-              {/*begin::Item*/}
+              {/*begin::Item */}
               <div className="mb-5">
-                {/*begin::Header*/}
+                {/*begin::Header */}
                 <div
                   className="accordion-header py-3 d-flex collapsed"
                   data-bs-toggle="collapse"
@@ -303,9 +302,9 @@ export function FAQPage() {
                     How can I keep up to date my item ?
                   </h3>
                 </div>
-                {/*end::Header*/}
+                {/*end::Header */}
 
-                {/*begin::Body*/}
+                {/*begin::Body */}
                 <div
                   id="kt_accordion_1_item_5"
                   className="collapse fs-6 ps-10"
@@ -318,16 +317,16 @@ export function FAQPage() {
                   intended with the theme once the theme has been
                   activated/registered.
                 </div>
-                {/*end::Body*/}
+                {/*end::Body */}
               </div>
-              {/*end::Item*/}
+              {/*end::Item */}
             </div>
-            {/*end::Accordion*/}
+            {/*end::Accordion */}
           </div>
         </div>
-        {/*end::Card*/}
+        {/*end::Card */}
       </div>
-      {/*end::Layout*/}
+      {/*end::Layout */}
     </div>
-  );
+  )
 }

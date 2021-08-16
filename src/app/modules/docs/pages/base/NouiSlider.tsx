@@ -1,5 +1,5 @@
-import React from "react";
+import React from 'react'
 
 export function NouiSlider() {
-  return <>noUISlider</>;
+  return <>noUISlider</>
 }

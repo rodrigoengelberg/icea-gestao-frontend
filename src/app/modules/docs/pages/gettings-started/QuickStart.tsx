@@ -1,10 +1,8 @@
-/* eslint-disable react/jsx-no-target-blank */
-/* eslint-disable jsx-a11y/anchor-has-content */
-import React from "react";
-import { CodeBlock } from "../../../../../_start/partials";
+import React from 'react'
+import { CodeBlock } from '../../../../../_start/partials'
 
 export function QuickStart() {
-  const { REACT_APP_THEME_NAME } = process.env;
+  const { REACT_APP_THEME_NAME } = process.env
 
   return (
     <>
@@ -26,8 +24,8 @@ export function QuickStart() {
             </li>
             <li>
               <h4>
-                Open the link:{" "}
-                <a href={`http://localhost:3005/`} target="_blank">
+                Open the link:{' '}
+                <a href={'http://localhost:3005/'} target="_blank">
                   http://localhost:3005/
                 </a>
               </h4>
@@ -35,9 +33,9 @@ export function QuickStart() {
           </ol>
         </div>
         <div className="py-5">
-          Our {REACT_APP_THEME_NAME} React application is based on{" "}
+          Our {REACT_APP_THEME_NAME} React application is based on{' '}
           <b>Create React App</b>. For more detailed information of the CRA,
-          visit the official Create React App{" "}
+          visit the official Create React App{' '}
           <a
             target="_blank"
             rel="noopener noreferrer"
@@ -54,5 +52,5 @@ export function QuickStart() {
         </p>
       </div>
     </>
-  );
+  )
 }

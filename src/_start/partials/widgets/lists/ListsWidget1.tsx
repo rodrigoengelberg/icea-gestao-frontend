@@ -1,16 +1,15 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-import React from "react";
-import { KTSVG } from "../../../helpers";
-import { Dropdown1 } from "../../content/dropdown/Dropdown1";
+import React from 'react'
+import { KTSVG } from '../../../helpers'
+import { Dropdown1 } from '../../content/dropdown/Dropdown1'
 
 type Props = {
-  className: string;
-};
+  className: string
+}
 
 const ListsWidget1: React.FC<Props> = ({ className }) => {
   return (
     <div className={`card ${className}`}>
-      {/* begin::Header */}
+      {/*begin::Header */}
       <div className="card-header align-items-center border-0 mt-5">
         <h3 className="card-title align-items-start flex-column">
           <span className="fw-bolder text-dark fs-3">Timeline</span>
@@ -19,7 +18,7 @@ const ListsWidget1: React.FC<Props> = ({ className }) => {
           </span>
         </h3>
         <div className="card-toolbar">
-          {/* begin::Dropdown */}
+          {/*begin::Dropdown */}
           <button
             type="button"
             className="btn btn-sm btn-icon btn-color-primary btn-active-light-primary"
@@ -33,187 +32,187 @@ const ListsWidget1: React.FC<Props> = ({ className }) => {
             />
           </button>
           <Dropdown1 />
-          {/* end::Dropdown */}
+          {/*end::Dropdown */}
         </div>
       </div>
-      {/* end::Header */}
+      {/*end::Header */}
 
-      {/* begin::Body */}
+      {/*begin::Body */}
       <div className="card-body pt-3">
-        {/* <begin::Timeline */}
+        {/*<begin::Timeline */}
         <div className="timeline-label">
-          {/* begin::Item */}
+          {/*begin::Item */}
           <div className="timeline-item">
-            {/* begin::Label */}
+            {/*begin::Label */}
             <div className="timeline-label fw-bolder text-gray-800 fs-6">
               10:00
             </div>
-            {/* end::Label */}
+            {/*end::Label */}
 
-            {/* begin::Badge */}
+            {/*begin::Badge */}
             <div className="timeline-badge">
               <i className="fa fa-genderless text-success fs-1"></i>
             </div>
-            {/* end::Badge */}
+            {/*end::Badge */}
 
-            {/* begin::Content */}
+            {/*begin::Content */}
             <div className="timeline-content d-flex">
               <span className="fw-bolder text-gray-800 ps-3">AEOL meeting</span>
             </div>
-            {/* end::Content */}
+            {/*end::Content */}
           </div>
-          {/* end::Item */}
+          {/*end::Item */}
 
-          {/* begin::Item */}
+          {/*begin::Item */}
           <div className="timeline-item">
-            {/* begin::Label */}
+            {/*begin::Label */}
             <div className="timeline-label fw-bolder text-gray-800 fs-6">
               14:37
             </div>
-            {/* end::Label */}
+            {/*end::Label */}
 
-            {/* begin::Badge */}
+            {/*begin::Badge */}
             <div className="timeline-badge">
               <i className="fa fa-genderless text-danger fs-1"></i>
             </div>
-            {/* end::Badge */}
+            {/*end::Badge */}
 
-            {/* begin::Desc */}
+            {/*begin::Desc */}
             <div className="timeline-content fw-bolder text-gray-800 ps-3">
-              Make deposit{" "}
+              Make deposit{' '}
               <a href="#" className="text-primary">
                 USD 700
               </a>
               . to ESL
             </div>
-            {/* end::Desc */}
+            {/*end::Desc */}
           </div>
-          {/* end::Item */}
+          {/*end::Item */}
 
-          {/* begin::Item */}
+          {/*begin::Item */}
           <div className="timeline-item">
-            {/* begin::Label */}
+            {/*begin::Label */}
             <div className="timeline-label fw-bolder text-gray-800 fs-6">
               16:50
             </div>
-            {/* end::Label */}
+            {/*end::Label */}
 
-            {/* begin::Badge */}
+            {/*begin::Badge */}
             <div className="timeline-badge">
               <i className="fa fa-genderless text-primary fs-1"></i>
             </div>
-            {/* end::Badge */}
+            {/*end::Badge */}
 
-            {/* begin::Text */}
+            {/*begin::Text */}
             <div className="timeline-content fw-mormal text-muted ps-3">
               Indulging in poorly driving and keep structure keep great
             </div>
-            {/* end::Text */}
+            {/*end::Text */}
           </div>
-          {/* end::Item */}
+          {/*end::Item */}
 
-          {/* begin::Item */}
+          {/*begin::Item */}
           <div className="timeline-item">
-            {/* begin::Label */}
+            {/*begin::Label */}
             <div className="timeline-label fw-bolder text-gray-800 fs-6">
               21:03
             </div>
-            {/* end::Label */}
+            {/*end::Label */}
 
-            {/* begin::Badge */}
+            {/*begin::Badge */}
             <div className="timeline-badge">
               <i className="fa fa-genderless text-danger fs-1"></i>
             </div>
-            {/* end::Badge */}
+            {/*end::Badge */}
 
-            {/* begin::Desc */}
+            {/*begin::Desc */}
             <div className="timeline-content fw-bold text-gray-800 ps-3">
-              New order placed{" "}
+              New order placed{' '}
               <a href="#" className="text-primary">
                 #XF-2356
               </a>
               .
             </div>
-            {/* end::Desc */}
+            {/*end::Desc */}
           </div>
-          {/* end::Item */}
+          {/*end::Item */}
 
-          {/* begin::Item */}
+          {/*begin::Item */}
           <div className="timeline-item">
-            {/* begin::Label */}
+            {/*begin::Label */}
             <div className="timeline-label fw-bolder text-gray-800 fs-6">
               16:50
             </div>
-            {/* end::Label */}
+            {/*end::Label */}
 
-            {/* begin::Badge */}
+            {/*begin::Badge */}
             <div className="timeline-badge">
               <i className="fa fa-genderless text-primary fs-1"></i>
             </div>
-            {/* end::Badge */}
+            {/*end::Badge */}
 
-            {/* begin::Text */}
+            {/*begin::Text */}
             <div className="timeline-content fw-mormal text-muted ps-3">
               Indulging in poorly driving and keep structure keep great
             </div>
-            {/* end::Text */}
+            {/*end::Text */}
           </div>
-          {/* end::Item */}
+          {/*end::Item */}
 
-          {/* begin::Item */}
+          {/*begin::Item */}
           <div className="timeline-item">
-            {/* begin::Label */}
+            {/*begin::Label */}
             <div className="timeline-label fw-bolder text-gray-800 fs-6">
               21:03
             </div>
-            {/* end::Label */}
+            {/*end::Label */}
 
-            {/* begin::Badge */}
+            {/*begin::Badge */}
             <div className="timeline-badge">
               <i className="fa fa-genderless text-danger fs-1"></i>
             </div>
-            {/* end::Badge */}
+            {/*end::Badge */}
 
-            {/* begin::Desc */}
+            {/*begin::Desc */}
             <div className="timeline-content fw-bold text-gray-800 ps-3">
-              New order placed{" "}
+              New order placed{' '}
               <a href="#" className="text-primary">
                 #XF-2356
               </a>
               .
             </div>
-            {/* end::Desc */}
+            {/*end::Desc */}
           </div>
-          {/* end::Item */}
+          {/*end::Item */}
 
-          {/* begin::Item */}
+          {/*begin::Item */}
           <div className="timeline-item">
-            {/* begin::Label */}
+            {/*begin::Label */}
             <div className="timeline-label fw-bolder text-gray-800 fs-6">
               10:30
             </div>
-            {/* end::Label */}
+            {/*end::Label */}
 
-            {/* begin::Badge */}
+            {/*begin::Badge */}
             <div className="timeline-badge">
               <i className="fa fa-genderless text-success fs-1"></i>
             </div>
-            {/* end::Badge */}
+            {/*end::Badge */}
 
-            {/* begin::Text */}
+            {/*begin::Text */}
             <div className="timeline-content fw-mormal text-muted ps-3">
               Finance KPI Mobile app launch preparion meeting
             </div>
-            {/* end::Text */}
+            {/*end::Text */}
           </div>
-          {/* end::Item */}
+          {/*end::Item */}
         </div>
-        {/* <end::Timeline */}
+        {/*<end::Timeline */}
       </div>
 
-      {/* <end: Card Body */}
+      {/*<end: Card Body */}
     </div>
-  );
-};
+  )
+}
 
-export { ListsWidget1 };
+export { ListsWidget1 }

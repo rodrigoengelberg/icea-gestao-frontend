@@ -1,16 +1,15 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-import React from "react";
-import { KTSVG } from "../../../helpers";
+import React from 'react'
+import { KTSVG } from '../../../helpers'
 
 type Props = {
-  className: string;
-  innerPadding?: string;
-};
+  className: string
+  innerPadding?: string
+}
 
-const TablesWidget1: React.FC<Props> = ({ className, innerPadding = "" }) => {
+const TablesWidget1: React.FC<Props> = ({ className, innerPadding = '' }) => {
   return (
     <div className={`card ${className}`}>
-      {/* <!--begin::Header--> */}
+      {/*<!--begin::Header--> */}
       <div className={`card-header border-0 pt-5 ${innerPadding}`}>
         <h3 className="card-title align-items-start flex-column">
           <span className="card-label fw-bolder text-dark fs-3">
@@ -50,19 +49,19 @@ const TablesWidget1: React.FC<Props> = ({ className, innerPadding = "" }) => {
           </ul>
         </div>
       </div>
-      {/* <!--end::Header--> */}
+      {/*<!--end::Header--> */}
 
-      {/* <!--begin::Body--> */}
+      {/*<!--begin::Body--> */}
       <div className="card-body pt-2 pb-0 mt-n3">
         <div className="tab-content mt-5" id="myTabTables1">
-          {/* <!--begin::Tap pane--> */}
+          {/*<!--begin::Tap pane--> */}
           <div
             className="tab-pane fade active show"
             id="kt_tab_pane_1_1"
             role="tabpanel"
             aria-labelledby="kt_tab_pane_1_1"
           >
-            {/* <!--begin::Table--> */}
+            {/*<!--begin::Table--> */}
             <div className="table-responsive">
               <table className="table table-borderless align-middle">
                 <thead>
@@ -105,7 +104,7 @@ const TablesWidget1: React.FC<Props> = ({ className, innerPadding = "" }) => {
                             <div
                               className="progress-bar bg-primary"
                               role="progressbar"
-                              style={{ width: "46%" }}
+                              style={{ width: '46%' }}
                               aria-valuenow={50}
                               aria-valuemin={0}
                               aria-valuemax={100}
@@ -157,7 +156,7 @@ const TablesWidget1: React.FC<Props> = ({ className, innerPadding = "" }) => {
                             <div
                               className="progress-bar bg-warning"
                               role="progressbar"
-                              style={{ width: "87%" }}
+                              style={{ width: '87%' }}
                               aria-valuenow={50}
                               aria-valuemin={0}
                               aria-valuemax={100}
@@ -209,7 +208,7 @@ const TablesWidget1: React.FC<Props> = ({ className, innerPadding = "" }) => {
                             <div
                               className="progress-bar bg-success"
                               role="progressbar"
-                              style={{ width: "53%" }}
+                              style={{ width: '53%' }}
                               aria-valuenow={50}
                               aria-valuemin={0}
                               aria-valuemax={100}
@@ -261,7 +260,7 @@ const TablesWidget1: React.FC<Props> = ({ className, innerPadding = "" }) => {
                             <div
                               className="progress-bar bg-danger"
                               role="progressbar"
-                              style={{ width: "92%" }}
+                              style={{ width: '92%' }}
                               aria-valuenow={50}
                               aria-valuemin={0}
                               aria-valuemax={100}
@@ -285,18 +284,18 @@ const TablesWidget1: React.FC<Props> = ({ className, innerPadding = "" }) => {
                 </tbody>
               </table>
             </div>
-            {/* <!--end::Table--> */}
+            {/*<!--end::Table--> */}
           </div>
-          {/* <!--end::Tap pane--> */}
+          {/*<!--end::Tap pane--> */}
 
-          {/* <!--begin::Tap pane--> */}
+          {/*<!--begin::Tap pane--> */}
           <div
             className="tab-pane fade"
             id="kt_tab_pane_1_2"
             role="tabpanel"
             aria-labelledby="kt_tab_pane_1_1"
           >
-            {/* <!--begin::Table--> */}
+            {/*<!--begin::Table--> */}
             <div className="table-responsive">
               <table className="table table-borderless align-middle">
                 <thead>
@@ -339,7 +338,7 @@ const TablesWidget1: React.FC<Props> = ({ className, innerPadding = "" }) => {
                             <div
                               className="progress-bar bg-success"
                               role="progressbar"
-                              style={{ width: "53%" }}
+                              style={{ width: '53%' }}
                               aria-valuenow={50}
                               aria-valuemin={0}
                               aria-valuemax={100}
@@ -391,7 +390,7 @@ const TablesWidget1: React.FC<Props> = ({ className, innerPadding = "" }) => {
                             <div
                               className="progress-bar bg-danger"
                               role="progressbar"
-                              style={{ width: "92%" }}
+                              style={{ width: '92%' }}
                               aria-valuenow={50}
                               aria-valuemin={0}
                               aria-valuemax={100}
@@ -443,7 +442,7 @@ const TablesWidget1: React.FC<Props> = ({ className, innerPadding = "" }) => {
                             <div
                               className="progress-bar bg-primary"
                               role="progressbar"
-                              style={{ width: "46%" }}
+                              style={{ width: '46%' }}
                               aria-valuenow={50}
                               aria-valuemin={0}
                               aria-valuemax={100}
@@ -495,7 +494,7 @@ const TablesWidget1: React.FC<Props> = ({ className, innerPadding = "" }) => {
                             <div
                               className="progress-bar bg-warning"
                               role="progressbar"
-                              style={{ width: "87%" }}
+                              style={{ width: '87%' }}
                               aria-valuenow={50}
                               aria-valuemin={0}
                               aria-valuemax={100}
@@ -519,18 +518,18 @@ const TablesWidget1: React.FC<Props> = ({ className, innerPadding = "" }) => {
                 </tbody>
               </table>
             </div>
-            {/* <!--end::Table--> */}
+            {/*<!--end::Table--> */}
           </div>
-          {/* <!--end::Tap pane--> */}
+          {/*<!--end::Tap pane--> */}
 
-          {/* <!--begin::Tap pane--> */}
+          {/*<!--begin::Tap pane--> */}
           <div
             className="tab-pane fade"
             id="kt_tab_pane_1_3"
             role="tabpanel"
             aria-labelledby="kt_tab_pane_1_1"
           >
-            {/* <!--begin::Table--> */}
+            {/*<!--begin::Table--> */}
             <div className="table-responsive">
               <table className="table table-borderless align-middle">
                 <thead>
@@ -573,7 +572,7 @@ const TablesWidget1: React.FC<Props> = ({ className, innerPadding = "" }) => {
                             <div
                               className="progress-bar bg-warning"
                               role="progressbar"
-                              style={{ width: "87%" }}
+                              style={{ width: '87%' }}
                               aria-valuenow={50}
                               aria-valuemin={0}
                               aria-valuemax={100}
@@ -625,7 +624,7 @@ const TablesWidget1: React.FC<Props> = ({ className, innerPadding = "" }) => {
                             <div
                               className="progress-bar bg-success"
                               role="progressbar"
-                              style={{ width: "53%" }}
+                              style={{ width: '53%' }}
                               aria-valuenow={50}
                               aria-valuemin={0}
                               aria-valuemax={100}
@@ -677,7 +676,7 @@ const TablesWidget1: React.FC<Props> = ({ className, innerPadding = "" }) => {
                             <div
                               className="progress-bar bg-primary"
                               role="progressbar"
-                              style={{ width: "46%" }}
+                              style={{ width: '46%' }}
                               aria-valuenow={50}
                               aria-valuemin={0}
                               aria-valuemax={100}
@@ -729,7 +728,7 @@ const TablesWidget1: React.FC<Props> = ({ className, innerPadding = "" }) => {
                             <div
                               className="progress-bar bg-danger"
                               role="progressbar"
-                              style={{ width: "92%" }}
+                              style={{ width: '92%' }}
                               aria-valuenow={50}
                               aria-valuemin={0}
                               aria-valuemax={100}
@@ -753,13 +752,13 @@ const TablesWidget1: React.FC<Props> = ({ className, innerPadding = "" }) => {
                 </tbody>
               </table>
             </div>
-            {/* <!--end::Table--> */}
+            {/*<!--end::Table--> */}
           </div>
-          {/* <!--end::Tap pane--> */}
+          {/*<!--end::Tap pane--> */}
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export { TablesWidget1 };
+export { TablesWidget1 }

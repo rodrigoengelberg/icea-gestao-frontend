@@ -1,16 +1,13 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable jsx-a11y/anchor-has-content */
-/* eslint-disable no-unreachable */
-import React from "react";
-import { CodeBlock } from "../../../../../_start/partials";
+import React from 'react'
+import { CodeBlock } from '../../../../../_start/partials'
 
 export function Badges() {
   const {
     REACT_APP_THEME_NAME,
     REACT_APP_BOOTSTRAP_DOCS_LINK,
     REACT_APP_SASS_PATH,
-    REACT_APP_SASS_VARIABLES_PATH,
-  } = process.env;
+    REACT_APP_SASS_VARIABLES_PATH
+  } = process.env
   return (
     <>
       <div className="card-body p-10 p-lg-15">
@@ -19,7 +16,7 @@ export function Badges() {
             <a href="#overview"></a>Overview
           </h1>
           <div className="py-5">
-            <strong>{REACT_APP_THEME_NAME}</strong>&nbsp; customizes the{" "}
+            <strong>{REACT_APP_THEME_NAME}</strong>&nbsp; customizes the{' '}
             <a
               href={`${REACT_APP_BOOTSTRAP_DOCS_LINK}/components/badges/`}
               className="fw-bold"
@@ -27,7 +24,8 @@ export function Badges() {
               Bootstrap Badges
             </a>
             &nbsp; through the SASS variables in
-            <code>{REACT_APP_SASS_VARIABLES_PATH}</code>and adds additonal options in
+            <code>{REACT_APP_SASS_VARIABLES_PATH}</code>and adds additonal
+            options in
             <code>{REACT_APP_SASS_PATH}/_badge.scss</code>.
           </div>
         </div>
@@ -38,7 +36,7 @@ export function Badges() {
           <div className="py-5">
             Use
             <code>.badge</code>with
-            <code>.badge-{"{color}"}</code>classes to set a badge's style
+            <code>.badge-{'{color}'}</code>classes to set a badge's style
             defined with
             <code>$theme-colors</code>mapped in
             <code>{REACT_APP_SASS_VARIABLES_PATH}</code>:
@@ -65,7 +63,7 @@ export function Badges() {
           <div className="py-5">
             Use
             <code>.badge</code>with
-            <code>.badge-light-{"{color}"}</code>classes to set a badge's light
+            <code>.badge-light-{'{color}'}</code>classes to set a badge's light
             style defined with
             <code>$theme-light-colors</code>mapped in
             <code>{REACT_APP_SASS_VARIABLES_PATH}</code>:
@@ -169,7 +167,7 @@ export function Badges() {
         </div>
       </div>
     </>
-  );
+  )
 }
 
 const code = `<span className="badge badge-white">New</span>
@@ -180,14 +178,14 @@ const code = `<span className="badge badge-white">New</span>
 <span className="badge badge-info">New</span>
 <span className="badge badge-warning">New</span>
 <span className="badge badge-danger">New</span>
-<span className="badge badge-dark">New</span>`;
+<span className="badge badge-dark">New</span>`
 
 const code2 = `<span className="badge badge-light-primary">New</span>
 <span className="badge badge-light-success">New</span>
 <span className="badge badge-light-info">New</span>
 <span className="badge badge-light-warning">New</span>
 <span className="badge badge-light-danger">New</span>
-<span className="badge badge-light-dark">New</span>`;
+<span className="badge badge-light-dark">New</span>`
 
 const code3 = `<span className="badge badge-square badge-white">5</span>
 <span className="badge badge-square badge-primary">5</span>
@@ -197,7 +195,7 @@ const code3 = `<span className="badge badge-square badge-white">5</span>
 <span className="badge badge-square badge-info">5</span>
 <span className="badge badge-square badge-warning">5</span>
 <span className="badge badge-square badge-danger">5</span>
-<span className="badge badge-square badge-dark">5</span>`;
+<span className="badge badge-square badge-dark">5</span>`
 
 const code4 = `<span className="badge badge-circle badge-white">5</span>
 <span className="badge badge-circle badge-primary">5</span>
@@ -207,4 +205,4 @@ const code4 = `<span className="badge badge-circle badge-white">5</span>
 <span className="badge badge-circle badge-info">5</span>
 <span className="badge badge-circle badge-warning">5</span>
 <span className="badge badge-circle badge-danger">5</span>
-<span className="badge badge-circle badge-dark">5</span>`;
+<span className="badge badge-circle badge-dark">5</span>`

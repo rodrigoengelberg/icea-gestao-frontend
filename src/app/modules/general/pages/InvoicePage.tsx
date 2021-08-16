@@ -1,47 +1,46 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useEffect } from "react";
-import { useLocation } from "react-router-dom";
-import { toAbsoluteUrl } from "../../../../_start/helpers";
+import React, { useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
+import { toAbsoluteUrl } from '../../../../_start/helpers'
 
 export function InvoicePage() {
-  const location = useLocation();
-  // We need this class for corrent printed version of invoice
-  document.body.classList.add("print-content-only");
+  const location = useLocation()
+  //We need this class for corrent printed version of invoice
+  document.body.classList.add('print-content-only')
   useEffect(() => {
     return () => {
-      // After component unmount we should remove this class
-      document.body.classList.remove("print-content-only");
-    };
-  }, [location]);
+      //After component unmount we should remove this class
+      document.body.classList.remove('print-content-only')
+    }
+  }, [location])
 
   return (
     <div className="card">
       <div className="card-body p-0">
-        {/* begin::Invoice */}
+        {/*begin::Invoice */}
         <div className="row justify-content-center pt-8 px-8 pt-md-20 px-md-0">
           <div className="col-md-10">
-            {/*  begin: Invoice header */}
+            {/*begin: Invoice header */}
             <div className="d-flex justify-content-between pb-10 pb-md-20 flex-column flex-md-row">
               <h1 className="display-6 text-dark fw-bolder mb-10">INVOICE</h1>
               <div className="d-flex flex-column align-items-md-end px-0">
-                {/* begin::Logo */}
+                {/*begin::Logo */}
                 <a href="#" className="mb-5">
                   <img
-                    src={toAbsoluteUrl("/media/svg/brand-logos/duolingo.svg")}
+                    src={toAbsoluteUrl('/media/svg/brand-logos/duolingo.svg')}
                     className="h-50px"
                     alt="img"
                   />
                 </a>
-                {/* end::Logo */}
+                {/*end::Logo */}
                 <span className="d-flex flex-column align-items-md-end fs-4 fw-bold text-muted">
                   <span>Cecilia Chapman, 711-2880 Nulla St, Mankato</span>
                   <span>Mississippi 96522</span>
                 </span>
               </div>
             </div>
-            {/* end: Invoice header */}
+            {/*end: Invoice header */}
 
-            {/* begin: Invoice body */}
+            {/*begin: Invoice body */}
             <div className="row border-bottom pb-10">
               <div className="col-md-9 py-md-10 pe-md-10">
                 <div className="table-responsive">
@@ -122,44 +121,44 @@ export function InvoicePage() {
                 </div>
               </div>
               <div className="col-md-3 border-start-md ps-md-10 pt-md-10 text-end">
-                {/* begin::Total Amount */}
+                {/*begin::Total Amount */}
                 <div className="fs-3 fw-bolder text-muted mb-3">
                   TOTAL AMOUNT
                 </div>
                 <div className="fs-2x fw-bolder">$20,600.00</div>
                 <div className="text-muted fw-bold mb-16">Taxes included</div>
-                {/* end::Total Amount */}
+                {/*end::Total Amount */}
 
                 <div className="border-bottom w-100 mb-16"></div>
 
-                {/* begin::Invoice To */}
+                {/*begin::Invoice To */}
                 <div className="text-gray-600 fs-6 fw-bold mb-3">
                   INVOICE TO.
                 </div>
                 <div className="fs-6 fw-bold mb-10">
                   Iris Watson.
                   <br />
-                  Fredrick Nebraska 20620{" "}
+                  Fredrick Nebraska 20620{' '}
                 </div>
-                {/* end::Invoice To */}
+                {/*end::Invoice To */}
 
-                {/* begin::Invoice No */}
+                {/*begin::Invoice No */}
                 <div className="text-gray-600 fs-6 fw-bold mb-3">
                   INVOICE NO.
                 </div>
                 <div className="fs-6 fw-bold mb-10">56758</div>
-                {/* end::Invoice No */}
+                {/*end::Invoice No */}
 
-                {/* begin::Invoice Date */}
+                {/*begin::Invoice Date */}
                 <div className="text-gray-600 fs-6 fw-bold mb-3">DATE</div>
                 <div className="fs-6 fw-bold">12 May, 2020</div>
-                {/* end::Invoice Date */}
+                {/*end::Invoice Date */}
               </div>
             </div>
-            {/* end: Invoice body */}
+            {/*end: Invoice body */}
           </div>
         </div>
-        {/*  begin: Invoice action */}
+        {/*begin: Invoice action */}
         <div className="row justify-content-center py-8 px-8 py-md-13 px-md-0">
           <div className="col-md-10">
             <div className="d-flex fs-7 flex-wrap">
@@ -186,9 +185,9 @@ export function InvoicePage() {
           </div>
         </div>
 
-        {/*  end: Invoice action */}
-        {/* end::Invoice */}
+        {/*end: Invoice action */}
+        {/*end::Invoice */}
       </div>
     </div>
-  );
+  )
 }

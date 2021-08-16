@@ -1,10 +1,8 @@
-/* eslint-disable react/jsx-no-target-blank */
-/* eslint-disable jsx-a11y/anchor-has-content */
-import React from "react";
-import { CodeBlock } from "../../../../../_start/partials";
+import React from 'react'
+import { CodeBlock } from '../../../../../_start/partials'
 
 export function CreatePage() {
-  const { REACT_APP_VERSION, REACT_APP_THEME_NAME } = process.env;
+  const { REACT_APP_VERSION, REACT_APP_THEME_NAME } = process.env
 
   return (
     <>
@@ -32,7 +30,7 @@ export function CreatePage() {
             </li>
             <li>
               <span>
-                Add menu item to <b>Header Menu</b>{" "}
+                Add menu item to <b>Header Menu</b>{' '}
                 <code>
                   src/_{REACT_APP_VERSION?.toLocaleLowerCase()}
                   /layout/components/header/MenuInner.tsx
@@ -43,7 +41,7 @@ export function CreatePage() {
             </li>
             <li>
               <span>
-                Add menu item to <b>Aside Menu</b>{" "}
+                Add menu item to <b>Aside Menu</b>{' '}
                 <code>
                   src/_{REACT_APP_THEME_NAME?.toLocaleLowerCase()}
                   /layout/components/aside/AsideMenuMain.tsx
@@ -56,14 +54,14 @@ export function CreatePage() {
         </div>
       </div>
     </>
-  );
+  )
 }
 
 const codeComponent = `import React from "react";
                   
 export function MyPage() {
     return <h1>Hello!</h1>
-}`;
+}`
 
 const routingCode = `import React, { Suspense, lazy } from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
@@ -112,10 +110,10 @@ export function PrivateRoutes() {
       </Switch>
     </Suspense>
   );
-}`;
+}`
 
 const headerMenu = `+<li className="menu-item">
 +<MenuItem to="/my-page" title="My Page" />    
-+</li>`;
++</li>`
 
-const asideMenu = `+<AsideMenuItem to="/my-page" title="My Page" />`;
+const asideMenu = '+<AsideMenuItem to="/my-page" title="My Page" />'

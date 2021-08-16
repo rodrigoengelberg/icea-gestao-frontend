@@ -1,12 +1,12 @@
-import React from "react";
+import React from 'react'
 import {
   FeedsWidget2,
   FeedsWidget3,
   FeedsWidget4,
   ListsWidget2,
   MixedWidget1,
-  TablesWidget3,
-} from "../../../../_start/partials/widgets";
+  TablesWidget3
+} from '../../../../_start/partials/widgets'
 
 export function Overview() {
   return (
@@ -22,5 +22,5 @@ export function Overview() {
         <ListsWidget2 className="mb-5 mb-xxl-8" />
       </div>
     </div>
-  );
+  )
 }

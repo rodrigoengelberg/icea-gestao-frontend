@@ -1,8 +1,8 @@
-import React from "react";
-import { KTSVG } from "../../../../../_start/helpers";
+import React from 'react'
+import { KTSVG } from '../../../../../_start/helpers'
 
 export function Changelog() {
-  const { REACT_APP_THEME_NAME, REACT_APP_VERSION } = process.env;
+  const { REACT_APP_THEME_NAME, REACT_APP_VERSION } = process.env
 
   return (
     <>
@@ -41,5 +41,5 @@ export function Changelog() {
         </div>
       </div>
     </>
-  );
+  )
 }

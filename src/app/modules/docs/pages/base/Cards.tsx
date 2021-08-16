@@ -1,17 +1,14 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable jsx-a11y/anchor-has-content */
-/* eslint-disable no-unreachable */
-import React from "react";
-import { toAbsoluteUrl } from "../../../../../_start/helpers";
-import { CodeBlock } from "../../../../../_start/partials";
+import React from 'react'
+import { toAbsoluteUrl } from '../../../../../_start/helpers'
+import { CodeBlock } from '../../../../../_start/partials'
 
 export function Cards() {
   const {
     REACT_APP_THEME_NAME,
     REACT_APP_BOOTSTRAP_DOCS_LINK,
     REACT_APP_SASS_PATH,
-    REACT_APP_SASS_VARIABLES_PATH,
-  } = process.env;
+    REACT_APP_SASS_VARIABLES_PATH
+  } = process.env
   return (
     <>
       <div className="pb-10">
@@ -27,7 +24,8 @@ export function Cards() {
             Bootstrap Card
           </a>
           &nbsp; through the SASS variables in
-          <code>{REACT_APP_SASS_VARIABLES_PATH}</code>and adds additonal options in
+          <code>{REACT_APP_SASS_VARIABLES_PATH}</code>and adds additonal options
+          in
           <code>{REACT_APP_SASS_PATH}/_card.scss</code>.
         </div>
       </div>
@@ -78,7 +76,7 @@ export function Cards() {
           <a href="" className="fw-bolder" target="_blank">
             height classes
           </a>
-          <code>.h-{"{size}"}</code>on a card's body to have a card with
+          <code>.h-{'{size}'}</code>on a card's body to have a card with
           scrollable content:
         </div>
         <div className="py-5">
@@ -256,8 +254,8 @@ export function Cards() {
             Bootstrap
           </a>
           Grid use
-          <code>.card-{`{mode}`}</code>or responsive
-          <code>.card-{"{breakpoint}-{mode}"}</code>for
+          <code>.card-{'{mode}'}</code>or responsive
+          <code>.card-{'{breakpoint}-{mode}'}</code>for
           <code>sm</code>,<code>md</code>,<code>lg</code>,<code>xl</code>, and
           <code>xxl</code>.
         </div>
@@ -355,7 +353,7 @@ export function Cards() {
         </h1>
         <div className="py-5">
           Use
-          <code>.card-{`{property}`}</code>class on other elements to required
+          <code>.card-{'{property}'}</code>class on other elements to required
           card style properties defined through the SASS variables in
           <code>src/sass/_variables.scss</code>and
           <code>src/sass/_card.scss/</code>.
@@ -406,7 +404,7 @@ export function Cards() {
                   <img
                     className="w-100 card-rounded-bottom"
                     alt=""
-                    src={toAbsoluteUrl("/media/svg/illustrations/bg-4.svg")}
+                    src={toAbsoluteUrl('/media/svg/illustrations/bg-4.svg')}
                   />
                 </div>
               </div>
@@ -417,7 +415,7 @@ export function Cards() {
         <CodeBlock code={code7} language="markup" />
       </div>
     </>
-  );
+  )
 }
 
 const code = `<div className="card card-custom">
@@ -435,7 +433,7 @@ const code = `<div className="card card-custom">
   <div className="card-footer">
       Footer
   </div>
-</div>`;
+</div>`
 
 const code2 = `<div className="card card-custom">
   <div className="card-header">
@@ -452,7 +450,7 @@ const code2 = `<div className="card card-custom">
   <div className="card-footer">
       Footer
   </div>
-</div>`;
+</div>`
 
 const code3 = `<div className="card card-custom card-flush">
   <div className="card-header">
@@ -469,7 +467,7 @@ const code3 = `<div className="card card-custom card-flush">
   <div className="card-footer">
       Footer
   </div>
-</div>`;
+</div>`
 
 const code4 = `<div className="card card-custom card-px-0">
   <div className="card-header">
@@ -486,7 +484,7 @@ const code4 = `<div className="card card-custom card-px-0">
   <div className="card-footer">
       Footer
   </div>
-</div>`;
+</div>`
 
 const code5 = `<div className="card card-custom card-border">
   <div className="card-header">
@@ -503,7 +501,7 @@ const code5 = `<div className="card card-custom card-border">
   <div className="card-footer">
       Footer
   </div>
-</div>`;
+</div>`
 
 const code6 = `<div className="row g-5">
   <div className="col-lg-4">
@@ -583,7 +581,7 @@ const code6 = `<div className="row g-5">
           </div>
       </div>
   </div>
-</div>`;
+</div>`
 
 const code7 = `<div className="card card-custom shadow">
   <div className="card-header">
@@ -598,4 +596,4 @@ const code7 = `<div className="card card-custom shadow">
       <div className="card-p">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
       <img className="w-100 card-rounded-bottom" alt="" src="assets/media/svg/illustrations/bg-4.svg"/>
   </div>
-</div>`;
+</div>`

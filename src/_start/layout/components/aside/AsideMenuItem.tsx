@@ -1,17 +1,16 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-import React from "react";
-import clsx from "clsx";
-import { Link } from "react-router-dom";
-import { useLocation } from "react-router";
-import { checkIsActive } from "../../../helpers";
+import React from 'react'
+import clsx from 'clsx'
+import { Link } from 'react-router-dom'
+import { useLocation } from 'react-router'
+import { checkIsActive } from '../../../helpers'
 
 type Props = {
-  to: string;
-  title: string;
-  hasBullet?: boolean;
-  free?: boolean;
-  exclusive?: boolean;
-};
+  to: string
+  title: string
+  hasBullet?: boolean
+  free?: boolean
+  exclusive?: boolean
+}
 
 const AsideMenuItem: React.FC<Props> = ({
   children,
@@ -19,13 +18,13 @@ const AsideMenuItem: React.FC<Props> = ({
   title,
   hasBullet = false,
   free = false,
-  exclusive = false,
+  exclusive = false
 }) => {
-  const { pathname } = useLocation();
+  const { pathname } = useLocation()
   return (
     <div
-      className={clsx("menu-item", {
-        here: checkIsActive(pathname, to),
+      className={clsx('menu-item', {
+        here: checkIsActive(pathname, to)
       })}
     >
       {free ? (
@@ -59,7 +58,7 @@ const AsideMenuItem: React.FC<Props> = ({
       )}
       {children}
     </div>
-  );
-};
+  )
+}
 
-export { AsideMenuItem };
+export { AsideMenuItem }

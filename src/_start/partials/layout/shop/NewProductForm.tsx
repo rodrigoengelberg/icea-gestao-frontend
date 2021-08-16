@@ -1,23 +1,22 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useState } from "react";
-import { KTSVG, toAbsoluteUrl } from "../../../helpers";
+import React, { useState } from 'react'
+import { KTSVG, toAbsoluteUrl } from '../../../helpers'
 
 type Props = {
-  createProductFormWrapperRef: React.MutableRefObject<HTMLDivElement | null>;
-  discardCreateProductRef: React.MutableRefObject<HTMLButtonElement | null>;
-  showProductsFilterForm: () => void;
-};
+  createProductFormWrapperRef: React.MutableRefObject<HTMLDivElement | null>
+  discardCreateProductRef: React.MutableRefObject<HTMLButtonElement | null>
+  showProductsFilterForm: () => void
+}
 
 const NewProductForm: React.FC<Props> = ({
   createProductFormWrapperRef,
   discardCreateProductRef,
-  showProductsFilterForm,
+  showProductsFilterForm
 }) => {
-  const [name, setName] = useState<string>("");
-  const [category, setCategory] = useState<string>("Mens");
-  const [size, setSize] = useState<string>("M");
-  const [description, setDescription] = useState<string>("");
-  const [price, setPrice] = useState<string>("");
+  const [name, setName] = useState<string>('')
+  const [category, setCategory] = useState<string>('Mens')
+  const [size, setSize] = useState<string>('M')
+  const [description, setDescription] = useState<string>('')
+  const [price, setPrice] = useState<string>('')
 
   return (
     <div
@@ -25,44 +24,44 @@ const NewProductForm: React.FC<Props> = ({
       ref={createProductFormWrapperRef}
       id="kt_sidebar_shop_new_form"
     >
-      {/* begin::Heading */}
+      {/*begin::Heading */}
       <div className="d-flex flex-column text-center mb-10">
         <h3 className="fs-2 fw-bolder mb-2">Add New Product</h3>
         <span className="text-muted fs-6 fw-bolder">Quick Create Form</span>
       </div>
-      {/* end::Heading*/}
+      {/*end::Heading */}
 
-      {/* begin::Form*/}
+      {/*begin::Form */}
       <form className="form" method="post">
-        {/* begin::Product images*/}
+        {/*begin::Product images */}
         <div className="d-flex mb-8 justify-content-between">
-          {/* begin::Symbol*/}
+          {/*begin::Symbol */}
           <div className="symbol symbol-70px me-4 bg-light">
             <div
               className="symbol-label"
               style={{
                 backgroundImage: `url('${toAbsoluteUrl(
-                  "/media/products/11.png"
-                )}')`,
+                  '/media/products/11.png'
+                )}')`
               }}
             ></div>
           </div>
-          {/* end::Symbol*/}
+          {/*end::Symbol */}
 
-          {/* begin::Symbol*/}
+          {/*begin::Symbol */}
           <div className="symbol symbol-70px me-4">
             <div
               className="symbol-label"
               style={{
                 backgroundImage: `url('${toAbsoluteUrl(
-                  "/media/products/12.png"
-                )}')`,
+                  '/media/products/12.png'
+                )}')`
               }}
             ></div>
           </div>
-          {/* end::Symbol*/}
+          {/*end::Symbol */}
 
-          {/* begin::Symbol*/}
+          {/*begin::Symbol */}
           <div className="symbol symbol-70px">
             <a
               href="#"
@@ -75,14 +74,14 @@ const NewProductForm: React.FC<Props> = ({
               Upload
             </a>
           </div>
-          {/* end::Symbol*/}
+          {/*end::Symbol */}
         </div>
-        {/* end::Product images*/}
+        {/*end::Product images */}
 
-        {/* begin::Product Info*/}
+        {/*begin::Product Info */}
         <div className="mt-5">
           <div className="mb-4 fw-bolder fs-6">Product Info</div>
-          {/* begin::Input*/}
+          {/*begin::Input */}
           <div className="mb-8">
             <label className="fw-bolder">Name</label>
             <input
@@ -90,7 +89,7 @@ const NewProductForm: React.FC<Props> = ({
               className="form-control form-control-solid form-control-lg"
               placeholder="Name"
               value={name}
-              onChange={(e) => setName(e.target.value)}
+              onChange={e => setName(e.target.value)}
             />
           </div>
           <div className="mb-8">
@@ -101,7 +100,7 @@ const NewProductForm: React.FC<Props> = ({
               data-placeholder="Select Category..."
               data-hide-search="true"
               value={category}
-              onChange={(e) => setCategory(e.target.value)}
+              onChange={e => setCategory(e.target.value)}
             >
               <option value="mens">Mens</option>
               <option value="womens">Womens</option>
@@ -118,7 +117,7 @@ const NewProductForm: React.FC<Props> = ({
               data-placeholder="Select Size..."
               data-hide-search="true"
               value={size}
-              onChange={(e) => setSize(e.target.value)}
+              onChange={e => setSize(e.target.value)}
             >
               <option value="xs">XS</option>
               <option value="s">S</option>
@@ -133,7 +132,7 @@ const NewProductForm: React.FC<Props> = ({
               className="form-control form-control-solid form-control-lg"
               rows={3}
               value={description}
-              onChange={(e) => setDescription(e.target.value)}
+              onChange={e => setDescription(e.target.value)}
             ></textarea>
           </div>
           <div className="mb-8">
@@ -143,7 +142,7 @@ const NewProductForm: React.FC<Props> = ({
               className="form-control form-control-solid form-control-lg"
               placeholder=""
               value={price}
-              onChange={(e) => setPrice(e.target.value)}
+              onChange={e => setPrice(e.target.value)}
             />
           </div>
 
@@ -159,13 +158,13 @@ const NewProductForm: React.FC<Props> = ({
           >
             Discard
           </button>
-          {/* end::Input*/}
+          {/*end::Input */}
         </div>
-        {/* end::Product Info*/}
+        {/*end::Product Info */}
       </form>
-      {/* end::Form*/}
+      {/*end::Form */}
     </div>
-  );
-};
+  )
+}
 
-export { NewProductForm };
+export { NewProductForm }

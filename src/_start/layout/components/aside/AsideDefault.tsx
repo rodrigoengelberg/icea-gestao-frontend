@@ -1,21 +1,20 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-import React from "react";
-import { Link } from "react-router-dom";
-import clsx from "clsx";
-import { useTheme } from "../../core";
-import { KTSVG, toAbsoluteUrl } from "../../../helpers";
-import { AsideMenu } from "./AsideMenu";
-import { Dropdown1 } from "../../../partials";
+import React from 'react'
+import { Link } from 'react-router-dom'
+import clsx from 'clsx'
+import { useTheme } from '../../core'
+import { KTSVG, toAbsoluteUrl } from '../../../helpers'
+import { AsideMenu } from './AsideMenu'
+import { Dropdown1 } from '../../../partials'
 
 export function AsideDefault() {
-  const { config, classes } = useTheme();
+  const { config, classes } = useTheme()
 
   return (
     <>
       {config.aside.display && (
         <div
           id="kt_aside"
-          className={clsx("aside", "bg-info", classes.aside.join(" "))}
+          className={clsx('aside', 'bg-info', classes.aside.join(' '))}
           data-kt-drawer="true"
           data-kt-drawer-name="aside"
           data-kt-drawer-activate="{default: true, lg: false}"
@@ -23,7 +22,7 @@ export function AsideDefault() {
           data-kt-drawer-width={
             config.aside.secondaryDisplay
               ? "{default:'200px', '300px': '250px'}"
-              : "70px"
+              : '70px'
           }
           data-kt-drawer-direction="start"
           data-kt-drawer-toggle="#kt_aside_toggler"
@@ -37,7 +36,7 @@ export function AsideDefault() {
                 <Link to="/">
                   <img
                     alt="Logo"
-                    src={toAbsoluteUrl("/media/logos/logo-compact.svg")}
+                    src={toAbsoluteUrl('/media/logos/logo-compact.svg')}
                     className="mh-50px"
                   />
                 </Link>
@@ -156,7 +155,7 @@ export function AsideDefault() {
                 {config.aside.secondaryDisplay && config.aside.toggle && (
                   <button
                     className={`btn btn-sm btn-icon btn-white btn-active-primary position-absolute translate-middle start-100 end-0 bottom-0 shadow-sm d-none d-lg-flex ${classes.asideToggle.join(
-                      " "
+                      ' '
                     )}`}
                     id="kt_aside_toggle"
                     data-kt-toggle="true"
@@ -206,17 +205,17 @@ export function AsideDefault() {
               >
                 {!config.aside.primaryDisplay ? (
                   <>
-                    {/* begin::Logo */}
+                    {/*begin::Logo */}
                     <div className="aside-logo py-2 pb-7" id="kt_aside_logo">
                       <Link to="/">
                         <img
                           alt="Logo"
-                          src={toAbsoluteUrl("/media/logos/logo-compact.svg")}
+                          src={toAbsoluteUrl('/media/logos/logo-compact.svg')}
                           className="mh-50px"
                         />
                       </Link>
                     </div>
-                    {/* end::Logo */}
+                    {/*end::Logo */}
                     <AsideMenu
                       menuType={config.aside.menu}
                       asidePrimaryDisplay={config.aside.primaryDisplay}
@@ -234,7 +233,7 @@ export function AsideDefault() {
                       />
                     </div>
 
-                    {/* begin::Demo menu */}
+                    {/*begin::Demo menu */}
                     <div className="tab-pane fade" id="kt_aside_tab_2">
                       Lorem Ipsum is simply dummy text of the printing and
                       typesetting industry. Lorem Ipsum has been the industry's
@@ -242,9 +241,9 @@ export function AsideDefault() {
                       printer took a galley of type and scrambled it to make a
                       type specimen book.
                     </div>
-                    {/* end::Demo menu */}
+                    {/*end::Demo menu */}
 
-                    {/* begin::Demo menu */}
+                    {/*begin::Demo menu */}
                     <div className="tab-pane fade" id="kt_aside_tab_3">
                       Lorem Ipsum is simply dummy text of the printing and
                       typesetting industry. Lorem Ipsum has been the industry's
@@ -252,7 +251,7 @@ export function AsideDefault() {
                       printer took a galley of type and scrambled it to make a
                       type specimen book.
                     </div>
-                    {/* end::Demo menu */}
+                    {/*end::Demo menu */}
                   </div>
                 )}
               </div>
@@ -261,5 +260,5 @@ export function AsideDefault() {
         </div>
       )}
     </>
-  );
+  )
 }

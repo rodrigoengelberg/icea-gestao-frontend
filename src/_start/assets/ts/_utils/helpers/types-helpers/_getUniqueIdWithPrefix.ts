@@ -4,10 +4,10 @@
  * @returns {boolean}
  */
 export function getUniqueIdWithPrefix(prefix: string | undefined): string {
-  const result = Math.floor(Math.random() * new Date().getTime()).toString();
+  const result = Math.floor(Math.random() * new Date().getTime()).toString()
   if (!prefix) {
-    return result;
+    return result
   }
 
-  return `${prefix}${result}`;
+  return `${prefix}${result}`
 }

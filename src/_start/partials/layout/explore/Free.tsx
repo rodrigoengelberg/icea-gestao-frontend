@@ -1,10 +1,10 @@
-import React from "react";
-import { KTSVG } from "../../../helpers";
+import React from 'react'
+import { KTSVG } from '../../../helpers'
 
 const Free = () => (
   <>
     <div className="mb-5">
-      {/* begin::Comparision */}
+      {/*begin::Comparision */}
       <table className="table table-row-dashed table-row-gray-300 align-middle fs-6 fw-bold text-gray-800 gs-0 gy-3">
         <tbody>
           <tr className="border-bottom-0">
@@ -82,7 +82,7 @@ const Free = () => (
           </tr>
         </tbody>
       </table>
-      {/* end::Comparision */}
+      {/*end::Comparision */}
     </div>
     <a
       href="https://keenthemes.com/products/start-react-pro"
@@ -92,6 +92,6 @@ const Free = () => (
       <span className="fw-bolder ms-1">Start React Pro</span>
     </a>
   </>
-);
+)
 
-export { Free };
+export { Free }

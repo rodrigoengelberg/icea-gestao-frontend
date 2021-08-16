@@ -1,17 +1,14 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable jsx-a11y/anchor-has-content */
-/* eslint-disable no-unreachable */
-import React from "react";
-import { Link } from "react-router-dom";
-import { CodeBlock } from "../../../../../_start/partials";
+import React from 'react'
+import { Link } from 'react-router-dom'
+import { CodeBlock } from '../../../../../_start/partials'
 
 export function Forms() {
   const {
     REACT_APP_THEME_NAME,
     REACT_APP_BOOTSTRAP_DOCS_LINK,
     REACT_APP_SASS_PATH,
-    REACT_APP_SASS_VARIABLES_PATH,
-  } = process.env;
+    REACT_APP_SASS_VARIABLES_PATH
+  } = process.env
 
   return (
     <>
@@ -20,7 +17,7 @@ export function Forms() {
           <a href="#overview"></a>Overview
         </h1>
         <div className="py-5">
-          <strong>{REACT_APP_THEME_NAME}</strong>&nbsp; customizes the{" "}
+          <strong>{REACT_APP_THEME_NAME}</strong>&nbsp; customizes the{' '}
           <a
             href={`${REACT_APP_BOOTSTRAP_DOCS_LINK}/forms/overview/`}
             className="fw-bold"
@@ -28,8 +25,8 @@ export function Forms() {
             Bootstrap Forms
           </a>
           &nbsp; through the SASS variables in
-          <code>{REACT_APP_SASS_VARIABLES_PATH}</code>and adds additonal options for the
-          form elements in
+          <code>{REACT_APP_SASS_VARIABLES_PATH}</code>and adds additonal options
+          for the form elements in
           <code>{REACT_APP_SASS_PATH}/forms/</code>.
         </div>
       </div>
@@ -38,8 +35,7 @@ export function Forms() {
           <a href="#custom-form-control"></a>Custom Form Control
         </h1>
         <div className="py-5">
-          Use{' '}
-          <code>.form-control-solid</code>class with
+          Use <code>.form-control-solid</code>class with
           <code>.form-control</code>to set solid background style for a form
           control:
         </div>
@@ -262,7 +258,7 @@ export function Forms() {
 
         <div className="pt-10 pb-5">
           Use
-          <code>.form-check-{`{sm, lg}`}</code>fixed size classes for checkbox
+          <code>.form-check-{'{sm, lg}'}</code>fixed size classes for checkbox
           and radio to change their sizes:
         </div>
         <div className="py-5">
@@ -471,7 +467,6 @@ export function Forms() {
               </div>
             </div>
             <CodeBlock language="markup" code={code7} />
-
           </div>
         </div>
 
@@ -529,7 +524,7 @@ export function Forms() {
         </div>
       </div>
     </>
-  );
+  )
 }
 
 const code = `<div className="mb-10">
@@ -556,9 +551,10 @@ const code = `<div className="mb-10">
     placeholder="name@example.com"
   />
 </div>
-`;
+`
 
-const code2 = `<input type="email" className="form-control form-control-flush" placeholder="Example input"/>`;
+const code2 =
+  '<input type="email" className="form-control form-control-flush" placeholder="Example input"/>'
 
 const code3 = `<select className="form-select" aria-label="Select example">
   <option>Open this select menu</option>
@@ -579,7 +575,7 @@ const code3 = `<select className="form-select" aria-label="Select example">
   <option value="1">One</option>
   <option value="2">Two</option>
   <option value="3">Three</option>
-</select>`;
+</select>`
 
 const code4 = `<div className="mb-10">
   <div className="form-check form-check-custom form-check-solid">
@@ -633,7 +629,7 @@ const code4 = `<div className="mb-10">
           Disabled radio
       </label>
   </div>
-</div>`;
+</div>`
 
 const code5 = `<div className="mb-10">
   <div className="form-check form-check-custom form-check-solid form-check-lg">
@@ -669,7 +665,7 @@ const code5 = `<div className="mb-10">
           Small radio
       </label>
   </div>
-</div>`;
+</div>`
 
 const code6 = `<div className="mb-10 d-flex">
   <div className="form-check form-check-custom form-check-solid me-10">
@@ -715,7 +711,7 @@ const code6 = `<div className="mb-10 d-flex">
           50px
       </label>
   </div>
-</div>`;
+</div>`
 
 const code7 = `<div className="mb-10">
   <div className="form-check form-switch form-check-custom form-check-solid">
@@ -742,7 +738,7 @@ const code7 = `<div className="mb-10">
           Disabled switch
       </label>
   </div>
-</div>`;
+</div>`
 
 const code8 = `<div className="form-check form-switch form-check-custom form-check-solid me-10">
   <input className="form-check-input h-20px w-30px" type="checkbox" value="" id="flexSwitch20x30"/>
@@ -763,4 +759,4 @@ const code8 = `<div className="form-check form-switch form-check-custom form-che
   <label className="form-check-label" for="flexSwitch40x60">
       40px X 60px
   </label>
-</div>`;
+</div>`

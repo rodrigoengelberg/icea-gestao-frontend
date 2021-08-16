@@ -1,25 +1,25 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useEffect, useRef } from "react";
-import { Modal } from "react-bootstrap-v5";
-import { Link, useLocation } from "react-router-dom";
-import { KTSVG, toAbsoluteUrl } from "../../helpers";
+/*eslint-disable react-hooks/exhaustive-deps */
+
+import React, { useEffect, useRef } from 'react'
+import { Modal } from 'react-bootstrap-v5'
+import { Link, useLocation } from 'react-router-dom'
+import { KTSVG, toAbsoluteUrl } from '../../helpers'
 
 type Props = {
-  show: boolean;
-  handleClose: () => void;
-};
+  show: boolean
+  handleClose: () => void
+}
 
 const MenuModal: React.FC<Props> = ({ show, handleClose, children }) => {
-  const location = useLocation();
-  const isFirstRef = useRef(true);
+  const location = useLocation()
+  const isFirstRef = useRef(true)
   useEffect(() => {
     if (isFirstRef.current) {
-      isFirstRef.current = false;
+      isFirstRef.current = false
     } else {
-      handleClose();
+      handleClose()
     }
-  }, [location]);
+  }, [location])
 
   return (
     <Modal
@@ -34,18 +34,18 @@ const MenuModal: React.FC<Props> = ({ show, handleClose, children }) => {
       <div className="container">
         <div className="modal-header d-flex align-items-center justify-content-between border-0">
           <div className="d-flex align-items-center">
-            {/* begin::Logo */}
+            {/*begin::Logo */}
             <Link to="/">
               <img
                 alt="logo"
                 className="h-30px"
-                src={toAbsoluteUrl("/media/logos/logo-default.svg")}
+                src={toAbsoluteUrl('/media/logos/logo-default.svg')}
               />
             </Link>
-            {/* end::Logo */}
+            {/*end::Logo */}
           </div>
 
-          {/* begin::Close */}
+          {/*begin::Close */}
           <div
             className="btn btn-icon btn-sm btn-light-primary ms-2"
             onClick={handleClose}
@@ -55,20 +55,20 @@ const MenuModal: React.FC<Props> = ({ show, handleClose, children }) => {
               className="svg-icon-2"
             />
           </div>
-          {/* end::Close */}
+          {/*end::Close */}
         </div>
         <div className="modal-body">
-          {/* begin::Row */}
+          {/*begin::Row */}
           <div className="row py-10 g-5">
-            {/* begin::Column */}
+            {/*begin::Column */}
             <div className="col-lg-6 pe-lg-25">{children}</div>
-            {/* end::Column */}
+            {/*end::Column */}
 
-            {/* begin::Column */}
+            {/*begin::Column */}
             <div className="col-lg-6">
               <h3 className="fw-bolder mb-8">Quick Links</h3>
 
-              {/* begin::Row */}
+              {/*begin::Row */}
               <div className="row g-5">
                 <div className="col-sm-4">
                   <a
@@ -108,9 +108,9 @@ const MenuModal: React.FC<Props> = ({ show, handleClose, children }) => {
                   </a>
                 </div>
               </div>
-              {/* end::Row */}
+              {/*end::Row */}
 
-              {/* begin::Row */}
+              {/*begin::Row */}
               <div className="row g-5">
                 <div className="col-sm-8">
                   <a
@@ -128,7 +128,7 @@ const MenuModal: React.FC<Props> = ({ show, handleClose, children }) => {
                     </div>
                   </a>
 
-                  {/* begin::Row */}
+                  {/*begin::Row */}
                   <div className="row g-5">
                     <div className="col-sm-6">
                       <a className="card card-custom bg-light-warning hoverable shadow-none min-h-125px mb-5">
@@ -156,7 +156,7 @@ const MenuModal: React.FC<Props> = ({ show, handleClose, children }) => {
                       </a>
                     </div>
                   </div>
-                  {/* end::Row */}
+                  {/*end::Row */}
                 </div>
                 <div className="col-sm-4">
                   <a
@@ -176,23 +176,23 @@ const MenuModal: React.FC<Props> = ({ show, handleClose, children }) => {
                         className="flex-grow-1 bgi-no-repeat bgi-size-contain bgi-position-x-center bgi-position-y-bottom card-rounded-bottom"
                         style={{
                           backgroundImage: `url('${toAbsoluteUrl(
-                            "/media/illustrations/terms-1.png"
-                          )}')`,
+                            '/media/illustrations/terms-1.png'
+                          )}')`
                         }}
                       />
                     </div>
                   </a>
                 </div>
               </div>
-              {/* end::Row */}
+              {/*end::Row */}
             </div>
-            {/* end::Column */}
+            {/*end::Column */}
           </div>
-          {/* end::Row */}
+          {/*end::Row */}
         </div>
       </div>
     </Modal>
-  );
-};
+  )
+}
 
-export { MenuModal };
+export { MenuModal }

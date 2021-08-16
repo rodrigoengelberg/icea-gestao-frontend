@@ -1,17 +1,14 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable jsx-a11y/anchor-has-content */
-/* eslint-disable no-unreachable */
-import React from "react";
-import { CodeBlock } from "../../../../../_start/partials";
-import { KTSVG } from "../../../../../_start/helpers";
+import React from 'react'
+import { CodeBlock } from '../../../../../_start/partials'
+import { KTSVG } from '../../../../../_start/helpers'
 
 export function Accordion() {
   const {
     REACT_APP_THEME_NAME,
     REACT_APP_BOOTSTRAP_DOCS_LINK,
     REACT_APP_SASS_PATH,
-    REACT_APP_SASS_VARIABLES_PATH,
-  } = process.env;
+    REACT_APP_SASS_VARIABLES_PATH
+  } = process.env
   return (
     <>
       <div className="pb-10">
@@ -19,7 +16,7 @@ export function Accordion() {
           <a href="#overview"></a>Overview
         </h1>
         <div className="py-5">
-          <strong>{REACT_APP_THEME_NAME}</strong>&nbsp; customizes the{" "}
+          <strong>{REACT_APP_THEME_NAME}</strong>&nbsp; customizes the{' '}
           <a
             href={`${REACT_APP_BOOTSTRAP_DOCS_LINK}/components/accordion/`}
             className="fw-bold"
@@ -262,7 +259,7 @@ export function Accordion() {
         <CodeBlock code={code2} language="markup" />
       </div>
     </>
-  );
+  )
 }
 
 const code = `<div className="accordion" id="kt_accordion_1">
@@ -365,7 +362,7 @@ const code = `<div className="accordion" id="kt_accordion_1">
       </div>
     </div>
   </div>
-</div>`;
+</div>`
 
 const code2 = `<div className="accordion accordion-icon-toggle" id="kt_accordion_2">
   <div className="mb-5">
@@ -458,4 +455,4 @@ const code2 = `<div className="accordion accordion-icon-toggle" id="kt_accordion
       essentially unchanged.
     </div>
   </div>
-</div>`;
+</div>`

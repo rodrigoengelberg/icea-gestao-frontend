@@ -1,11 +1,11 @@
-import clsx from "clsx";
-import React from "react";
-import { useLocation } from "react-router-dom";
-import { AsideMenuItem } from "./AsideMenuItem";
-import { checkIsActive } from "../../../helpers";
+import clsx from 'clsx'
+import React from 'react'
+import { useLocation } from 'react-router-dom'
+import { AsideMenuItem } from './AsideMenuItem'
+import { checkIsActive } from '../../../helpers'
 
 export function AsideMenuDocs() {
-  const { pathname } = useLocation();
+  const { pathname } = useLocation()
 
   return (
     <>
@@ -18,11 +18,11 @@ export function AsideMenuDocs() {
         <AsideMenuItem to="/docs/quick-start" title="Quick Start" />
         <AsideMenuItem to="/docs/overview" title="Overview" />
         <AsideMenuItem to="/docs/deployment" title="Deployment" />
-        {/* <AsideMenuItem to="/docs/i18n" title="Internationalization (i18n)" /> */}
+        {/*<AsideMenuItem to="/docs/i18n" title="Internationalization (i18n)" /> */}
         <AsideMenuItem to="/docs/mock-backend" title="Mock Back-end" />
         <AsideMenuItem to="/docs/create-a-page" title="Create a page" />
-        {/* <AsideMenuItem to="/docs/rtl" title="RTL Version" /> */}
-        {/* <AsideMenuItem to="/docs/skeleton" title="Skeleton" /> */}
+        {/*<AsideMenuItem to="/docs/rtl" title="RTL Version" /> */}
+        {/*<AsideMenuItem to="/docs/skeleton" title="Skeleton" /> */}
         <AsideMenuItem to="/builder" title="Layout Builder" free={true} />
         <AsideMenuItem to="/docs/updates" title="Updates" />
         <AsideMenuItem to="/docs/changelog" title="Changelog" />
@@ -39,8 +39,8 @@ export function AsideMenuDocs() {
 
         <div
           data-kt-menu-trigger="click"
-          className={clsx("menu-item", {
-            "hover show": checkIsActive(pathname, "/docs/helpers"),
+          className={clsx('menu-item', {
+            'hover show': checkIsActive(pathname, '/docs/helpers')
           })}
         >
           <span className="menu-link py-2">
@@ -95,7 +95,7 @@ export function AsideMenuDocs() {
         <AsideMenuItem to="/docs/rating" title="Rating" exclusive={true} />
       </>
 
-      {/* <>
+      {/*<>
         <div className="menu-item mt-10">
           <h4 className="menu-content text-muted mb-0 fs-6 fw-bold text-uppercase">
             Forms
@@ -120,5 +120,5 @@ export function AsideMenuDocs() {
         <AsideMenuItem to="/docs/icons/lineawesome" title="Line Awesome" />
       </>
     </>
-  );
+  )
 }

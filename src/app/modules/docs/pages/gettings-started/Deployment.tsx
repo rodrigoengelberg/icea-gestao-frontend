@@ -1,9 +1,8 @@
-/* eslint-disable jsx-a11y/anchor-has-content */
-import React from "react";
-import { CodeBlock } from "../../../../../_start/partials";
+import React from 'react'
+import { CodeBlock } from '../../../../../_start/partials'
 
 export function Deployment() {
-  const { REACT_APP_THEME_NAME } = process.env;
+  const { REACT_APP_THEME_NAME } = process.env
 
   return (
     <>
@@ -13,13 +12,13 @@ export function Deployment() {
         </h1>
         <div className="py-5">
           <span>
-            As the example of application URL:{" "}
+            As the example of application URL:{' '}
             <code>https://example.com/my/app</code>
           </span>
           <ol className="pt-4">
             <li>
               <span>
-                Setup <b>baseURL</b> via <code>homepage</code> entry in{" "}
+                Setup <b>baseURL</b> via <code>homepage</code> entry in{' '}
                 <code>package.json</code>.
               </span>
               <CodeBlock language="json" code={baseUrlCode} />
@@ -37,13 +36,13 @@ export function Deployment() {
         </h1>
         <div className="py-5">
           <span>
-            As the example of application URL:{" "}
+            As the example of application URL:{' '}
             <code>http://localhost:5000</code>.
           </span>
           <ol className="pt-4">
             <li>
               <span>
-                Setup <b>baseURL</b> via <code>homepage</code> entry in{" "}
+                Setup <b>baseURL</b> via <code>homepage</code> entry in{' '}
                 <code>package.json</code>.
               </span>
               <CodeBlock language="json" code={baseUrlCode} />
@@ -58,7 +57,7 @@ export function Deployment() {
                 handle this would be to install <code>serve</code> and let it
                 handle the rest::
               </span>
-              <CodeBlock code="yarn global add serve" language="bash" /> or{" "}
+              <CodeBlock code="yarn global add serve" language="bash" /> or{' '}
               <CodeBlock code="npm i serve -g" language="bash" />
               <span>Start runner:</span>
               <CodeBlock code="serve -s build -l 5000" language="bash" />
@@ -71,7 +70,7 @@ export function Deployment() {
           </ol>
         </div>
         <div className="py-5">
-          Host react application on Apache server setup:{" "}
+          Host react application on Apache server setup:{' '}
           <a
             href="https://gist.github.com/ywwwtseng/63c36ccb58a25a09f7096bbb602ac1de"
             target="_blank"
@@ -82,9 +81,9 @@ export function Deployment() {
         </div>
         <div className="py-5">
           <span>
-            Our {REACT_APP_THEME_NAME} React application is based on{" "}
+            Our {REACT_APP_THEME_NAME} React application is based on{' '}
             <b>Create React App</b>. For more detailed information of the CRA,
-            visit the official Create React App{" "}
+            visit the official Create React App{' '}
             <a
               target="_blank"
               rel="noopener noreferrer"
@@ -97,10 +96,10 @@ export function Deployment() {
         </div>
       </div>
     </>
-  );
+  )
 }
 
 const baseUrlCode = `
 - "homepage": "/start/build",
 + "homepage": "/my/app",
-`;
+`

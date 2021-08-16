@@ -1,9 +1,6 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable jsx-a11y/anchor-has-content */
-/* eslint-disable no-unreachable */
-import React from "react";
-import { Link } from "react-router-dom";
-import { CodeBlock } from "../../../../../_start/partials";
+import React from 'react'
+import { Link } from 'react-router-dom'
+import { CodeBlock } from '../../../../../_start/partials'
 
 export function Bullets() {
   return (
@@ -55,7 +52,7 @@ export function Bullets() {
         </h1>
         <div className="py-5">
           Use
-          <code>.bg-{"{color}"}</code>class to set a bullets background color:
+          <code>.bg-{'{color}'}</code>class to set a bullets background color:
         </div>
         <div className="py-5">
           <div className="rounded border p-10">
@@ -265,7 +262,7 @@ export function Bullets() {
         <CodeBlock code={code6} language="markdown" />
       </div>
     </>
-  );
+  )
 }
 
 const code = `<div className="d-flex flex-column">
@@ -284,7 +281,7 @@ const code = `<div className="d-flex flex-column">
   <li className="d-flex align-items-center py-2">
     <span className="bullet me-5"></span>Item 5
   </li>
-</div>`;
+</div>`
 
 const code2 = `<div className="d-flex flex-column">
   <li className="d-flex align-items-center py-2">
@@ -314,7 +311,7 @@ const code2 = `<div className="d-flex flex-column">
   <li className="d-flex align-items-center py-2">
     <span className="bullet bg-dark me-5"></span>dark
   </li>
-</div>`;
+</div>`
 
 const code3 = `<div className="d-flex flex-column">
   <li className="d-flex align-items-center py-2">
@@ -334,7 +331,7 @@ const code3 = `<div className="d-flex flex-column">
     <span className="bullet bullet-dot bg-primary me-5"></span>Item
     5
   </li>
-</div>`;
+</div>`
 
 const code4 = ` <div className="d-flex flex-column">
   <li className="d-flex align-items-center py-2">
@@ -356,7 +353,7 @@ const code4 = ` <div className="d-flex flex-column">
     <span className="bullet bullet-vertical bg-primary me-5"></span>
     Item 5
   </li>
-</div>`;
+</div>`
 
 const code5 = `<div className="d-flex flex-column">
   <li className="d-flex align-items-center py-2">
@@ -377,7 +374,7 @@ const code5 = `<div className="d-flex flex-column">
     <span className="bullet bullet-line bg-primary me-5"></span>Item
     5
   </li>
-</div>`;
+</div>`
 
 const code6 = `<div className="rounded border p-10 d-flex flex-column flex-wrap">
   <div className="d-flex">
@@ -424,4 +421,4 @@ const code6 = `<div className="rounded border p-10 d-flex flex-column flex-wrap"
       .h-50px .w-30px
     </div>
   </div>
-</div>`;
+</div>`

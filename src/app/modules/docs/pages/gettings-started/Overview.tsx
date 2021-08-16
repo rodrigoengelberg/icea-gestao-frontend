@@ -1,8 +1,7 @@
-/* eslint-disable jsx-a11y/anchor-has-content */
-import React from "react";
+import React from 'react'
 
 export function Overview() {
-  const { REACT_APP_THEME_NAME } = process.env;
+  const { REACT_APP_THEME_NAME } = process.env
 
   return (
     <>
@@ -51,8 +50,8 @@ export function Overview() {
                 </td>
                 <td>
                   The <code>package.json</code> file in the app root defines
-                  what libraries will be installed into{" "}
-                  <code>node_modules/</code> when you run{" "}
+                  what libraries will be installed into{' '}
+                  <code>node_modules/</code> when you run{' '}
                   <code>yarn install</code>.
                 </td>
               </tr>
@@ -64,8 +63,8 @@ export function Overview() {
                   Folder contains the index.html file so you can tweak it,
                   Change
                   <code>&lt;title&gt;</code>, insert additional
-                  <code>&lt;link&gt;</code> and <code>&lt;script&gt;</code>{" "}
-                  tags. For more details check{" "}
+                  <code>&lt;link&gt;</code> and <code>&lt;script&gt;</code>{' '}
+                  tags. For more details check{' '}
                   <a
                     target="_blank"
                     rel="noopener noreferrer"
@@ -89,16 +88,19 @@ export function Overview() {
               </tr>
               <tr>
                 <td colSpan={2}>
-                  /src/<strong>_{REACT_APP_THEME_NAME?.toLocaleLowerCase()}</strong>
+                  /src/
+                  <strong>_{REACT_APP_THEME_NAME?.toLocaleLowerCase()}</strong>
                 </td>
               </tr>
               <tr>
                 <td>
-                  /src/_{REACT_APP_THEME_NAME?.toLocaleLowerCase()}/<strong>assets</strong>
+                  /src/_{REACT_APP_THEME_NAME?.toLocaleLowerCase()}/
+                  <strong>assets</strong>
                 </td>
                 <td>
-                  Contains the {REACT_APP_THEME_NAME} common parts: ts(Layout ts helpers),
-                  plugins(icons plugins), sass(common style structure).
+                  Contains the {REACT_APP_THEME_NAME} common parts: ts(Layout ts
+                  helpers), plugins(icons plugins), sass(common style
+                  structure).
                 </td>
               </tr>
               <tr>
@@ -121,7 +123,7 @@ export function Overview() {
                   modules.
                 </td>
               </tr>
-              {/* <tr>
+              {/*<tr>
                 <td>
                   /src/_{REACT_APP_THEME_NAME.toLocaleLowerCase()}/<strong>i18n</strong>
                 </td>
@@ -139,7 +141,8 @@ export function Overview() {
               </tr> */}
               <tr>
                 <td colSpan={2}>
-                  /src/_{REACT_APP_THEME_NAME?.toLocaleLowerCase()}/<strong>layout</strong>
+                  /src/_{REACT_APP_THEME_NAME?.toLocaleLowerCase()}/
+                  <strong>layout</strong>
                 </td>
               </tr>
               <tr>
@@ -179,7 +182,7 @@ export function Overview() {
                     rel="noopener noreferrer"
                   >
                     lazy
-                  </a>{" "}
+                  </a>{' '}
                   modules (Authorization, Docs, User profile, Errors
                   examples...)
                 </td>
@@ -199,7 +202,7 @@ export function Overview() {
                 </td>
                 <td>
                   is the application entry point. Also contain main Routing.
-                  Application routing is based on{" "}
+                  Application routing is based on{' '}
                   <a
                     href="https://reacttraining.com/react-router/web"
                     target="_blank"
@@ -213,27 +216,33 @@ export function Overview() {
                 <td>
                   /src/app/routing/<strong>PublicRoutes.tsx</strong>
                 </td>
-                <td>Public routes entry point. (Pages are available for unauthorized users)</td>
+                <td>
+                  Public routes entry point. (Pages are available for
+                  unauthorized users)
+                </td>
               </tr>
               <tr>
                 <td>
                   /src/app/routing/<strong>PrivateRoutes.tsx</strong>
                 </td>
-                <td>Private routes entry point. (Pages are unavailable for unauthorized users)</td>
+                <td>
+                  Private routes entry point. (Pages are unavailable for
+                  unauthorized users)
+                </td>
               </tr>
               <tr>
                 <td>
                   /src/app/<strong>setup</strong>
                 </td>
                 <td>
-                  Contains redux setup(rootReducer, store), axios setup and{" "}
+                  Contains redux setup(rootReducer, store), axios setup and{' '}
                   <a
                     href="https://github.com/ctimmerm/axios-mock-adapter"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
                     mock adapter
-                  </a>{" "}
+                  </a>{' '}
                   setup.
                 </td>
                 <td></td>
@@ -246,7 +255,8 @@ export function Overview() {
               </tr>
               <tr>
                 <td>
-                _{REACT_APP_THEME_NAME?.toLocaleLowerCase()}/assets/scss/<strong>style.scss</strong>
+                  _{REACT_APP_THEME_NAME?.toLocaleLowerCase()}/assets/scss/
+                  <strong>style.scss</strong>
                 </td>
                 <td>Styles entry point.</td>
               </tr>
@@ -263,5 +273,5 @@ export function Overview() {
         </div>
       </div>
     </>
-  );
+  )
 }

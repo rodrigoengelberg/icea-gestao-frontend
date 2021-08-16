@@ -3,14 +3,14 @@ export default function setupAxios(axios: any, store: any) {
     (config: any) => {
       const {
         auth: { accessToken }
-      } = store.getState();
-      
+      } = store.getState()
+
       if (accessToken) {
-        config.headers.Authorization = `Bearer ${accessToken}`;
+        config.headers.Authorization = `Bearer ${accessToken}`
       }
 
-      return config;
+      return config
     },
     (err: any) => Promise.reject(err)
-  );
+  )
 }

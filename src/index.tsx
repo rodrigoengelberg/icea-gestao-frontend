@@ -1,14 +1,14 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-// Redux
-// https://github.com/rt2zz/redux-persist
+//Redux
+//https://github.com/rt2zz/redux-persist
 import { PersistGate } from 'redux-persist/integration/react'
 import { Provider } from 'react-redux'
 import * as _redux from './setup'
 import store, { persistor } from './setup/redux/Store'
-// Axios
+//Axios
 import axios from 'axios'
-// Apps
+//Apps
 import { App } from './app/App'
 import './_start/assets/sass/style.scss'
 /**
@@ -24,7 +24,7 @@ const { PUBLIC_URL } = process.env
  * @see https://github.com/ctimmerm/axios-mock-adapter
  */
 
-/* const mock = */ _redux.mockAxios(axios)
+/*const mock = */ _redux.mockAxios(axios)
 /**
  * Inject Start interceptors for axios.
  *
@@ -34,7 +34,7 @@ _redux.setupAxios(axios, store)
 
 ReactDOM.render(
   <Provider store={store}>
-    {/* Asynchronously persist redux stores and show `SplashScreen` while it's loading. */}
+    {/*Asynchronously persist redux stores and show `SplashScreen` while it's loading. */}
     <PersistGate persistor={persistor} loading={<div>Loading...</div>}>
       <App basename={PUBLIC_URL} />
     </PersistGate>

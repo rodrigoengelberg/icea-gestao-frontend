@@ -1,30 +1,25 @@
-/* eslint-disable no-script-url */
-/* eslint-disable jsx-a11y/alt-text */
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable jsx-a11y/anchor-has-content */
-/* eslint-disable no-unreachable */
-import React, { useState } from "react";
-import { Modal } from "react-bootstrap-v5";
-import { KTSVG, toAbsoluteUrl } from "../../../../../_start/helpers";
-import { CodeBlock } from "../../../../../_start/partials";
-import { DuotoneIconList } from "./DuotoneModels";
-import { DItem } from "./IconModels";
+import React, { useState } from 'react'
+import { Modal } from 'react-bootstrap-v5'
+import { KTSVG, toAbsoluteUrl } from '../../../../../_start/helpers'
+import { CodeBlock } from '../../../../../_start/partials'
+import { DuotoneIconList } from './DuotoneModels'
+import { DItem } from './IconModels'
 
 export function DuotoneIcons() {
-  const [isVisible, setIsVisible] = useState<boolean>(false);
-  const [icon, setIcon] = useState<DItem | undefined>();
-  const [isSvg, setIsSvg] = useState<boolean>(false);
-  const { REACT_APP_THEME_NAME } = process.env;
+  const [isVisible, setIsVisible] = useState<boolean>(false)
+  const [icon, setIcon] = useState<DItem | undefined>()
+  const [isSvg, setIsSvg] = useState<boolean>(false)
+  const { REACT_APP_THEME_NAME } = process.env
   const closeItem = () => {
-    setIcon(undefined);
-    setIsSvg(false);
-    setIsVisible(false);
-  };
+    setIcon(undefined)
+    setIsSvg(false)
+    setIsVisible(false)
+  }
   const setItem = (item: DItem, isSvg: boolean) => {
-    setIcon(item);
-    setIsSvg(isSvg);
-    setIsVisible(true);
-  };
+    setIcon(item)
+    setIsSvg(isSvg)
+    setIsVisible(true)
+  }
 
   return (
     <>
@@ -34,7 +29,7 @@ export function DuotoneIcons() {
         </h1>
         <div className="py-5">
           Use over 1000 high quality vector duotone SVG icons as image or inline
-          SVG element in combination with any{" "}
+          SVG element in combination with any{' '}
           <strong>{REACT_APP_THEME_NAME}</strong>&nbsp; elements.
         </div>
       </div>
@@ -49,43 +44,43 @@ export function DuotoneIcons() {
         <div className="py-5">
           <div className="rounded border d-flex flex-wrap p-10">
             <img
-              src={toAbsoluteUrl("/media/icons/duotone/Business/Archive.svg")}
+              src={toAbsoluteUrl('/media/icons/duotone/Business/Archive.svg')}
               className="h-40px me-10"
             />
             <img
               src={toAbsoluteUrl(
-                "/media/icons/duotone/Charts/Column-02-Down.svg"
+                '/media/icons/duotone/Charts/Column-02-Down.svg'
               )}
               className="h-40px me-10"
             />
             <img
-              src={toAbsoluteUrl("/media/icons/duotone/Business/Bank.svg")}
+              src={toAbsoluteUrl('/media/icons/duotone/Business/Bank.svg')}
               className="h-40px me-10"
             />
             <img
-              src={toAbsoluteUrl("/media/icons/duotone/Design/Eraser.svg")}
+              src={toAbsoluteUrl('/media/icons/duotone/Design/Eraser.svg')}
               className="h-40px me-10"
             />
             <img
               src={toAbsoluteUrl(
-                "/media/icons/duotone/Interface/Settings-01.svg"
+                '/media/icons/duotone/Interface/Settings-01.svg'
               )}
               className="h-40px me-10"
             />
             <img
-              src={toAbsoluteUrl("/media/icons/duotone/Design/Image.svg")}
+              src={toAbsoluteUrl('/media/icons/duotone/Design/Image.svg')}
               className="h-40px me-10"
             />
             <img
-              src={toAbsoluteUrl("/media/icons/duotone/Charts/Bubble-Race.svg")}
+              src={toAbsoluteUrl('/media/icons/duotone/Charts/Bubble-Race.svg')}
               className="h-40px me-10"
             />
             <img
-              src={toAbsoluteUrl("/media/icons/duotone/Brands/Messenger.svg")}
+              src={toAbsoluteUrl('/media/icons/duotone/Brands/Messenger.svg')}
               className="h-40px me-10"
             />
             <img
-              src={toAbsoluteUrl("/media/icons/duotone/Charts/Pie-03.svg")}
+              src={toAbsoluteUrl('/media/icons/duotone/Charts/Pie-03.svg')}
               className="h-40px"
             />
           </div>
@@ -148,7 +143,7 @@ export function DuotoneIcons() {
         </h1>
         <div className="py-5">
           The inline icons can be colored using
-          <code>.svg-icon-{`{color}`}</code>class that defined with
+          <code>.svg-icon-{'{color}'}</code>class that defined with
           <code>$theme-text-colors</code>variable in
           <code>sass/_variables.scss</code>:
         </div>
@@ -338,7 +333,7 @@ export function DuotoneIcons() {
                         </div>
                       ))}
                     </div>
-                  );
+                  )
                 })}
               </div>
             </div>
@@ -352,24 +347,24 @@ export function DuotoneIcons() {
         onHide={() => closeItem()}
       />
     </>
-  );
+  )
 }
 
 const splittedBy3 = (list: Array<DItem>): Array<Array<DItem>> => {
-  const result: Array<Array<DItem>> = [];
-  let buffer: Array<DItem> = [];
+  const result: Array<Array<DItem>> = []
+  let buffer: Array<DItem> = []
   list.forEach((el, index) => {
     if (index % 3 === 0) {
       if (index !== 0) {
-        result.push(buffer);
+        result.push(buffer)
       }
-      buffer = [];
+      buffer = []
     }
 
-    buffer.push(el);
-  });
-  return result;
-};
+    buffer.push(el)
+  })
+  return result
+}
 
 const code = `<img
   src={toAbsoluteUrl("/media/icons/duotone/Business/Archive.svg")}
@@ -406,7 +401,7 @@ const code = `<img
 <img
   src={toAbsoluteUrl("/media/icons/duotone/Charts/Pie-03.svg")}
   className="h-40px"
-/>`;
+/>`
 
 const code2 = `<KTSVG
   path="/media/icons/duotone/Business/Archive.svg"
@@ -443,7 +438,7 @@ const code2 = `<KTSVG
 <KTSVG
   path="/media/icons/duotone/Charts/Pie-03.svg"
   className="svg-icon svg-icon-3x me-10"
-/>`;
+/>`
 
 const code3 = `<div className="d-flex flex-column flex-center w-150px me-10 mb-5">
   <KTSVG
@@ -578,20 +573,20 @@ const code3 = `<div className="d-flex flex-column flex-center w-150px me-10 mb-5
     className="svg-icon svg-icon-3x svg-icon-gray-900"
   />
   <div className="fw-bold py-2">gray-900</div>
-</div>`;
+</div>`
 
 type Props = {
-  isVisible: boolean;
-  icon?: DItem;
-  onHide: () => void;
-  isSvg: boolean;
-};
+  isVisible: boolean
+  icon?: DItem
+  onHide: () => void
+  isSvg: boolean
+}
 
 const IconModal: React.FC<Props> = ({
   isVisible,
   icon,
   onHide,
-  isSvg = true,
+  isSvg = true
 }) => {
   return (
     <Modal
@@ -629,5 +624,5 @@ const IconModal: React.FC<Props> = ({
         </div>
       </div>
     </Modal>
-  );
-};
+  )
+}

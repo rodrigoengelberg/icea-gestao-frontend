@@ -1,19 +1,18 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useState, useRef } from "react";
-import { Modal } from "react-bootstrap-v5";
-import { KTSVG } from "../../helpers";
+import React, { useState, useRef } from 'react'
+import { Modal } from 'react-bootstrap-v5'
+import { KTSVG } from '../../helpers'
 
 export type Props = {
-  show: boolean;
-  handleClose: () => void;
-};
+  show: boolean
+  handleClose: () => void
+}
 
 const InboxCompose: React.FC<Props> = ({ show, handleClose }) => {
-  const composeToRef = useRef<HTMLInputElement | null>(null);
-  const formRef = useRef<HTMLFormElement | null>(null);
-  const [composeCC, setComposeCC] = useState("");
-  const [composeBCC, setComposeBCC] = useState("");
-  const [subject, setSubject] = useState("");
+  const composeToRef = useRef<HTMLInputElement | null>(null)
+  const formRef = useRef<HTMLFormElement | null>(null)
+  const [composeCC, setComposeCC] = useState('')
+  const [composeBCC, setComposeBCC] = useState('')
+  const [subject, setSubject] = useState('')
 
   return (
     <Modal
@@ -27,17 +26,17 @@ const InboxCompose: React.FC<Props> = ({ show, handleClose }) => {
       animation={false}
     >
       <div className="modal-content">
-        {/* begin::Form */}
+        {/*begin::Form */}
         <form
           ref={formRef}
           id="kt_inbox_compose_form"
-          onSubmit={() => console.log("submit")}
+          onSubmit={() => console.log('submit')}
         >
-          {/*begin::Header*/}
+          {/*begin::Header */}
           <div className="d-flex align-items-center justify-content-between py-5 ps-8 pe-5 border-bottom">
             <h5 className="fw-bold m-0">Compose</h5>
             <div className="d-flex ms-2">
-              {/*begin::Close*/}
+              {/*begin::Close */}
               <div
                 className="btn btn-icon btn-sm btn-light-primary ms-2"
                 data-bs-dismiss="modal"
@@ -48,14 +47,14 @@ const InboxCompose: React.FC<Props> = ({ show, handleClose }) => {
                   path="/media/icons/duotone/Navigation/Close.svg"
                 />
               </div>
-              {/*end::Close*/}
+              {/*end::Close */}
             </div>
           </div>
-          {/*end::Header*/}
+          {/*end::Header */}
 
-          {/*begin::Body*/}
+          {/*begin::Body */}
           <div className="d-block">
-            {/*begin::To*/}
+            {/*begin::To */}
             <div className="d-flex align-items-center border-bottom inbox-to px-8 min-h-45px">
               <div className="text-gray-600 w-75px">To:</div>
               <div className="d-flex align-items-center flex-grow-1">
@@ -81,9 +80,9 @@ const InboxCompose: React.FC<Props> = ({ show, handleClose }) => {
                 </span>
               </div>
             </div>
-            {/*end::To*/}
+            {/*end::To */}
 
-            {/*begin::CC*/}
+            {/*begin::CC */}
             <div className="d-none align-items-center border-bottom inbox-to-cc ps-8 pe-5 min-h-45px">
               <div className="text-gray-600 w-75px">Cc:</div>
               <div className="flex-grow-1">
@@ -92,7 +91,7 @@ const InboxCompose: React.FC<Props> = ({ show, handleClose }) => {
                   className="form-control border-0"
                   name="compose_cc"
                   value={composeCC}
-                  onChange={(e) => setComposeCC(e.target.value)}
+                  onChange={e => setComposeCC(e.target.value)}
                 />
               </div>
               <span
@@ -102,9 +101,9 @@ const InboxCompose: React.FC<Props> = ({ show, handleClose }) => {
                 <i className="la la-close "></i>
               </span>
             </div>
-            {/*end::CC*/}
+            {/*end::CC */}
 
-            {/*begin::BCC*/}
+            {/*begin::BCC */}
             <div className="d-none align-items-center border-bottom inbox-to-bcc ps-8 pe-5 min-h-45px">
               <div className="text-gray-600 w-75px">Bcc:</div>
               <div className="flex-grow-1">
@@ -113,7 +112,7 @@ const InboxCompose: React.FC<Props> = ({ show, handleClose }) => {
                   className="form-control border-0"
                   name="compose_bcc"
                   value={composeBCC}
-                  onChange={(e) => setComposeBCC(e.target.value)}
+                  onChange={e => setComposeBCC(e.target.value)}
                 />
               </div>
               <span
@@ -123,40 +122,40 @@ const InboxCompose: React.FC<Props> = ({ show, handleClose }) => {
                 <i className="la la-close "></i>
               </span>
             </div>
-            {/*end::BCC*/}
+            {/*end::BCC */}
 
-            {/*begin::Subject*/}
+            {/*begin::Subject */}
             <div className="border-bottom">
               <input
                 className="form-control border-0 px-8 min-h-45px"
                 name="compose_subject"
                 placeholder="Subject"
                 value={subject}
-                onChange={(e) => setSubject(e.target.value)}
+                onChange={e => setSubject(e.target.value)}
               />
             </div>
-            {/*end::Subject*/}
+            {/*end::Subject */}
 
-            {/*begin::Message*/}
+            {/*begin::Message */}
             <div
               id="kt_inbox_compose_editor"
               className="border-0 h-125px h-lg-250px"
             ></div>
-            {/*end::Message*/}
+            {/*end::Message */}
 
-            {/*begin::Attachments*/}
+            {/*begin::Attachments */}
             <div
               className="dropzone dropzone-multi px-8 py-4"
               id="kt_inbox_compose_attachments"
             >
               <div className="dropzone-items">
-                <div className="dropzone-item" style={{ display: "none" }}>
+                <div className="dropzone-item" style={{ display: 'none' }}>
                   <div className="dropzone-file">
                     <div
                       className="dropzone-filename"
                       title="some_image_file_name.jpg"
                     >
-                      <span data-dz-name>some_image_file_name.jpg</span>{" "}
+                      <span data-dz-name>some_image_file_name.jpg</span>{' '}
                       <strong>
                         (<span data-dz-size>340kb</span>)
                       </strong>
@@ -177,7 +176,7 @@ const InboxCompose: React.FC<Props> = ({ show, handleClose }) => {
                   </div>
                   <div className="dropzone-toolbar">
                     <span className="dropzone-delete" data-dz-remove>
-                      {/*begin::Close*/}
+                      {/*begin::Close */}
                       <span
                         className="btn btn-icon btn-sm btn-active-light-primary ms-2"
                         data-bs-dismiss="modal"
@@ -187,25 +186,25 @@ const InboxCompose: React.FC<Props> = ({ show, handleClose }) => {
                           path="/media/icons/duotone/Navigation/Close.svg"
                         />
                       </span>
-                      {/*end::Close*/}
+                      {/*end::Close */}
                     </span>
                   </div>
                 </div>
               </div>
             </div>
-            {/*end::Attachments*/}
+            {/*end::Attachments */}
           </div>
-          {/*end::Body*/}
+          {/*end::Body */}
 
-          {/*begin::Footer*/}
+          {/*begin::Footer */}
           <div className="d-flex align-items-center justify-content-between py-5 ps-8 pe-5 border-top">
-            {/*begin::Actions*/}
+            {/*begin::Actions */}
             <div className="d-flex align-items-center me-3">
-              {/*begin::Send*/}
+              {/*begin::Send */}
               <button className="btn btn-primary me-4 px-6">Send</button>
-              {/*end::Send*/}
+              {/*end::Send */}
 
-              {/*begin::Other*/}
+              {/*begin::Other */}
               <a
                 href="#"
                 className="btn btn-icon btn-active-light-primary me-2"
@@ -222,11 +221,11 @@ const InboxCompose: React.FC<Props> = ({ show, handleClose }) => {
                   path="/media/icons/duotone/Map/Marker1.svg"
                 />
               </a>
-              {/*end::Other*/}
+              {/*end::Other */}
             </div>
-            {/*end::Actions*/}
+            {/*end::Actions */}
 
-            {/*begin::Toolbar*/}
+            {/*begin::Toolbar */}
             <div className="d-flex align-items-center">
               <button
                 className="btn btn-icon btn-active-light-primary me-2"
@@ -239,14 +238,14 @@ const InboxCompose: React.FC<Props> = ({ show, handleClose }) => {
                 />
               </button>
             </div>
-            {/*end::Toolbar*/}
+            {/*end::Toolbar */}
           </div>
-          {/*end::Footer*/}
+          {/*end::Footer */}
         </form>
-        {/*end::Form*/}
+        {/*end::Form */}
       </div>
     </Modal>
-  );
-};
+  )
+}
 
-export { InboxCompose };
+export { InboxCompose }

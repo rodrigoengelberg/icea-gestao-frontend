@@ -1,12 +1,8 @@
-/* eslint-disable react/jsx-no-target-blank */
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable jsx-a11y/anchor-has-content */
-/* eslint-disable no-unreachable */
-import React from "react";
-import { CodeBlock } from "../../../../../_start/partials";
+import React from 'react'
+import { CodeBlock } from '../../../../../_start/partials'
 
 export function LineAwesomeIcons() {
-  const { REACT_APP_THEME_NAME, REACT_APP_SASS_VARIABLES_PATH } = process.env;
+  const { REACT_APP_THEME_NAME, REACT_APP_SASS_VARIABLES_PATH } = process.env
   return (
     <>
       <div className="pb-10">
@@ -14,7 +10,7 @@ export function LineAwesomeIcons() {
           <a href="#overview"></a>Overview
         </h1>
         <div className="py-5">
-          Swap Font Awesome for modern{" "}
+          Swap Font Awesome for modern{' '}
           <a
             href="https://icons8.com/line-awesome"
             className="fw-bold"
@@ -31,7 +27,7 @@ export function LineAwesomeIcons() {
           <a href="#usage"></a>Ugage
         </h1>
         <div className="py-5">
-          Use Line Awesome icons with spesific class as explained in the{" "}
+          Use Line Awesome icons with spesific class as explained in the{' '}
           <a
             className="fw-bold"
             href="https://icons8.com/line-awesome"
@@ -62,7 +58,7 @@ export function LineAwesomeIcons() {
         </h1>
         <div className="py-5">
           The inline icons can be colored using
-          <code>.text-{"{color}"}</code>class that defined with
+          <code>.text-{'{color}'}</code>class that defined with
           <code>$theme-text-colors</code>variable in
           <code>{REACT_APP_SASS_VARIABLES_PATH}</code>:
         </div>
@@ -155,7 +151,7 @@ export function LineAwesomeIcons() {
 
         <div className="py-5">
           The font icons can be sized using
-          <code>.fs-{"{size}"}</code>class that defined with
+          <code>.fs-{'{size}'}</code>class that defined with
           <code>$font-sizes</code>variable in
           <code>{REACT_APP_SASS_VARIABLES_PATH}</code>
         </div>
@@ -381,7 +377,7 @@ export function LineAwesomeIcons() {
         <CodeBlock language="markup" code={code3} />
       </div>
     </>
-  );
+  )
 }
 
 const code = `<i className="las la-wallet fs-2x me-15"></i>
@@ -391,7 +387,7 @@ const code = `<i className="las la-wallet fs-2x me-15"></i>
 <i className="las la-file-code fs-2x me-15"></i>
 <i className="las la-drafting-compass fs-2x me-15"></i>
 <i className="las la-tags fs-2x me-15"></i>
-<i className="las la-tools fs-2x me-15"></i>`;
+<i className="las la-tools fs-2x me-15"></i>`
 
 const code2 = `<i className="las la-tint text-white"></i>
 <i className="las la-tint text-primary"></i>
@@ -411,7 +407,7 @@ const code2 = `<i className="las la-tint text-white"></i>
 <i className="las la-tint text-gray-600"></i>
 <i className="las la-tint text-gray-700"></i>
 <i className="las la-tint text-gray-800"></i>
-<i className="las la-tint text-gray-900"></i>`;
+<i className="las la-tint text-gray-900"></i>`
 
 const code3 = `<i className="las la-tint fs-5x"></i>
 <i className="las la-tint fs-4x"></i>
@@ -424,4 +420,4 @@ const code3 = `<i className="las la-tint fs-5x"></i>
 <i className="las la-tint fs-2"></i>
 <i className="las la-tint fs-3"></i>
 <i className="las la-tint fs-5"></i>
-<i className="las la-tint fs-6"></i>`;
+<i className="las la-tint fs-6"></i>`

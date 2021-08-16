@@ -1,29 +1,28 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-import React from "react";
-import { KTSVG } from "../../../helpers";
+import React from 'react'
+import { KTSVG } from '../../../helpers'
 
 type Props = {
-  className: string;
-  innerPadding?: string;
-};
+  className: string
+  innerPadding?: string
+}
 
-const ListsWidget5: React.FC<Props> = ({ className, innerPadding = "" }) => {
+const ListsWidget5: React.FC<Props> = ({ className, innerPadding = '' }) => {
   return (
     <div className={`card ${className}`}>
-      {/* begin::Body */}
+      {/*begin::Body */}
       <div className={`card-body pt-2 ${innerPadding}`}>
-        {/* begin::Item */}
+        {/*begin::Item */}
         <div className="d-flex mb-6">
-          {/* begin::Icon */}
+          {/*begin::Icon */}
           <div className="me-1">
             <KTSVG
               className="svg-icon-sm svg-icon-primary"
               path="/media/icons/duotone/Navigation/Angle-right.svg"
             />
           </div>
-          {/* end::Icon */}
+          {/*end::Icon */}
 
-          {/* begin::Content */}
+          {/*begin::Content */}
           <div className="d-flex flex-column">
             <a
               href="#"
@@ -35,22 +34,22 @@ const ListsWidget5: React.FC<Props> = ({ className, innerPadding = "" }) => {
               But nothing can prepare you for the real thing
             </div>
           </div>
-          {/* end::Content */}
+          {/*end::Content */}
         </div>
-        {/* end::Item */}
+        {/*end::Item */}
 
-        {/* begin::Item */}
+        {/*begin::Item */}
         <div className="d-flex mb-6">
-          {/* begin::Icon */}
+          {/*begin::Icon */}
           <div className="me-1">
             <KTSVG
               className="svg-icon-sm svg-icon-primary"
               path="/media/icons/duotone/Navigation/Angle-right.svg"
             />
           </div>
-          {/* end::Icon */}
+          {/*end::Icon */}
 
-          {/* begin::Content */}
+          {/*begin::Content */}
           <div className="d-flex flex-column">
             <a
               href="#"
@@ -62,22 +61,22 @@ const ListsWidget5: React.FC<Props> = ({ className, innerPadding = "" }) => {
               Long before you sit down to put digital pen
             </div>
           </div>
-          {/* end::Content */}
+          {/*end::Content */}
         </div>
-        {/* end::Item */}
+        {/*end::Item */}
 
-        {/* begin::Item */}
+        {/*begin::Item */}
         <div className="d-flex mb-6">
-          {/* begin::Icon */}
+          {/*begin::Icon */}
           <div className="me-1">
             <KTSVG
               className="svg-icon-sm svg-icon-primary"
               path="/media/icons/duotone/Navigation/Angle-right.svg"
-            />{" "}
+            />{' '}
           </div>
-          {/* end::Icon */}
+          {/*end::Icon */}
 
-          {/* begin::Content */}
+          {/*begin::Content */}
           <div className="d-flex flex-column">
             <a
               href="#"
@@ -89,22 +88,22 @@ const ListsWidget5: React.FC<Props> = ({ className, innerPadding = "" }) => {
               But nothing can prepare you for the real thing
             </div>
           </div>
-          {/* end::Content */}
+          {/*end::Content */}
         </div>
-        {/* end::Item */}
+        {/*end::Item */}
 
-        {/* begin::Item */}
+        {/*begin::Item */}
         <div className="d-flex mb-6">
-          {/* begin::Icon */}
+          {/*begin::Icon */}
           <div className="me-1">
             <KTSVG
               className="svg-icon-sm svg-icon-primary"
               path="/media/icons/duotone/Navigation/Angle-right.svg"
-            />{" "}
+            />{' '}
           </div>
-          {/* end::Icon */}
+          {/*end::Icon */}
 
-          {/* begin::Content */}
+          {/*begin::Content */}
           <div className="d-flex flex-column">
             <a
               href="#"
@@ -116,22 +115,22 @@ const ListsWidget5: React.FC<Props> = ({ className, innerPadding = "" }) => {
               Long before you sit down to put pen
             </div>
           </div>
-          {/* end::Content */}
+          {/*end::Content */}
         </div>
-        {/* end::Item */}
+        {/*end::Item */}
 
-        {/* begin::Item */}
+        {/*begin::Item */}
         <div className="d-flex mb-6">
-          {/* begin::Icon */}
+          {/*begin::Icon */}
           <div className="me-1">
             <KTSVG
               className="svg-icon-sm svg-icon-primary"
               path="/media/icons/duotone/Navigation/Angle-right.svg"
-            />{" "}
+            />{' '}
           </div>
-          {/* end::Icon */}
+          {/*end::Icon */}
 
-          {/* begin::Content */}
+          {/*begin::Content */}
           <div className="d-flex flex-column">
             <a
               href="#"
@@ -143,13 +142,13 @@ const ListsWidget5: React.FC<Props> = ({ className, innerPadding = "" }) => {
               Long before you sit down to put digital pen
             </div>
           </div>
-          {/* end::Content */}
+          {/*end::Content */}
         </div>
-        {/* end::Item */}
+        {/*end::Item */}
       </div>
-      {/* end::Body */}
+      {/*end::Body */}
     </div>
-  );
-};
+  )
+}
 
-export { ListsWidget5 };
+export { ListsWidget5 }

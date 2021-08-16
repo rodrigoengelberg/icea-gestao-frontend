@@ -1,10 +1,10 @@
-import React from "react";
-import { AsideMenuItem } from "./AsideMenuItem";
+import React from 'react'
+import { AsideMenuItem } from './AsideMenuItem'
 
 export function AsideMenuMain() {
   return (
     <>
-      {" "}
+      {' '}
       <>
         <>
           <div className="menu-item">
@@ -25,7 +25,7 @@ export function AsideMenuMain() {
             </h4>
           </div>
           <AsideMenuItem to="/chat" title="Chat" free={true} />
-          {/* <AsideMenuItem to="/mail" title="Inbox" /> */}
+          {/*<AsideMenuItem to="/mail" title="Inbox" /> */}
           <AsideMenuItem to="/shop/shop-1" title="Shop 1" free={true} />
           <AsideMenuItem to="/shop/shop-2" title="Shop 2" free={true} />
           <AsideMenuItem
@@ -72,5 +72,5 @@ export function AsideMenuMain() {
         </>
       </>
     </>
-  );
+  )
 }

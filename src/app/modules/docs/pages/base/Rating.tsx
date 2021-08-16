@@ -1,10 +1,7 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable jsx-a11y/anchor-has-content */
-/* eslint-disable no-unreachable */
-import React from "react";
-import { Link } from "react-router-dom";
-import { KTSVG } from "../../../../../_start/helpers";
-import { CodeBlock } from "../../../../../_start/partials";
+import React from 'react'
+import { Link } from 'react-router-dom'
+import { KTSVG } from '../../../../../_start/helpers'
+import { CodeBlock } from '../../../../../_start/partials'
 
 export function Rating() {
   return (
@@ -386,7 +383,7 @@ export function Rating() {
         <CodeBlock code={code5} language="markup" />
       </div>
     </>
-  );
+  )
 }
 
 const code = `<div className="rounded border p-10">
@@ -423,7 +420,7 @@ const code = `<div className="rounded border p-10">
     </div>
   </div>
 </div>
-`;
+`
 
 const code2 = `<div className="rating">
   <div className="rating-label me-2 checked">
@@ -441,7 +438,7 @@ const code2 = `<div className="rating">
   <div className="rating-label me-2 checked">
     <i className="bi bi-star fs-1"></i>
   </div>
-</div>`;
+</div>`
 
 const code3 = `<div className="rounded border p-10">
   <div className="rating">
@@ -495,7 +492,7 @@ const code3 = `<div className="rounded border p-10">
     </div>
   </div>
 </div>
-`;
+`
 
 const code4 = `<div className="rating">
   <label
@@ -583,7 +580,7 @@ const code4 = `<div className="rating">
     id="kt_rating_input_5"
   />
 </div>
-`;
+`
 
 const code5 = `<div className="rating">
   <label
@@ -674,4 +671,4 @@ const code5 = `<div className="rating">
     id="kt_rating_2_input_5"
   />
 </div>
-`;
+`

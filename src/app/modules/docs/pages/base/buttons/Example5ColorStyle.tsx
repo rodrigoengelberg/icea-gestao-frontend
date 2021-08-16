@@ -1,8 +1,5 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable jsx-a11y/anchor-has-content */
-/* eslint-disable no-unreachable */
-import React from "react";
-import { CodeBlock } from "../../../../../../_start/partials";
+import React from 'react'
+import { CodeBlock } from '../../../../../../_start/partials'
 
 export function Example5ColorStyle() {
   return (
@@ -12,7 +9,7 @@ export function Example5ColorStyle() {
       </h1>
       <div className="py-5">
         Use
-        <code>.btn-color-{"{text-color}"}</code>class to set a button's text and
+        <code>.btn-color-{'{text-color}'}</code>class to set a button's text and
         icon colors only:
       </div>
       <div className="py-5">
@@ -78,7 +75,7 @@ export function Example5ColorStyle() {
       </div>
       <CodeBlock language="markup" code={code} />
     </div>
-  );
+  )
 }
 
 const code = `<a href="#" className="btn btn-bg-dark btn-color-white">White</a>
@@ -99,4 +96,4 @@ const code = `<a href="#" className="btn btn-bg-dark btn-color-white">White</a>
 <a href="#" className="btn btn-bg-light btn-color-gray-600">Gray-600</a>
 <a href="#" className="btn btn-bg-light btn-color-gray-700">Gray-700</a>
 <a href="#" className="btn btn-bg-light btn-color-gray-800">Gray-800</a>
-<a href="#" className="btn btn-bg-light btn-color-gray-900">Gray-900</a>`;
+<a href="#" className="btn btn-bg-light btn-color-gray-900">Gray-900</a>`

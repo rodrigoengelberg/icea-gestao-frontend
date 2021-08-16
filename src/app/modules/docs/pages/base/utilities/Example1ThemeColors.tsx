@@ -1,23 +1,20 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable jsx-a11y/anchor-has-content */
-/* eslint-disable no-unreachable */
-import React from "react";
-import { KTSVG } from "../../../../../../_start/helpers";
-import { CodeBlock } from "../../../../../../_start/partials";
+import React from 'react'
+import { KTSVG } from '../../../../../../_start/helpers'
+import { CodeBlock } from '../../../../../../_start/partials'
 
 export function Example1ThemeColors() {
   const {
     REACT_APP_THEME_NAME,
     REACT_APP_SASS_VARIABLES_PATH,
-    REACT_APP_BOOTSTRAP_DOCS_LINK,
-  } = process.env;
+    REACT_APP_BOOTSTRAP_DOCS_LINK
+  } = process.env
   return (
     <div className="pb-10">
       <h1 className="anchor fw-bolder mb-5" id="theme-color">
         <a href="#theme-color"></a>Theme Colors
       </h1>
       <div className="py-5">
-        <strong>{REACT_APP_THEME_NAME}</strong>&nbsp;extends{" "}
+        <strong>{REACT_APP_THEME_NAME}</strong>&nbsp;extends{' '}
         <a
           href={`${REACT_APP_BOOTSTRAP_DOCS_LINK}/customize/color/`}
           className="fw-bold"
@@ -45,7 +42,7 @@ export function Example1ThemeColors() {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
 const code = `// Theme colors
@@ -121,4 +118,4 @@ $theme-text-colors: (
     "gray-700":   $gray-700,
     "gray-800":   $gray-800,
     "gray-900":   $gray-900
-) !default;  // Custom variable`;
+) !default;  // Custom variable`

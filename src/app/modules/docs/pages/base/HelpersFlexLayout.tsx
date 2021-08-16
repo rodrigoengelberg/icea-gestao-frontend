@@ -1,8 +1,5 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable jsx-a11y/anchor-has-content */
-/* eslint-disable no-unreachable */
-import React from "react";
-import { CodeBlock } from "../../../../../_start/partials";
+import React from 'react'
+import { CodeBlock } from '../../../../../_start/partials'
 
 export function HelpersFlexLayout() {
   return (
@@ -66,7 +63,7 @@ export function HelpersFlexLayout() {
       </div>
       <CodeBlock language="markup" code={code} />
     </div>
-  );
+  )
 }
 
 const code = `<div className="d-flex flex-row h-300px">
@@ -95,4 +92,4 @@ const code = `<div className="d-flex flex-row h-300px">
           </div>
       </div>
   </div>
-</div>`;
+</div>`

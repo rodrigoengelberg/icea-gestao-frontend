@@ -1,7 +1,7 @@
-import React from "react";
-import { Redirect, Route, Switch } from "react-router-dom";
-import { PageTitle } from "../../../_start/layout/core";
-import { Overview } from "./components/Overview";
+import React from 'react'
+import { Redirect, Route, Switch } from 'react-router-dom'
+import { PageTitle } from '../../../_start/layout/core'
+import { Overview } from './components/Overview'
 
 const ProfilePage: React.FC = () => {
   return (
@@ -14,7 +14,7 @@ const ProfilePage: React.FC = () => {
       <Redirect from="/profile" exact={true} to="/profile/overview" />
       <Redirect to="/profile/overview" />
     </Switch>
-  );
-};
+  )
+}
 
-export { ProfilePage };
+export { ProfilePage }
