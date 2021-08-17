@@ -60,21 +60,6 @@
       "prettier/react"
     ]
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-stage": {
-    "*.js": [
-      "eslint",
-      "prettier --write"
-    ],
-    "*.tsx": [
-      "eslint",
-      "prettier --write"
-    ]
-  },
   "browserslist": {
     "production": [
       ">0.2%",
