@@ -30,19 +30,32 @@ export function AuthPage() {
           }}
         >
           {/*Top */}
-          <div className="d-flex flex-column-auto flex-column pt-lg-40 pt-15 text-center">
+          <div
+            className="d-flex flex-column-auto flex-column pt-lg-50 pb-15 pt-20 pr-lg-40"
+            style={{ textAlign: 'right', paddingRight: '50px' }}
+          >
             {/*begin::Aside Logo */}
-            <Link to="/" className="mb-6">
+            <Link to="/" className="mb-6 ">
               <img
                 alt="Logo"
                 src={toAbsoluteUrl('/media/logos/logo-default-white.svg')}
-                className="h-350px"
+                className="h-100px"
               />
             </Link>
             {/*end::Aside Logo */}
 
             {/*begin::Aside Subtitle */}
-            <h3 className="fw-bolder fs-3x text-white lh-lg"></h3>
+            <h3 className="fw-bolder">
+              <div className="text-white text-uppercase fs-3x">
+                Igreja Cristã Evangélica
+              </div>
+              <div
+                className="text-uppercase fs-2x"
+                style={{ color: '#f8951d', fontStyle: 'italic' }}
+              >
+                Alexandrina
+              </div>
+            </h3>
             {/*end::Aside Subtitle */}
           </div>
 

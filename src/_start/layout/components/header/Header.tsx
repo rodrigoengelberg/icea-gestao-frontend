@@ -69,7 +69,7 @@ export function Header() {
                 <img
                   alt="Logo"
                   src={toAbsoluteUrl('/media/logos/logo-default.svg')}
-                  className="h-30px"
+                  className="h-65px"
                 />
               </Link>
               {/*end::Logo */}

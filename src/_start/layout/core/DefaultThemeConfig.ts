@@ -41,7 +41,7 @@ export const DefaultThemeConfig: IThemeConfig = {
     width: 'fixed' // Set fixed|fluid to change width type
   },
   sidebar: {
-    display: true, // Set true|false to add or remove  Sidebar
+    display: false, // Set true|false to add or remove  Sidebar
     toggle: false, // Set true|false to enable Sidebar show and hide toggle
     shown: true, // Set true|false to by default show or hide Sidebar
     content: 'general', // Set general|user|shop content for Sidebar

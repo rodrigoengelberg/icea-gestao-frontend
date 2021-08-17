@@ -128,7 +128,7 @@ export function ForgotPassword() {
               className="spinner-border text-primary ms-3 mt-6"
               role="status"
             >
-              <span className="visually-hidden">Loading...</span>
+              <span className="visually-hidden">Carregando...</span>
             </span>
           )}
         </div>

@@ -1,22 +1,17 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { KTSVG } from '../../../helpers'
-import {
-  HeaderNotificationsMenu,
-  SearchModal,
-  HeaderUserMenu,
-  InboxCompose
-} from '../../../partials'
+import { HeaderUserMenu } from '../../../partials'
 import { useTheme } from '../../core'
 
 export function Topbar() {
   const { config } = useTheme()
-  const [showSearchModal, setShowSearchModal] = useState(false)
-  const [showInboxComposeModal, setShowInboxComposeModal] = useState(false)
+  // const [showSearchModal, setShowSearchModal] = useState(false)
+  // const [showInboxComposeModal, setShowInboxComposeModal] = useState(false)
 
   return (
     <>
       {/*begin::Search */}
-      <button
+      {/* <button
         className="btn btn-icon btn-sm btn-active-bg-accent ms-1 ms-lg-6"
         onClick={() => setShowSearchModal(true)}
       >
@@ -28,11 +23,11 @@ export function Topbar() {
       <SearchModal
         show={showSearchModal}
         handleClose={() => setShowSearchModal(false)}
-      />
+      /> */}
       {/*end::Search */}
 
       {/*begin::Message */}
-      <button
+      {/* <button
         className="btn btn-icon btn-sm btn-active-bg-accent ms-1 ms-lg-6"
         onClick={() => setShowInboxComposeModal(true)}
       >
@@ -44,7 +39,7 @@ export function Topbar() {
       <InboxCompose
         show={showInboxComposeModal}
         handleClose={() => setShowInboxComposeModal(false)}
-      />
+      /> */}
       {/*end::Message */}
 
       {/*begin::User */}
@@ -66,9 +61,9 @@ export function Topbar() {
       {/*end::User */}
 
       {/*begin::Notifications */}
-      <div className="ms-1 ms-lg-6">
-        {/*begin::Dropdown */}
-        <button
+      {/* <div className="ms-1 ms-lg-6"> */}
+      {/*begin::Dropdown */}
+      {/* <button
           className="btn btn-icon btn-sm btn-light-danger fw-bolder pulse pulse-danger"
           data-kt-menu-trigger="click"
           data-kt-menu-placement="bottom-end"
@@ -76,9 +71,9 @@ export function Topbar() {
           <span className="position-absolute fs-6">3</span>
           <span className="pulse-ring"></span>
         </button>
-        <HeaderNotificationsMenu />
-        {/*end::Dropdown */}
-      </div>
+        <HeaderNotificationsMenu /> */}
+      {/*end::Dropdown */}
+      {/* </div> */}
       {/*end::Notifications */}
 
       {/*begin::Aside Toggler */}

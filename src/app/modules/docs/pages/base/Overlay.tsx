@@ -144,7 +144,7 @@ export function Overlay() {
                           className="spinner-border text-primary"
                           role="status"
                         >
-                          <span className="visually-hidden">Loading...</span>
+                          <span className="visually-hidden">Carregando...</span>
                         </div>
                       </div>
                     </div>
@@ -186,7 +186,7 @@ export function Overlay() {
                         className="spinner-border text-primary"
                         role="status"
                       >
-                        <span className="visually-hidden">Loading...</span>
+                        <span className="visually-hidden">Carregando...</span>
                       </div>
                     </div>
                   </div>
@@ -262,7 +262,9 @@ export function Overlay() {
                             className="spinner-border text-primary"
                             role="status"
                           >
-                            <span className="visually-hidden">Loading...</span>
+                            <span className="visually-hidden">
+                              Carregando...
+                            </span>
                           </div>
                         </div>
                       </div>
@@ -392,7 +394,7 @@ const code2 = `<div className="card card-custom shadow">
           className="spinner-border text-primary"
           role="status"
         >
-          <span className="visually-hidden">Loading...</span>
+          <span className="visually-hidden">Carregando...</span>
         </div>
       </div>
     </div>
@@ -416,7 +418,7 @@ const code3 = `<div className="card card-custom card-border overlay overlay-bloc
         className="spinner-border text-primary"
         role="status"
       >
-        <span className="visually-hidden">Loading...</span>
+        <span className="visually-hidden">Carregando...</span>
       </div>
     </div>
   </div>
@@ -475,7 +477,7 @@ const code4 = `<button
             className="spinner-border text-primary"
             role="status"
           >
-            <span className="visually-hidden">Loading...</span>
+            <span className="visually-hidden">Carregando...</span>
           </div>
         </div>
       </div>
