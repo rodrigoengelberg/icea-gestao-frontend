@@ -18,32 +18,32 @@ const initialValues = {
 
 const registrationSchema = Yup.object().shape({
   firstname: Yup.string()
-    .min(3, 'Minimum 3 symbols')
-    .max(50, 'Maximum 50 symbols')
-    .required('First name is required'),
+    .min(3, 'Mínimo de 3 caracteres')
+    .max(50, 'Máximo de 50 caracteres')
+    .required('Primeiro nome é obrigatório'),
   email: Yup.string()
-    .email('Wrong email format')
-    .min(3, 'Minimum 3 symbols')
-    .max(50, 'Maximum 50 symbols')
-    .required('Email is required'),
+    .email('Formato de email inválido')
+    .min(3, 'Mínimo de 3 caracteres')
+    .max(50, 'Máximo de 50 caracteres')
+    .required('Email é obrigatório'),
   lastname: Yup.string()
-    .min(3, 'Minimum 3 symbols')
-    .max(50, 'Maximum 50 symbols')
-    .required('Last name is required'),
+    .min(3, 'Mínimo de 3 caracteres')
+    .max(50, 'Máximo de 50 caracteres')
+    .required('Último nome é obrigatório'),
   password: Yup.string()
-    .min(3, 'Minimum 3 symbols')
-    .max(50, 'Maximum 50 symbols')
-    .required('Password is required'),
+    .min(3, 'Mínimo de 3 caracteres')
+    .max(50, 'Máximo de 50 caracteres')
+    .required('Senha é obrigatório'),
   changepassword: Yup.string()
-    .required('Password confirmation is required')
+    .required('Confirmação de senha é obrigatória')
     .when('password', {
       is: (val: string) => !!(val && val.length > 0),
       then: Yup.string().oneOf(
         [Yup.ref('password')],
-        "Password and Confirm Password didn't match"
+        'Senha e a confirmação não são idênticas'
       )
     }),
-  acceptTerms: Yup.bool().required('You must accept the terms and conditions')
+  acceptTerms: Yup.bool().required('Você deve aceitar os termos e condições')
 })
 
 export function Registration() {
@@ -68,7 +68,7 @@ export function Registration() {
           .catch(() => {
             setLoading(false)
             setSubmitting(false)
-            setStatus('Registration process has broken')
+            setStatus('Falha no processo de registro')
           })
       }, 1000)
     }
