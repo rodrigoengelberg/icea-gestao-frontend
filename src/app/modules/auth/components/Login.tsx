@@ -10,14 +10,14 @@ import * as auth from '../redux/AuthRedux'
 
 const loginSchema = Yup.object().shape({
   email: Yup.string()
-    .email('Wrong email format')
-    .min(3, 'Minimum 3 symbols')
-    .max(50, 'Maximum 50 symbols')
-    .required('Email is required'),
+    .email('Formato de email inválido')
+    .min(3, 'Mínimo de 3 caracteres')
+    .max(50, 'Máximo de 50 caracteres')
+    .required('Email é obrigatório'),
   password: Yup.string()
-    .min(3, 'Minimum 3 symbols')
-    .max(50, 'Maximum 50 symbols')
-    .required('Password is required')
+    .min(3, 'Mínimo de 3 caracteres')
+    .max(50, 'Máximo de 50 caracteres')
+    .required('Senha é obrigatória')
 })
 
 const initialValues = {
@@ -48,7 +48,7 @@ export function Login() {
           .catch(() => {
             setLoading(false)
             setSubmitting(false)
-            setStatus('The login detail is incorrect')
+            setStatus('Usuário ou senha estão incorretos')
           })
       }, 1000)
     }

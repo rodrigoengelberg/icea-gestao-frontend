@@ -36,7 +36,7 @@ export function ForgotPassword() {
             setHasErrors(true)
             setLoading(false)
             setSubmitting(false)
-            setStatus('The login detail is incorrect')
+            setStatus('A informação de login está incorreta')
           })
       }, 1000)
     }
