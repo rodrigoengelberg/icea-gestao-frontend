@@ -1,3 +1,8 @@
+/*eslint-disable no-script-url */
+/*eslint-disable jsx-a11y/alt-text */
+/*eslint-disable jsx-a11y/anchor-is-valid */
+/*eslint-disable jsx-a11y/anchor-has-content */
+/*eslint-disable no-unreachable */
 import React, { useState } from 'react'
 import { Modal } from 'react-bootstrap-v5'
 import { KTSVG, toAbsoluteUrl } from '../../../../../_start/helpers'

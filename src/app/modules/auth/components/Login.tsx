@@ -41,9 +41,9 @@ export function Login() {
       setLoading(true)
       setTimeout(() => {
         login(values.email, values.password)
-          .then(({ data: { accessToken } }) => {
+          .then(({ data: { token } }) => {
             setLoading(false)
-            dispatch(auth.actions.login(accessToken))
+            dispatch(auth.actions.login(token))
           })
           .catch(() => {
             setLoading(false)

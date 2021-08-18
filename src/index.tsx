@@ -24,7 +24,7 @@ const { PUBLIC_URL } = process.env
  * @see https://github.com/ctimmerm/axios-mock-adapter
  */
 
-/*const mock = */ _redux.mockAxios(axios)
+/*const mock =  _redux.mockAxios(axios)*/
 /**
  * Inject Start interceptors for axios.
  *
@@ -35,7 +35,7 @@ _redux.setupAxios(axios, store)
 ReactDOM.render(
   <Provider store={store}>
     {/*Asynchronously persist redux stores and show `SplashScreen` while it's loading. */}
-    <PersistGate persistor={persistor} loading={<div>Aguarde...</div>}>
+    <PersistGate persistor={persistor} loading={<div>Carregando...</div>}>
       <App basename={PUBLIC_URL} />
     </PersistGate>
   </Provider>,

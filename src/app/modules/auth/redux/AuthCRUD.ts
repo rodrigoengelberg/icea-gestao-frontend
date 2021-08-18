@@ -4,8 +4,8 @@ import { UserModel } from '../models/UserModel'
 
 const API_URL = process.env.REACT_APP_API_URL || 'api'
 
-export const GET_USER_BY_ACCESSTOKEN_URL = `${API_URL}/auth/get-user`
-export const LOGIN_URL = `${API_URL}/auth/login`
+export const GET_USER_BY_ACCESSTOKEN_URL = `${API_URL}/profile`
+export const LOGIN_URL = `${API_URL}/sessions`
 export const REGISTER_URL = `${API_URL}/auth/register`
 export const REQUEST_PASSWORD_URL = `${API_URL}/auth/forgot-password`
 
