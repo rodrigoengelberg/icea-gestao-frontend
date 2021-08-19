@@ -13,7 +13,7 @@ export interface UserModel {
   firstname?: string
   lastname?: string
   fullname?: string
-  avatar?: string
+  role?: string
   occupation?: string
   companyName?: string
   phone?: string

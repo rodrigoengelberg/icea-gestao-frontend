@@ -15,13 +15,13 @@ export function Footer() {
             {new Date().getFullYear()} &copy;
           </span>
           <a href="#" className="text-gray-800 text-hover-primary">
-            Keenthemes
+            ICEA
           </a>
         </div>
         {/*end::Copyright */}
 
         {/*begin::Nav */}
-        <ul className="menu menu-gray-600 menu-hover-primary fw-bold order-1">
+        {/* <ul className="menu menu-gray-600 menu-hover-primary fw-bold order-1">
           <li className="menu-item">
             <a href="#" className="menu-link ps-0 pe-2">
               About
@@ -37,7 +37,7 @@ export function Footer() {
               Purchase
             </a>
           </li>
-        </ul>
+        </ul> */}
         {/*end::Nav */}
       </div>
       {/*end::Container */}
