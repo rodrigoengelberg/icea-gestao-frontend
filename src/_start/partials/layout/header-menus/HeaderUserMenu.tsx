@@ -19,29 +19,28 @@ export function HeaderUserMenu() {
       <div
         className="menu-content fw-bold d-flex align-items-center bgi-no-repeat bgi-position-y-top rounded-top"
         style={{
-          backgroundImage: `url('${toAbsoluteUrl(
-            '/media//misc/dropdown-header-bg.jpg'
-          )}')`
+          backgroundColor: '#202020',
+          color: '#f8951d'
         }}
       >
         <div className="symbol symbol-45px mx-5 py-5">
           <span className="symbol-label bg-primary align-items-end">
             <img
               alt="Logo"
-              src={toAbsoluteUrl('/media/svg/avatars/001-boy.svg')}
+              src={toAbsoluteUrl('/media/svg/avatars/038-boy-16.svg')}
               className="mh-35px"
             />
           </span>
         </div>
         <div className="">
-          <span className="text-white fw-bolder fs-4">Olá, {user.name}</span>
-          <span className="text-white fw-bold fs-7 d-block">{user.role}</span>
+          <span className="fw-bolder fs-4">Olá, {user.name}</span>
+          <span className="fw-bold fs-7 d-block">{user.role}</span>
         </div>
       </div>
 
       {/*begin::Row */}
       <div className="row row-cols-2 g-0">
-        <Link
+        {/* <Link
           to="/profile"
           className="border-bottom border-end text-center py-10 btn btn-active-color-primary rounded-0"
           data-kt-menu-dismiss="true"
@@ -51,7 +50,7 @@ export function HeaderUserMenu() {
             path="/media/icons/duotone/Layout/Layout-4-blocks-2.svg"
           />
           <span className="  fw-bolder fs-6 d-block pt-3">Meu perfil</span>
-        </Link>
+        </Link> */}
 
         <Link
           to="/logout"

@@ -20,9 +20,9 @@ const EngageWidget5: React.FC<Props> = ({
         <div className="d-flex flex-column h-100">
           {/*begin::Text */}
           <h3 className="text-dark text-center fs-1 fw-bolder pt-15 lh-lg">
-            Kickstart
+            Gestão de
             <br />
-            Mobile Application
+            Membros
           </h3>
           {/*end::Text */}
           {children}
