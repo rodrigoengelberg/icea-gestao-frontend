@@ -40,7 +40,7 @@ export function HeaderUserMenu() {
 
       {/*begin::Row */}
       <div className="row row-cols-2 g-0">
-        {/* <Link
+        <Link
           to="/profile"
           className="border-bottom border-end text-center py-10 btn btn-active-color-primary rounded-0"
           data-kt-menu-dismiss="true"
@@ -50,7 +50,7 @@ export function HeaderUserMenu() {
             path="/media/icons/duotone/Layout/Layout-4-blocks-2.svg"
           />
           <span className="  fw-bolder fs-6 d-block pt-3">Meu perfil</span>
-        </Link> */}
+        </Link>
 
         <Link
           to="/logout"

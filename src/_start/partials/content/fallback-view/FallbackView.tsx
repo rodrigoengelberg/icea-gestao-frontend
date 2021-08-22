@@ -7,7 +7,7 @@ export function FallbackView() {
         src={toAbsoluteUrl('/media/logos/logo-compact.svg')}
         alt="Start logo"
       />
-      <span>Loading ...</span>
+      <span>Carregando...</span>
     </div>
   )
 }

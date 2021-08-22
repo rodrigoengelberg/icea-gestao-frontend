@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { EngageWidget5 } from '../../../../_start/partials/widgets'
 import { CreateAppModal } from '../_modals/create-app-stepper/CreateAppModal'
 
@@ -12,12 +13,12 @@ export const StartDashboardPage: React.FC = () => {
           <EngageWidget5 className="card-stretch mb-5 mb-xxl-8">
             {/*begin::Action */}
             <div className="text-center pt-7">
-              <a
+              <Link
                 className="btn btn-primary fw-bolder fs-6 px-7 py-3"
-                onClick={() => setShow(true)}
+                to="/members"
               >
                 Acessar
-              </a>
+              </Link>
             </div>
             {/*end::Action */}
           </EngageWidget5>
