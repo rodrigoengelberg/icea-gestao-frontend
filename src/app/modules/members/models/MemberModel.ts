@@ -1,4 +1,5 @@
 export interface MemberModel {
+  id?: string
   first_name: string
   full_name: string
   email?: string
