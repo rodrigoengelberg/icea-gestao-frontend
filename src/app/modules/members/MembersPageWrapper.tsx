@@ -8,17 +8,12 @@ import {
   useTheme
 } from '../../../_start/layout/core'
 import { MembersPage } from './MembersPage'
-import { generalSubmenu } from './MembersPageData'
+import { membersSubMenu } from './MembersPageData'
 
-const generalBreadCrumbs: Array<PageLink> = [
+const membersBreadCrumbs: Array<PageLink> = [
   {
     title: 'Home',
     path: '/',
-    isActive: false
-  },
-  {
-    title: 'General',
-    path: '',
     isActive: false
   }
 ]
@@ -27,7 +22,7 @@ const defaultPageConfig = getConfig()
 const generalPageConfig: Partial<IThemeConfig> = {
   sidebar: {
     ...defaultPageConfig.sidebar,
-    display: true,
+    display: false,
     content: 'user',
     bgColor: 'bg-info'
   }
@@ -46,8 +41,8 @@ const MembersPageWrapper: React.FC = () => {
   return (
     <>
       <PageDataContainer
-        breadcrumbs={generalBreadCrumbs}
-        submenu={generalSubmenu}
+        breadcrumbs={membersBreadCrumbs}
+        submenu={membersSubMenu}
       />
       <MembersPage />
     </>

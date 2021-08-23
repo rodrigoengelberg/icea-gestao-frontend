@@ -15,7 +15,7 @@ export const StartDashboardPage: React.FC = () => {
             <div className="text-center pt-7">
               <Link
                 className="btn btn-primary fw-bolder fs-6 px-7 py-3"
-                to="/members"
+                to="/members/"
               >
                 Acessar
               </Link>

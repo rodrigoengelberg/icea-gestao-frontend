@@ -1,31 +1,14 @@
 import { PageLink } from '../../../_start/layout/core'
 
-export const generalSubmenu: Array<PageLink> = [
+export const membersSubMenu: Array<PageLink> = [
   {
-    title: 'FAQ',
-    path: '/general/faq',
+    title: 'Membros',
+    path: '/members',
     isActive: true
   },
   {
-    title: 'Pricing',
-    path: '/general/pricing',
+    title: 'Cadastrar',
+    path: '/members/add',
     isActive: false
-  },
-  {
-    title: 'Invoice',
-    path: '/general/invoice',
-    isActive: false
-  },
-  {
-    title: 'Wizard',
-    path: '/general/wizard',
-    isActive: false,
-    isPro: true
-  },
-  {
-    title: 'Error',
-    path: '/error/404',
-    isActive: false,
-    isPro: true
   }
 ]

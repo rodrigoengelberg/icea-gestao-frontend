@@ -2,32 +2,25 @@ import React from 'react'
 import { Redirect, Route, Switch } from 'react-router-dom'
 import { AddPage } from './pages/AddPage'
 import { ListPage } from './pages/ListPage'
-import { EditPage } from './pages/EditPage'
 import { PageTitle } from '../../../_start/layout/core'
 
 export function MembersPage() {
   return (
     <Switch>
-      <Route path="/general/faq">
+      <Route path="/members">
         <>
-          <PageTitle>FAQ</PageTitle>
-          <AddPage />
-        </>
-      </Route>
-      <Route path="/general/pricing">
-        <>
-          <PageTitle>Pricing</PageTitle>
+          <PageTitle>Membros</PageTitle>
           <ListPage />
         </>
       </Route>
-      <Route path="/general/invoice">
+      <Route path="/members/add">
         <>
-          <PageTitle>Invoice</PageTitle>
-          <EditPage />
+          <PageTitle>Cadastro de membros</PageTitle>
+          <AddPage />
         </>
       </Route>
-      <Redirect from="/general" exact={true} to="/general/faq" />
-      <Redirect to="/general/faq" />
+      {/* <Redirect from="/general" exact={true} to="/general/faq" /> */}
+      <Redirect to="/members" />
     </Switch>
   )
 }
