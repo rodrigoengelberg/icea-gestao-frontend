@@ -15,6 +15,11 @@ const membersBreadCrumbs: Array<PageLink> = [
     title: 'Home',
     path: '/',
     isActive: false
+  },
+  {
+    title: 'Membros',
+    path: '/members',
+    isActive: false
   }
 ]
 

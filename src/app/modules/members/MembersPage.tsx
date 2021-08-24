@@ -7,19 +7,20 @@ import { PageTitle } from '../../../_start/layout/core'
 export function MembersPage() {
   return (
     <Switch>
-      <Route path="/members">
+      <Route path="/members/list">
         <>
-          <PageTitle>Membros</PageTitle>
+          <PageTitle>Consulta</PageTitle>
           <ListPage />
         </>
       </Route>
       <Route path="/members/add">
         <>
-          <PageTitle>Cadastro de membros</PageTitle>
+          <PageTitle>Cadastro</PageTitle>
           <AddPage />
         </>
       </Route>
-      {/* <Redirect from="/general" exact={true} to="/general/faq" /> */}
+
+      <Redirect from="/members" exact={true} to="/members/list" />
       <Redirect to="/members" />
     </Switch>
   )

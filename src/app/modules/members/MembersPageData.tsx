@@ -2,9 +2,9 @@ import { PageLink } from '../../../_start/layout/core'
 
 export const membersSubMenu: Array<PageLink> = [
   {
-    title: 'Membros',
-    path: '/members',
-    isActive: true
+    title: 'Consulta',
+    path: '/members/list',
+    isActive: false
   },
   {
     title: 'Cadastrar',

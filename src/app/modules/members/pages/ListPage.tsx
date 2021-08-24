@@ -1,6 +1,7 @@
 /*eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 import { MemberModel } from '../models/MemberModel'
 import { getAllMembers } from '../redux/MemberCRUD'
@@ -26,34 +27,40 @@ export function ListPage() {
   return (
     <div className="card">
       <div className="card-body p-12">
-        <div className="row mb-12">
-          <div className="d-flex justify-content-between pb-10 pb-md-20 flex-column flex-md-row">
-            <h1 className="display-8 text-dark fw-bolder mb-10">
+        <div className="row">
+          <div className="d-flex justify-content-between pb-10 flex-column flex-md-row">
+            <h1 className="display-6 text-dark fw-bolder mb-10">
               Consulta de Membros
-            </h1>
-            <div className="d-flex flex-column align-items-md-begin px-0">
-              {/*begin::Logo */}
-              {/*end::Logo */}
-              <span className="d-flex flex-column align-items-md-begin fs-4 fw-bold text-muted">
+              <span className="d-flex flex-column fs-4 fw-bold text-muted">
                 <span>Lista dos membros cadastrados</span>
               </span>
+            </h1>
+            <div className="d-flex flex-column align-items-md-end px-0">
+              <div className="text-center pt-7">
+                <Link
+                  className="btn btn-primary fw-bolder fs-6 px-7 py-3"
+                  to="/members/add"
+                >
+                  Novo Membro
+                </Link>
+              </div>
             </div>
           </div>
         </div>
 
         {/*begin::Table */}
-        <table className="table table-row-dashed table-row-gray-300 gy-7">
+        <table className="table table-row-dashed table-hover table-row-gray-300 gy-7">
           <thead>
             <tr className="fw-bolder fs-6 text-gray-800">
               <th>Nome</th>
               <th>E-mail</th>
               <th>Gênero</th>
               <th>Data de nascimento</th>
-              <th>Estado Civil</th>
+              <th>Estado civil</th>
               <th>Nascionalidade</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody style={{ cursor: 'pointer' }}>
             {members
               ? members.map((member: MemberModel) => {
                   return (

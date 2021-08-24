@@ -1,332 +1,219 @@
-import React from 'react'
-import { KTSVG } from '../../../../_start/helpers'
+import React, { useState } from 'react'
+import clsx from 'clsx'
+import { useFormik } from 'formik'
+import DateFnsUtils from '@date-io/date-fns'
+import {
+  MuiPickersUtilsProvider,
+  KeyboardDatePicker
+} from '@material-ui/pickers'
+import Grid from '@material-ui/core/Grid'
+import * as Yup from 'yup'
+
+const loginSchema = Yup.object().shape({
+  email: Yup.string()
+    .email('Formato de email inválido')
+    .min(3, 'Mínimo de 3 caracteres')
+    .max(50, 'Máximo de 50 caracteres')
+    .required('Email é obrigatório'),
+  password: Yup.string()
+    .min(3, 'Mínimo de 3 caracteres')
+    .max(50, 'Máximo de 50 caracteres')
+    .required('Senha é obrigatória')
+})
+
+const initialValues = {
+  email: '',
+  password: ''
+}
 
 export function AddPage() {
+  const [loading] = useState(false)
+
+  const [selectedDate, setSelectedDate] = React.useState<Date | null>(
+    new Date()
+  )
+
+  const handleDateChange = (date: Date | null) => {
+    setSelectedDate(date)
+  }
+
+  const formik = useFormik({
+    initialValues,
+    validationSchema: loginSchema,
+    onSubmit: (values, { setStatus, setSubmitting }) => {
+      setTimeout(() => {}, 1000)
+    }
+  })
+
   return (
-    <div className="d-flex flex-column flex-md-row">
-      {/*begin::Aside */}
-      <div className="flex-column flex-md-row-auto w-100 w-md-250px w-xxl-350px">
-        {/*begin::List Widget 2 */}
-        <div className="card card-custom mb-10 mb-md-0">
-          {/*begin::Body */}
-          <div className="card-body py-10 px-6">
-            {/*begin::Search Input */}
-            <div className="d-flex flex-column mb-10 px-3">
-              {/*begin::Form */}
-              <form>
-                <div
-                  className="input-group input-group-solid"
-                  id="kt_chat_aside_search"
-                >
-                  <span className="input-group-text" id="basic-addon1">
-                    <KTSVG
-                      className="svg-icon-1 svg-icon-dark"
-                      path="/media/icons/duotone/General/Search.svg"
-                    />
-                  </span>
+    <>
+      <div className="card">
+        <div className="card-body p-12">
+          <div className="row ">
+            <div className="d-flex justify-content-between pb-10  flex-column flex-md-row">
+              <h1 className="display-6 text-dark fw-bolder mb-10">
+                Cadastro de Membros
+                <span className="d-flex flex-column fs-4 fw-bold text-muted">
+                  <span>Gerenciar o cadastro de um membro da ICEA</span>
+                </span>
+              </h1>
+            </div>
+          </div>
+
+          {/*begin::Form */}
+          <form
+            className="form w-100"
+            onSubmit={formik.handleSubmit}
+            noValidate
+            id="kt_login_signin_form"
+          >
+            {/*begin::Form group */}
+            <div className="row">
+              <div className="col-md-4 col-lg-12 col-xl-4">
+                <div className="mb-10">
+                  <label className="form-label fs-6 fw-bolder text-dark">
+                    Primeiro nome
+                  </label>
                   <input
                     type="text"
-                    className="form-control ps-0 py-4 h-auto"
-                    placeholder="Search"
+                    className="form-control form-control-solid"
+                    placeholder="Primeiro nome"
                   />
                 </div>
-              </form>
-              {/*end::Form */}
+              </div>
+              <div className="col-md-4 col-lg-12 col-xl-5">
+                <div className="mb-10">
+                  <label className="form-label fs-6 fw-bolder text-dark">
+                    Nome completo
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control form-control-solid"
+                    placeholder="Nome completo"
+                  />
+                </div>
+              </div>
+              <div className="col-md-4 col-lg-12 col-xl-3">
+                <div className="mb-10">
+                  <label className="form-label fs-6 fw-bolder text-dark">
+                    Gênero
+                  </label>
+                  <select className="form-select form-select-solid">
+                    <option>Selecione</option>
+                    <option value="0">Masculino</option>
+                    <option value="1">Feminino</option>
+                  </select>
+                </div>
+              </div>
             </div>
-            {/*end::Search Input */}
-
-            {/*begin::Authors List */}
-            <ul className="menu menu-column menu-rounded menu-gray-600 menu-hover-bg-light-primary menu-active-bg-light-primary fw-bold mb-10">
-              <li className="menu-content fw-bold pb-2 px-3">
-                <span className="fs-3 fw-bolder">Premium Authors</span>
-              </li>
-              <li className="menu-item px-3 pb-1">
-                <a href="#" className="menu-link fs-6 px-3">
-                  Getting Started
-                </a>
-              </li>
-              <li className="menu-item px-3 pb-1">
-                <a href="#" className="menu-link fs-6 px-3 active">
-                  Popular Articles
-                </a>
-              </li>
-              <li className="menu-item px-3 pb-1">
-                <a href="#" className="menu-link fs-6 px-3">
-                  Uploading Theme
-                </a>
-              </li>
-              <li className="menu-item px-3">
-                <a href="#" className="menu-link fs-6 px-3">
-                  Licensing
-                </a>
-              </li>
-            </ul>
-            {/*end::Authors List */}
-
-            {/*begin::Theme List */}
-            <ul className="menu menu-column menu-rounded menu-gray-600 menu-hover-bg-light-primary menu-active-bg-light-primary fw-bold">
-              <li className="menu-content fw-bold pb-2 px-3">
-                <span className="fs-3 fw-bolder">Theme Customers</span>
-              </li>
-              <li className="menu-item px-3 pb-1">
-                <a href="#" className="menu-link fs-6 px-3">
-                  User Profile
-                </a>
-              </li>
-              <li className="menu-item px-3 pb-1">
-                <a href="#" className="menu-link fs-6 px-3">
-                  Timeline
-                </a>
-              </li>
-              <li className="menu-item px-3 pb-1">
-                <a href="#" className="menu-link fs-6 px-3">
-                  Pricing Tables
-                </a>
-              </li>
-              <li className="menu-item px-3">
-                <a href="#" className="menu-link fs-6 px-3">
-                  Wizard Options
-                </a>
-              </li>
-            </ul>
-            {/*end::Theme List */}
-          </div>
-          {/*end::Body */}
-        </div>
-        {/*end::List Widget 2 */}
-      </div>
-      {/*end::Aside */}
-
-      {/*begin::Layout */}
-      <div className="flex-md-row-fluid ms-md-12">
-        {/*begin::Card */}
-        <div className="card card-custom">
-          <div className="card-body py-10">
-            <h2 className="text-dark fw-bolder fs-1 mb-5">Popular Articles</h2>
-
-            {/*begin::Accordion */}
-            <div
-              className="accordion accordion-icon-toggle"
-              id="kt_accordion_1"
-            >
-              {/*begin::Item */}
-              <div className="mb-5">
-                {/*begin::Header */}
-                <div
-                  className="accordion-header py-3 d-flex"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#kt_accordion_1_item_1"
-                >
-                  <span className="accordion-icon">
-                    <KTSVG
-                      className="svg-icon-4"
-                      path="/media/icons/duotone/Navigation/Right-2.svg"
-                    />
-                  </span>
-                  <h3 className="fs-4 text-gray-800 fw-bold mb-0 ms-4">
-                    The best way to quick start business
-                  </h3>
-                </div>
-                {/*end::Header */}
-
-                {/*begin::Body */}
-                <div
-                  id="kt_accordion_1_item_1"
-                  className="fs-6 collapse show ps-10"
-                  data-bs-parent="#kt_accordion_1"
-                >
-                  <div className="mb-5">
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s, when an unknown
-                    printer took a galley of type and scrambled it to make a
-                    type specimen book. It has survived not only five centuries,
-                    but also the leap into electronic typesetting, remaining
-                    essentially unchanged.
+            <div className="row">
+              <div className="mb-10 fv-plugins-icon-container col-lg-12 col-xl-6">
+                <label className="form-label fs-6 fw-bolder text-dark">
+                  Email
+                </label>
+                <input
+                  placeholder="Email"
+                  {...formik.getFieldProps('email')}
+                  className={clsx(
+                    'form-control form-control-lg form-control-solid',
+                    {
+                      'is-invalid': formik.touched.email && formik.errors.email
+                    },
+                    {
+                      'is-valid': formik.touched.email && !formik.errors.email
+                    }
+                  )}
+                  type="email"
+                  name="email"
+                  autoComplete="off"
+                />
+                {formik.touched.email && formik.errors.email && (
+                  <div className="fv-plugins-message-container">
+                    <div className="fv-help-block">{formik.errors.email}</div>
                   </div>
-
-                  <div>
-                    It was popularised in the 1960s with the release of Letraset
-                    sheets containing Lorem Ipsum passages, and more recently
-                    with desktop publishing software like Aldus PageMaker
-                    including versions of Lorem Ipsum.
-                  </div>
-                </div>
-                {/*end::Body */}
+                )}
               </div>
-              {/*end::Item */}
-
-              {/*begin::Item */}
-              <div className="mb-5">
-                {/*begin::Header */}
-                <div
-                  className="accordion-header py-3 d-flex collapsed"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#kt_accordion_1_item_2"
-                >
-                  <span className="accordion-icon">
-                    <KTSVG
-                      className="svg-icon-4"
-                      path="/media/icons/duotone/Navigation/Right-2.svg"
-                    />
-                  </span>
-                  <h3 className="fs-4 text-gray-800 fw-bold mb-0 ms-4">
-                    How To Create Channel ?
-                  </h3>
+              <div className="col-md-4 col-lg-12 col-xl-3">
+                <div className="mb-10">
+                  <label className="form-label fs-6 fw-bolder text-dark">
+                    Estado civil
+                  </label>
+                  <select className="form-select form-select-solid">
+                    <option>Selecione</option>
+                    <option value="0">Masculino</option>
+                    <option value="1">Feminino</option>
+                  </select>
                 </div>
-                {/*end::Header */}
-
-                {/*begin::Body */}
-                <div
-                  id="kt_accordion_1_item_2"
-                  className="collapse fs-6 ps-10"
-                  data-bs-parent="#kt_accordion_1"
-                >
-                  <div className="mb-5">
-                    There are many variations of passages of Lorem Ipsum
-                    available, but the majority have suffered alteration in some
-                    form, by injected humour, or randomised words which don't
-                    look even slightly believable.
-                  </div>
-
-                  <div className="mb-5">
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s, when an unknown
-                    printer took a galley of type and scrambled it to make a
-                    type specimen book. It has survived not only five centuries,
-                    but also the leap into electronic typesetting, remaining
-                    essentially unchanged.
-                  </div>
-
-                  <div>
-                    It was popularised in the 1960s with the release of Letraset
-                    sheets containing Lorem Ipsum passages, and more recently
-                    with desktop publishing software like Aldus PageMaker
-                    including versions of Lorem Ipsum.
-                  </div>
-                </div>
-                {/*end::Body */}
               </div>
-              {/*end::Item */}
-
-              {/*begin::Item */}
-              <div className="mb-5">
-                {/*begin::Header */}
-                <div
-                  className="accordion-header py-3 d-flex collapsed"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#kt_accordion_1_item_3"
-                >
-                  <span className="accordion-icon">
-                    <KTSVG
-                      className="svg-icon-4"
-                      path="/media/icons/duotone/Navigation/Right-2.svg"
-                    />
-                  </span>
-                  <h3 className="fs-4 text-gray-800 fw-bold mb-0 ms-4">
-                    What are the support terms & conditions ?
-                  </h3>
+              <div className="col-md-4 col-lg-12 col-xl-3">
+                <div className="mb-10">
+                  <label className="form-label fs-6 fw-bolder text-dark">
+                    Nacionalidade
+                  </label>
+                  <select className="form-select form-select-solid">
+                    <option>Selecione</option>
+                    <option value="0">Masculino</option>
+                    <option value="1">Feminino</option>
+                  </select>
                 </div>
-                {/*end::Header */}
-
-                {/*begin::Body */}
-                <div
-                  id="kt_accordion_1_item_3"
-                  className="collapse fs-6 ps-10"
-                  data-bs-parent="#kt_accordion_1"
-                >
-                  Some plugins may ask for a purchase code for
-                  registration/activation once installed, however, you can
-                  simply ignore these messages as bundled plugins do not require
-                  activation or registration.
-                </div>
-                {/*end::Body */}
               </div>
-              {/*end::Item */}
-
-              {/*begin::Item */}
-              <div className="mb-5">
-                {/*begin::Header */}
-                <div
-                  className="accordion-header py-3 d-flex collapsed"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#kt_accordion_1_item_4"
-                >
-                  <span className="accordion-icon">
-                    <KTSVG
-                      className="svg-icon-4"
-                      path="/media/icons/duotone/Navigation/Right-2.svg"
-                    />
-                  </span>
-                  <h3 className="fs-4 text-gray-800 fw-bold mb-0 ms-4">
-                    What is the 6 Months support extention ?
-                  </h3>
-                </div>
-                {/*end::Header */}
-
-                {/*begin::Body */}
-                <div
-                  id="kt_accordion_1_item_4"
-                  className="collapse fs-6 ps-10"
-                  data-bs-parent="#kt_accordion_1"
-                >
-                  Some plugins may ask for a purchase code for
-                  registration/activation once installed, however, you can
-                  simply ignore these messages as bundled plugins do not require
-                  activation or registration. The plugin will still work as
-                  intended with the theme once the theme has been
-                  activated/registered. When a plugin is updated, the theme
-                  author will include the latest version of the bundled plugin
-                  with their next theme update.
-                </div>
-                {/*end::Body */}
-              </div>
-              {/*end::Item */}
-
-              {/*begin::Item */}
-              <div className="mb-5">
-                {/*begin::Header */}
-                <div
-                  className="accordion-header py-3 d-flex collapsed"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#kt_accordion_1_item_5"
-                >
-                  <span className="accordion-icon">
-                    <KTSVG
-                      className="svg-icon-4"
-                      path="/media/icons/duotone/Navigation/Right-2.svg"
-                    />
-                  </span>
-                  <h3 className="fs-4 text-gray-800 fw-bold mb-0 ms-4">
-                    How can I keep up to date my item ?
-                  </h3>
-                </div>
-                {/*end::Header */}
-
-                {/*begin::Body */}
-                <div
-                  id="kt_accordion_1_item_5"
-                  className="collapse fs-6 ps-10"
-                  data-bs-parent="#kt_accordion_1"
-                >
-                  Some plugins may ask for a purchase code for
-                  registration/activation once installed, however, you can
-                  simply ignore these messages as bundled plugins do not require
-                  activation or registration. The plugin will still work as
-                  intended with the theme once the theme has been
-                  activated/registered.
-                </div>
-                {/*end::Body */}
-              </div>
-              {/*end::Item */}
             </div>
-            {/*end::Accordion */}
-          </div>
+            {/*end::Form group */}
+
+            {/*begin::Form group */}
+            <div className="row">
+              <div className="col-md-4 col-lg-12 col-xl-6">
+                <div className="mb-10">
+                  <label className="form-label fs-6 fw-bolder text-dark">
+                    Data de nascimento
+                  </label>
+                  <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                    <Grid container justifyContent="space-around">
+                      <KeyboardDatePicker
+                        disableToolbar
+                        variant="inline"
+                        format="dd/MM/yyyy"
+                        margin="normal"
+                        id="date-picker-inline"
+                        label="Date picker inline"
+                        value={selectedDate}
+                        onChange={handleDateChange}
+                        KeyboardButtonProps={{
+                          'aria-label': 'change date'
+                        }}
+                      />
+                    </Grid>
+                  </MuiPickersUtilsProvider>
+                </div>
+              </div>
+            </div>
+            {/*end::Form group */}
+
+            {/*begin::Action */}
+            <div className="pb-lg-0 pb-5">
+              <button
+                type="submit"
+                id="kt_login_signin_form_submit_button"
+                className="btn btn-success fw-bolder fs-6 px-8 py-4 my-3 me-3"
+                disabled={formik.isSubmitting || !formik.isValid}
+              >
+                {!loading && <span className="indicator-label">Salvar</span>}
+                {loading && (
+                  <span
+                    className="indicator-progress"
+                    style={{ display: 'block' }}
+                  >
+                    Carregando...{' '}
+                    <span className="spinner-border spinner-border-sm align-middle ms-2"></span>
+                  </span>
+                )}
+              </button>
+            </div>
+            {/*end::Action */}
+          </form>
+          {/*end::Form */}
         </div>
-        {/*end::Card */}
       </div>
-      {/*end::Layout */}
-    </div>
+    </>
   )
 }
