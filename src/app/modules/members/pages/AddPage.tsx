@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import clsx from 'clsx'
 import { useFormik } from 'formik'
-import DateFnsUtils from '@date-io/date-fns'
+import MomentUtils from '@date-io/moment'
+import 'moment/locale/pt-br'
+import { Moment } from 'moment'
 import {
   MuiPickersUtilsProvider,
   KeyboardDatePicker
@@ -29,11 +31,9 @@ const initialValues = {
 export function AddPage() {
   const [loading] = useState(false)
 
-  const [selectedDate, setSelectedDate] = React.useState<Date | null>(
-    new Date()
-  )
+  const [selectedDate, setSelectedDate] = React.useState<Moment | null>(null)
 
-  const handleDateChange = (date: Date | null) => {
+  const handleDateChange = (date: Moment | null) => {
     setSelectedDate(date)
   }
 
@@ -81,7 +81,7 @@ export function AddPage() {
                   />
                 </div>
               </div>
-              <div className="col-md-4 col-lg-12 col-xl-5">
+              <div className="col-md-4 col-lg-12 col-xl-6">
                 <div className="mb-10">
                   <label className="form-label fs-6 fw-bolder text-dark">
                     Nome completo
@@ -93,7 +93,12 @@ export function AddPage() {
                   />
                 </div>
               </div>
-              <div className="col-md-4 col-lg-12 col-xl-3">
+            </div>
+            {/*end::Form group */}
+
+            {/*begin::Form group */}
+            <div className="row">
+              <div className="col-md-4 col-lg-12 col-xl-4">
                 <div className="mb-10">
                   <label className="form-label fs-6 fw-bolder text-dark">
                     Gênero
@@ -105,9 +110,64 @@ export function AddPage() {
                   </select>
                 </div>
               </div>
+
+              <div className="col-md-4 col-lg-12 col-xl-4">
+                <div className="mb-10">
+                  <label className="form-label fs-6 fw-bolder text-dark">
+                    Estado civil
+                  </label>
+                  <select className="form-select form-select-solid">
+                    <option>Selecione</option>
+                    <option value="0">Masculino</option>
+                    <option value="1">Feminino</option>
+                  </select>
+                </div>
+              </div>
+
+              <div className="col-md-4 col-lg-12 col-xl-4">
+                <div className="mb-10">
+                  <label className="form-label fs-6 fw-bolder text-dark">
+                    Data de nascimento
+                  </label>
+                  <div className="form-label fs-6 fw-bolder text-dark">
+                    <MuiPickersUtilsProvider locale="pt-br" utils={MomentUtils}>
+                      <Grid container justifyContent="space-between">
+                        <KeyboardDatePicker
+                          disableToolbar
+                          clearable
+                          id="date-picker-inline"
+                          variant="dialog"
+                          placeholder="DD/MM/AAAA"
+                          format="DD/MM/yyyy"
+                          margin="dense"
+                          invalidDateMessage="Data em formato inválido."
+                          value={selectedDate}
+                          onChange={handleDateChange}
+                        />
+                      </Grid>
+                    </MuiPickersUtilsProvider>
+                  </div>
+                </div>
+              </div>
             </div>
+            {/*end::Form group */}
+
+            {/*begin::Form group */}
             <div className="row">
-              <div className="mb-10 fv-plugins-icon-container col-lg-12 col-xl-6">
+              <div className="col-md-4 col-lg-12 col-xl-4">
+                <div className="mb-10">
+                  <label className="form-label fs-6 fw-bolder text-dark">
+                    Nacionalidade
+                  </label>
+                  <select className="form-select form-select-solid">
+                    <option>Selecione</option>
+                    <option value="0">Masculino</option>
+                    <option value="1">Feminino</option>
+                  </select>
+                </div>
+              </div>
+
+              <div className="mb-10 fv-plugins-icon-container col-lg-12 col-xl-8">
                 <label className="form-label fs-6 fw-bolder text-dark">
                   Email
                 </label>
@@ -133,61 +193,73 @@ export function AddPage() {
                   </div>
                 )}
               </div>
-              <div className="col-md-4 col-lg-12 col-xl-3">
-                <div className="mb-10">
-                  <label className="form-label fs-6 fw-bolder text-dark">
-                    Estado civil
-                  </label>
-                  <select className="form-select form-select-solid">
-                    <option>Selecione</option>
-                    <option value="0">Masculino</option>
-                    <option value="1">Feminino</option>
-                  </select>
-                </div>
-              </div>
-              <div className="col-md-4 col-lg-12 col-xl-3">
-                <div className="mb-10">
-                  <label className="form-label fs-6 fw-bolder text-dark">
-                    Nacionalidade
-                  </label>
-                  <select className="form-select form-select-solid">
-                    <option>Selecione</option>
-                    <option value="0">Masculino</option>
-                    <option value="1">Feminino</option>
-                  </select>
-                </div>
-              </div>
             </div>
             {/*end::Form group */}
 
-            {/*begin::Form group */}
+            <div className="row ">
+              <div className="d-flex justify-content-between pb-10 flex-column flex-md-row">
+                <h1 className="display-8 text-dark fw-bolder">
+                  <span className="d-flex flex-column fs-4 fw-bold text-muted">
+                    <span>Outras informações</span>
+                  </span>
+                </h1>
+              </div>
+            </div>
+
             <div className="row">
               <div className="col-md-4 col-lg-12 col-xl-6">
                 <div className="mb-10">
                   <label className="form-label fs-6 fw-bolder text-dark">
-                    Data de nascimento
+                    Profissão
                   </label>
-                  <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                    <Grid container justifyContent="space-around">
-                      <KeyboardDatePicker
-                        disableToolbar
-                        variant="inline"
-                        format="dd/MM/yyyy"
-                        margin="normal"
-                        id="date-picker-inline"
-                        label="Date picker inline"
-                        value={selectedDate}
-                        onChange={handleDateChange}
-                        KeyboardButtonProps={{
-                          'aria-label': 'change date'
-                        }}
-                      />
-                    </Grid>
-                  </MuiPickersUtilsProvider>
+                  <select className="form-select form-select-solid">
+                    <option>Selecione</option>
+                    <option value="0">Masculino</option>
+                    <option value="1">Feminino</option>
+                  </select>
+                </div>
+              </div>
+
+              <div className="col-md-4 col-lg-12 col-xl-4">
+                <div className="mb-10">
+                  <label className="form-label fs-6 fw-bolder text-dark">
+                    Escolaridade
+                  </label>
+                  <select className="form-select form-select-solid">
+                    <option>Selecione</option>
+                    <option value="0">Masculino</option>
+                    <option value="1">Feminino</option>
+                  </select>
                 </div>
               </div>
             </div>
-            {/*end::Form group */}
+
+            <div className="row">
+              <div className="col-md-4 col-lg-12 col-xl-6">
+                <div className="mb-10">
+                  <label className="form-label fs-6 fw-bolder text-dark">
+                    Facebook
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control form-control-solid"
+                    placeholder="https://facebook.com/exemplo"
+                  />
+                </div>
+              </div>
+              <div className="col-md-4 col-lg-12 col-xl-6">
+                <div className="mb-10">
+                  <label className="form-label fs-6 fw-bolder text-dark">
+                    Instagram
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control form-control-solid"
+                    placeholder="https://instagram.com/exemplo"
+                  />
+                </div>
+              </div>
+            </div>
 
             {/*begin::Action */}
             <div className="pb-lg-0 pb-5">
