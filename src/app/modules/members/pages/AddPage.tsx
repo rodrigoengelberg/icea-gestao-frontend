@@ -1,45 +1,81 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import {
+  MuiPickersUtilsProvider,
+  KeyboardDatePicker
+} from '@material-ui/pickers'
 import clsx from 'clsx'
 import { useFormik } from 'formik'
 import MomentUtils from '@date-io/moment'
 import 'moment/locale/pt-br'
 import { Moment } from 'moment'
-import {
-  MuiPickersUtilsProvider,
-  KeyboardDatePicker
-} from '@material-ui/pickers'
 import Grid from '@material-ui/core/Grid'
 import * as Yup from 'yup'
 
-const loginSchema = Yup.object().shape({
+import { getNationalities, getOccupations } from '../redux/MemberCRUD'
+import { NationalityModel } from '../models/NationalityModel'
+import { OccupationModel } from '../models/OccupationModel'
+
+const memberSchema = Yup.object().shape({
+  firstName: Yup.string()
+    .min(3, 'Mínimo de 3 caracteres')
+    .max(50, 'Máximo de 50 caracteres')
+    .required('Primeiro nome é obrigatório'),
+  fullName: Yup.string()
+    .min(3, 'Mínimo de 3 caracteres')
+    .max(50, 'Máximo de 50 caracteres')
+    .required('Nome completo é obrigatório'),
+  gender: Yup.string().required('Gênero é obrigatório'),
+  nationality: Yup.string().required('Nacionalidade é obrigatório'),
   email: Yup.string()
     .email('Formato de email inválido')
-    .min(3, 'Mínimo de 3 caracteres')
     .max(50, 'Máximo de 50 caracteres')
-    .required('Email é obrigatório'),
-  password: Yup.string()
-    .min(3, 'Mínimo de 3 caracteres')
-    .max(50, 'Máximo de 50 caracteres')
-    .required('Senha é obrigatória')
 })
 
 const initialValues = {
-  email: '',
-  password: ''
+  firstName: '',
+  fullName: '',
+  gender: '',
+  nationality: '',
+  email: ''
 }
 
 export function AddPage() {
   const [loading] = useState(false)
-
+  const [nationalities, setNationalities] = useState<NationalityModel[]>([])
+  const [occupations, setOccupations] = useState<OccupationModel[]>([])
   const [selectedDate, setSelectedDate] = React.useState<Moment | null>(null)
 
   const handleDateChange = (date: Moment | null) => {
     setSelectedDate(date)
   }
 
+  useEffect(() => {
+    if (nationalities.length === 0) {
+      getNationalities()
+        .then(({ data: nationalities }) => {
+          setNationalities(nationalities)
+        })
+        .catch(() => {
+          alert('Ocorreu um problema ao consultar Nacionalidades')
+        })
+    }
+  }, [nationalities])
+
+  useEffect(() => {
+    if (occupations.length === 0) {
+      getOccupations()
+        .then(({ data: occupations }) => {
+          setOccupations(occupations)
+        })
+        .catch(() => {
+          alert('Ocorreu um problema ao consultar Profissões')
+        })
+    }
+  }, [occupations])
+
   const formik = useFormik({
     initialValues,
-    validationSchema: loginSchema,
+    validationSchema: memberSchema,
     onSubmit: (values, { setStatus, setSubmitting }) => {
       setTimeout(() => {}, 1000)
     }
@@ -62,10 +98,10 @@ export function AddPage() {
 
           {/*begin::Form */}
           <form
+            id="kt_add_member_form"
+            noValidate
             className="form w-100"
             onSubmit={formik.handleSubmit}
-            noValidate
-            id="kt_login_signin_form"
           >
             {/*begin::Form group */}
             <div className="row">
@@ -75,10 +111,30 @@ export function AddPage() {
                     Primeiro nome
                   </label>
                   <input
-                    type="text"
-                    className="form-control form-control-solid"
                     placeholder="Primeiro nome"
+                    {...formik.getFieldProps('firstName')}
+                    className={clsx(
+                      'form-control form-control-lg form-control-solid',
+                      {
+                        'is-invalid':
+                          formik.touched.firstName && formik.errors.firstName
+                      },
+                      {
+                        'is-valid':
+                          formik.touched.firstName && !formik.errors.firstName
+                      }
+                    )}
+                    type="text"
+                    name="firstName"
+                    autoComplete="off"
                   />
+                  {formik.touched.firstName && formik.errors.firstName && (
+                    <div className="fv-plugins-message-container">
+                      <div className="fv-help-block">
+                        {formik.errors.firstName}
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
               <div className="col-md-4 col-lg-12 col-xl-6">
@@ -87,10 +143,30 @@ export function AddPage() {
                     Nome completo
                   </label>
                   <input
-                    type="text"
-                    className="form-control form-control-solid"
                     placeholder="Nome completo"
+                    {...formik.getFieldProps('fullName')}
+                    className={clsx(
+                      'form-control form-control-lg form-control-solid',
+                      {
+                        'is-invalid':
+                          formik.touched.fullName && formik.errors.fullName
+                      },
+                      {
+                        'is-valid':
+                          formik.touched.fullName && !formik.errors.fullName
+                      }
+                    )}
+                    type="text"
+                    name="fullName"
+                    autoComplete="off"
                   />
+                  {formik.touched.fullName && formik.errors.fullName && (
+                    <div className="fv-plugins-message-container">
+                      <div className="fv-help-block">
+                        {formik.errors.fullName}
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
@@ -103,11 +179,22 @@ export function AddPage() {
                   <label className="form-label fs-6 fw-bolder text-dark">
                     Gênero
                   </label>
-                  <select className="form-select form-select-solid">
+                  <select
+                    id="gender"
+                    className="form-select form-select-solid"
+                    {...formik.getFieldProps('gender')}
+                  >
                     <option>Selecione</option>
-                    <option value="0">Masculino</option>
-                    <option value="1">Feminino</option>
+                    <option value="Masculino">Masculino</option>
+                    <option value="Feminino">Feminino</option>
                   </select>
+                  {formik.touched.gender && formik.errors.gender && (
+                    <div className="fv-plugins-message-container">
+                      <div className="fv-help-block">
+                        {formik.errors.gender}
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
 
@@ -118,8 +205,11 @@ export function AddPage() {
                   </label>
                   <select className="form-select form-select-solid">
                     <option>Selecione</option>
-                    <option value="0">Masculino</option>
-                    <option value="1">Feminino</option>
+                    <option value="Solteiro(a)">Solteiro(a)</option>
+                    <option value="Noivo(a)">Noivo(a)</option>
+                    <option value="Casado(a)">Casado(a)</option>
+                    <option value="Divorciado(a)">Divorciado(a)</option>
+                    <option value="Viúvo(a)">Viúvo(a)</option>
                   </select>
                 </div>
               </div>
@@ -136,6 +226,9 @@ export function AddPage() {
                           disableToolbar
                           clearable
                           id="date-picker-inline"
+                          okLabel="OK"
+                          clearLabel="Limpar"
+                          cancelLabel="Cancelar"
                           variant="dialog"
                           placeholder="DD/MM/AAAA"
                           format="DD/MM/yyyy"
@@ -159,11 +252,32 @@ export function AddPage() {
                   <label className="form-label fs-6 fw-bolder text-dark">
                     Nacionalidade
                   </label>
-                  <select className="form-select form-select-solid">
+                  <select
+                    id="nationality"
+                    className="form-select form-select-solid"
+                    {...formik.getFieldProps('nationality')}
+                  >
                     <option>Selecione</option>
-                    <option value="0">Masculino</option>
-                    <option value="1">Feminino</option>
+                    {nationalities
+                      ? nationalities.map((nationality: NationalityModel) => {
+                          return (
+                            <option
+                              key={nationality.id}
+                              value={nationality.name}
+                            >
+                              {nationality.name}
+                            </option>
+                          )
+                        })
+                      : ''}
                   </select>
+                  {formik.touched.nationality && formik.errors.nationality && (
+                    <div className="fv-plugins-message-container">
+                      <div className="fv-help-block">
+                        {formik.errors.nationality}
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
 
@@ -214,21 +328,47 @@ export function AddPage() {
                   </label>
                   <select className="form-select form-select-solid">
                     <option>Selecione</option>
-                    <option value="0">Masculino</option>
-                    <option value="1">Feminino</option>
+                    {occupations
+                      ? occupations.map((occupation: OccupationModel) => {
+                          return (
+                            <option
+                              key={occupation.occupation}
+                              value={occupation.occupation_name}
+                            >
+                              {occupation.occupation_name}
+                            </option>
+                          )
+                        })
+                      : ''}
                   </select>
                 </div>
               </div>
 
-              <div className="col-md-4 col-lg-12 col-xl-4">
+              <div className="col-md-4 col-lg-12 col-xl-6">
                 <div className="mb-10">
                   <label className="form-label fs-6 fw-bolder text-dark">
                     Escolaridade
                   </label>
                   <select className="form-select form-select-solid">
                     <option>Selecione</option>
-                    <option value="0">Masculino</option>
-                    <option value="1">Feminino</option>
+                    <option value="Ensino Fundamental">
+                      Ensino Fundamental
+                    </option>
+                    <option value="Ensino Médio Incompleto">
+                      Ensino Médio Incompleto
+                    </option>
+                    <option value="Ensino Médio">Ensino Médio</option>
+                    <option value="Superior Incompleto">
+                      Superior Incompleto
+                    </option>
+                    <option value="Superior">
+                      Superior (Bacharel, Licenciatura, Tecnólogo)
+                    </option>
+                    <option value="Pós graduação">
+                      Pós graduação (Especialização, MBA)
+                    </option>
+                    <option value="Mestrado">Mestrado</option>
+                    <option value="Doutorado">Doutorado</option>
                   </select>
                 </div>
               </div>
@@ -265,7 +405,7 @@ export function AddPage() {
             <div className="pb-lg-0 pb-5">
               <button
                 type="submit"
-                id="kt_login_signin_form_submit_button"
+                id="kt_add_member_form_submit_button"
                 className="btn btn-success fw-bolder fs-6 px-8 py-4 my-3 me-3"
                 disabled={formik.isSubmitting || !formik.isValid}
               >

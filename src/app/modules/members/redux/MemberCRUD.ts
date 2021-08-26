@@ -1,9 +1,13 @@
 import axios from 'axios'
 import { MemberModel } from '../models/MemberModel'
+import { NationalityModel } from '../models/NationalityModel'
+import { OccupationModel } from '../models/OccupationModel'
 
 const API_URL = process.env.REACT_APP_API_URL || 'api'
 
 export const GET_MEMBERS_URL = `${API_URL}/members`
+export const GET_NATIONALITIES_URL = `${API_URL}/members/nationalities`
+export const GET_OCCUPATIONS_URL = `${API_URL}/members/occupations`
 
 // Server should return AuthModel
 // export function login(email: string, password: string) {
@@ -31,7 +35,13 @@ export const GET_MEMBERS_URL = `${API_URL}/members`
 // }
 
 export function getAllMembers() {
-  // Authorization head should be fulfilled in interceptor.
-  // Check common redux folder => setupAxios
   return axios.get<MemberModel[]>(GET_MEMBERS_URL)
+}
+
+export function getNationalities() {
+  return axios.get<NationalityModel[]>(GET_NATIONALITIES_URL)
+}
+
+export function getOccupations() {
+  return axios.get<OccupationModel[]>(GET_OCCUPATIONS_URL)
 }
