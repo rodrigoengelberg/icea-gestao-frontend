@@ -1,13 +1,15 @@
 /*eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
+import moment from 'moment'
 
 import { MemberModel } from '../models/MemberModel'
 import { getAllMembers } from '../redux/MemberCRUD'
 import * as membersSaga from '../redux/MemberRedux'
 
-export function ListPage() {
+const MemberListPage: React.FC = () => {
+  const history = useHistory()
   const [members, setMembers] = useState<MemberModel[]>([])
   const dispatch = useDispatch()
 
@@ -23,6 +25,10 @@ export function ListPage() {
         })
     }
   }, [])
+
+  const selectedMember = (member: MemberModel) => {
+    history.push('/members/edit/' + member.id)
+  }
 
   return (
     <div className="card">
@@ -64,11 +70,13 @@ export function ListPage() {
             {members
               ? members.map((member: MemberModel) => {
                   return (
-                    <tr key={member.id}>
+                    <tr key={member.id} onClick={() => selectedMember(member)}>
                       <td>{member.full_name}</td>
                       <td>{member.email}</td>
                       <td>{member.gender}</td>
-                      <td>{member.birth_date}</td>
+                      <td className="text-center">
+                        {moment(member.birth_date).format('DD/MM/YYYY')}
+                      </td>
                       <td>{member.marital_status}</td>
                       <td>{member.nationality}</td>
                     </tr>
@@ -82,3 +90,5 @@ export function ListPage() {
     </div>
   )
 }
+
+export default MemberListPage

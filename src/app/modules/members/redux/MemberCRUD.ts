@@ -5,9 +5,9 @@ import { OccupationModel } from '../models/OccupationModel'
 
 const API_URL = process.env.REACT_APP_API_URL || 'api'
 
-export const GET_MEMBERS_URL = `${API_URL}/members`
-export const GET_NATIONALITIES_URL = `${API_URL}/members/nationalities`
-export const GET_OCCUPATIONS_URL = `${API_URL}/members/occupations`
+export const MEMBERS_URL = `${API_URL}/members`
+export const MEMBERS_NATIONALITIES_URL = `${API_URL}/members/nationalities`
+export const MEMBERS_OCCUPATIONS_URL = `${API_URL}/members/occupations`
 
 // Server should return AuthModel
 // export function login(email: string, password: string) {
@@ -34,14 +34,63 @@ export const GET_OCCUPATIONS_URL = `${API_URL}/members/occupations`
 //   return axios.post<{ result: boolean }>(REQUEST_PASSWORD_URL, { email })
 // }
 
+export function save(
+  first_name: string,
+  full_name: string,
+  email: string,
+  gender: string,
+  marital_status: string,
+  nationality: string,
+  birth_date: string,
+  member_details: any
+) {
+  return axios.post<MemberModel>(MEMBERS_URL, {
+    first_name,
+    full_name,
+    email,
+    gender,
+    marital_status,
+    nationality,
+    birth_date,
+    member_details
+  })
+}
+
+export function update(
+  id: string,
+  first_name: string,
+  full_name: string,
+  email: string,
+  gender: string,
+  marital_status: string,
+  nationality: string,
+  birth_date: string,
+  member_details: any
+) {
+  return axios.put<MemberModel>(MEMBERS_URL + '/' + id, {
+    first_name,
+    full_name,
+    email,
+    gender,
+    marital_status,
+    nationality,
+    birth_date,
+    member_details
+  })
+}
+
+export function getMemberById(memberId: string) {
+  return axios.get<MemberModel>(MEMBERS_URL + '/' + memberId)
+}
+
 export function getAllMembers() {
-  return axios.get<MemberModel[]>(GET_MEMBERS_URL)
+  return axios.get<MemberModel[]>(MEMBERS_URL)
 }
 
 export function getNationalities() {
-  return axios.get<NationalityModel[]>(GET_NATIONALITIES_URL)
+  return axios.get<NationalityModel[]>(MEMBERS_NATIONALITIES_URL)
 }
 
 export function getOccupations() {
-  return axios.get<OccupationModel[]>(GET_OCCUPATIONS_URL)
+  return axios.get<OccupationModel[]>(MEMBERS_OCCUPATIONS_URL)
 }

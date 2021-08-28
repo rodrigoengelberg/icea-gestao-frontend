@@ -56,10 +56,10 @@ export function Login() {
 
   return (
     <form
-      className="form w-100"
-      onSubmit={formik.handleSubmit}
       noValidate
       id="kt_login_signin_form"
+      className="form w-100"
+      onSubmit={formik.handleSubmit}
     >
       {/*begin::Title */}
       <div className="pb-lg-15">

@@ -5,22 +5,46 @@ import {
 } from '@material-ui/pickers'
 import clsx from 'clsx'
 import { useFormik } from 'formik'
-import MomentUtils from '@date-io/moment'
-import 'moment/locale/pt-br'
-import { Moment } from 'moment'
 import Grid from '@material-ui/core/Grid'
+import MomentUtils from '@date-io/moment'
+import moment, { Moment } from 'moment'
+import 'moment/locale/pt-br'
 import * as Yup from 'yup'
 
 import { getNationalities, getOccupations } from '../redux/MemberCRUD'
 import { NationalityModel } from '../models/NationalityModel'
 import { OccupationModel } from '../models/OccupationModel'
 
+interface IMemberProps {
+  onSubmit: any
+  member?: IMemberState
+}
+
+interface IMemberState {
+  id?: string
+  first_name: string
+  full_name: string
+  gender: string
+  nationality: string
+  marital_status?: string
+  birth_date?: string
+  email?: string
+  member_details?: IMemberDetailState
+}
+
+interface IMemberDetailState {
+  occupation?: string
+  schooling?: string
+  facebook_link?: string
+  instagram_link?: string
+}
+
 const memberSchema = Yup.object().shape({
-  firstName: Yup.string()
+  first_name: Yup.string()
     .min(3, 'Mínimo de 3 caracteres')
     .max(50, 'Máximo de 50 caracteres')
     .required('Primeiro nome é obrigatório'),
-  fullName: Yup.string()
+  full_name: Yup.string()
     .min(3, 'Mínimo de 3 caracteres')
     .max(50, 'Máximo de 50 caracteres')
     .required('Nome completo é obrigatório'),
@@ -28,25 +52,40 @@ const memberSchema = Yup.object().shape({
   nationality: Yup.string().required('Nacionalidade é obrigatório'),
   email: Yup.string()
     .email('Formato de email inválido')
-    .max(50, 'Máximo de 50 caracteres')
+    .max(50, 'Máximo de 50 caracteres'),
+  marital_status: Yup.string(),
+  birth_date: Yup.string(),
+  member_details: Yup.object()
 })
 
 const initialValues = {
-  firstName: '',
-  fullName: '',
+  first_name: '',
+  full_name: '',
   gender: '',
   nationality: '',
-  email: ''
+  marital_status: '',
+  birth_date: '',
+  email: '',
+  member_details: {
+    id: '',
+    occupation: '',
+    schooling: '',
+    facebook_link: '',
+    instagram_link: ''
+  }
 }
 
-export function AddPage() {
-  const [loading] = useState(false)
+const MemberForm: React.FC<IMemberProps> = props => {
+  const [loading, setLoading] = useState(false)
   const [nationalities, setNationalities] = useState<NationalityModel[]>([])
   const [occupations, setOccupations] = useState<OccupationModel[]>([])
   const [selectedDate, setSelectedDate] = React.useState<Moment | null>(null)
 
   const handleDateChange = (date: Moment | null) => {
-    setSelectedDate(date)
+    if (date) {
+      setSelectedDate(date)
+      formik.setFieldValue('birth_date', date.toISOString())
+    }
   }
 
   useEffect(() => {
@@ -77,9 +116,57 @@ export function AddPage() {
     initialValues,
     validationSchema: memberSchema,
     onSubmit: (values, { setStatus, setSubmitting }) => {
-      setTimeout(() => {}, 1000)
+      setTimeout(() => {
+        setLoading(false)
+        props.onSubmit(
+          values.first_name,
+          values.full_name,
+          values.gender,
+          values.nationality,
+          values.marital_status,
+          values.birth_date,
+          values.email,
+          values.member_details,
+          setLoading,
+          setStatus,
+          setSubmitting
+        )
+      }, 1000)
     }
   })
+
+  useEffect(() => {
+    if (props.member) {
+      formik.setFieldValue('first_name', props.member.first_name)
+      formik.setFieldValue('full_name', props.member.full_name)
+      formik.setFieldValue('gender', props.member.gender)
+      formik.setFieldValue('nationality', props.member.nationality)
+      formik.setFieldValue('marital_status', props.member.marital_status)
+      formik.setFieldValue('email', props.member.email)
+      if (props.member.birth_date) {
+        setSelectedDate(moment(props.member.birth_date))
+        formik.setFieldValue('birth_date', props.member.birth_date)
+      }
+      if (props.member.member_details) {
+        formik.setFieldValue(
+          'member_details.occupation',
+          props.member.member_details.occupation
+        )
+        formik.setFieldValue(
+          'member_details.schooling',
+          props.member.member_details.schooling
+        )
+        formik.setFieldValue(
+          'member_details.facebook_link',
+          props.member.member_details.facebook_link
+        )
+        formik.setFieldValue(
+          'member_details.instagram_link',
+          props.member.member_details.instagram_link
+        )
+      }
+    }
+  }, [props.member])
 
   return (
     <>
@@ -98,11 +185,21 @@ export function AddPage() {
 
           {/*begin::Form */}
           <form
-            id="kt_add_member_form"
             noValidate
+            id="kt_add_member_form"
             className="form w-100"
             onSubmit={formik.handleSubmit}
           >
+            {formik.status ? (
+              <div className="mb-lg-15 alert alert-danger">
+                <div className="alert-text font-weight-bold">
+                  {formik.status}
+                </div>
+              </div>
+            ) : (
+              ''
+            )}
+
             {/*begin::Form group */}
             <div className="row">
               <div className="col-md-4 col-lg-12 col-xl-4">
@@ -112,26 +209,26 @@ export function AddPage() {
                   </label>
                   <input
                     placeholder="Primeiro nome"
-                    {...formik.getFieldProps('firstName')}
+                    {...formik.getFieldProps('first_name')}
                     className={clsx(
                       'form-control form-control-lg form-control-solid',
                       {
                         'is-invalid':
-                          formik.touched.firstName && formik.errors.firstName
+                          formik.touched.first_name && formik.errors.first_name
                       },
                       {
                         'is-valid':
-                          formik.touched.firstName && !formik.errors.firstName
+                          formik.touched.first_name && !formik.errors.first_name
                       }
                     )}
                     type="text"
-                    name="firstName"
+                    name="first_name"
                     autoComplete="off"
                   />
-                  {formik.touched.firstName && formik.errors.firstName && (
+                  {formik.touched.first_name && formik.errors.first_name && (
                     <div className="fv-plugins-message-container">
                       <div className="fv-help-block">
-                        {formik.errors.firstName}
+                        {formik.errors.first_name}
                       </div>
                     </div>
                   )}
@@ -144,26 +241,26 @@ export function AddPage() {
                   </label>
                   <input
                     placeholder="Nome completo"
-                    {...formik.getFieldProps('fullName')}
+                    {...formik.getFieldProps('full_name')}
                     className={clsx(
                       'form-control form-control-lg form-control-solid',
                       {
                         'is-invalid':
-                          formik.touched.fullName && formik.errors.fullName
+                          formik.touched.full_name && formik.errors.full_name
                       },
                       {
                         'is-valid':
-                          formik.touched.fullName && !formik.errors.fullName
+                          formik.touched.full_name && !formik.errors.full_name
                       }
                     )}
                     type="text"
-                    name="fullName"
+                    name="full_name"
                     autoComplete="off"
                   />
-                  {formik.touched.fullName && formik.errors.fullName && (
+                  {formik.touched.full_name && formik.errors.full_name && (
                     <div className="fv-plugins-message-container">
                       <div className="fv-help-block">
-                        {formik.errors.fullName}
+                        {formik.errors.full_name}
                       </div>
                     </div>
                   )}
@@ -203,7 +300,11 @@ export function AddPage() {
                   <label className="form-label fs-6 fw-bolder text-dark">
                     Estado civil
                   </label>
-                  <select className="form-select form-select-solid">
+                  <select
+                    id="marital_status"
+                    className="form-select form-select-solid"
+                    {...formik.getFieldProps('marital_status')}
+                  >
                     <option>Selecione</option>
                     <option value="Solteiro(a)">Solteiro(a)</option>
                     <option value="Noivo(a)">Noivo(a)</option>
@@ -233,8 +334,9 @@ export function AddPage() {
                           placeholder="DD/MM/AAAA"
                           format="DD/MM/yyyy"
                           margin="dense"
-                          invalidDateMessage="Data em formato inválido."
+                          {...formik.getFieldProps('birth_date')}
                           value={selectedDate}
+                          invalidDateMessage="Data em formato inválido."
                           onChange={handleDateChange}
                         />
                       </Grid>
@@ -326,7 +428,11 @@ export function AddPage() {
                   <label className="form-label fs-6 fw-bolder text-dark">
                     Profissão
                   </label>
-                  <select className="form-select form-select-solid">
+                  <select
+                    id="member_details.occupation"
+                    className="form-select form-select-solid"
+                    {...formik.getFieldProps('member_details.occupation')}
+                  >
                     <option>Selecione</option>
                     {occupations
                       ? occupations.map((occupation: OccupationModel) => {
@@ -349,7 +455,11 @@ export function AddPage() {
                   <label className="form-label fs-6 fw-bolder text-dark">
                     Escolaridade
                   </label>
-                  <select className="form-select form-select-solid">
+                  <select
+                    id="member_details.schooling"
+                    className="form-select form-select-solid"
+                    {...formik.getFieldProps('member_details.schooling')}
+                  >
                     <option>Selecione</option>
                     <option value="Ensino Fundamental">
                       Ensino Fundamental
@@ -383,6 +493,7 @@ export function AddPage() {
                   <input
                     type="text"
                     className="form-control form-control-solid"
+                    {...formik.getFieldProps('member_details.facebook_link')}
                     placeholder="https://facebook.com/exemplo"
                   />
                 </div>
@@ -395,6 +506,7 @@ export function AddPage() {
                   <input
                     type="text"
                     className="form-control form-control-solid"
+                    {...formik.getFieldProps('member_details.instagram_link')}
                     placeholder="https://instagram.com/exemplo"
                   />
                 </div>
@@ -429,3 +541,5 @@ export function AddPage() {
     </>
   )
 }
+
+export default MemberForm

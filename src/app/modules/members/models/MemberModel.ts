@@ -1,10 +1,13 @@
+import { MemberDetailsModel } from './MemberDetailsModel'
+
 export interface MemberModel {
   id?: string
   first_name: string
   full_name: string
   email?: string
-  gender?: string
+  gender: string
   marital_status?: string
   birth_date?: string
-  nationality?: string
+  nationality: string
+  member_details?: MemberDetailsModel
 }

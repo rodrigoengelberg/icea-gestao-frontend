@@ -1,22 +1,30 @@
 import React from 'react'
 import { Redirect, Route, Switch } from 'react-router-dom'
-import { AddPage } from './pages/AddPage'
-import { ListPage } from './pages/ListPage'
 import { PageTitle } from '../../../_start/layout/core'
 
-export function MembersPage() {
+import MemberAddPage from './pages/MemberAddPage'
+import MemberListPage from './pages/MemberListPage'
+import MemberEditPage from './pages/MemberEditPage'
+
+const MembersPage: React.FC = () => {
   return (
     <Switch>
       <Route path="/members/list">
         <>
           <PageTitle>Consulta</PageTitle>
-          <ListPage />
+          <MemberListPage />
         </>
       </Route>
       <Route path="/members/add">
         <>
-          <PageTitle>Cadastro</PageTitle>
-          <AddPage />
+          <PageTitle>Cadastrar</PageTitle>
+          <MemberAddPage />
+        </>
+      </Route>
+      <Route path="/members/edit/:id">
+        <>
+          <PageTitle>Editar</PageTitle>
+          <MemberEditPage />
         </>
       </Route>
 
@@ -25,3 +33,5 @@ export function MembersPage() {
     </Switch>
   )
 }
+
+export default MembersPage

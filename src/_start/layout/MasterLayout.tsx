@@ -8,6 +8,8 @@ import { ScrollTop } from './components/ScrollTop'
 import { Content } from './components/Content'
 import { MasterInit } from './MasterInit'
 import { PageDataProvider } from './core'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 // import { ExploreMain } from '../partials'
 
 const MasterLayout: React.FC = ({ children }) => {
@@ -28,6 +30,7 @@ const MasterLayout: React.FC = ({ children }) => {
                 id="kt_content"
               >
                 <Content>{children}</Content>
+                <ToastContainer />
               </div>
             </div>
             <Footer />

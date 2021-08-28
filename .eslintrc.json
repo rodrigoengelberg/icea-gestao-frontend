@@ -30,6 +30,7 @@
     "spaced-comment": 0,
     "jsx-a11y/anchor-is-valid": 0,
     "no-undef": 0,
+    "camelcase": 0,
     "jsx-a11y/anchor-has-content": 0,
     "react/jsx-filename-extension": [
       0,

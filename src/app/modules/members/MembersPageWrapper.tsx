@@ -7,7 +7,7 @@ import {
   PageLink,
   useTheme
 } from '../../../_start/layout/core'
-import { MembersPage } from './MembersPage'
+import MembersPage from './MembersPage'
 import { membersSubMenu } from './MembersPageData'
 
 const membersBreadCrumbs: Array<PageLink> = [
