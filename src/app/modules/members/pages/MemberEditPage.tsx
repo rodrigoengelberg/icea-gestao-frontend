@@ -30,7 +30,7 @@ const MemberEditPage: React.FC = () => {
         member={member}
         onSubmit={(
           first_name: string,
-          full_name: string,
+          last_name: string,
           gender: string,
           nationality: string,
           marital_status: string,
@@ -44,10 +44,11 @@ const MemberEditPage: React.FC = () => {
           setStatus: any,
           setSubmitting: any
         ) => {
+          setLoading(true)
           update(
             id,
             first_name,
-            full_name,
+            last_name,
             email,
             gender,
             marital_status,

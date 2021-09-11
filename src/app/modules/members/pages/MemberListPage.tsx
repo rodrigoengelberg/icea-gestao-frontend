@@ -71,7 +71,7 @@ const MemberListPage: React.FC = () => {
               ? members.map((member: MemberModel) => {
                   return (
                     <tr key={member.id} onClick={() => selectedMember(member)}>
-                      <td>{member.full_name}</td>
+                      <td>{member.first_name + ' ' + member.last_name}</td>
                       <td>{member.email}</td>
                       <td>{member.gender}</td>
                       <td className="text-center">

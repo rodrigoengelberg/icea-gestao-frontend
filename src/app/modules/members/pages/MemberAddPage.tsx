@@ -12,7 +12,7 @@ const MemberAddPage: React.FC = () => {
       <MemberForm
         onSubmit={(
           first_name: string,
-          full_name: string,
+          last_name: string,
           gender: string,
           nationality: string,
           marital_status: string,
@@ -26,9 +26,10 @@ const MemberAddPage: React.FC = () => {
           setStatus: any,
           setSubmitting: any
         ) => {
+          setLoading(true)
           save(
             first_name,
-            full_name,
+            last_name,
             email,
             gender,
             marital_status,

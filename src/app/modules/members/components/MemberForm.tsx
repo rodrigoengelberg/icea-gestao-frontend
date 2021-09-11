@@ -5,6 +5,8 @@ import {
   KeyboardDatePicker
 } from '@material-ui/pickers'
 import clsx from 'clsx'
+import { Link, useHistory } from 'react-router-dom'
+import { toast } from 'react-toastify'
 import { useFormik } from 'formik'
 import Grid from '@material-ui/core/Grid'
 import MomentUtils from '@date-io/moment'
@@ -12,9 +14,14 @@ import moment, { Moment } from 'moment'
 import 'moment/locale/pt-br'
 import * as Yup from 'yup'
 
-import { getNationalities, getOccupations } from '../redux/MemberCRUD'
+import {
+  getNationalities,
+  getOccupations,
+  deleteMember
+} from '../redux/MemberCRUD'
 import { NationalityModel } from '../models/NationalityModel'
 import { OccupationModel } from '../models/OccupationModel'
+import { KTSVG } from '../../../../_start/helpers/components/KTSVG'
 
 interface IMemberProps {
   onSubmit: any
@@ -24,7 +31,7 @@ interface IMemberProps {
 interface IMemberState {
   id?: string
   first_name: string
-  full_name: string
+  last_name: string
   gender: string
   nationality: string
   marital_status?: string
@@ -37,14 +44,15 @@ interface IMemberState {
 }
 
 const memberSchema = Yup.object().shape({
+  id: Yup.string(),
   first_name: Yup.string()
     .min(3, 'Mínimo de 3 caracteres')
     .max(50, 'Máximo de 50 caracteres')
     .required('Primeiro nome é obrigatório'),
-  full_name: Yup.string()
+  last_name: Yup.string()
     .min(3, 'Mínimo de 3 caracteres')
     .max(50, 'Máximo de 50 caracteres')
-    .required('Nome completo é obrigatório'),
+    .required('Sobrenome é obrigatório'),
   gender: Yup.string().required('Gênero é obrigatório'),
   nationality: Yup.string().required('Nacionalidade é obrigatório'),
   email: Yup.string()
@@ -59,8 +67,9 @@ const memberSchema = Yup.object().shape({
 })
 
 const initialValues = {
+  id: '',
   first_name: '',
-  full_name: '',
+  last_name: '',
   gender: '',
   nationality: '',
   marital_status: '',
@@ -78,11 +87,24 @@ const MemberForm: React.FC<IMemberProps> = props => {
   const [occupations, setOccupations] = useState<OccupationModel[]>([])
   const [selectedDate, setSelectedDate] = React.useState<Moment | null>(null)
 
+  const history = useHistory()
+
   const handleDateChange = (date: Moment | null) => {
     if (date) {
       setSelectedDate(date)
       formik.setFieldValue('birth_date', date.toISOString())
     }
+  }
+
+  const onClickDelete = () => {
+    deleteMember(formik.values.id)
+      .then(() => {
+        toast.success('Membro ICEA excluído com sucesso!')
+        history.replace('/members/list')
+      })
+      .catch(() => {
+        formik.setStatus('Ocorreu um problema ao alterar o membro ICEA')
+      })
   }
 
   useEffect(() => {
@@ -92,7 +114,7 @@ const MemberForm: React.FC<IMemberProps> = props => {
           setNationalities(nationalities)
         })
         .catch(() => {
-          alert('Ocorreu um problema ao consultar Nacionalidades')
+          formik.setStatus('Ocorreu um problema ao consultar Nacionalidades')
         })
     }
   }, [nationalities])
@@ -104,7 +126,7 @@ const MemberForm: React.FC<IMemberProps> = props => {
           setOccupations(occupations)
         })
         .catch(() => {
-          alert('Ocorreu um problema ao consultar Profissões')
+          formik.setStatus('Ocorreu um problema ao consultar Profissões')
         })
     }
   }, [occupations])
@@ -113,11 +135,11 @@ const MemberForm: React.FC<IMemberProps> = props => {
     initialValues,
     validationSchema: memberSchema,
     onSubmit: (values, { setStatus, setSubmitting }) => {
+      setLoading(true)
       setTimeout(() => {
-        setLoading(false)
         props.onSubmit(
           values.first_name,
-          values.full_name,
+          values.last_name,
           values.gender,
           values.nationality,
           values.marital_status,
@@ -137,8 +159,9 @@ const MemberForm: React.FC<IMemberProps> = props => {
 
   useEffect(() => {
     if (props.member) {
+      formik.setFieldValue('id', props.member.id)
       formik.setFieldValue('first_name', props.member.first_name)
-      formik.setFieldValue('full_name', props.member.full_name)
+      formik.setFieldValue('last_name', props.member.last_name)
       formik.setFieldValue('gender', props.member.gender)
       formik.setFieldValue('nationality', props.member.nationality)
       formik.setFieldValue('marital_status', props.member.marital_status)
@@ -223,30 +246,30 @@ const MemberForm: React.FC<IMemberProps> = props => {
               <div className="col-md-4 col-lg-12 col-xl-6">
                 <div className="mb-10">
                   <label className="form-label fs-6 fw-bolder text-dark">
-                    Nome completo
+                    Sobrenome
                   </label>
                   <input
-                    placeholder="Nome completo"
-                    {...formik.getFieldProps('full_name')}
+                    placeholder="Sobrenome"
+                    {...formik.getFieldProps('last_name')}
                     className={clsx(
                       'form-control form-control-lg form-control-solid',
                       {
                         'is-invalid':
-                          formik.touched.full_name && formik.errors.full_name
+                          formik.touched.last_name && formik.errors.last_name
                       },
                       {
                         'is-valid':
-                          formik.touched.full_name && !formik.errors.full_name
+                          formik.touched.last_name && !formik.errors.last_name
                       }
                     )}
                     type="text"
-                    name="full_name"
+                    name="last_name"
                     autoComplete="off"
                   />
-                  {formik.touched.full_name && formik.errors.full_name && (
+                  {formik.touched.last_name && formik.errors.last_name && (
                     <div className="fv-plugins-message-container">
                       <div className="fv-help-block">
-                        {formik.errors.full_name}
+                        {formik.errors.last_name}
                       </div>
                     </div>
                   )}
@@ -502,28 +525,102 @@ const MemberForm: React.FC<IMemberProps> = props => {
             </div>
 
             {/*begin::Action */}
-            <div className="pb-lg-0 pb-5">
-              <button
-                type="submit"
-                id="kt_add_member_form_submit_button"
-                className="btn btn-success fw-bolder fs-6 px-8 py-4 my-3 me-3"
-                disabled={formik.isSubmitting || !formik.isValid}
-              >
-                {!loading && <span className="indicator-label">Salvar</span>}
-                {loading && (
-                  <span
-                    className="indicator-progress"
-                    style={{ display: 'block' }}
+
+            <div className="d-flex flex-column flex-row-fluid">
+              <div className="d-flex flex-row flex-column-fluid">
+                <div className="d-flex flex-row-fluid flex-right">
+                  <button
+                    type="submit"
+                    id="kt_add_member_form_submit_button"
+                    className="btn btn-primary fw-bolder fs-6 px-8 py-4 my-3 me-3"
+                    disabled={formik.isSubmitting || !formik.isValid}
                   >
-                    Carregando...{' '}
-                    <span className="spinner-border spinner-border-sm align-middle ms-2"></span>
-                  </span>
-                )}
-              </button>
+                    {!loading && (
+                      <span className="indicator-label">Salvar</span>
+                    )}
+                    {loading && (
+                      <span
+                        className="indicator-progress"
+                        style={{ display: 'block' }}
+                      >
+                        Carregando...{' '}
+                        <span className="spinner-border spinner-border-sm align-middle ms-2"></span>
+                      </span>
+                    )}
+                  </button>
+                </div>
+
+                <div className="d-flex flex-row-auto w-200px flex-center">
+                  {props.member && props.member.id && (
+                    <button
+                      type="button"
+                      id="kt_add_member_form_delete_button"
+                      className="btn btn-danger fw-bolder fs-6 px-8 py-4 my-3 me-3"
+                      data-bs-toggle="modal"
+                      data-bs-target="#kt_modal_delete"
+                    >
+                      <span className="indicator-label">Excluir</span>
+                    </button>
+                  )}
+                  <Link to="/members/list">
+                    <button
+                      type="button"
+                      id="kt_add_member_form_back_button"
+                      className="btn btn-secondary fw-bolder fs-6 px-8 py-4 my-3 me-3"
+                    >
+                      <span className="indicator-label">Voltar</span>
+                    </button>
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            <div className="row">
+              <div className="col-md-4 col-lg-12 col-xl-6"></div>
             </div>
             {/*end::Action */}
           </form>
           {/*end::Form */}
+        </div>
+      </div>
+
+      <div className="modal fade" tabIndex={-1} id="kt_modal_delete">
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title">Confirmação</h5>
+              <div
+                className="btn btn-icon btn-sm btn-active-light-primary ms-2"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              >
+                <KTSVG
+                  path="/media/icons/duotone/Navigation/Close.svg"
+                  className="svg-icon svg-icon-2x"
+                />
+              </div>
+            </div>
+            <div className="modal-body">
+              <p>Você realmente deseja excluir este membro?</p>
+            </div>
+            <div className="modal-footer">
+              <button
+                type="button"
+                className="btn btn-light"
+                data-bs-dismiss="modal"
+              >
+                Fechar
+              </button>
+              <button
+                type="button"
+                className="btn btn-primary"
+                data-bs-dismiss="modal"
+                onClick={() => onClickDelete()}
+              >
+                Confirmar
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </>

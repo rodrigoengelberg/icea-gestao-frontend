@@ -9,34 +9,9 @@ export const MEMBERS_URL = `${API_URL}/members`
 export const MEMBERS_NATIONALITIES_URL = `${API_URL}/members/nationalities`
 export const MEMBERS_OCCUPATIONS_URL = `${API_URL}/members/occupations`
 
-// Server should return AuthModel
-// export function login(email: string, password: string) {
-//   return axios.post(LOGIN_URL, { email, password })
-// }
-
-// Server should return AuthModel
-// export function register(
-//   email: string,
-//   firstname: string,
-//   lastname: string,
-//   password: string
-// ) {
-//   return axios.post<AuthModel>(REGISTER_URL, {
-//     email,
-//     firstname,
-//     lastname,
-//     password
-//   })
-// }
-
-// Server should return object => { result: boolean } (Is Email in DB)
-// export function requestPassword(email: string) {
-//   return axios.post<{ result: boolean }>(REQUEST_PASSWORD_URL, { email })
-// }
-
 export function save(
   first_name: string,
-  full_name: string,
+  last_name: string,
   email: string,
   gender: string,
   marital_status: string,
@@ -49,7 +24,7 @@ export function save(
 ) {
   return axios.post<MemberModel>(MEMBERS_URL, {
     first_name,
-    full_name,
+    last_name,
     email,
     gender,
     marital_status,
@@ -65,7 +40,7 @@ export function save(
 export function update(
   id: string,
   first_name: string,
-  full_name: string,
+  last_name: string,
   email: string,
   gender: string,
   marital_status: string,
@@ -78,7 +53,7 @@ export function update(
 ) {
   return axios.put<MemberModel>(MEMBERS_URL + '/' + id, {
     first_name,
-    full_name,
+    last_name,
     email,
     gender,
     marital_status,
@@ -89,6 +64,10 @@ export function update(
     facebook_link,
     instagram_link
   })
+}
+
+export function deleteMember(memberId: string) {
+  return axios.delete<{ message: string }>(MEMBERS_URL + '/' + memberId)
 }
 
 export function getMemberById(memberId: string) {
