@@ -1,5 +1,3 @@
-import { MemberDetailsModel } from './MemberDetailsModel'
-
 export interface MemberModel {
   id?: string
   first_name: string
@@ -9,5 +7,8 @@ export interface MemberModel {
   marital_status?: string
   birth_date?: string
   nationality: string
-  member_details?: MemberDetailsModel
+  occupation?: string
+  schooling?: string
+  facebook_link?: string
+  instagram_link?: string
 }

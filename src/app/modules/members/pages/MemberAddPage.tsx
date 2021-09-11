@@ -18,7 +18,10 @@ const MemberAddPage: React.FC = () => {
           marital_status: string,
           birth_date: string,
           email: string,
-          member_details: any,
+          occupation: string,
+          schooling: string,
+          facebook_link: string,
+          instagram_link: string,
           setLoading: any,
           setStatus: any,
           setSubmitting: any
@@ -31,7 +34,10 @@ const MemberAddPage: React.FC = () => {
             marital_status,
             nationality,
             birth_date,
-            member_details
+            occupation,
+            schooling,
+            facebook_link,
+            instagram_link
           )
             .then(() => {
               toast.success('Membro ICEA salvo com sucesso!')

@@ -1,3 +1,4 @@
+/*eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react'
 import {
   MuiPickersUtilsProvider,
@@ -29,10 +30,6 @@ interface IMemberState {
   marital_status?: string
   birth_date?: string
   email?: string
-  member_details?: IMemberDetailState
-}
-
-interface IMemberDetailState {
   occupation?: string
   schooling?: string
   facebook_link?: string
@@ -55,7 +52,10 @@ const memberSchema = Yup.object().shape({
     .max(50, 'Máximo de 50 caracteres'),
   marital_status: Yup.string(),
   birth_date: Yup.string(),
-  member_details: Yup.object()
+  occupation: Yup.string(),
+  schooling: Yup.string(),
+  facebook_link: Yup.string(),
+  instagram_link: Yup.string()
 })
 
 const initialValues = {
@@ -66,13 +66,10 @@ const initialValues = {
   marital_status: '',
   birth_date: '',
   email: '',
-  member_details: {
-    id: '',
-    occupation: '',
-    schooling: '',
-    facebook_link: '',
-    instagram_link: ''
-  }
+  occupation: '',
+  schooling: '',
+  facebook_link: '',
+  instagram_link: ''
 }
 
 const MemberForm: React.FC<IMemberProps> = props => {
@@ -126,7 +123,10 @@ const MemberForm: React.FC<IMemberProps> = props => {
           values.marital_status,
           values.birth_date,
           values.email,
-          values.member_details,
+          values.occupation,
+          values.schooling,
+          values.facebook_link,
+          values.instagram_link,
           setLoading,
           setStatus,
           setSubmitting
@@ -147,24 +147,10 @@ const MemberForm: React.FC<IMemberProps> = props => {
         setSelectedDate(moment(props.member.birth_date))
         formik.setFieldValue('birth_date', props.member.birth_date)
       }
-      if (props.member.member_details) {
-        formik.setFieldValue(
-          'member_details.occupation',
-          props.member.member_details.occupation
-        )
-        formik.setFieldValue(
-          'member_details.schooling',
-          props.member.member_details.schooling
-        )
-        formik.setFieldValue(
-          'member_details.facebook_link',
-          props.member.member_details.facebook_link
-        )
-        formik.setFieldValue(
-          'member_details.instagram_link',
-          props.member.member_details.instagram_link
-        )
-      }
+      formik.setFieldValue('occupation', props.member.occupation)
+      formik.setFieldValue('schooling', props.member.schooling)
+      formik.setFieldValue('facebook_link', props.member.facebook_link)
+      formik.setFieldValue('instagram_link', props.member.instagram_link)
     }
   }, [props.member])
 
@@ -429,9 +415,9 @@ const MemberForm: React.FC<IMemberProps> = props => {
                     Profissão
                   </label>
                   <select
-                    id="member_details.occupation"
+                    id="occupation"
                     className="form-select form-select-solid"
-                    {...formik.getFieldProps('member_details.occupation')}
+                    {...formik.getFieldProps('occupation')}
                   >
                     <option>Selecione</option>
                     {occupations
@@ -456,9 +442,9 @@ const MemberForm: React.FC<IMemberProps> = props => {
                     Escolaridade
                   </label>
                   <select
-                    id="member_details.schooling"
+                    id="schooling"
                     className="form-select form-select-solid"
-                    {...formik.getFieldProps('member_details.schooling')}
+                    {...formik.getFieldProps('schooling')}
                   >
                     <option>Selecione</option>
                     <option value="Ensino Fundamental">
@@ -491,9 +477,10 @@ const MemberForm: React.FC<IMemberProps> = props => {
                     Facebook
                   </label>
                   <input
+                    id="facebook_link"
                     type="text"
                     className="form-control form-control-solid"
-                    {...formik.getFieldProps('member_details.facebook_link')}
+                    {...formik.getFieldProps('facebook_link')}
                     placeholder="https://facebook.com/exemplo"
                   />
                 </div>
@@ -504,9 +491,10 @@ const MemberForm: React.FC<IMemberProps> = props => {
                     Instagram
                   </label>
                   <input
+                    id="instagram_link"
                     type="text"
                     className="form-control form-control-solid"
-                    {...formik.getFieldProps('member_details.instagram_link')}
+                    {...formik.getFieldProps('instagram_link')}
                     placeholder="https://instagram.com/exemplo"
                   />
                 </div>

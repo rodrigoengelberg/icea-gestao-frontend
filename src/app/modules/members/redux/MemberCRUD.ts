@@ -42,7 +42,10 @@ export function save(
   marital_status: string,
   nationality: string,
   birth_date: string,
-  member_details: any
+  occupation: string,
+  schooling: string,
+  facebook_link: string,
+  instagram_link: string
 ) {
   return axios.post<MemberModel>(MEMBERS_URL, {
     first_name,
@@ -52,7 +55,10 @@ export function save(
     marital_status,
     nationality,
     birth_date,
-    member_details
+    occupation,
+    schooling,
+    facebook_link,
+    instagram_link
   })
 }
 
@@ -65,7 +71,10 @@ export function update(
   marital_status: string,
   nationality: string,
   birth_date: string,
-  member_details: any
+  occupation: string,
+  schooling: string,
+  facebook_link: string,
+  instagram_link: string
 ) {
   return axios.put<MemberModel>(MEMBERS_URL + '/' + id, {
     first_name,
@@ -75,7 +84,10 @@ export function update(
     marital_status,
     nationality,
     birth_date,
-    member_details
+    occupation,
+    schooling,
+    facebook_link,
+    instagram_link
   })
 }
 
