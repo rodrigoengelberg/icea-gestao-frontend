@@ -179,11 +179,11 @@ const MemberForm: React.FC<IMemberProps> = props => {
 
   return (
     <>
-      <div className="card">
-        <div className="card-body p-12">
-          <div className="row ">
-            <div className="d-flex justify-content-between pb-10  flex-column flex-md-row">
-              <h1 className="display-6 text-dark fw-bolder mb-10">
+      <div className="card card-custom shadow">
+        <div className="card-header card-header-stretch">
+          <div className="card-title pt-6 pb-3">
+            <div className="d-flex justify-content-between flex-column flex-md-row">
+              <h1 className="display-6 text-dark fw-bolder">
                 Cadastro de Membros
                 <span className="d-flex flex-column fs-4 fw-bold text-muted">
                   <span>Gerenciar o cadastro de um membro da ICEA</span>
@@ -191,7 +191,39 @@ const MemberForm: React.FC<IMemberProps> = props => {
               </h1>
             </div>
           </div>
-
+          <div className="card-toolbar pt-12">
+            <ul className="nav nav-tabs nav-line-tabs nav-stretch fs-6 border-0">
+              <li className="nav-item">
+                <a
+                  className="nav-link active"
+                  data-bs-toggle="tab"
+                  href="#kt_tab_pane_7"
+                >
+                  Geral
+                </a>
+              </li>
+              <li className="nav-item">
+                <a
+                  className="nav-link"
+                  data-bs-toggle="tab"
+                  href="#kt_tab_pane_8"
+                >
+                  Contato
+                </a>
+              </li>
+              <li className="nav-item">
+                <a
+                  className="nav-link"
+                  data-bs-toggle="tab"
+                  href="#kt_tab_pane_9"
+                >
+                  Espiritual
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div className="card-body">
           {/*begin::Form */}
           <form
             noValidate
@@ -208,324 +240,367 @@ const MemberForm: React.FC<IMemberProps> = props => {
             ) : (
               ''
             )}
+            <div className="tab-content" id="myTabContent">
+              <div
+                className="tab-pane fade show active"
+                id="kt_tab_pane_7"
+                role="tabpanel"
+              >
+                {/*begin::Form group */}
+                <div className="row">
+                  <div className="col-md-4 col-lg-12 col-xl-4">
+                    <div className="mb-10">
+                      <label className="form-label fs-6 fw-bolder text-dark">
+                        Primeiro nome
+                      </label>
+                      <input
+                        placeholder="Primeiro nome"
+                        {...formik.getFieldProps('first_name')}
+                        className={clsx(
+                          'form-control form-control-lg form-control-solid',
+                          {
+                            'is-invalid':
+                              formik.touched.first_name &&
+                              formik.errors.first_name
+                          },
+                          {
+                            'is-valid':
+                              formik.touched.first_name &&
+                              !formik.errors.first_name
+                          }
+                        )}
+                        type="text"
+                        name="first_name"
+                        autoComplete="off"
+                      />
+                      {formik.touched.first_name && formik.errors.first_name && (
+                        <div className="fv-plugins-message-container">
+                          <div className="fv-help-block">
+                            {formik.errors.first_name}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                  <div className="col-md-4 col-lg-12 col-xl-6">
+                    <div className="mb-10">
+                      <label className="form-label fs-6 fw-bolder text-dark">
+                        Sobrenome
+                      </label>
+                      <input
+                        placeholder="Sobrenome"
+                        {...formik.getFieldProps('last_name')}
+                        className={clsx(
+                          'form-control form-control-lg form-control-solid',
+                          {
+                            'is-invalid':
+                              formik.touched.last_name &&
+                              formik.errors.last_name
+                          },
+                          {
+                            'is-valid':
+                              formik.touched.last_name &&
+                              !formik.errors.last_name
+                          }
+                        )}
+                        type="text"
+                        name="last_name"
+                        autoComplete="off"
+                      />
+                      {formik.touched.last_name && formik.errors.last_name && (
+                        <div className="fv-plugins-message-container">
+                          <div className="fv-help-block">
+                            {formik.errors.last_name}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+                {/*end::Form group */}
 
-            {/*begin::Form group */}
-            <div className="row">
-              <div className="col-md-4 col-lg-12 col-xl-4">
-                <div className="mb-10">
-                  <label className="form-label fs-6 fw-bolder text-dark">
-                    Primeiro nome
-                  </label>
-                  <input
-                    placeholder="Primeiro nome"
-                    {...formik.getFieldProps('first_name')}
-                    className={clsx(
-                      'form-control form-control-lg form-control-solid',
-                      {
-                        'is-invalid':
-                          formik.touched.first_name && formik.errors.first_name
-                      },
-                      {
-                        'is-valid':
-                          formik.touched.first_name && !formik.errors.first_name
-                      }
+                {/*begin::Form group */}
+                <div className="row">
+                  <div className="col-md-4 col-lg-12 col-xl-4">
+                    <div className="mb-10">
+                      <label className="form-label fs-6 fw-bolder text-dark">
+                        Gênero
+                      </label>
+                      <select
+                        id="gender"
+                        className="form-select form-select-solid"
+                        {...formik.getFieldProps('gender')}
+                      >
+                        <option>Selecione</option>
+                        <option value="Masculino">Masculino</option>
+                        <option value="Feminino">Feminino</option>
+                      </select>
+                      {formik.touched.gender && formik.errors.gender && (
+                        <div className="fv-plugins-message-container">
+                          <div className="fv-help-block">
+                            {formik.errors.gender}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+
+                  <div className="col-md-4 col-lg-12 col-xl-4">
+                    <div className="mb-10">
+                      <label className="form-label fs-6 fw-bolder text-dark">
+                        Estado civil
+                      </label>
+                      <select
+                        id="marital_status"
+                        className="form-select form-select-solid"
+                        {...formik.getFieldProps('marital_status')}
+                      >
+                        <option>Selecione</option>
+                        <option value="Solteiro(a)">Solteiro(a)</option>
+                        <option value="Noivo(a)">Noivo(a)</option>
+                        <option value="Casado(a)">Casado(a)</option>
+                        <option value="Divorciado(a)">Divorciado(a)</option>
+                        <option value="Viúvo(a)">Viúvo(a)</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div className="col-md-4 col-lg-12 col-xl-4">
+                    <div className="mb-10">
+                      <label className="form-label fs-6 fw-bolder text-dark">
+                        Data de nascimento
+                      </label>
+                      <div className="form-label fs-6 fw-bolder text-dark">
+                        <MuiPickersUtilsProvider
+                          locale="pt-br"
+                          utils={MomentUtils}
+                        >
+                          <Grid container justifyContent="space-between">
+                            <KeyboardDatePicker
+                              disableToolbar
+                              clearable
+                              id="date-picker-inline"
+                              okLabel="OK"
+                              clearLabel="Limpar"
+                              cancelLabel="Cancelar"
+                              variant="dialog"
+                              placeholder="DD/MM/AAAA"
+                              format="DD/MM/yyyy"
+                              margin="dense"
+                              {...formik.getFieldProps('birth_date')}
+                              value={selectedDate}
+                              invalidDateMessage="Data em formato inválido."
+                              onChange={handleDateChange}
+                            />
+                          </Grid>
+                        </MuiPickersUtilsProvider>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {/*end::Form group */}
+
+                {/*begin::Form group */}
+                <div className="row">
+                  <div className="col-md-4 col-lg-12 col-xl-4">
+                    <div className="mb-10">
+                      <label className="form-label fs-6 fw-bolder text-dark">
+                        Nacionalidade
+                      </label>
+                      <select
+                        id="nationality"
+                        className="form-select form-select-solid"
+                        {...formik.getFieldProps('nationality')}
+                      >
+                        <option>Selecione</option>
+                        {nationalities
+                          ? nationalities.map(
+                              (nationality: NationalityModel) => {
+                                return (
+                                  <option
+                                    key={nationality.id}
+                                    value={nationality.name}
+                                  >
+                                    {nationality.name}
+                                  </option>
+                                )
+                              }
+                            )
+                          : ''}
+                      </select>
+                      {formik.touched.nationality && formik.errors.nationality && (
+                        <div className="fv-plugins-message-container">
+                          <div className="fv-help-block">
+                            {formik.errors.nationality}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+
+                  <div className="mb-10 fv-plugins-icon-container col-lg-12 col-xl-8">
+                    <label className="form-label fs-6 fw-bolder text-dark">
+                      Email
+                    </label>
+                    <input
+                      placeholder="Email"
+                      {...formik.getFieldProps('email')}
+                      className={clsx(
+                        'form-control form-control-lg form-control-solid',
+                        {
+                          'is-invalid':
+                            formik.touched.email && formik.errors.email
+                        },
+                        {
+                          'is-valid':
+                            formik.touched.email && !formik.errors.email
+                        }
+                      )}
+                      type="email"
+                      name="email"
+                      autoComplete="off"
+                    />
+                    {formik.touched.email && formik.errors.email && (
+                      <div className="fv-plugins-message-container">
+                        <div className="fv-help-block">
+                          {formik.errors.email}
+                        </div>
+                      </div>
                     )}
-                    type="text"
-                    name="first_name"
-                    autoComplete="off"
-                  />
-                  {formik.touched.first_name && formik.errors.first_name && (
-                    <div className="fv-plugins-message-container">
-                      <div className="fv-help-block">
-                        {formik.errors.first_name}
-                      </div>
-                    </div>
-                  )}
+                  </div>
                 </div>
-              </div>
-              <div className="col-md-4 col-lg-12 col-xl-6">
-                <div className="mb-10">
-                  <label className="form-label fs-6 fw-bolder text-dark">
-                    Sobrenome
-                  </label>
-                  <input
-                    placeholder="Sobrenome"
-                    {...formik.getFieldProps('last_name')}
-                    className={clsx(
-                      'form-control form-control-lg form-control-solid',
-                      {
-                        'is-invalid':
-                          formik.touched.last_name && formik.errors.last_name
-                      },
-                      {
-                        'is-valid':
-                          formik.touched.last_name && !formik.errors.last_name
-                      }
-                    )}
-                    type="text"
-                    name="last_name"
-                    autoComplete="off"
-                  />
-                  {formik.touched.last_name && formik.errors.last_name && (
-                    <div className="fv-plugins-message-container">
-                      <div className="fv-help-block">
-                        {formik.errors.last_name}
-                      </div>
-                    </div>
-                  )}
-                </div>
-              </div>
-            </div>
-            {/*end::Form group */}
+                {/*end::Form group */}
 
-            {/*begin::Form group */}
-            <div className="row">
-              <div className="col-md-4 col-lg-12 col-xl-4">
-                <div className="mb-10">
-                  <label className="form-label fs-6 fw-bolder text-dark">
-                    Gênero
-                  </label>
-                  <select
-                    id="gender"
-                    className="form-select form-select-solid"
-                    {...formik.getFieldProps('gender')}
-                  >
-                    <option>Selecione</option>
-                    <option value="Masculino">Masculino</option>
-                    <option value="Feminino">Feminino</option>
-                  </select>
-                  {formik.touched.gender && formik.errors.gender && (
-                    <div className="fv-plugins-message-container">
-                      <div className="fv-help-block">
-                        {formik.errors.gender}
-                      </div>
+                <div className="row ">
+                  <div className="d-flex justify-content-between pb-10 flex-column flex-md-row">
+                    <h1 className="display-8 text-dark fw-bolder">
+                      <span className="d-flex flex-column fs-4 fw-bold text-muted">
+                        <span>Outras informações</span>
+                      </span>
+                    </h1>
+                  </div>
+                </div>
+
+                <div className="row">
+                  <div className="col-md-4 col-lg-12 col-xl-6">
+                    <div className="mb-10">
+                      <label className="form-label fs-6 fw-bolder text-dark">
+                        Profissão
+                      </label>
+                      <select
+                        id="occupation"
+                        className="form-select form-select-solid"
+                        {...formik.getFieldProps('occupation')}
+                      >
+                        <option>Selecione</option>
+                        {occupations
+                          ? occupations.map((occupation: OccupationModel) => {
+                              return (
+                                <option
+                                  key={occupation.occupation}
+                                  value={occupation.occupation_name}
+                                >
+                                  {occupation.occupation_name}
+                                </option>
+                              )
+                            })
+                          : ''}
+                      </select>
                     </div>
-                  )}
-                </div>
-              </div>
+                  </div>
 
-              <div className="col-md-4 col-lg-12 col-xl-4">
-                <div className="mb-10">
-                  <label className="form-label fs-6 fw-bolder text-dark">
-                    Estado civil
-                  </label>
-                  <select
-                    id="marital_status"
-                    className="form-select form-select-solid"
-                    {...formik.getFieldProps('marital_status')}
-                  >
-                    <option>Selecione</option>
-                    <option value="Solteiro(a)">Solteiro(a)</option>
-                    <option value="Noivo(a)">Noivo(a)</option>
-                    <option value="Casado(a)">Casado(a)</option>
-                    <option value="Divorciado(a)">Divorciado(a)</option>
-                    <option value="Viúvo(a)">Viúvo(a)</option>
-                  </select>
+                  <div className="col-md-4 col-lg-12 col-xl-6">
+                    <div className="mb-10">
+                      <label className="form-label fs-6 fw-bolder text-dark">
+                        Escolaridade
+                      </label>
+                      <select
+                        id="schooling"
+                        className="form-select form-select-solid"
+                        {...formik.getFieldProps('schooling')}
+                      >
+                        <option>Selecione</option>
+                        <option value="Ensino Fundamental">
+                          Ensino Fundamental
+                        </option>
+                        <option value="Ensino Médio Incompleto">
+                          Ensino Médio Incompleto
+                        </option>
+                        <option value="Ensino Médio">Ensino Médio</option>
+                        <option value="Superior Incompleto">
+                          Superior Incompleto
+                        </option>
+                        <option value="Superior">
+                          Superior (Bacharel, Licenciatura, Tecnólogo)
+                        </option>
+                        <option value="Pós graduação">
+                          Pós graduação (Especialização, MBA)
+                        </option>
+                        <option value="Mestrado">Mestrado</option>
+                        <option value="Doutorado">Doutorado</option>
+                      </select>
+                    </div>
+                  </div>
                 </div>
-              </div>
 
-              <div className="col-md-4 col-lg-12 col-xl-4">
-                <div className="mb-10">
-                  <label className="form-label fs-6 fw-bolder text-dark">
-                    Data de nascimento
-                  </label>
-                  <div className="form-label fs-6 fw-bolder text-dark">
-                    <MuiPickersUtilsProvider locale="pt-br" utils={MomentUtils}>
-                      <Grid container justifyContent="space-between">
-                        <KeyboardDatePicker
-                          disableToolbar
-                          clearable
-                          id="date-picker-inline"
-                          okLabel="OK"
-                          clearLabel="Limpar"
-                          cancelLabel="Cancelar"
-                          variant="dialog"
-                          placeholder="DD/MM/AAAA"
-                          format="DD/MM/yyyy"
-                          margin="dense"
-                          {...formik.getFieldProps('birth_date')}
-                          value={selectedDate}
-                          invalidDateMessage="Data em formato inválido."
-                          onChange={handleDateChange}
-                        />
-                      </Grid>
-                    </MuiPickersUtilsProvider>
+                <div className="row">
+                  <div className="col-md-4 col-lg-12 col-xl-6">
+                    <div className="mb-10">
+                      <label className="form-label fs-6 fw-bolder text-dark">
+                        Facebook
+                      </label>
+                      <input
+                        id="facebook_link"
+                        type="text"
+                        className="form-control form-control-solid"
+                        {...formik.getFieldProps('facebook_link')}
+                        placeholder="https://facebook.com/exemplo"
+                      />
+                    </div>
+                  </div>
+                  <div className="col-md-4 col-lg-12 col-xl-6">
+                    <div className="mb-10">
+                      <label className="form-label fs-6 fw-bolder text-dark">
+                        Instagram
+                      </label>
+                      <input
+                        id="instagram_link"
+                        type="text"
+                        className="form-control form-control-solid"
+                        {...formik.getFieldProps('instagram_link')}
+                        placeholder="https://instagram.com/exemplo"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            {/*end::Form group */}
 
-            {/*begin::Form group */}
-            <div className="row">
-              <div className="col-md-4 col-lg-12 col-xl-4">
-                <div className="mb-10">
-                  <label className="form-label fs-6 fw-bolder text-dark">
-                    Nacionalidade
-                  </label>
-                  <select
-                    id="nationality"
-                    className="form-select form-select-solid"
-                    {...formik.getFieldProps('nationality')}
-                  >
-                    <option>Selecione</option>
-                    {nationalities
-                      ? nationalities.map((nationality: NationalityModel) => {
-                          return (
-                            <option
-                              key={nationality.id}
-                              value={nationality.name}
-                            >
-                              {nationality.name}
-                            </option>
-                          )
-                        })
-                      : ''}
-                  </select>
-                  {formik.touched.nationality && formik.errors.nationality && (
-                    <div className="fv-plugins-message-container">
-                      <div className="fv-help-block">
-                        {formik.errors.nationality}
-                      </div>
-                    </div>
-                  )}
-                </div>
+              <div className="tab-pane fade" id="kt_tab_pane_8" role="tabpanel">
+                Nulla est ullamco ut irure incididunt nulla Lorem Lorem minim
+                irure officia enim reprehenderit. Magna duis labore cillum sint
+                adipisicing exercitation ipsum. Nostrud ut anim non exercitation
+                velit laboris fugiat cupidatat. Commodo esse dolore fugiat sint
+                velit ullamco magna consequat voluptate minim amet aliquip ipsum
+                aute laboris nisi. Labore labore veniam irure irure ipsum
+                pariatur mollit magna in cupidatat dolore magna irure esse
+                tempor ad mollit. Dolore commodo nulla minim amet ipsum officia
+                consectetur amet ullamco voluptate nisi commodo ea sit eu.
               </div>
 
-              <div className="mb-10 fv-plugins-icon-container col-lg-12 col-xl-8">
-                <label className="form-label fs-6 fw-bolder text-dark">
-                  Email
-                </label>
-                <input
-                  placeholder="Email"
-                  {...formik.getFieldProps('email')}
-                  className={clsx(
-                    'form-control form-control-lg form-control-solid',
-                    {
-                      'is-invalid': formik.touched.email && formik.errors.email
-                    },
-                    {
-                      'is-valid': formik.touched.email && !formik.errors.email
-                    }
-                  )}
-                  type="email"
-                  name="email"
-                  autoComplete="off"
-                />
-                {formik.touched.email && formik.errors.email && (
-                  <div className="fv-plugins-message-container">
-                    <div className="fv-help-block">{formik.errors.email}</div>
-                  </div>
-                )}
+              <div className="tab-pane fade" id="kt_tab_pane_9" role="tabpanel">
+                Sint sit mollit irure quis est nostrud cillum consequat Lorem
+                esse do quis dolor esse fugiat sunt do. Eu ex commodo veniam
+                Lorem aliquip laborum occaecat qui Lorem esse mollit dolore anim
+                cupidatat. eserunt officia id Lorem nostrud aute id commodo elit
+                eiusmod enim irure amet eiusmod qui reprehenderit nostrud
+                tempor. Fugiat ipsum excepteur in aliqua non et quis aliquip ad
+                irure in labore cillum elit enim. Consequat aliquip incididunt
+                ipsum et minim laborum laborum laborum et cillum labore.
+                Deserunt adipisicing cillum id nulla minim nostrud labore
+                eiusmod et amet.
               </div>
             </div>
-            {/*end::Form group */}
-
-            <div className="row ">
-              <div className="d-flex justify-content-between pb-10 flex-column flex-md-row">
-                <h1 className="display-8 text-dark fw-bolder">
-                  <span className="d-flex flex-column fs-4 fw-bold text-muted">
-                    <span>Outras informações</span>
-                  </span>
-                </h1>
-              </div>
-            </div>
-
-            <div className="row">
-              <div className="col-md-4 col-lg-12 col-xl-6">
-                <div className="mb-10">
-                  <label className="form-label fs-6 fw-bolder text-dark">
-                    Profissão
-                  </label>
-                  <select
-                    id="occupation"
-                    className="form-select form-select-solid"
-                    {...formik.getFieldProps('occupation')}
-                  >
-                    <option>Selecione</option>
-                    {occupations
-                      ? occupations.map((occupation: OccupationModel) => {
-                          return (
-                            <option
-                              key={occupation.occupation}
-                              value={occupation.occupation_name}
-                            >
-                              {occupation.occupation_name}
-                            </option>
-                          )
-                        })
-                      : ''}
-                  </select>
-                </div>
-              </div>
-
-              <div className="col-md-4 col-lg-12 col-xl-6">
-                <div className="mb-10">
-                  <label className="form-label fs-6 fw-bolder text-dark">
-                    Escolaridade
-                  </label>
-                  <select
-                    id="schooling"
-                    className="form-select form-select-solid"
-                    {...formik.getFieldProps('schooling')}
-                  >
-                    <option>Selecione</option>
-                    <option value="Ensino Fundamental">
-                      Ensino Fundamental
-                    </option>
-                    <option value="Ensino Médio Incompleto">
-                      Ensino Médio Incompleto
-                    </option>
-                    <option value="Ensino Médio">Ensino Médio</option>
-                    <option value="Superior Incompleto">
-                      Superior Incompleto
-                    </option>
-                    <option value="Superior">
-                      Superior (Bacharel, Licenciatura, Tecnólogo)
-                    </option>
-                    <option value="Pós graduação">
-                      Pós graduação (Especialização, MBA)
-                    </option>
-                    <option value="Mestrado">Mestrado</option>
-                    <option value="Doutorado">Doutorado</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-
-            <div className="row">
-              <div className="col-md-4 col-lg-12 col-xl-6">
-                <div className="mb-10">
-                  <label className="form-label fs-6 fw-bolder text-dark">
-                    Facebook
-                  </label>
-                  <input
-                    id="facebook_link"
-                    type="text"
-                    className="form-control form-control-solid"
-                    {...formik.getFieldProps('facebook_link')}
-                    placeholder="https://facebook.com/exemplo"
-                  />
-                </div>
-              </div>
-              <div className="col-md-4 col-lg-12 col-xl-6">
-                <div className="mb-10">
-                  <label className="form-label fs-6 fw-bolder text-dark">
-                    Instagram
-                  </label>
-                  <input
-                    id="instagram_link"
-                    type="text"
-                    className="form-control form-control-solid"
-                    {...formik.getFieldProps('instagram_link')}
-                    placeholder="https://instagram.com/exemplo"
-                  />
-                </div>
-              </div>
-            </div>
-
             {/*begin::Action */}
-
             <div className="d-flex flex-column flex-row-fluid">
               <div className="d-flex flex-row flex-column-fluid">
                 <div className="d-flex flex-row-fluid flex-right">
@@ -573,10 +648,6 @@ const MemberForm: React.FC<IMemberProps> = props => {
                   </Link>
                 </div>
               </div>
-            </div>
-
-            <div className="row">
-              <div className="col-md-4 col-lg-12 col-xl-6"></div>
             </div>
             {/*end::Action */}
           </form>
