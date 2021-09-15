@@ -31,63 +31,67 @@ const MemberListPage: React.FC = () => {
   }
 
   return (
-    <div className="card">
-      <div className="card-body p-12">
-        <div className="row">
-          <div className="d-flex justify-content-between pb-10 flex-column flex-md-row">
-            <h1 className="display-6 text-dark fw-bolder mb-10">
-              Consulta de Membros
-              <span className="d-flex flex-column fs-4 fw-bold text-muted">
-                <span>Lista dos membros cadastrados</span>
-              </span>
-            </h1>
-            <div className="d-flex flex-column align-items-md-end px-0">
-              <div className="text-center pt-7">
-                <Link
-                  className="btn btn-primary fw-bolder fs-6 px-7 py-3"
-                  to="/members/add"
-                >
-                  Novo Membro
-                </Link>
-              </div>
+    <>
+      <div className="card card-custom shadow">
+        <div className="card-header card-header-stretch">
+          <div className="card-title pt-6 pb-3">
+            <div className="d-flex justify-content-between flex-column flex-md-row">
+              <h1 className="display-6 text-dark fw-bolder">
+                Consulta de Membros
+                <span className="d-flex flex-column fs-4 fw-bold text-muted">
+                  <span>Lista dos membros cadastrados</span>
+                </span>
+              </h1>
             </div>
           </div>
+          <div className="card-toolbar pt-12">
+            <Link
+              className="btn btn-primary fw-bolder fs-6 px-7 py-3"
+              to="/members/add"
+            >
+              Novo Membro
+            </Link>
+          </div>
+          <div className="card-body">
+            {/*begin::Table */}
+            <table className="table table-row-dashed table-hover table-row-gray-300 gy-7">
+              <thead>
+                <tr className="fw-bolder fs-6 text-gray-800">
+                  <th>Nome</th>
+                  <th>E-mail</th>
+                  <th>Gênero</th>
+                  <th>Data de nascimento</th>
+                  <th>Estado civil</th>
+                  <th>Nascionalidade</th>
+                </tr>
+              </thead>
+              <tbody style={{ cursor: 'pointer' }}>
+                {members
+                  ? members.map((member: MemberModel) => {
+                      return (
+                        <tr
+                          key={member.id}
+                          onClick={() => selectedMember(member)}
+                        >
+                          <td>{member.first_name + ' ' + member.last_name}</td>
+                          <td>{member.email}</td>
+                          <td>{member.gender}</td>
+                          <td className="text-center">
+                            {moment(member.birth_date).format('DD/MM/YYYY')}
+                          </td>
+                          <td>{member.marital_status}</td>
+                          <td>{member.nationality}</td>
+                        </tr>
+                      )
+                    })
+                  : 'Não há nenhum membro cadastrado'}
+              </tbody>
+            </table>
+            {/*end::Table */}
+          </div>
         </div>
-
-        {/*begin::Table */}
-        <table className="table table-row-dashed table-hover table-row-gray-300 gy-7">
-          <thead>
-            <tr className="fw-bolder fs-6 text-gray-800">
-              <th>Nome</th>
-              <th>E-mail</th>
-              <th>Gênero</th>
-              <th>Data de nascimento</th>
-              <th>Estado civil</th>
-              <th>Nascionalidade</th>
-            </tr>
-          </thead>
-          <tbody style={{ cursor: 'pointer' }}>
-            {members
-              ? members.map((member: MemberModel) => {
-                  return (
-                    <tr key={member.id} onClick={() => selectedMember(member)}>
-                      <td>{member.first_name + ' ' + member.last_name}</td>
-                      <td>{member.email}</td>
-                      <td>{member.gender}</td>
-                      <td className="text-center">
-                        {moment(member.birth_date).format('DD/MM/YYYY')}
-                      </td>
-                      <td>{member.marital_status}</td>
-                      <td>{member.nationality}</td>
-                    </tr>
-                  )
-                })
-              : 'Não há nenhum membro cadastrado'}
-          </tbody>
-        </table>
-        {/*end::Table */}
       </div>
-    </div>
+    </>
   )
 }
 
