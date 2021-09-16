@@ -44,7 +44,7 @@ const MemberListPage: React.FC = () => {
               </h1>
             </div>
           </div>
-          <div className="card-toolbar pt-12">
+          <div className="card-toolbar pt-12 pb-6">
             <Link
               className="btn btn-primary fw-bolder fs-6 px-7 py-3"
               to="/members/add"

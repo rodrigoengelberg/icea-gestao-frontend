@@ -40,6 +40,7 @@ const MemberEditPage: React.FC = () => {
           schooling: string,
           facebook_link: string,
           instagram_link: string,
+          member_contact: any,
           setLoading: any,
           setStatus: any,
           setSubmitting: any
@@ -57,7 +58,8 @@ const MemberEditPage: React.FC = () => {
             occupation,
             schooling,
             facebook_link,
-            instagram_link
+            instagram_link,
+            member_contact
           )
             .then(() => {
               toast.success('Membro ICEA alterado com sucesso!')

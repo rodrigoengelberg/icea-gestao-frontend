@@ -28,6 +28,13 @@ interface IMemberProps {
   member?: IMemberState
 }
 
+interface IMemberContactState {
+  id?: string
+  address?: string
+  state?: string
+  city?: string
+}
+
 interface IMemberState {
   id?: string
   first_name: string
@@ -41,6 +48,7 @@ interface IMemberState {
   schooling?: string
   facebook_link?: string
   instagram_link?: string
+  member_contact?: IMemberContactState
 }
 
 const memberSchema = Yup.object().shape({
@@ -63,7 +71,13 @@ const memberSchema = Yup.object().shape({
   occupation: Yup.string(),
   schooling: Yup.string(),
   facebook_link: Yup.string(),
-  instagram_link: Yup.string()
+  instagram_link: Yup.string(),
+  member_contact: Yup.object().shape({
+    id: Yup.string(),
+    address: Yup.string(),
+    state: Yup.string(),
+    city: Yup.string()
+  })
 })
 
 const initialValues = {
@@ -78,7 +92,13 @@ const initialValues = {
   occupation: '',
   schooling: '',
   facebook_link: '',
-  instagram_link: ''
+  instagram_link: '',
+  member_contact: {
+    id: undefined,
+    address: '',
+    state: '',
+    city: ''
+  }
 }
 
 const MemberForm: React.FC<IMemberProps> = props => {
@@ -149,6 +169,7 @@ const MemberForm: React.FC<IMemberProps> = props => {
           values.schooling,
           values.facebook_link,
           values.instagram_link,
+          values.member_contact,
           setLoading,
           setStatus,
           setSubmitting
@@ -174,6 +195,16 @@ const MemberForm: React.FC<IMemberProps> = props => {
       formik.setFieldValue('schooling', props.member.schooling)
       formik.setFieldValue('facebook_link', props.member.facebook_link)
       formik.setFieldValue('instagram_link', props.member.instagram_link)
+      if (props.member.member_contact) {
+        formik.setFieldValue(
+          'member_contact.id',
+          props.member.member_contact.id
+        )
+        formik.setFieldValue(
+          'member_contact.address',
+          props.member.member_contact.address
+        )
+      }
     }
   }, [props.member])
 
@@ -576,28 +607,180 @@ const MemberForm: React.FC<IMemberProps> = props => {
               </div>
 
               <div className="tab-pane fade" id="kt_tab_pane_8" role="tabpanel">
-                Nulla est ullamco ut irure incididunt nulla Lorem Lorem minim
-                irure officia enim reprehenderit. Magna duis labore cillum sint
-                adipisicing exercitation ipsum. Nostrud ut anim non exercitation
-                velit laboris fugiat cupidatat. Commodo esse dolore fugiat sint
-                velit ullamco magna consequat voluptate minim amet aliquip ipsum
-                aute laboris nisi. Labore labore veniam irure irure ipsum
-                pariatur mollit magna in cupidatat dolore magna irure esse
-                tempor ad mollit. Dolore commodo nulla minim amet ipsum officia
-                consectetur amet ullamco voluptate nisi commodo ea sit eu.
+                {/*begin::Form group */}
+                <div className="row">
+                  <div className="col-md-4 col-lg-12 col-xl-6">
+                    <div className="mb-10">
+                      <label className="form-label fs-6 fw-bolder text-dark">
+                        Endereço
+                      </label>
+                      <input
+                        id="member_contact.address"
+                        type="text"
+                        className="form-control form-control-solid"
+                        {...formik.getFieldProps('member_contact.address')}
+                        placeholder="Endereço"
+                      />
+                    </div>
+                  </div>
+                </div>
+                {/*end::Form group */}
               </div>
 
               <div className="tab-pane fade" id="kt_tab_pane_9" role="tabpanel">
-                Sint sit mollit irure quis est nostrud cillum consequat Lorem
-                esse do quis dolor esse fugiat sunt do. Eu ex commodo veniam
-                Lorem aliquip laborum occaecat qui Lorem esse mollit dolore anim
-                cupidatat. eserunt officia id Lorem nostrud aute id commodo elit
-                eiusmod enim irure amet eiusmod qui reprehenderit nostrud
-                tempor. Fugiat ipsum excepteur in aliqua non et quis aliquip ad
-                irure in labore cillum elit enim. Consequat aliquip incididunt
-                ipsum et minim laborum laborum laborum et cillum labore.
-                Deserunt adipisicing cillum id nulla minim nostrud labore
-                eiusmod et amet.
+                {/*begin::Form group */}
+                <div className="row">
+                  <div className="col-md-4 col-lg-12 col-xl-4">
+                    <div className="mb-10">
+                      <label className="form-label fs-6 fw-bolder text-dark">
+                        Primeiro nome
+                      </label>
+                      <input
+                        placeholder="Primeiro nome"
+                        {...formik.getFieldProps('first_name')}
+                        className={clsx(
+                          'form-control form-control-lg form-control-solid',
+                          {
+                            'is-invalid':
+                              formik.touched.first_name &&
+                              formik.errors.first_name
+                          },
+                          {
+                            'is-valid':
+                              formik.touched.first_name &&
+                              !formik.errors.first_name
+                          }
+                        )}
+                        type="text"
+                        name="first_name"
+                        autoComplete="off"
+                      />
+                      {formik.touched.first_name && formik.errors.first_name && (
+                        <div className="fv-plugins-message-container">
+                          <div className="fv-help-block">
+                            {formik.errors.first_name}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                  <div className="col-md-4 col-lg-12 col-xl-6">
+                    <div className="mb-10">
+                      <label className="form-label fs-6 fw-bolder text-dark">
+                        Sobrenome
+                      </label>
+                      <input
+                        placeholder="Sobrenome"
+                        {...formik.getFieldProps('last_name')}
+                        className={clsx(
+                          'form-control form-control-lg form-control-solid',
+                          {
+                            'is-invalid':
+                              formik.touched.last_name &&
+                              formik.errors.last_name
+                          },
+                          {
+                            'is-valid':
+                              formik.touched.last_name &&
+                              !formik.errors.last_name
+                          }
+                        )}
+                        type="text"
+                        name="last_name"
+                        autoComplete="off"
+                      />
+                      {formik.touched.last_name && formik.errors.last_name && (
+                        <div className="fv-plugins-message-container">
+                          <div className="fv-help-block">
+                            {formik.errors.last_name}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+                {/*end::Form group */}
+
+                {/*begin::Form group */}
+                <div className="row">
+                  <div className="col-md-4 col-lg-12 col-xl-4">
+                    <div className="mb-10">
+                      <label className="form-label fs-6 fw-bolder text-dark">
+                        Gênero
+                      </label>
+                      <select
+                        id="gender"
+                        className="form-select form-select-solid"
+                        {...formik.getFieldProps('gender')}
+                      >
+                        <option>Selecione</option>
+                        <option value="Masculino">Masculino</option>
+                        <option value="Feminino">Feminino</option>
+                      </select>
+                      {formik.touched.gender && formik.errors.gender && (
+                        <div className="fv-plugins-message-container">
+                          <div className="fv-help-block">
+                            {formik.errors.gender}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+
+                  <div className="col-md-4 col-lg-12 col-xl-4">
+                    <div className="mb-10">
+                      <label className="form-label fs-6 fw-bolder text-dark">
+                        Estado civil
+                      </label>
+                      <select
+                        id="marital_status"
+                        className="form-select form-select-solid"
+                        {...formik.getFieldProps('marital_status')}
+                      >
+                        <option>Selecione</option>
+                        <option value="Solteiro(a)">Solteiro(a)</option>
+                        <option value="Noivo(a)">Noivo(a)</option>
+                        <option value="Casado(a)">Casado(a)</option>
+                        <option value="Divorciado(a)">Divorciado(a)</option>
+                        <option value="Viúvo(a)">Viúvo(a)</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div className="col-md-4 col-lg-12 col-xl-4">
+                    <div className="mb-10">
+                      <label className="form-label fs-6 fw-bolder text-dark">
+                        Data de nascimento
+                      </label>
+                      <div className="form-label fs-6 fw-bolder text-dark">
+                        <MuiPickersUtilsProvider
+                          locale="pt-br"
+                          utils={MomentUtils}
+                        >
+                          <Grid container justifyContent="space-between">
+                            <KeyboardDatePicker
+                              disableToolbar
+                              clearable
+                              id="date-picker-inline"
+                              okLabel="OK"
+                              clearLabel="Limpar"
+                              cancelLabel="Cancelar"
+                              variant="dialog"
+                              placeholder="DD/MM/AAAA"
+                              format="DD/MM/yyyy"
+                              margin="dense"
+                              {...formik.getFieldProps('birth_date')}
+                              value={selectedDate}
+                              invalidDateMessage="Data em formato inválido."
+                              onChange={handleDateChange}
+                            />
+                          </Grid>
+                        </MuiPickersUtilsProvider>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {/*end::Form group */}
               </div>
             </div>
             {/*begin::Action */}
