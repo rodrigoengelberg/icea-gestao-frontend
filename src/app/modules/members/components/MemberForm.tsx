@@ -233,14 +233,25 @@ const MemberForm: React.FC<IMemberProps> = props => {
           'member_contact.address',
           props.member.member_contact.address
         )
-        formik.setFieldValue(
-          'member_contact.state',
-          props.member.member_contact.state
-        )
-        formik.setFieldValue(
-          'member_contact.city',
-          props.member.member_contact.city
-        )
+        if (props.member.member_contact.state) {
+          getCitiesFromIBGE(props.member.member_contact.state)
+            .then(({ data: cities }) => {
+              setCities(cities)
+            })
+            .catch(() => {
+              formik.setStatus(
+                'Ocorreu um problema ao consultar Cidades do IBGE'
+              )
+            })
+          formik.setFieldValue(
+            'member_contact.state',
+            props.member.member_contact.state
+          )
+          formik.setFieldValue(
+            'member_contact.city',
+            props.member.member_contact.city
+          )
+        }
       }
     }
   }, [props.member])
