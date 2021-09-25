@@ -19,6 +19,11 @@ import {
   getOccupations,
   deleteMember
 } from '../redux/MemberCRUD'
+
+import {
+  getStatesFromIBGE,
+  getCitiesFromIBGE
+} from '../../shared/services/UtilsService'
 import { NationalityModel } from '../models/NationalityModel'
 import { OccupationModel } from '../models/OccupationModel'
 import { KTSVG } from '../../../../_start/helpers/components/KTSVG'
@@ -105,6 +110,8 @@ const MemberForm: React.FC<IMemberProps> = props => {
   const [loading, setLoading] = useState(false)
   const [nationalities, setNationalities] = useState<NationalityModel[]>([])
   const [occupations, setOccupations] = useState<OccupationModel[]>([])
+  const [states, setStates] = useState<any[]>([])
+  const [cities, setCities] = useState<any[]>([])
   const [selectedDate, setSelectedDate] = React.useState<Moment | null>(null)
 
   const history = useHistory()
@@ -150,6 +157,28 @@ const MemberForm: React.FC<IMemberProps> = props => {
         })
     }
   }, [occupations])
+
+  useEffect(() => {
+    if (states.length === 0) {
+      getStatesFromIBGE()
+        .then(({ data: states }) => {
+          setStates(states)
+        })
+        .catch(() => {
+          formik.setStatus('Ocorreu um problema ao consultar Estados do IBGE')
+        })
+    }
+  }, [states])
+
+  const onClickState = (e: any) => {
+    getCitiesFromIBGE(e.target.value)
+      .then(({ data: cities }) => {
+        setCities(cities)
+      })
+      .catch(() => {
+        formik.setStatus('Ocorreu um problema ao consultar Cidades do IBGE')
+      })
+  }
 
   const formik = useFormik({
     initialValues,
@@ -203,6 +232,14 @@ const MemberForm: React.FC<IMemberProps> = props => {
         formik.setFieldValue(
           'member_contact.address',
           props.member.member_contact.address
+        )
+        formik.setFieldValue(
+          'member_contact.state',
+          props.member.member_contact.state
+        )
+        formik.setFieldValue(
+          'member_contact.city',
+          props.member.member_contact.city
         )
       }
     }
@@ -621,6 +658,55 @@ const MemberForm: React.FC<IMemberProps> = props => {
                         {...formik.getFieldProps('member_contact.address')}
                         placeholder="Endereço"
                       />
+                    </div>
+                  </div>
+
+                  <div className="col-md-4 col-lg-12 col-xl-2">
+                    <div className="mb-10">
+                      <label className="form-label fs-6 fw-bolder text-dark">
+                        Estado
+                      </label>
+                      <select
+                        id="member_contact.state"
+                        onClick={(data: any) => onClickState(data)}
+                        className="form-select form-select-solid"
+                        {...formik.getFieldProps('member_contact.state')}
+                      >
+                        <option>Selecione</option>
+                        {states
+                          ? states.map((state: any) => {
+                              return (
+                                <option key={state.sigla} value={state.sigla}>
+                                  {state.nome}
+                                </option>
+                              )
+                            })
+                          : ''}
+                      </select>
+                    </div>
+                  </div>
+
+                  <div className="col-md-4 col-lg-12 col-xl-4">
+                    <div className="mb-10">
+                      <label className="form-label fs-6 fw-bolder text-dark">
+                        Cidade
+                      </label>
+                      <select
+                        id="member_contact.city"
+                        className="form-select form-select-solid"
+                        {...formik.getFieldProps('member_contact.city')}
+                      >
+                        <option>Selecione</option>
+                        {cities
+                          ? cities.map((cities: any) => {
+                              return (
+                                <option key={cities.nome} value={cities.nome}>
+                                  {cities.nome}
+                                </option>
+                              )
+                            })
+                          : ''}
+                      </select>
                     </div>
                   </div>
                 </div>
