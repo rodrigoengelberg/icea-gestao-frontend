@@ -38,6 +38,7 @@ interface IMemberContactState {
   address?: string
   state?: string
   city?: string
+  zipcode?: string
 }
 
 interface IMemberState {
@@ -81,7 +82,8 @@ const memberSchema = Yup.object().shape({
     id: Yup.string(),
     address: Yup.string(),
     state: Yup.string(),
-    city: Yup.string()
+    city: Yup.string(),
+    zipcode: Yup.string()
   })
 })
 
@@ -102,7 +104,8 @@ const initialValues = {
     id: undefined,
     address: '',
     state: '',
-    city: ''
+    city: '',
+    zipcode: ''
   }
 }
 
@@ -251,6 +254,10 @@ const MemberForm: React.FC<IMemberProps> = props => {
             'member_contact.city',
             props.member.member_contact.city
           )
+          formik.setFieldValue(
+            'member_contact.zipcode',
+            props.member.member_contact.zipcode
+          )
         }
       }
     }
@@ -361,7 +368,7 @@ const MemberForm: React.FC<IMemberProps> = props => {
                       )}
                     </div>
                   </div>
-                  <div className="col-md-4 col-lg-12 col-xl-6">
+                  <div className="col-md-4 col-lg-12 col-xl-8">
                     <div className="mb-10">
                       <label className="form-label fs-6 fw-bolder text-dark">
                         Sobrenome
@@ -675,6 +682,23 @@ const MemberForm: React.FC<IMemberProps> = props => {
                   <div className="col-md-4 col-lg-12 col-xl-2">
                     <div className="mb-10">
                       <label className="form-label fs-6 fw-bolder text-dark">
+                        CEP
+                      </label>
+                      <input
+                        id="member_contact.zipcode"
+                        type="text"
+                        className="form-control form-control-solid"
+                        {...formik.getFieldProps('member_contact.zipcode')}
+                        placeholder="CEP"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div className="row">
+                  <div className="col-md-4 col-lg-12 col-xl-2">
+                    <div className="mb-10">
+                      <label className="form-label fs-6 fw-bolder text-dark">
                         Estado
                       </label>
                       <select
@@ -697,7 +721,7 @@ const MemberForm: React.FC<IMemberProps> = props => {
                     </div>
                   </div>
 
-                  <div className="col-md-4 col-lg-12 col-xl-4">
+                  <div className="col-md-4 col-lg-8 col-xl-3">
                     <div className="mb-10">
                       <label className="form-label fs-6 fw-bolder text-dark">
                         Cidade
@@ -718,6 +742,44 @@ const MemberForm: React.FC<IMemberProps> = props => {
                             })
                           : ''}
                       </select>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="row">
+                  <div className="col-md-4 col-lg-12 col-xl-2">
+                    <label className="form-label fs-6 fw-bolder text-dark">
+                      Tipo do Telefone
+                    </label>
+                    <div className="mb-10">
+                      <select
+                        id="phone_type_name"
+                        className="form-select form-select-solid"
+                        {...formik.getFieldProps(
+                          'member_contact.phone_type_name'
+                        )}
+                      >
+                        <option>Selecione</option>
+                        <option value="Celular">Celular</option>
+                        <option value="Casa">Casa</option>
+                        <option value="Trabalho">Trabalho</option>
+                        <option value="Outro">Outro</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div className="col-md-4 col-lg-12 col-xl-3">
+                    <div className="mb-10">
+                      <label className="form-label fs-6 fw-bolder text-dark">
+                        Número do Telefone
+                      </label>
+                      <input
+                        id="member_contact.phone_number"
+                        type="text"
+                        className="form-control form-control-solid"
+                        {...formik.getFieldProps('member_contact.phone_number')}
+                        placeholder="(99) 99999-9999"
+                      />
                     </div>
                   </div>
                 </div>
