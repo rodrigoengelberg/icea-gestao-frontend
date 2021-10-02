@@ -39,6 +39,8 @@ interface IMemberContactState {
   state?: string
   city?: string
   zipcode?: string
+  phone_type_name?: string
+  phone_number?: number
 }
 
 interface IMemberState {
@@ -83,7 +85,9 @@ const memberSchema = Yup.object().shape({
     address: Yup.string(),
     state: Yup.string(),
     city: Yup.string(),
-    zipcode: Yup.string()
+    zipcode: Yup.string(),
+    phone_type_name: Yup.string(),
+    phone_number: Yup.number()
   })
 })
 
@@ -105,7 +109,9 @@ const initialValues = {
     address: '',
     state: '',
     city: '',
-    zipcode: ''
+    zipcode: '',
+    phone_type_name: '',
+    phone_number: ''
   }
 }
 
@@ -257,6 +263,14 @@ const MemberForm: React.FC<IMemberProps> = props => {
           formik.setFieldValue(
             'member_contact.zipcode',
             props.member.member_contact.zipcode
+          )
+          formik.setFieldValue(
+            'member_contact.phone_type_name',
+            props.member.member_contact.phone_type_name
+          )
+          formik.setFieldValue(
+            'member_contact.phone_number',
+            props.member.member_contact.phone_number
           )
         }
       }
