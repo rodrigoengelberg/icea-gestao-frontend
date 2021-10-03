@@ -21,7 +21,8 @@ export function save(
   schooling: string,
   facebook_link: string,
   instagram_link: string,
-  member_contact: any
+  member_contact: any,
+  member_spiritual: any
 ) {
   return axios.post<MemberModel>(MEMBERS_URL, {
     first_name,
@@ -35,7 +36,8 @@ export function save(
     schooling,
     facebook_link,
     instagram_link,
-    member_contact
+    member_contact,
+    member_spiritual
   })
 }
 
@@ -52,7 +54,8 @@ export function update(
   schooling: string,
   facebook_link: string,
   instagram_link: string,
-  member_contact: any
+  member_contact: any,
+  member_spiritual: any
 ) {
   return axios.put<MemberModel>(MEMBERS_URL + '/' + id, {
     first_name,
@@ -66,7 +69,8 @@ export function update(
     schooling,
     facebook_link,
     instagram_link,
-    member_contact
+    member_contact,
+    member_spiritual
   })
 }
 

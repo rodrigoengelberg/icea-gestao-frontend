@@ -43,6 +43,16 @@ interface IMemberContactState {
   phone_number?: number
 }
 
+interface IMemberSpiritualState {
+  id?: string
+  member_function?: string
+  member_status?: string
+  baptism_date?: string
+  joined_date?: string
+  tithe_member?: number
+  problems?: string
+}
+
 interface IMemberState {
   id?: string
   first_name: string
@@ -57,6 +67,7 @@ interface IMemberState {
   facebook_link?: string
   instagram_link?: string
   member_contact?: IMemberContactState
+  member_spiritual?: IMemberSpiritualState
 }
 
 const memberSchema = Yup.object().shape({
@@ -88,6 +99,15 @@ const memberSchema = Yup.object().shape({
     zipcode: Yup.string(),
     phone_type_name: Yup.string(),
     phone_number: Yup.number()
+  }),
+  member_spiritual: Yup.object().shape({
+    id: Yup.string(),
+    member_function: Yup.string(),
+    member_status: Yup.string(),
+    baptism_date: Yup.string(),
+    joined_date: Yup.string(),
+    tithe_member: Yup.number(),
+    problems: Yup.string()
   })
 })
 
@@ -112,6 +132,15 @@ const initialValues = {
     zipcode: '',
     phone_type_name: '',
     phone_number: ''
+  },
+  member_spiritual: {
+    id: undefined,
+    member_function: '',
+    member_status: '',
+    baptism_date: '',
+    joined_date: '',
+    tithe_member: '',
+    problems: ''
   }
 }
 
@@ -121,14 +150,33 @@ const MemberForm: React.FC<IMemberProps> = props => {
   const [occupations, setOccupations] = useState<OccupationModel[]>([])
   const [states, setStates] = useState<any[]>([])
   const [cities, setCities] = useState<any[]>([])
-  const [selectedDate, setSelectedDate] = React.useState<Moment | null>(null)
+  const [selectedBirthDate, setSelectedBirthDate] =
+    React.useState<Moment | null>(null)
+  const [selectedBaptismDate, setSelectedBaptismDate] =
+    React.useState<Moment | null>(null)
+  const [selectedJoinedDate, setSelectedJoinedDate] =
+    React.useState<Moment | null>(null)
 
   const history = useHistory()
 
-  const handleDateChange = (date: Moment | null) => {
+  const handleBirthDateChange = (date: Moment | null) => {
     if (date) {
-      setSelectedDate(date)
+      setSelectedBirthDate(date)
       formik.setFieldValue('birth_date', date.toISOString())
+    }
+  }
+
+  const handleBaptismDateChange = (date: Moment | null) => {
+    if (date) {
+      setSelectedBaptismDate(date)
+      formik.setFieldValue('member_spiritual.baptism_date', date.toISOString())
+    }
+  }
+
+  const handleJoinedDateChange = (date: Moment | null) => {
+    if (date) {
+      setSelectedJoinedDate(date)
+      formik.setFieldValue('member_spiritual.joined_date', date.toISOString())
     }
   }
 
@@ -208,6 +256,7 @@ const MemberForm: React.FC<IMemberProps> = props => {
           values.facebook_link,
           values.instagram_link,
           values.member_contact,
+          values.member_spiritual,
           setLoading,
           setStatus,
           setSubmitting
@@ -226,7 +275,7 @@ const MemberForm: React.FC<IMemberProps> = props => {
       formik.setFieldValue('marital_status', props.member.marital_status)
       formik.setFieldValue('email', props.member.email)
       if (props.member.birth_date) {
-        setSelectedDate(moment(props.member.birth_date))
+        setSelectedBirthDate(moment(props.member.birth_date))
         formik.setFieldValue('birth_date', props.member.birth_date)
       }
       formik.setFieldValue('occupation', props.member.occupation)
@@ -260,19 +309,59 @@ const MemberForm: React.FC<IMemberProps> = props => {
             'member_contact.city',
             props.member.member_contact.city
           )
-          formik.setFieldValue(
-            'member_contact.zipcode',
-            props.member.member_contact.zipcode
+        }
+        formik.setFieldValue(
+          'member_contact.zipcode',
+          props.member.member_contact.zipcode
+        )
+        formik.setFieldValue(
+          'member_contact.phone_type_name',
+          props.member.member_contact.phone_type_name
+        )
+        formik.setFieldValue(
+          'member_contact.phone_number',
+          props.member.member_contact.phone_number
+        )
+      }
+      if (props.member.member_spiritual) {
+        formik.setFieldValue(
+          'member_spiritual.id',
+          props.member.member_spiritual.id
+        )
+        formik.setFieldValue(
+          'member_spiritual.member_function',
+          props.member.member_spiritual.member_function
+        )
+        formik.setFieldValue(
+          'member_spiritual.member_status',
+          props.member.member_spiritual.member_status
+        )
+        if (props.member.member_spiritual.baptism_date) {
+          setSelectedBaptismDate(
+            moment(props.member.member_spiritual.baptism_date)
           )
           formik.setFieldValue(
-            'member_contact.phone_type_name',
-            props.member.member_contact.phone_type_name
-          )
-          formik.setFieldValue(
-            'member_contact.phone_number',
-            props.member.member_contact.phone_number
+            'member_spiritual.baptism_date',
+            props.member.member_spiritual.baptism_date
           )
         }
+        if (props.member.member_spiritual.joined_date) {
+          setSelectedJoinedDate(
+            moment(props.member.member_spiritual.joined_date)
+          )
+          formik.setFieldValue(
+            'member_spiritual.joined_date',
+            props.member.member_spiritual.joined_date
+          )
+        }
+        formik.setFieldValue(
+          'member_spiritual.tithe_member',
+          props.member.member_spiritual.tithe_member
+        )
+        formik.setFieldValue(
+          'member_spiritual.problems',
+          props.member.member_spiritual.problems
+        )
       }
     }
   }, [props.member])
@@ -479,7 +568,7 @@ const MemberForm: React.FC<IMemberProps> = props => {
                             <KeyboardDatePicker
                               disableToolbar
                               clearable
-                              id="date-picker-inline"
+                              id="birth_date"
                               okLabel="OK"
                               clearLabel="Limpar"
                               cancelLabel="Cancelar"
@@ -488,9 +577,9 @@ const MemberForm: React.FC<IMemberProps> = props => {
                               format="DD/MM/yyyy"
                               margin="dense"
                               {...formik.getFieldProps('birth_date')}
-                              value={selectedDate}
+                              value={selectedBirthDate}
                               invalidDateMessage="Data em formato inválido."
-                              onChange={handleDateChange}
+                              onChange={handleBirthDateChange}
                             />
                           </Grid>
                         </MuiPickersUtilsProvider>
@@ -710,7 +799,7 @@ const MemberForm: React.FC<IMemberProps> = props => {
                 </div>
 
                 <div className="row">
-                  <div className="col-md-4 col-lg-12 col-xl-2">
+                  <div className="col-md-4 col-lg-12 col-xl-3">
                     <div className="mb-10">
                       <label className="form-label fs-6 fw-bolder text-dark">
                         Estado
@@ -758,9 +847,7 @@ const MemberForm: React.FC<IMemberProps> = props => {
                       </select>
                     </div>
                   </div>
-                </div>
 
-                <div className="row">
                   <div className="col-md-4 col-lg-12 col-xl-2">
                     <label className="form-label fs-6 fw-bolder text-dark">
                       Tipo do Telefone
@@ -806,69 +893,61 @@ const MemberForm: React.FC<IMemberProps> = props => {
                   <div className="col-md-4 col-lg-12 col-xl-4">
                     <div className="mb-10">
                       <label className="form-label fs-6 fw-bolder text-dark">
-                        Primeiro nome
+                        Situação
                       </label>
-                      <input
-                        placeholder="Primeiro nome"
-                        {...formik.getFieldProps('first_name')}
-                        className={clsx(
-                          'form-control form-control-lg form-control-solid',
-                          {
-                            'is-invalid':
-                              formik.touched.first_name &&
-                              formik.errors.first_name
-                          },
-                          {
-                            'is-valid':
-                              formik.touched.first_name &&
-                              !formik.errors.first_name
-                          }
+                      <select
+                        id="member_spiritual.member_status"
+                        className="form-select form-select-solid"
+                        {...formik.getFieldProps(
+                          'member_spiritual.member_status'
                         )}
-                        type="text"
-                        name="first_name"
-                        autoComplete="off"
-                      />
-                      {formik.touched.first_name && formik.errors.first_name && (
-                        <div className="fv-plugins-message-container">
-                          <div className="fv-help-block">
-                            {formik.errors.first_name}
-                          </div>
-                        </div>
-                      )}
+                      >
+                        <option>Selecione</option>
+                        <option value="Ativo">Ativo</option>
+                        <option value="Inativo">Inativo</option>
+                        <option value="Especial">Especial</option>
+                      </select>
                     </div>
                   </div>
-                  <div className="col-md-4 col-lg-12 col-xl-6">
+
+                  <div className="col-md-4 col-lg-12 col-xl-4">
                     <div className="mb-10">
                       <label className="form-label fs-6 fw-bolder text-dark">
-                        Sobrenome
+                        Função
                       </label>
-                      <input
-                        placeholder="Sobrenome"
-                        {...formik.getFieldProps('last_name')}
-                        className={clsx(
-                          'form-control form-control-lg form-control-solid',
-                          {
-                            'is-invalid':
-                              formik.touched.last_name &&
-                              formik.errors.last_name
-                          },
-                          {
-                            'is-valid':
-                              formik.touched.last_name &&
-                              !formik.errors.last_name
-                          }
+                      <select
+                        id="member_spiritual.member_function"
+                        className="form-select form-select-solid"
+                        {...formik.getFieldProps(
+                          'member_spiritual.member_function'
                         )}
-                        type="text"
-                        name="last_name"
-                        autoComplete="off"
-                      />
-                      {formik.touched.last_name && formik.errors.last_name && (
-                        <div className="fv-plugins-message-container">
-                          <div className="fv-help-block">
-                            {formik.errors.last_name}
-                          </div>
-                        </div>
-                      )}
+                      >
+                        <option>Selecione</option>
+                        <option value="Membro">Membro</option>
+                        <option value="Assistente">Assistente</option>
+                        <option value="Voluntário">Voluntário</option>
+                        <option value="Evangelizador">Evangelizador</option>
+                        <option value="Seminarista">Seminarista</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div className="col-md-4 col-lg-12 col-xl-4">
+                    <div className="mb-10">
+                      <label className="form-label fs-6 fw-bolder text-dark">
+                        Dizimista
+                      </label>
+                      <select
+                        id="member_spiritual.tithe_member"
+                        className="form-select form-select-solid"
+                        {...formik.getFieldProps(
+                          'member_spiritual.tithe_member'
+                        )}
+                      >
+                        <option>Selecione</option>
+                        <option value="1">Sim</option>
+                        <option value="0">Não</option>
+                      </select>
                     </div>
                   </div>
                 </div>
@@ -879,51 +958,7 @@ const MemberForm: React.FC<IMemberProps> = props => {
                   <div className="col-md-4 col-lg-12 col-xl-4">
                     <div className="mb-10">
                       <label className="form-label fs-6 fw-bolder text-dark">
-                        Gênero
-                      </label>
-                      <select
-                        id="gender"
-                        className="form-select form-select-solid"
-                        {...formik.getFieldProps('gender')}
-                      >
-                        <option>Selecione</option>
-                        <option value="Masculino">Masculino</option>
-                        <option value="Feminino">Feminino</option>
-                      </select>
-                      {formik.touched.gender && formik.errors.gender && (
-                        <div className="fv-plugins-message-container">
-                          <div className="fv-help-block">
-                            {formik.errors.gender}
-                          </div>
-                        </div>
-                      )}
-                    </div>
-                  </div>
-
-                  <div className="col-md-4 col-lg-12 col-xl-4">
-                    <div className="mb-10">
-                      <label className="form-label fs-6 fw-bolder text-dark">
-                        Estado civil
-                      </label>
-                      <select
-                        id="marital_status"
-                        className="form-select form-select-solid"
-                        {...formik.getFieldProps('marital_status')}
-                      >
-                        <option>Selecione</option>
-                        <option value="Solteiro(a)">Solteiro(a)</option>
-                        <option value="Noivo(a)">Noivo(a)</option>
-                        <option value="Casado(a)">Casado(a)</option>
-                        <option value="Divorciado(a)">Divorciado(a)</option>
-                        <option value="Viúvo(a)">Viúvo(a)</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  <div className="col-md-4 col-lg-12 col-xl-4">
-                    <div className="mb-10">
-                      <label className="form-label fs-6 fw-bolder text-dark">
-                        Data de nascimento
+                        Batismo
                       </label>
                       <div className="form-label fs-6 fw-bolder text-dark">
                         <MuiPickersUtilsProvider
@@ -934,7 +969,7 @@ const MemberForm: React.FC<IMemberProps> = props => {
                             <KeyboardDatePicker
                               disableToolbar
                               clearable
-                              id="date-picker-inline"
+                              id="member_spiritual.baptism_date"
                               okLabel="OK"
                               clearLabel="Limpar"
                               cancelLabel="Cancelar"
@@ -942,14 +977,68 @@ const MemberForm: React.FC<IMemberProps> = props => {
                               placeholder="DD/MM/AAAA"
                               format="DD/MM/yyyy"
                               margin="dense"
-                              {...formik.getFieldProps('birth_date')}
-                              value={selectedDate}
+                              {...formik.getFieldProps(
+                                'member_spiritual.baptism_date'
+                              )}
+                              value={selectedBaptismDate}
                               invalidDateMessage="Data em formato inválido."
-                              onChange={handleDateChange}
+                              onChange={handleBaptismDateChange}
                             />
                           </Grid>
                         </MuiPickersUtilsProvider>
                       </div>
+                    </div>
+                  </div>
+
+                  <div className="col-md-4 col-lg-12 col-xl-4">
+                    <div className="mb-10">
+                      <label className="form-label fs-6 fw-bolder text-dark">
+                        Recepção na ICEA
+                      </label>
+                      <div className="form-label fs-6 fw-bolder text-dark">
+                        <MuiPickersUtilsProvider
+                          locale="pt-br"
+                          utils={MomentUtils}
+                        >
+                          <Grid container justifyContent="space-between">
+                            <KeyboardDatePicker
+                              disableToolbar
+                              clearable
+                              id="member_spiritual.joined_date"
+                              okLabel="OK"
+                              clearLabel="Limpar"
+                              cancelLabel="Cancelar"
+                              variant="dialog"
+                              placeholder="DD/MM/AAAA"
+                              format="DD/MM/yyyy"
+                              margin="dense"
+                              {...formik.getFieldProps(
+                                'member_spiritual.joined_date'
+                              )}
+                              value={selectedJoinedDate}
+                              invalidDateMessage="Data em formato inválido."
+                              onChange={handleJoinedDateChange}
+                            />
+                          </Grid>
+                        </MuiPickersUtilsProvider>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="row">
+                  <div className="col-md-4 col-lg-12 col-xl-8">
+                    <div className="mb-10">
+                      <label className="form-label fs-6 fw-bolder text-dark">
+                        Problemas e pedidos de oração
+                      </label>
+                      <textarea
+                        id="member_spiritual.problems"
+                        placeholder="Descrever as observações"
+                        className="form-control form-control-lg form-control-solid"
+                        {...formik.getFieldProps('member_spiritual.problems')}
+                        autoComplete="off"
+                      />
                     </div>
                   </div>
                 </div>
@@ -960,6 +1049,29 @@ const MemberForm: React.FC<IMemberProps> = props => {
             <div className="d-flex flex-column flex-row-fluid">
               <div className="d-flex flex-row flex-column-fluid">
                 <div className="d-flex flex-row-fluid flex-right">
+                  <Link to="/members/list">
+                    <button
+                      type="button"
+                      id="kt_add_member_form_back_button"
+                      className="btn btn-secondary fw-bolder fs-6 px-8 py-4 my-3 me-3"
+                    >
+                      <span className="indicator-label">Voltar</span>
+                    </button>
+                  </Link>
+                  {props.member && props.member.id && (
+                    <button
+                      type="button"
+                      id="kt_add_member_form_delete_button"
+                      className="btn btn-danger fw-bolder fs-6 px-8 py-4 my-3 me-3"
+                      data-bs-toggle="modal"
+                      data-bs-target="#kt_modal_delete"
+                    >
+                      <span className="indicator-label">Excluir</span>
+                    </button>
+                  )}
+                </div>
+
+                <div className="d-flex flex-row-auto flex-center">
                   <button
                     type="submit"
                     id="kt_add_member_form_submit_button"
@@ -979,29 +1091,6 @@ const MemberForm: React.FC<IMemberProps> = props => {
                       </span>
                     )}
                   </button>
-                </div>
-
-                <div className="d-flex flex-row-auto w-200px flex-center">
-                  {props.member && props.member.id && (
-                    <button
-                      type="button"
-                      id="kt_add_member_form_delete_button"
-                      className="btn btn-danger fw-bolder fs-6 px-8 py-4 my-3 me-3"
-                      data-bs-toggle="modal"
-                      data-bs-target="#kt_modal_delete"
-                    >
-                      <span className="indicator-label">Excluir</span>
-                    </button>
-                  )}
-                  <Link to="/members/list">
-                    <button
-                      type="button"
-                      id="kt_add_member_form_back_button"
-                      className="btn btn-secondary fw-bolder fs-6 px-8 py-4 my-3 me-3"
-                    >
-                      <span className="indicator-label">Voltar</span>
-                    </button>
-                  </Link>
                 </div>
               </div>
             </div>

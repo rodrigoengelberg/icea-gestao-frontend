@@ -23,6 +23,7 @@ const MemberAddPage: React.FC = () => {
           facebook_link: string,
           instagram_link: string,
           member_contact: any,
+          member_spiritual: any,
           setLoading: any,
           setStatus: any,
           setSubmitting: any
@@ -40,7 +41,8 @@ const MemberAddPage: React.FC = () => {
             schooling,
             facebook_link,
             instagram_link,
-            member_contact
+            member_contact,
+            member_spiritual
           )
             .then(() => {
               toast.success('Membro ICEA salvo com sucesso!')
