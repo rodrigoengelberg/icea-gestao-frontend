@@ -2,7 +2,6 @@ import { Action } from '@reduxjs/toolkit'
 import { persistReducer } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 import { put, takeLatest } from 'redux-saga/effects'
-import { getAllMembers } from '../../members/redux/MemberCRUD'
 import { PatrimonyModel } from '../models/PatrimonyModel'
 import { getAllPatrimony } from './PatrimoniesCRUD'
 
@@ -11,52 +10,33 @@ export interface ActionWithPayload<T> extends Action {
 }
 
 export const actionTypes = {
-  MembersRequested: '[Requested Members] Member API',
-  MembersLoaded: '[Load Members] Member API'
+  PatrimoniesRequested: '[Requested Patrimony] Patrimony API',
+  PatrimoniesLoaded: '[Load Patrimony] Patrimony API'
 }
 
-const initialMemberState: IMemberState = {
-  members: undefined
+const initialPatrimonyState: IPatrimonyState = {
+  patrimonies: undefined
 }
 
-export interface IMemberState {
-  members?: PatrimonyModel[]
+export interface IPatrimonyState {
+  patrimonies?: PatrimonyModel[]
 }
 
 export const reducer = persistReducer(
-  { storage, key: 'v100-members', whitelist: ['members'] },
+  { storage, key: 'v100-patrimonies', whitelist: ['patrimonies'] },
   (
-    state: IMemberState = initialMemberState,
-    action: ActionWithPayload<IMemberState>
+    state: IPatrimonyState = initialPatrimonyState,
+    action: ActionWithPayload<IPatrimonyState>
   ) => {
     switch (action.type) {
-      // case actionTypes.Login: {
-      //   const token = action.payload?.token
-      //   return { token, user: undefined }
-      // }
-
-      // case actionTypes.Register: {
-      //   const token = action.payload?.token
-      //   return { token, user: undefined }
-      // }
-
-      // case actionTypes.Logout: {
-      //   return initialAuthState
-      // }
-
-      case actionTypes.MembersRequested: {
+      case actionTypes.PatrimoniesRequested: {
         return { ...state, user: undefined }
       }
 
-      case actionTypes.MembersLoaded: {
-        const members = action.payload?.members
-        return { ...state, members }
+      case actionTypes.PatrimoniesLoaded: {
+        const patrimonies = action.payload?.patrimonies
+        return { ...state, patrimonies }
       }
-
-      // case actionTypes.SetUser: {
-      //   const user = action.payload?.user
-      //   return { ...state, user }
-      // }
 
       default:
         return state
@@ -65,39 +45,18 @@ export const reducer = persistReducer(
 )
 
 export const actions = {
-  // login: (token: string) => ({
-  //   type: actionTypes.Login,
-  //   payload: { token }
-  // }),
-  // register: (token: string) => ({
-  //   type: actionTypes.Register,
-  //   payload: { token }
-  // }),
-  // logout: () => ({ type: actionTypes.Logout }),
-  // requestUser: () => ({
-  //   type: actionTypes.UserRequested
-  // }),
-  fulfillMembers: (members: PatrimonyModel[]) => ({
-    type: actionTypes.MembersLoaded,
-    payload: { members }
+  fulfillPatrimonies: (patrimony: PatrimonyModel[]) => ({
+    type: actionTypes.PatrimoniesLoaded,
+    payload: { patrimony }
   })
-  //   setUser: (user: UserModel) => ({
-  //     type: actionTypes.SetUser,
-  //     payload: { user }
-  //   })
 }
 
 export function* saga() {
-  // yield takeLatest(actionTypes.Login, function* loginSaga() {
-  //   yield put(actions.requestUser())
-  // })
-
-  // yield takeLatest(actionTypes.Register, function* registerSaga() {
-  //   yield put(actions.requestUser())
-  // })
-
-  yield takeLatest(actionTypes.MembersRequested, function* membersRequested() {
-    const { data: members } = yield getAllPatrimony()
-    yield put(actions.fulfillMembers(members))
-  })
+  yield takeLatest(
+    actionTypes.PatrimoniesRequested,
+    function* patrimoniesRequested() {
+      const { data: patrimonies } = yield getAllPatrimony()
+      yield put(actions.fulfillPatrimonies(patrimonies))
+    }
+  )
 }

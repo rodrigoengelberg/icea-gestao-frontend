@@ -1,14 +1,8 @@
 export interface PatrimonyModel {
   id?: string
-  first_name: string
-  last_name: string
-  email?: string
-  gender: string
-  marital_status?: string
-  birth_date?: string
-  nationality: string
-  occupation?: string
-  schooling?: string
-  facebook_link?: string
-  instagram_link?: string
+  description: string
+  accounting_classification?: number
+  accounting_classification_name?: string
+  localization?: string
+  observations?: string
 }

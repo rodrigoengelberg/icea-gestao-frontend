@@ -2,32 +2,31 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { Link, useHistory } from 'react-router-dom'
-import moment from 'moment'
 
 import { PatrimonyModel } from '../models/PatrimonyModel'
 import { getAllPatrimony } from '../redux/PatrimoniesCRUD'
-import * as membersSaga from '../redux/PatrimoniesRedux'
+import * as patrimoniesSaga from '../redux/PatrimoniesRedux'
 
 const PatrimoniesListPage: React.FC = () => {
   const history = useHistory()
-  const [members, setMembers] = useState<PatrimonyModel[]>([])
+  const [patrimonies, setPatrimonies] = useState<PatrimonyModel[]>([])
   const dispatch = useDispatch()
 
   useEffect(() => {
-    if (members) {
+    if (patrimonies) {
       getAllPatrimony()
-        .then(({ data: members }) => {
-          setMembers(members)
-          dispatch(membersSaga.actions.fulfillMembers(members))
+        .then(({ data: patrimonies }) => {
+          setPatrimonies(patrimonies)
+          dispatch(patrimoniesSaga.actions.fulfillMembers(patrimonies))
         })
         .catch(() => {
-          alert('Ocorreu um problema ao consultar Membros')
+          alert('Ocorreu um problema ao consultar Patrimônios')
         })
     }
   }, [])
 
-  const selectedMember = (member: PatrimonyModel) => {
-    history.push('/members/edit/' + member.id)
+  const selectedPatrimony = (patrimony: PatrimonyModel) => {
+    history.push('/patrimonies/edit/' + patrimony.id)
   }
 
   return (
@@ -37,9 +36,9 @@ const PatrimoniesListPage: React.FC = () => {
           <div className="card-title pt-6 pb-3">
             <div className="d-flex justify-content-between flex-column flex-md-row">
               <h1 className="display-6 text-dark fw-bolder">
-                Consulta de Membros
+                Consulta de Patrimônios
                 <span className="d-flex flex-column fs-4 fw-bold text-muted">
-                  <span>Lista dos membros cadastrados</span>
+                  <span>Lista dos patrimônios cadastrados</span>
                 </span>
               </h1>
             </div>
@@ -57,34 +56,28 @@ const PatrimoniesListPage: React.FC = () => {
             <table className="table table-row-dashed table-hover table-row-gray-300 gy-7">
               <thead>
                 <tr className="fw-bolder fs-6 text-gray-800">
-                  <th>Nome</th>
-                  <th>E-mail</th>
-                  <th>Gênero</th>
-                  <th>Data de nascimento</th>
-                  <th>Estado civil</th>
-                  <th>Nascionalidade</th>
+                  <th>Descrição</th>
+                  <th>Classificação</th>
+                  <th>Localização</th>
+                  <th>Observação</th>
                 </tr>
               </thead>
               <tbody style={{ cursor: 'pointer' }}>
-                {members
-                  ? members.map((member: PatrimonyModel) => {
+                {patrimonies
+                  ? patrimonies.map((patrimony: PatrimonyModel) => {
                       return (
                         <tr
-                          key={member.id}
-                          onClick={() => selectedMember(member)}
+                          key={patrimony.id}
+                          onClick={() => selectedPatrimony(patrimony)}
                         >
-                          <td>{member.first_name + ' ' + member.last_name}</td>
-                          <td>{member.email}</td>
-                          <td>{member.gender}</td>
-                          <td className="text-center">
-                            {moment(member.birth_date).format('DD/MM/YYYY')}
-                          </td>
-                          <td>{member.marital_status}</td>
-                          <td>{member.nationality}</td>
+                          <td>{patrimony.description}</td>
+                          <td>{patrimony.accounting_classification_name}</td>
+                          <td>{patrimony.localization}</td>
+                          <td>{patrimony.observations}</td>
                         </tr>
                       )
                     })
-                  : 'Não há nenhum membro cadastrado'}
+                  : 'Não há nenhum patrimônio cadastrado'}
               </tbody>
             </table>
             {/*end::Table */}
