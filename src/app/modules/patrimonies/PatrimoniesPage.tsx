@@ -2,11 +2,11 @@ import React from 'react'
 import { Redirect, Route, Switch } from 'react-router-dom'
 import { PageTitle } from '../../../_start/layout/core'
 
-import PatrimonyAddPage from './pages/PatrimonyAddPage'
-import PatrimonyListPage from './pages/PatrimonyListPage'
-import PatrimonyEditPage from './pages/PatrimonyEditPage'
+import PatrimonyAddPage from './pages/PatrimoniesAddPage'
+import PatrimonyListPage from './pages/PatrimoniesListPage'
+import PatrimonyEditPage from './pages/PatrimoniesEditPage'
 
-const PatrimonyPage: React.FC = () => {
+const PatrimoniesPage: React.FC = () => {
   return (
     <Switch>
       <Route path="/patrimony/list">
@@ -34,4 +34,4 @@ const PatrimonyPage: React.FC = () => {
   )
 }
 
-export default PatrimonyPage
+export default PatrimoniesPage

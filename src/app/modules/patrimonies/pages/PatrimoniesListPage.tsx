@@ -5,10 +5,10 @@ import { Link, useHistory } from 'react-router-dom'
 import moment from 'moment'
 
 import { PatrimonyModel } from '../models/PatrimonyModel'
-import { getAllPatrimony } from '../redux/PatrimonyCRUD'
-import * as membersSaga from '../redux/PatrimonyRedux'
+import { getAllPatrimony } from '../redux/PatrimoniesCRUD'
+import * as membersSaga from '../redux/PatrimoniesRedux'
 
-const PatrimonyListPage: React.FC = () => {
+const PatrimoniesListPage: React.FC = () => {
   const history = useHistory()
   const [members, setMembers] = useState<PatrimonyModel[]>([])
   const dispatch = useDispatch()
@@ -95,4 +95,4 @@ const PatrimonyListPage: React.FC = () => {
   )
 }
 
-export default PatrimonyListPage
+export default PatrimoniesListPage

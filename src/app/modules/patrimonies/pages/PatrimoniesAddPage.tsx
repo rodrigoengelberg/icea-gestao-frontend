@@ -2,10 +2,10 @@ import React from 'react'
 import { useHistory } from 'react-router-dom'
 import { toast } from 'react-toastify'
 
-import { save } from '../redux/PatrimonyCRUD'
+import { save } from '../redux/PatrimoniesCRUD'
 import MemberForm from '../components/PatrimonyForm'
 
-const PatrimonyAddPage: React.FC = () => {
+const PatrimoniesAddPage: React.FC = () => {
   const history = useHistory()
   return (
     <>
@@ -59,4 +59,4 @@ const PatrimonyAddPage: React.FC = () => {
   )
 }
 
-export default PatrimonyAddPage
+export default PatrimoniesAddPage

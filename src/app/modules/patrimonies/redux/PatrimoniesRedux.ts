@@ -4,7 +4,7 @@ import storage from 'redux-persist/lib/storage'
 import { put, takeLatest } from 'redux-saga/effects'
 import { getAllMembers } from '../../members/redux/MemberCRUD'
 import { PatrimonyModel } from '../models/PatrimonyModel'
-import { getAllPatrimony } from './PatrimonyCRUD'
+import { getAllPatrimony } from './PatrimoniesCRUD'
 
 export interface ActionWithPayload<T> extends Action {
   payload?: T

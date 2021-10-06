@@ -4,11 +4,11 @@ import { useParams, useHistory } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import moment from 'moment'
 
-import { update, getPatrimonyById } from '../redux/PatrimonyCRUD'
+import { update, getPatrimonyById } from '../redux/PatrimoniesCRUD'
 import MemberForm from '../components/PatrimonyForm'
 import { PatrimonyModel } from '../models/PatrimonyModel'
 
-const PatrimonyEditPage: React.FC = () => {
+const PatrimoniesEditPage: React.FC = () => {
   const { id }: { id: string } = useParams()
   const history = useHistory()
 
@@ -78,4 +78,4 @@ const PatrimonyEditPage: React.FC = () => {
   )
 }
 
-export default PatrimonyEditPage
+export default PatrimoniesEditPage

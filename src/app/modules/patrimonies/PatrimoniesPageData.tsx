@@ -1,14 +1,14 @@
 import { PageLink } from '../../../_start/layout/core'
 
-export const patrimonySubMenu: Array<PageLink> = [
+export const patrimoniesSubMenu: Array<PageLink> = [
   {
     title: 'Consulta',
-    path: '/patrimony/list',
+    path: '/patrimonies/list',
     isActive: false
   },
   {
     title: 'Cadastrar',
-    path: '/patrimony/add',
+    path: '/atrimonies/add',
     isActive: false
   }
 ]

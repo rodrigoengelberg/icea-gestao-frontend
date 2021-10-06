@@ -18,7 +18,7 @@ import {
   getNationalities,
   getOccupations,
   deleteMember
-} from '../redux/PatrimonyCRUD'
+} from '../redux/PatrimoniesCRUD'
 
 import {
   getStatesFromIBGE,

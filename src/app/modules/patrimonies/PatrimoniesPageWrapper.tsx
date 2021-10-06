@@ -7,18 +7,18 @@ import {
   PageLink,
   useTheme
 } from '../../../_start/layout/core'
-import PatrimonyPage from './PatrimonyPage'
-import { patrimonySubMenu } from './PatrimonyPageData'
+import PatrimoniesPage from './PatrimoniesPage'
+import { patrimoniesSubMenu } from './PatrimoniesPageData'
 
-const membersBreadCrumbs: Array<PageLink> = [
+const patrimoniesBreadCrumbs: Array<PageLink> = [
   {
     title: 'Home',
     path: '/',
     isActive: false
   },
   {
-    title: 'Membros',
-    path: '/members',
+    title: 'Patrimônio',
+    path: '/patrimonies',
     isActive: false
   }
 ]
@@ -46,10 +46,10 @@ const PatrimonyPageWrapper: React.FC = () => {
   return (
     <>
       <PageDataContainer
-        breadcrumbs={membersBreadCrumbs}
-        submenu={patrimonySubMenu}
+        breadcrumbs={patrimoniesBreadCrumbs}
+        submenu={patrimoniesSubMenu}
       />
-      <PatrimonyPage />
+      <PatrimoniesPage />
     </>
   )
 }
