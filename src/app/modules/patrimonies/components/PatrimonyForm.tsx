@@ -61,20 +61,14 @@ const initialValues = {
   accounting_classification_name: '',
   localization: '',
   observations: ''
-  }
 }
 
 const patrimony: React.FC<IPatrimonyProps> = props => {
   const [loading, setLoading] = useState(false)
   const [nationalities, setNationalities] = useState<NationalityModel[]>([])
-  const [occupations, setOccupations] = useState<OccupationModel[]>([])
   const [states, setStates] = useState<any[]>([])
   const [cities, setCities] = useState<any[]>([])
   const [selectedBirthDate, setSelectedBirthDate] =
-    React.useState<Moment | null>(null)
-  const [selectedBaptismDate, setSelectedBaptismDate] =
-    React.useState<Moment | null>(null)
-  const [selectedJoinedDate, setSelectedJoinedDate] =
     React.useState<Moment | null>(null)
 
   const history = useHistory()
@@ -83,20 +77,6 @@ const patrimony: React.FC<IPatrimonyProps> = props => {
     if (date) {
       setSelectedBirthDate(date)
       formik.setFieldValue('birth_date', date.toISOString())
-    }
-  }
-
-  const handleBaptismDateChange = (date: Moment | null) => {
-    if (date) {
-      setSelectedBaptismDate(date)
-      formik.setFieldValue('member_spiritual.baptism_date', date.toISOString())
-    }
-  }
-
-  const handleJoinedDateChange = (date: Moment | null) => {
-    if (date) {
-      setSelectedJoinedDate(date)
-      formik.setFieldValue('member_spiritual.joined_date', date.toISOString())
     }
   }
 
@@ -112,30 +92,6 @@ const patrimony: React.FC<IPatrimonyProps> = props => {
   }
 
   useEffect(() => {
-    if (nationalities.length === 0) {
-      getNationalities()
-        .then(({ data: nationalities }) => {
-          setNationalities(nationalities)
-        })
-        .catch(() => {
-          formik.setStatus('Ocorreu um problema ao consultar Nacionalidades')
-        })
-    }
-  }, [nationalities])
-
-  useEffect(() => {
-    if (occupations.length === 0) {
-      getOccupations()
-        .then(({ data: occupations }) => {
-          setOccupations(occupations)
-        })
-        .catch(() => {
-          formik.setStatus('Ocorreu um problema ao consultar Profissões')
-        })
-    }
-  }, [occupations])
-
-  useEffect(() => {
     if (states.length === 0) {
       getStatesFromIBGE()
         .then(({ data: states }) => {
@@ -147,16 +103,6 @@ const patrimony: React.FC<IPatrimonyProps> = props => {
     }
   }, [states])
 
-  const onClickState = (e: any) => {
-    getCitiesFromIBGE(e.target.value)
-      .then(({ data: cities }) => {
-        setCities(cities)
-      })
-      .catch(() => {
-        formik.setStatus('Ocorreu um problema ao consultar Cidades do IBGE')
-      })
-  }
-
   const formik = useFormik({
     initialValues,
     validationSchema: patrimonySchema,
@@ -164,19 +110,11 @@ const patrimony: React.FC<IPatrimonyProps> = props => {
       setLoading(true)
       setTimeout(() => {
         props.onSubmit(
-          values.first_name,
-          values.last_name,
-          values.gender,
-          values.nationality,
-          values.marital_status,
-          values.birth_date,
-          values.email,
-          values.occupation,
-          values.schooling,
-          values.facebook_link,
-          values.instagram_link,
-          values.member_contact,
-          values.member_spiritual,
+          values.description,
+          values.accounting_classification,
+          values.accounting_classification_name,
+          values.localization,
+          values.observations,
           setLoading,
           setStatus,
           setSubmitting
@@ -186,105 +124,21 @@ const patrimony: React.FC<IPatrimonyProps> = props => {
   })
 
   useEffect(() => {
-    if (props.member) {
-      formik.setFieldValue('id', props.member.id)
-      formik.setFieldValue('first_name', props.member.first_name)
-      formik.setFieldValue('last_name', props.member.last_name)
-      formik.setFieldValue('gender', props.member.gender)
-      formik.setFieldValue('nationality', props.member.nationality)
-      formik.setFieldValue('marital_status', props.member.marital_status)
-      formik.setFieldValue('email', props.member.email)
-      if (props.member.birth_date) {
-        setSelectedBirthDate(moment(props.member.birth_date))
-        formik.setFieldValue('birth_date', props.member.birth_date)
-      }
-      formik.setFieldValue('occupation', props.member.occupation)
-      formik.setFieldValue('schooling', props.member.schooling)
-      formik.setFieldValue('facebook_link', props.member.facebook_link)
-      formik.setFieldValue('instagram_link', props.member.instagram_link)
-      if (props.member.member_contact) {
-        formik.setFieldValue(
-          'member_contact.id',
-          props.member.member_contact.id
-        )
-        formik.setFieldValue(
-          'member_contact.address',
-          props.member.member_contact.address
-        )
-        if (props.member.member_contact.state) {
-          getCitiesFromIBGE(props.member.member_contact.state)
-            .then(({ data: cities }) => {
-              setCities(cities)
-            })
-            .catch(() => {
-              formik.setStatus(
-                'Ocorreu um problema ao consultar Cidades do IBGE'
-              )
-            })
-          formik.setFieldValue(
-            'member_contact.state',
-            props.member.member_contact.state
-          )
-          formik.setFieldValue(
-            'member_contact.city',
-            props.member.member_contact.city
-          )
-        }
-        formik.setFieldValue(
-          'member_contact.zipcode',
-          props.member.member_contact.zipcode
-        )
-        formik.setFieldValue(
-          'member_contact.phone_type_name',
-          props.member.member_contact.phone_type_name
-        )
-        formik.setFieldValue(
-          'member_contact.phone_number',
-          props.member.member_contact.phone_number
-        )
-      }
-      if (props.member.member_spiritual) {
-        formik.setFieldValue(
-          'member_spiritual.id',
-          props.member.member_spiritual.id
-        )
-        formik.setFieldValue(
-          'member_spiritual.member_function',
-          props.member.member_spiritual.member_function
-        )
-        formik.setFieldValue(
-          'member_spiritual.member_status',
-          props.member.member_spiritual.member_status
-        )
-        if (props.member.member_spiritual.baptism_date) {
-          setSelectedBaptismDate(
-            moment(props.member.member_spiritual.baptism_date)
-          )
-          formik.setFieldValue(
-            'member_spiritual.baptism_date',
-            props.member.member_spiritual.baptism_date
-          )
-        }
-        if (props.member.member_spiritual.joined_date) {
-          setSelectedJoinedDate(
-            moment(props.member.member_spiritual.joined_date)
-          )
-          formik.setFieldValue(
-            'member_spiritual.joined_date',
-            props.member.member_spiritual.joined_date
-          )
-        }
-        formik.setFieldValue(
-          'member_spiritual.tithe_member',
-          props.member.member_spiritual.tithe_member
-        )
-        formik.setFieldValue(
-          'member_spiritual.problems',
-          props.member.member_spiritual.problems
-        )
-      }
+    if (props.patrimony) {
+      formik.setFieldValue('id', props.patrimony.id)
+      formik.setFieldValue('description', props.patrimony.description)
+      formik.setFieldValue(
+        'accounting_classification',
+        props.patrimony.accounting_classification
+      )
+      formik.setFieldValue(
+        'accounting_classification_name',
+        props.patrimony.accounting_classification_name
+      )
+      formik.setFieldValue('localization', props.patrimony.localization)
+      formik.setFieldValue('observations', props.patrimony.observations)
     }
-  }, [props.member])
+  }, [props.patrimony])
 
   return (
     <>

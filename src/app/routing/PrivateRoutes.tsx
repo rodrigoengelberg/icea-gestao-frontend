@@ -12,6 +12,9 @@ export function PrivateRoutes() {
   const MembersPageWrapper = lazy(
     () => import('../modules/members/MembersPageWrapper')
   )
+  const PatrimoniesPageWrapper = lazy(
+    () => import('../modules/patrimonies/PatrimoniesPageWrapper')
+  )
   const GeneralPageWrapper = lazy(
     () => import('../modules/general/GeneralPageWrapper')
   )
@@ -24,6 +27,7 @@ export function PrivateRoutes() {
         <Route path="/light" component={LightDashboardWrapper} />
         <Route path="/general" component={GeneralPageWrapper} />
         <Route path="/members" component={MembersPageWrapper} />
+        <Route path="/patrimonies" component={PatrimoniesPageWrapper} />
         <Route path="/profile" component={ProfilePageWrapper} />
         <Route path="/menu-test" component={MenuTestPage} />
         <Route path="/docs" component={DocsPageWrapper} />

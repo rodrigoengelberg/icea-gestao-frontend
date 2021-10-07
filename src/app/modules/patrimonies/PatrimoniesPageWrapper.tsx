@@ -35,7 +35,6 @@ const generalPageConfig: Partial<IThemeConfig> = {
 
 const PatrimonyPageWrapper: React.FC = () => {
   const { setTheme } = useTheme()
-  //Refresh UI after config updates
   useEffect(() => {
     setTheme(generalPageConfig)
     return () => {

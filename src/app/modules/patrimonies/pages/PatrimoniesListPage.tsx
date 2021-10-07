@@ -17,7 +17,7 @@ const PatrimoniesListPage: React.FC = () => {
       getAllPatrimony()
         .then(({ data: patrimonies }) => {
           setPatrimonies(patrimonies)
-          dispatch(patrimoniesSaga.actions.fulfillMembers(patrimonies))
+          dispatch(patrimoniesSaga.actions.fulfillPatrimonies(patrimonies))
         })
         .catch(() => {
           alert('Ocorreu um problema ao consultar Patrimônios')
