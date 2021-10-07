@@ -28,123 +28,43 @@ import { NationalityModel } from '../models/NationalityModel'
 import { OccupationModel } from '../models/OccupationModel'
 import { KTSVG } from '../../../../_start/helpers/components/KTSVG'
 
-interface IMemberProps {
+interface IPatrimonyProps {
   onSubmit: any
-  member?: IMemberState
-}
-
-interface IMemberContactState {
-  id?: string
-  address?: string
-  state?: string
-  city?: string
-  zipcode?: string
-  phone_type_name?: string
-  phone_number?: number
-}
-
-interface IMemberSpiritualState {
-  id?: string
-  member_function?: string
-  member_status?: string
-  baptism_date?: string
-  joined_date?: string
-  tithe_member?: number
-  problems?: string
+  patrimony?: IMemberState
 }
 
 interface IMemberState {
   id?: string
-  first_name: string
-  last_name: string
-  gender: string
-  nationality: string
-  marital_status?: string
-  birth_date?: string
-  email?: string
-  occupation?: string
-  schooling?: string
-  facebook_link?: string
-  instagram_link?: string
-  member_contact?: IMemberContactState
-  member_spiritual?: IMemberSpiritualState
+  description: string
+  accounting_classification?: number
+  accounting_classification_name?: string
+  localization?: string
+  observations?: string
 }
 
-const memberSchema = Yup.object().shape({
+const patrimonySchema = Yup.object().shape({
   id: Yup.string(),
-  first_name: Yup.string()
+  description: Yup.string()
     .min(3, 'Mínimo de 3 caracteres')
     .max(50, 'Máximo de 50 caracteres')
     .required('Primeiro nome é obrigatório'),
-  last_name: Yup.string()
-    .min(3, 'Mínimo de 3 caracteres')
-    .max(50, 'Máximo de 50 caracteres')
-    .required('Sobrenome é obrigatório'),
-  gender: Yup.string().required('Gênero é obrigatório'),
-  nationality: Yup.string().required('Nacionalidade é obrigatório'),
-  email: Yup.string()
-    .email('Formato de email inválido')
-    .max(50, 'Máximo de 50 caracteres'),
-  marital_status: Yup.string(),
-  birth_date: Yup.string(),
-  occupation: Yup.string(),
-  schooling: Yup.string(),
-  facebook_link: Yup.string(),
-  instagram_link: Yup.string(),
-  member_contact: Yup.object().shape({
-    id: Yup.string(),
-    address: Yup.string(),
-    state: Yup.string(),
-    city: Yup.string(),
-    zipcode: Yup.string(),
-    phone_type_name: Yup.string(),
-    phone_number: Yup.number()
-  }),
-  member_spiritual: Yup.object().shape({
-    id: Yup.string(),
-    member_function: Yup.string(),
-    member_status: Yup.string(),
-    baptism_date: Yup.string(),
-    joined_date: Yup.string(),
-    tithe_member: Yup.number(),
-    problems: Yup.string()
-  })
+  accounting_classification: Yup.number(),
+  accounting_classification_name: Yup.string(),
+  localization: Yup.string(),
+  observations: Yup.string()
 })
 
 const initialValues = {
   id: '',
-  first_name: '',
-  last_name: '',
-  gender: '',
-  nationality: '',
-  marital_status: '',
-  birth_date: '',
-  email: '',
-  occupation: '',
-  schooling: '',
-  facebook_link: '',
-  instagram_link: '',
-  member_contact: {
-    id: undefined,
-    address: '',
-    state: '',
-    city: '',
-    zipcode: '',
-    phone_type_name: '',
-    phone_number: ''
-  },
-  member_spiritual: {
-    id: undefined,
-    member_function: '',
-    member_status: '',
-    baptism_date: '',
-    joined_date: '',
-    tithe_member: '',
-    problems: ''
+  description: '',
+  accounting_classification: '',
+  accounting_classification_name: '',
+  localization: '',
+  observations: ''
   }
 }
 
-const MemberForm: React.FC<IMemberProps> = props => {
+const patrimony: React.FC<IPatrimonyProps> = props => {
   const [loading, setLoading] = useState(false)
   const [nationalities, setNationalities] = useState<NationalityModel[]>([])
   const [occupations, setOccupations] = useState<OccupationModel[]>([])
@@ -239,7 +159,7 @@ const MemberForm: React.FC<IMemberProps> = props => {
 
   const formik = useFormik({
     initialValues,
-    validationSchema: memberSchema,
+    validationSchema: patrimonySchema,
     onSubmit: (values, { setStatus, setSubmitting }) => {
       setLoading(true)
       setTimeout(() => {

@@ -12,12 +12,12 @@ const PatrimoniesEditPage: React.FC = () => {
   const { id }: { id: string } = useParams()
   const history = useHistory()
 
-  const [member, setMember] = useState<PatrimonyModel>()
+  const [patrimony, setPatrimony] = useState<PatrimonyModel>()
 
   useEffect(() => {
     getPatrimonyById(id)
-      .then(({ data: member }) => {
-        setMember(member)
+      .then(({ data: patrimony }) => {
+        setPatrimony(patrimony)
       })
       .catch(() => {
         alert('Ocorreu um problema ao consultar o Membro ICEA')
@@ -27,21 +27,13 @@ const PatrimoniesEditPage: React.FC = () => {
   return (
     <>
       <PatrimonyForm
-        member={member}
+        patrimony={patrimony}
         onSubmit={(
-          first_name: string,
-          last_name: string,
-          gender: string,
-          nationality: string,
-          marital_status: string,
-          birth_date: string,
-          email: string,
-          occupation: string,
-          schooling: string,
-          facebook_link: string,
-          instagram_link: string,
-          member_contact: any,
-          member_spiritual: any,
+          description: string,
+          accounting_classification: number,
+          accounting_classification_name: string,
+          localization: string,
+          observations: string,
           setLoading: any,
           setStatus: any,
           setSubmitting: any
@@ -49,19 +41,11 @@ const PatrimoniesEditPage: React.FC = () => {
           setLoading(true)
           update(
             id,
-            first_name,
-            last_name,
-            email,
-            gender,
-            marital_status,
-            nationality,
-            moment(birth_date).toISOString(),
-            occupation,
-            schooling,
-            facebook_link,
-            instagram_link,
-            member_contact,
-            member_spiritual
+            description,
+            accounting_classification,
+            accounting_classification_name,
+            localization,
+            observations
           )
             .then(() => {
               toast.success('Patrimônio ICEA alterado com sucesso!')

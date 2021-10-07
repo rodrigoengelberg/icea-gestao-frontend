@@ -3,46 +3,30 @@ import { useHistory } from 'react-router-dom'
 import { toast } from 'react-toastify'
 
 import { save } from '../redux/PatrimoniesCRUD'
-import MemberForm from '../components/PatrimonyForm'
+import PatrimonyForm from '../components/PatrimonyForm'
 
 const PatrimoniesAddPage: React.FC = () => {
   const history = useHistory()
   return (
     <>
-      <MemberForm
+      <PatrimonyForm
         onSubmit={(
-          first_name: string,
-          last_name: string,
-          gender: string,
-          nationality: string,
-          marital_status: string,
-          birth_date: string,
-          email: string,
-          occupation: string,
-          schooling: string,
-          facebook_link: string,
-          instagram_link: string,
-          member_contact: any,
-          member_spiritual: any,
+          description: string,
+          accounting_classification: number,
+          accounting_classification_name: string,
+          localization: string,
+          observations: string,
           setLoading: any,
           setStatus: any,
           setSubmitting: any
         ) => {
           setLoading(true)
           save(
-            first_name,
-            last_name,
-            email,
-            gender,
-            marital_status,
-            nationality,
-            birth_date,
-            occupation,
-            schooling,
-            facebook_link,
-            instagram_link,
-            member_contact,
-            member_spiritual
+            description,
+            accounting_classification,
+            accounting_classification_name,
+            localization,
+            observations
           )
             .then(() => {
               toast.success('Patrimônio ICEA salvo com sucesso!')
