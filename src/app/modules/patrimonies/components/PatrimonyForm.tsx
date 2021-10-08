@@ -147,9 +147,9 @@ const patrimony: React.FC<IPatrimonyProps> = props => {
           <div className="card-title pt-6 pb-3">
             <div className="d-flex justify-content-between flex-column flex-md-row">
               <h1 className="display-6 text-dark fw-bolder">
-                Cadastro de Membros
+                Cadastro de Patrimônio
                 <span className="d-flex flex-column fs-4 fw-bold text-muted">
-                  <span>Gerenciar o cadastro de um membro da ICEA</span>
+                  <span>Gerenciar o cadastro de patrimônios da ICEA</span>
                 </span>
               </h1>
             </div>

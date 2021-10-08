@@ -8,7 +8,7 @@ export const patrimoniesSubMenu: Array<PageLink> = [
   },
   {
     title: 'Cadastrar',
-    path: '/atrimonies/add',
+    path: '/patrimonies/add',
     isActive: false
   }
 ]

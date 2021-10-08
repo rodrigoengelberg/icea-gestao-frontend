@@ -9,27 +9,27 @@ import PatrimonyEditPage from './pages/PatrimoniesEditPage'
 const PatrimoniesPage: React.FC = () => {
   return (
     <Switch>
-      <Route path="/patrimony/list">
+      <Route path="/patrimonies/list">
         <>
           <PageTitle>Consulta</PageTitle>
           <PatrimonyListPage />
         </>
       </Route>
-      <Route path="/patrimony/add">
+      <Route path="/patrimonies/add">
         <>
           <PageTitle>Cadastrar</PageTitle>
           <PatrimonyAddPage />
         </>
       </Route>
-      <Route path="/patrimony/edit/:id">
+      <Route path="/patrimonies/edit/:id">
         <>
           <PageTitle>Editar</PageTitle>
           <PatrimonyEditPage />
         </>
       </Route>
 
-      <Redirect from="/patrimony" exact={true} to="/patrimony/list" />
-      <Redirect to="/patrimony" />
+      <Redirect from="/patrimonies" exact={true} to="/patrimonies/list" />
+      <Redirect to="/patrimonies" />
     </Switch>
   )
 }
