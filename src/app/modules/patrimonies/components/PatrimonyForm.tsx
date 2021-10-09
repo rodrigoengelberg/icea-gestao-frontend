@@ -214,32 +214,32 @@ const patrimony: React.FC<IPatrimonyProps> = props => {
                   <div className="col-md-4 col-lg-12 col-xl-4">
                     <div className="mb-10">
                       <label className="form-label fs-6 fw-bolder text-dark">
-                        Primeiro nome
+                        Descrição
                       </label>
                       <input
-                        placeholder="Primeiro nome"
-                        {...formik.getFieldProps('first_name')}
+                        placeholder="Descrição"
+                        {...formik.getFieldProps('description')}
                         className={clsx(
                           'form-control form-control-lg form-control-solid',
                           {
                             'is-invalid':
-                              formik.touched.first_name &&
-                              formik.errors.first_name
+                              formik.touched.description &&
+                              formik.errors.description
                           },
                           {
                             'is-valid':
-                              formik.touched.first_name &&
-                              !formik.errors.first_name
+                              formik.touched.description &&
+                              !formik.errors.description
                           }
                         )}
                         type="text"
-                        name="first_name"
+                        name="description"
                         autoComplete="off"
                       />
-                      {formik.touched.first_name && formik.errors.first_name && (
+                      {formik.touched.description && formik.errors.description && (
                         <div className="fv-plugins-message-container">
                           <div className="fv-help-block">
-                            {formik.errors.first_name}
+                            {formik.errors.description}
                           </div>
                         </div>
                       )}
