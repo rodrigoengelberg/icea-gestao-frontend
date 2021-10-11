@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { EngageWidget5 } from '../../../../_start/partials/widgets'
+import {
+  EngageWidget5,
+  EngageWidget6
+} from '../../../../_start/partials/widgets'
 import { CreateAppModal } from '../_modals/create-app-stepper/CreateAppModal'
 
 export const StartDashboardPage: React.FC = () => {
@@ -22,6 +25,18 @@ export const StartDashboardPage: React.FC = () => {
             </div>
             {/*end::Action */}
           </EngageWidget5>
+          <EngageWidget6 className="card-stretch mb-5 mb-xxl-8">
+            {/*begin::Action */}
+            <div className="text-center pt-7">
+              <Link
+                className="btn btn-primary fw-bolder fs-6 px-7 py-3"
+                to="/patrimonies/"
+              >
+                Acessar
+              </Link>
+            </div>
+            {/*end::Action */}
+          </EngageWidget6>
         </div>
       </div>
       {/*end::Row */}

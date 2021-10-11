@@ -15,6 +15,7 @@ export * from './engage/EngageWidget1'
 export * from './engage/EngageWidget2'
 export * from './engage/EngageWidget3'
 export * from './engage/EngageWidget5'
+export * from './engage/EngageWidget6'
 
 // stats
 export * from './stats/StatsWidget1'

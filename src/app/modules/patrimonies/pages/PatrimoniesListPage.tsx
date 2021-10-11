@@ -71,7 +71,7 @@ const PatrimoniesListPage: React.FC = () => {
                           onClick={() => selectedPatrimony(patrimony)}
                         >
                           <td>{patrimony.description}</td>
-                          <td>{patrimony.accounting_classification_name}</td>
+                          <td>{patrimony.accounting_classification}</td>
                           <td>{patrimony.localization}</td>
                           <td>{patrimony.observations}</td>
                         </tr>

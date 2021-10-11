@@ -12,8 +12,7 @@ const PatrimoniesAddPage: React.FC = () => {
       <PatrimonyForm
         onSubmit={(
           description: string,
-          accounting_classification: number,
-          accounting_classification_name: string,
+          accounting_classification: string,
           localization: string,
           observations: string,
           setLoading: any,
@@ -24,7 +23,6 @@ const PatrimoniesAddPage: React.FC = () => {
           save(
             description,
             accounting_classification,
-            accounting_classification_name,
             localization,
             observations
           )

@@ -1,12 +1,10 @@
 /*eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react'
-import { useParams, useHistory } from 'react-router-dom'
+import { useHistory, useParams } from 'react-router-dom'
 import { toast } from 'react-toastify'
-import moment from 'moment'
-
-import { update, getPatrimonyById } from '../redux/PatrimoniesCRUD'
 import PatrimonyForm from '../components/PatrimonyForm'
 import { PatrimonyModel } from '../models/PatrimonyModel'
+import { getPatrimonyById, update } from '../redux/PatrimoniesCRUD'
 
 const PatrimoniesEditPage: React.FC = () => {
   const { id }: { id: string } = useParams()
@@ -30,8 +28,7 @@ const PatrimoniesEditPage: React.FC = () => {
         patrimony={patrimony}
         onSubmit={(
           description: string,
-          accounting_classification: number,
-          accounting_classification_name: string,
+          accounting_classification: string,
           localization: string,
           observations: string,
           setLoading: any,
@@ -43,7 +40,6 @@ const PatrimoniesEditPage: React.FC = () => {
             id,
             description,
             accounting_classification,
-            accounting_classification_name,
             localization,
             observations
           )
