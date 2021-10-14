@@ -25,6 +25,8 @@ export const StartDashboardPage: React.FC = () => {
             </div>
             {/*end::Action */}
           </EngageWidget5>
+        </div>
+        <div className="col-xl-4">
           <EngageWidget6 className="card-stretch mb-5 mb-xxl-8">
             {/*begin::Action */}
             <div className="text-center pt-7">
