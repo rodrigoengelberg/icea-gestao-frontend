@@ -46,42 +46,47 @@ const PatrimoniesListPage: React.FC = () => {
           <div className="card-toolbar pt-12 pb-6">
             <Link
               className="btn btn-primary fw-bolder fs-6 px-7 py-3"
-              to="/members/add"
+              to="/patrimonies/add"
             >
-              Novo Membro
+              Novo Patrimônio
             </Link>
           </div>
-          <div className="card-body">
-            {/*begin::Table */}
-            <table className="table table-row-dashed table-hover table-row-gray-300 gy-7">
-              <thead>
-                <tr className="fw-bolder fs-6 text-gray-800">
-                  <th>Descrição</th>
-                  <th>Classificação</th>
-                  <th>Localização</th>
-                  <th>Observação</th>
+        </div>
+
+        <div className="card-body">
+          {/*begin::Table */}
+          <table className="table table-row-dashed table-hover table-row-gray-300 gy-7">
+            <thead>
+              <tr className="fw-bolder fs-6 text-gray-800">
+                <th>Descrição</th>
+                <th>Classificação</th>
+                <th>Localização</th>
+                <th>Observação</th>
+              </tr>
+            </thead>
+            <tbody style={{ cursor: 'pointer' }}>
+              {patrimonies && patrimonies.length > 0 ? (
+                patrimonies.map((patrimony: PatrimonyModel) => {
+                  return (
+                    <tr
+                      key={patrimony.id}
+                      onClick={() => selectedPatrimony(patrimony)}
+                    >
+                      <td>{patrimony.description}</td>
+                      <td>{patrimony.accounting_classification}</td>
+                      <td>{patrimony.localization}</td>
+                      <td>{patrimony.observations}</td>
+                    </tr>
+                  )
+                })
+              ) : (
+                <tr>
+                  <td>Não há patrimônios cadastrados</td>
                 </tr>
-              </thead>
-              <tbody style={{ cursor: 'pointer' }}>
-                {patrimonies
-                  ? patrimonies.map((patrimony: PatrimonyModel) => {
-                      return (
-                        <tr
-                          key={patrimony.id}
-                          onClick={() => selectedPatrimony(patrimony)}
-                        >
-                          <td>{patrimony.description}</td>
-                          <td>{patrimony.accounting_classification}</td>
-                          <td>{patrimony.localization}</td>
-                          <td>{patrimony.observations}</td>
-                        </tr>
-                      )
-                    })
-                  : 'Não há nenhum patrimônio cadastrado'}
-              </tbody>
-            </table>
-            {/*end::Table */}
-          </div>
+              )}
+            </tbody>
+          </table>
+          {/*end::Table */}
         </div>
       </div>
     </>

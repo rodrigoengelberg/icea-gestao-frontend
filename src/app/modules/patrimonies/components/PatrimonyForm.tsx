@@ -65,15 +65,17 @@ const PatrimonyForm: React.FC<IPatrimonyProps> = props => {
   }
 
   useEffect(() => {
-    getAccountingClassification()
-      .then(({ data: accountingsClassifications }) => {
-        setAccountingsClassifications(accountingsClassifications)
-      })
-      .catch(() => {
-        formik.setStatus(
-          'Ocorreu um problema ao consultar a Classifição de Patrimônio'
-        )
-      })
+    if (accountingsClassifications.length === 0) {
+      getAccountingClassification()
+        .then(({ data: accountingsClassifications }) => {
+          setAccountingsClassifications(accountingsClassifications)
+        })
+        .catch(() => {
+          formik.setStatus(
+            'Ocorreu um problema ao consultar a Classifição de Patrimônio'
+          )
+        })
+    }
   }, [accountingsClassifications])
 
   const formik = useFormik({
@@ -122,37 +124,6 @@ const PatrimonyForm: React.FC<IPatrimonyProps> = props => {
               </h1>
             </div>
           </div>
-          <div className="card-toolbar pt-12">
-            <ul className="nav nav-tabs nav-line-tabs nav-stretch fs-6 border-0">
-              <li className="nav-item">
-                <a
-                  className="nav-link active"
-                  data-bs-toggle="tab"
-                  href="#kt_tab_pane_7"
-                >
-                  Geral
-                </a>
-              </li>
-              <li className="nav-item">
-                <a
-                  className="nav-link"
-                  data-bs-toggle="tab"
-                  href="#kt_tab_pane_8"
-                >
-                  Contato
-                </a>
-              </li>
-              <li className="nav-item">
-                <a
-                  className="nav-link"
-                  data-bs-toggle="tab"
-                  href="#kt_tab_pane_9"
-                >
-                  Espiritual
-                </a>
-              </li>
-            </ul>
-          </div>
         </div>
         <div className="card-body">
           {/*begin::Form */}
@@ -171,126 +142,118 @@ const PatrimonyForm: React.FC<IPatrimonyProps> = props => {
             ) : (
               ''
             )}
-            <div className="tab-content" id="myTabContent">
-              <div
-                className="tab-pane fade show active"
-                id="kt_tab_pane_7"
-                role="tabpanel"
-              >
-                {/*begin::Form group */}
-                <div className="row">
-                  <div className="col-md-4 col-lg-12 col-xl-4">
-                    <div className="mb-10">
-                      <label className="form-label fs-6 fw-bolder text-dark">
-                        Descrição
-                      </label>
-                      <input
-                        placeholder="Descrição"
-                        {...formik.getFieldProps('description')}
-                        className={clsx(
-                          'form-control form-control-lg form-control-solid',
-                          {
-                            'is-invalid':
-                              formik.touched.description &&
-                              formik.errors.description
-                          },
-                          {
-                            'is-valid':
-                              formik.touched.description &&
-                              !formik.errors.description
-                          }
-                        )}
-                        type="text"
-                        name="description"
-                        autoComplete="off"
-                      />
-                      {formik.touched.description && formik.errors.description && (
-                        <div className="fv-plugins-message-container">
-                          <div className="fv-help-block">
-                            {formik.errors.description}
-                          </div>
-                        </div>
-                      )}
+            {/*begin::Form group */}
+            <div className="row">
+              <div className="col-md-4 col-lg-12 col-xl-4">
+                <div className="mb-10">
+                  <label className="form-label fs-6 fw-bolder text-dark">
+                    Descrição
+                  </label>
+                  <input
+                    placeholder="Descrição"
+                    {...formik.getFieldProps('description')}
+                    className={clsx(
+                      'form-control form-control-lg form-control-solid',
+                      {
+                        'is-invalid':
+                          formik.touched.description &&
+                          formik.errors.description
+                      },
+                      {
+                        'is-valid':
+                          formik.touched.description &&
+                          !formik.errors.description
+                      }
+                    )}
+                    type="text"
+                    name="description"
+                    autoComplete="off"
+                  />
+                  {formik.touched.description && formik.errors.description && (
+                    <div className="fv-plugins-message-container">
+                      <div className="fv-help-block">
+                        {formik.errors.description}
+                      </div>
                     </div>
-                  </div>
-                  <div className="col-md-4 col-lg-12 col-xl-4">
-                    <div className="mb-10">
-                      <label className="form-label fs-6 fw-bolder text-dark">
-                        Classificação
-                      </label>
-                      <select
-                        id="marital_status"
-                        className="form-select form-select-solid"
-                        {...formik.getFieldProps('accounting_classification')}
-                      >
-                        {accountingsClassifications
-                          ? accountingsClassifications.map(
-                              (
-                                accountingClassification: AccountingClassificationModel
-                              ) => {
-                                return (
-                                  <option
-                                    key={
-                                      accountingClassification.accounting_classification
-                                    }
-                                    value={
-                                      accountingClassification.accounting_classification_name
-                                    }
-                                  >
-                                    {
-                                      accountingClassification.accounting_classification_name
-                                    }
-                                  </option>
-                                )
-                              }
+                  )}
+                </div>
+              </div>
+              <div className="col-md-4 col-lg-12 col-xl-4">
+                <div className="mb-10">
+                  <label className="form-label fs-6 fw-bolder text-dark">
+                    Classificação
+                  </label>
+                  <select
+                    id="marital_status"
+                    className="form-select form-select-solid"
+                    {...formik.getFieldProps('accounting_classification')}
+                  >
+                    {accountingsClassifications
+                      ? accountingsClassifications.map(
+                          (
+                            accountingClassification: AccountingClassificationModel
+                          ) => {
+                            return (
+                              <option
+                                key={
+                                  accountingClassification.accounting_classification
+                                }
+                                value={
+                                  accountingClassification.accounting_classification_name
+                                }
+                              >
+                                {
+                                  accountingClassification.accounting_classification_name
+                                }
+                              </option>
                             )
-                          : ''}
-                      </select>
-                    </div>
-                  </div>
+                          }
+                        )
+                      : ''}
+                  </select>
                 </div>
-                {/*end::Form group */}
-
-                {/*begin::Form group */}
-                <div className="row">
-                  <div className="col-md-4 col-lg-12 col-xl-6">
-                    <div className="mb-10">
-                      <label className="form-label fs-6 fw-bolder text-dark">
-                        Localização
-                      </label>
-                      <input
-                        id="localization"
-                        type="text"
-                        className="form-control form-control-solid"
-                        {...formik.getFieldProps('localization')}
-                        placeholder="Local do patrimônio"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="col-md-4 col-lg-12 col-xl-6">
-                    <div className="mb-10">
-                      <label className="form-label fs-6 fw-bolder text-dark">
-                        Observação
-                      </label>
-                      <input
-                        id="observations"
-                        type="text"
-                        className="form-control form-control-solid"
-                        {...formik.getFieldProps('observations')}
-                        placeholder="Informar uma observação"
-                      />
-                    </div>
-                  </div>
-                </div>
-                {/*end::Form group */}
               </div>
             </div>
+            {/*end::Form group */}
+
+            {/*begin::Form group */}
+            <div className="row">
+              <div className="col-md-4 col-lg-12 col-xl-6">
+                <div className="mb-10">
+                  <label className="form-label fs-6 fw-bolder text-dark">
+                    Localização
+                  </label>
+                  <input
+                    id="localization"
+                    type="text"
+                    className="form-control form-control-solid"
+                    {...formik.getFieldProps('localization')}
+                    placeholder="Local do patrimônio"
+                  />
+                </div>
+              </div>
+
+              <div className="col-md-4 col-lg-12 col-xl-6">
+                <div className="mb-10">
+                  <label className="form-label fs-6 fw-bolder text-dark">
+                    Observação
+                  </label>
+                  <input
+                    id="observations"
+                    type="text"
+                    className="form-control form-control-solid"
+                    {...formik.getFieldProps('observations')}
+                    placeholder="Informar uma observação"
+                  />
+                </div>
+              </div>
+            </div>
+            {/*end::Form group */}
             {/*begin::Action */}
             <div className="d-flex flex-column flex-row-fluid">
               <div className="d-flex flex-row flex-column-fluid">
                 <div className="d-flex flex-row-fluid flex-right">
-                  <Link to="/members/list">
+                  <Link to="/patrimonies/list">
                     <button
                       type="button"
                       id="kt_add_member_form_back_button"

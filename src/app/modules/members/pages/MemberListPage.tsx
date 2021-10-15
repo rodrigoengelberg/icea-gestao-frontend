@@ -66,25 +66,27 @@ const MemberListPage: React.FC = () => {
                 </tr>
               </thead>
               <tbody style={{ cursor: 'pointer' }}>
-                {members
-                  ? members.map((member: MemberModel) => {
-                      return (
-                        <tr
-                          key={member.id}
-                          onClick={() => selectedMember(member)}
-                        >
-                          <td>{member.first_name + ' ' + member.last_name}</td>
-                          <td>{member.email}</td>
-                          <td>{member.gender}</td>
-                          <td className="text-center">
-                            {moment(member.birth_date).format('DD/MM/YYYY')}
-                          </td>
-                          <td>{member.marital_status}</td>
-                          <td>{member.nationality}</td>
-                        </tr>
-                      )
-                    })
-                  : 'Não há nenhum membro cadastrado'}
+                {members && members.length > 0 ? (
+                  members.map((member: MemberModel) => {
+                    return (
+                      <tr
+                        key={member.id}
+                        onClick={() => selectedMember(member)}
+                      >
+                        <td>{member.first_name + ' ' + member.last_name}</td>
+                        <td>{member.email}</td>
+                        <td>{member.gender}</td>
+                        <td className="text-center">
+                          {moment(member.birth_date).format('DD/MM/YYYY')}
+                        </td>
+                        <td>{member.marital_status}</td>
+                        <td>{member.nationality}</td>
+                      </tr>
+                    )
+                  })
+                ) : (
+                  <div>Não há membros cadastrados</div>
+                )}
               </tbody>
             </table>
             {/*end::Table */}
