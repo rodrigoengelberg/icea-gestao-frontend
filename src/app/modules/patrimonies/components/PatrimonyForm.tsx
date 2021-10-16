@@ -303,46 +303,6 @@ const PatrimonyForm: React.FC<IPatrimonyProps> = props => {
           {/*end::Form */}
         </div>
       </div>
-
-      <div className="modal fade" tabIndex={-1} id="kt_modal_delete">
-        <div className="modal-dialog">
-          <div className="modal-content">
-            <div className="modal-header">
-              <h5 className="modal-title">Confirmação</h5>
-              <div
-                className="btn btn-icon btn-sm btn-active-light-primary ms-2"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              >
-                <KTSVG
-                  path="/media/icons/duotone/Navigation/Close.svg"
-                  className="svg-icon svg-icon-2x"
-                />
-              </div>
-            </div>
-            <div className="modal-body">
-              <p>Você realmente deseja excluir este patrimônio?</p>
-            </div>
-            <div className="modal-footer">
-              <button
-                type="button"
-                className="btn btn-light"
-                data-bs-dismiss="modal"
-              >
-                Fechar
-              </button>
-              <button
-                type="button"
-                className="btn btn-primary"
-                data-bs-dismiss="modal"
-                onClick={() => onClickDelete()}
-              >
-                Confirmar
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
     </>
   )
 }
