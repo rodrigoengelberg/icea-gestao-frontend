@@ -8,33 +8,15 @@ import * as _redux from './setup'
 import store, { persistor } from './setup/redux/Store'
 //Axios
 import axios from 'axios'
-//Apps
 import { App } from './app/App'
 import './_start/assets/sass/style.scss'
-/**
- * Base URL of the website.
- *
- * @see https://facebook.github.io/create-react-app/docs/using-the-public-folder
- */
-const { PUBLIC_URL } = process.env
-/**
- * Creates `axios-mock-adapter` instance for provided `axios` instance, add
- * basic Start mocks and returns it.
- *
- * @see https://github.com/ctimmerm/axios-mock-adapter
- */
 
-/*const mock =  _redux.mockAxios(axios)*/
-/**
- * Inject Start interceptors for axios.
- *
- * @see https://github.com/axios/axios#interceptors
- */
+const { PUBLIC_URL } = process.env
+
 _redux.setupAxios(axios, store)
 
 ReactDOM.render(
   <Provider store={store}>
-    {/*Asynchronously persist redux stores and show `SplashScreen` while it's loading. */}
     <PersistGate persistor={persistor} loading={<div>Carregando...</div>}>
       <App basename={PUBLIC_URL} />
     </PersistGate>
