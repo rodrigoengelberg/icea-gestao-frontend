@@ -3,13 +3,13 @@
   "redirects": [
     {
       "source": "/",
-      "destination": "/start-react-free"
+      "destination": "/icea"
     }
   ],
   "rewrites": [
     {
-      "source": "/start-react-free/**",
-      "destination": "/start-react-free/index.html"
+      "source": "/icea/**",
+      "destination": "/icea/index.html"
     }
   ]
 }
