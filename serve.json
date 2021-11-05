@@ -3,13 +3,13 @@
   "redirects": [
     {
       "source": "/",
-      "destination": "/icea"
+      "destination": "/"
     }
   ],
   "rewrites": [
     {
-      "source": "/icea/**",
-      "destination": "/icea/index.html"
+      "source": "/**",
+      "destination": "/index.html"
     }
   ]
 }
