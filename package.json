@@ -2,7 +2,7 @@
   "name": "icea-gestao-frontend",
   "version": "1.0.1",
   "private": true,
-  "homepage": "/icea/",
+  "homepage": "",
   "dependencies": {
     "@date-io/moment": "1.x",
     "@fortawesome/fontawesome-free": "^5.15.1",
