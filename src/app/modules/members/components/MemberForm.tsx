@@ -139,7 +139,7 @@ const initialValues = {
     member_status: '',
     baptism_date: '',
     joined_date: '',
-    tithe_member: '',
+    tithe_member: 0,
     problems: ''
   }
 }
