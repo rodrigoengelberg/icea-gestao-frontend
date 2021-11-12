@@ -84,7 +84,8 @@ const memberSchema = Yup.object().shape({
   nationality: Yup.string().required('Nacionalidade é obrigatório'),
   email: Yup.string()
     .email('Formato de email inválido')
-    .max(50, 'Máximo de 50 caracteres'),
+    .max(50, 'Máximo de 50 caracteres')
+    .nullable(),
   marital_status: Yup.string(),
   birth_date: Yup.string().nullable(true),
   occupation: Yup.string(),
