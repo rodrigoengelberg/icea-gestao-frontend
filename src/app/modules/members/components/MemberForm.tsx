@@ -793,7 +793,7 @@ const MemberForm: React.FC<IMemberProps> = props => {
                       </label>
                       <input
                         id="member_contact.zipcode"
-                        type="text"
+                        type="number"
                         className="form-control form-control-solid"
                         {...formik.getFieldProps('member_contact.zipcode')}
                         placeholder="CEP"
@@ -880,7 +880,7 @@ const MemberForm: React.FC<IMemberProps> = props => {
                       </label>
                       <input
                         id="member_contact.phone_number"
-                        type="text"
+                        type="number"
                         className="form-control form-control-solid"
                         {...formik.getFieldProps('member_contact.phone_number')}
                         placeholder="(99) 99999-9999"
