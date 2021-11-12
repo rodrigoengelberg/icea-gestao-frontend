@@ -86,7 +86,7 @@ const memberSchema = Yup.object().shape({
     .email('Formato de email inválido')
     .max(50, 'Máximo de 50 caracteres'),
   marital_status: Yup.string(),
-  birth_date: Yup.string(),
+  birth_date: Yup.string().nullable(true),
   occupation: Yup.string(),
   schooling: Yup.string(),
   facebook_link: Yup.string(),
@@ -96,17 +96,17 @@ const memberSchema = Yup.object().shape({
     address: Yup.string(),
     state: Yup.string(),
     city: Yup.string(),
-    zipcode: Yup.string(),
+    zipcode: Yup.number().nullable(true),
     phone_type_name: Yup.string(),
-    phone_number: Yup.number()
+    phone_number: Yup.number().nullable(true)
   }),
   member_spiritual: Yup.object().shape({
     id: Yup.string(),
     member_function: Yup.string(),
     member_status: Yup.string(),
-    baptism_date: Yup.string(),
-    joined_date: Yup.string(),
-    tithe_member: Yup.number(),
+    baptism_date: Yup.string().nullable(true),
+    joined_date: Yup.string().nullable(true),
+    tithe_member: Yup.number().nullable(true),
     problems: Yup.string()
   })
 })
@@ -310,18 +310,22 @@ const MemberForm: React.FC<IMemberProps> = props => {
             props.member.member_contact.city
           )
         }
-        formik.setFieldValue(
-          'member_contact.zipcode',
-          props.member.member_contact.zipcode
-        )
+        if (props.member.member_contact.zipcode) {
+          formik.setFieldValue(
+            'member_contact.zipcode',
+            props.member.member_contact.zipcode
+          )
+        }
         formik.setFieldValue(
           'member_contact.phone_type_name',
           props.member.member_contact.phone_type_name
         )
-        formik.setFieldValue(
-          'member_contact.phone_number',
-          props.member.member_contact.phone_number
-        )
+        if (props.member.member_contact.phone_number) {
+          formik.setFieldValue(
+            'member_contact.phone_number',
+            props.member.member_contact.phone_number
+          )
+        }
       }
       if (props.member.member_spiritual) {
         formik.setFieldValue(
@@ -520,7 +524,7 @@ const MemberForm: React.FC<IMemberProps> = props => {
                         className="form-select form-select-solid"
                         {...formik.getFieldProps('gender')}
                       >
-                        <option>Selecione</option>
+                        <option value="">Selecione</option>
                         <option value="Masculino">Masculino</option>
                         <option value="Feminino">Feminino</option>
                       </select>
@@ -544,7 +548,7 @@ const MemberForm: React.FC<IMemberProps> = props => {
                         className="form-select form-select-solid"
                         {...formik.getFieldProps('marital_status')}
                       >
-                        <option>Selecione</option>
+                        <option value="">Selecione</option>
                         <option value="Solteiro(a)">Solteiro(a)</option>
                         <option value="Noivo(a)">Noivo(a)</option>
                         <option value="Casado(a)">Casado(a)</option>
@@ -601,7 +605,7 @@ const MemberForm: React.FC<IMemberProps> = props => {
                         className="form-select form-select-solid"
                         {...formik.getFieldProps('nationality')}
                       >
-                        <option>Selecione</option>
+                        <option value="">Selecione</option>
                         {nationalities
                           ? nationalities.map(
                               (nationality: NationalityModel) => {
@@ -681,7 +685,7 @@ const MemberForm: React.FC<IMemberProps> = props => {
                         className="form-select form-select-solid"
                         {...formik.getFieldProps('occupation')}
                       >
-                        <option>Selecione</option>
+                        <option value="">Selecione</option>
                         {occupations
                           ? occupations.map((occupation: OccupationModel) => {
                               return (
@@ -708,7 +712,7 @@ const MemberForm: React.FC<IMemberProps> = props => {
                         className="form-select form-select-solid"
                         {...formik.getFieldProps('schooling')}
                       >
-                        <option>Selecione</option>
+                        <option value="">Selecione</option>
                         <option value="Ensino Fundamental">
                           Ensino Fundamental
                         </option>
@@ -810,7 +814,7 @@ const MemberForm: React.FC<IMemberProps> = props => {
                         className="form-select form-select-solid"
                         {...formik.getFieldProps('member_contact.state')}
                       >
-                        <option>Selecione</option>
+                        <option value="">Selecione</option>
                         {states
                           ? states.map((state: any) => {
                               return (
@@ -834,7 +838,7 @@ const MemberForm: React.FC<IMemberProps> = props => {
                         className="form-select form-select-solid"
                         {...formik.getFieldProps('member_contact.city')}
                       >
-                        <option>Selecione</option>
+                        <option value="">Selecione</option>
                         {cities
                           ? cities.map((cities: any) => {
                               return (
@@ -854,13 +858,13 @@ const MemberForm: React.FC<IMemberProps> = props => {
                     </label>
                     <div className="mb-10">
                       <select
-                        id="phone_type_name"
+                        id="member_contact.phone_type_name"
                         className="form-select form-select-solid"
                         {...formik.getFieldProps(
                           'member_contact.phone_type_name'
                         )}
                       >
-                        <option>Selecione</option>
+                        <option value="">Selecione</option>
                         <option value="Celular">Celular</option>
                         <option value="Casa">Casa</option>
                         <option value="Trabalho">Trabalho</option>
@@ -902,7 +906,7 @@ const MemberForm: React.FC<IMemberProps> = props => {
                           'member_spiritual.member_status'
                         )}
                       >
-                        <option>Selecione</option>
+                        <option value="">Selecione</option>
                         <option value="Ativo">Ativo</option>
                         <option value="Inativo">Inativo</option>
                         <option value="Especial">Especial</option>
@@ -922,7 +926,7 @@ const MemberForm: React.FC<IMemberProps> = props => {
                           'member_spiritual.member_function'
                         )}
                       >
-                        <option>Selecione</option>
+                        <option value="">Selecione</option>
                         <option value="Membro">Membro</option>
                         <option value="Assistente">Assistente</option>
                         <option value="Voluntário">Voluntário</option>
@@ -944,7 +948,7 @@ const MemberForm: React.FC<IMemberProps> = props => {
                           'member_spiritual.tithe_member'
                         )}
                       >
-                        <option>Selecione</option>
+                        <option value="">Selecione</option>
                         <option value="1">Sim</option>
                         <option value="0">Não</option>
                       </select>
