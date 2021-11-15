@@ -60,9 +60,9 @@ const MemberListPage: React.FC = () => {
                   <th>Nome</th>
                   <th>E-mail</th>
                   <th>Gênero</th>
-                  <th>Data de nascimento</th>
                   <th>Estado civil</th>
                   <th>Nascionalidade</th>
+                  <th>Situação</th>
                 </tr>
               </thead>
               <tbody style={{ cursor: 'pointer' }}>
@@ -76,11 +76,14 @@ const MemberListPage: React.FC = () => {
                         <td>{member.first_name + ' ' + member.last_name}</td>
                         <td>{member.email}</td>
                         <td>{member.gender}</td>
-                        <td className="text-center">
-                          {moment(member.birth_date).format('DD/MM/YYYY')}
-                        </td>
                         <td>{member.marital_status}</td>
                         <td>{member.nationality}</td>
+                        <td>
+                          {member.member_spiritual &&
+                          member.member_spiritual.member_status.length > 0
+                            ? member.member_spiritual.member_status
+                            : `Não informado`}
+                        </td>
                       </tr>
                     )
                   })

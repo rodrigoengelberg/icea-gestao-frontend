@@ -11,4 +11,6 @@ export interface MemberModel {
   schooling?: string
   facebook_link?: string
   instagram_link?: string
+  member_contact?: any
+  member_spiritual?: any
 }
