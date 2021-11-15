@@ -81,7 +81,7 @@ const MemberListPage: React.FC = () => {
                           {member.member_spiritual &&
                           member.member_spiritual.member_status.length > 0
                             ? member.member_spiritual.member_status
-                            : `Não informado`}
+                            : 'Não informado'}
                         </td>
                       </tr>
                     )
