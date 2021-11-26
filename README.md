@@ -7,7 +7,7 @@
 </h1>
 
 <h4 align="center">
-  🚀 Projeto de desenvolvimento do Frontend em ReactJS - ICEA Gestao
+  🚀 Projeto de desenvolvimento do Frontend em ReactJS com outros recursos - ICEA Gestao
 </h4>
 
 <p align="center">
