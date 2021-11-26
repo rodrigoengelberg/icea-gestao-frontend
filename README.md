@@ -1,46 +1,101 @@
-# Getting Started with Create React App
+<!-- <p align="center">
+   <img src=".github/nlw2-logo.png" alt="proffy-web" width="280"/>
+</p> -->
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h1 align="center">
+    <img alt="ICEA" title="#sistemaLindao" src=".github/logo-nova.png" width="250px" />
+</h1>
 
-## Available Scripts
+<h4 align="center">
+  🚀 Projeto de desenvolvimento do Frontend em NodeJS - ICEA Gestao
+</h4>
 
-In the project directory, you can run:
+<p align="center">
+  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/rodrigoengelberg/proffy-nwl-02">
 
-### `yarn start`
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/rodrigoengelberg/icea-gestao-backend">
+  
+  <a href="https://github.com/rodrigoengelberg/icea-gestao-backend/commits/master">
+    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/rodrigoengelberg/icea-gestao-backend">
+  </a>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+  <a href="https://github.com/rodrigoengelberg/icea-gestao-backend/issues">
+    <img alt="Repository issues" src="https://img.shields.io/github/issues/rodrigoengelberg/icea-gestao-backend">
+  </a>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+  <img alt="License" src="https://img.shields.io/badge/license-MIT-brightgreen">
+</p>
 
-### `yarn test`
+<p align="center">
+  <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-layout">Layout</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#rocket-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#rocket-executando">Executando</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#memo-licença">Licença</a>
+</p>
+<br>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 💻 Projeto
 
-### `yarn build`
+Esse projeto está sendo desenvolvido em NodeJS utilizando modernas ferramentas de mercado com o intuito de aprendizado e experiência. O projeto consiste na parte frontend(React), mobile(React Native) e backend(NodeJs) - juntamente com typescript em todas as partes.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🎨 Layout
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+O Layout do Frontend pode ser visualizado no repositório [ICEA Gestão Frontend ](https://github.com/rodrigoengelberg/icea-gestao-frontend)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## :rocket: Tecnologias
 
-### `yarn eject`
+Esse projeto foi desenvolvido com as seguintes tecnologias:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- [Typescript](https://www.typescriptlang.org/)
+- [Node.js](https://nodejs.org/en/) | [Express](https://expressjs.com/pt-br/)
+- [React](https://reactjs.org/) | [React Native](https://reactnative.dev/)
+- [Knex](http://knexjs.org/) | [SQLite3](https://www.sqlite.org/index.html)
+- [React Native Picker](https://github.com/react-native-picker/picker)
+- [React Native Collapsible ](https://github.com/oblador/react-native-collapsible)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## :rocket: Executando
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Para rodar esse projeto existem duas maneiras para você escolher, a Live Version que é a versão que está rodando em nuvem para que você conferir, e a versão em Localhost, que é onde você baixa o projeto completo e roda a partir do seu terminal.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Local Host:
 
-## Learn More
+Também é possível rodar essa aplicação localmente em um computador ou notebook, para isso é necessário ter alguns programas instalados:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### Node.js e NPM
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+É necessário instalar o node e npm(ou yarn) para rodar essa aplicação localmente. Para verificar se já tem instalado, execulte em seu terminal os seguintes comandos:
+
+```sh
+node -v
+```
+
+```sh
+npm -v
+```
+
+Caso o retorno de algum dos dois comandos sejam um erro, é necessário instalar o Node.js e o NPM.
+
+##### Guias para download e instalação do Node.js e NPM:
+
+Para download: acesse o [site oficial](https://nodejs.org/en/) do Node.js e siga o passo a passo.
+
+Com o Node.js e NPM instalados corretamente, abra o seu terminal na pasta do projeto e execute o seguinte comando:
+
+Inicie o servidor:
+
+```sh
+npm start
+```
+
+Aguarde alguns instantes.
+
+Caso tudo dê certo, o resultado esperado é abrir um servidor na porta 3333, você pode acessar em http://localhost:3333/.
+
+## :memo: Licença
+
+Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para mais detalhes.
+
+---
+
+Feito com horas em frente ao :computer: por [Rodrigo Engelberg](https://www.linkedin.com/in/rodrigoengelberg/)
