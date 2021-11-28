@@ -49,7 +49,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 - [Typescript](https://www.typescriptlang.org)
 - [Node.js](https://nodejs.org/en) | [Express](https://expressjs.com/pt-br)
-- [React](https://reactjs.org) | [SASS](https://sass-lang.com)
+- [React](https://reactjs.org) | [Sass](https://sass-lang.com)
 - [TypeORM](https://typeorm.io) | [Postgresql](https://www.postgresql.org)
 - [React Native Picker](https://github.com/react-native-picker/picker)
 - [React Native Collapsible ](https://github.com/oblador/react-native-collapsible)
