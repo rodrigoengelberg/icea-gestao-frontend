@@ -51,6 +51,7 @@ const MemberListPage: React.FC = () => {
               Novo Membro
             </Link>
           </div>
+
           <div className="card-body">
             {/*begin::Table */}
             <table className="table table-row-dashed table-hover table-row-gray-300 gy-7">
