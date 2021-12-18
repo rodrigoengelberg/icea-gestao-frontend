@@ -4,13 +4,43 @@ import { useDispatch } from 'react-redux'
 import { Link, useHistory } from 'react-router-dom'
 
 import { MemberModel } from '../models/MemberModel'
-import { getAllMembers } from '../redux/MemberCRUD'
+import { getAllMembers, getMembersCanVote } from '../redux/MemberCRUD'
 import * as membersSaga from '../redux/MemberRedux'
+
+interface IParamsExport {
+  data: any
+  fileName: any
+  fileType: any
+}
 
 const MemberListPage: React.FC = () => {
   const history = useHistory()
   const [members, setMembers] = useState<MemberModel[]>([])
   const dispatch = useDispatch()
+
+  const exportToCsv = () => {
+    let membersVote: MemberModel[]
+
+    getMembersCanVote()
+      .then(({ data: members }) => {
+        membersVote = members
+        const headers = ['Nome, Sobrenome, Data de Nascimento']
+        const membersCSV = membersVote.reduce<Array<string>>((acc, member) => {
+          const { first_name, last_name, birth_date } = member
+          acc.push([first_name, last_name, birth_date].join(','))
+          return acc
+        }, [])
+
+        downloadFile({
+          data: [...headers, ...membersCSV].join('\n'),
+          fileName: 'membrosVotantes.csv',
+          fileType: 'text/csv'
+        })
+      })
+      .catch(() => {
+        alert('Ocorreu um problema ao imprimir Membors Votantes')
+      })
+  }
 
   useEffect(() => {
     if (members) {
@@ -29,6 +59,21 @@ const MemberListPage: React.FC = () => {
     history.push('/members/edit/' + member.id)
   }
 
+  const downloadFile = ({ data, fileName, fileType }: IParamsExport) => {
+    const blob = new Blob([data], { type: fileType })
+
+    const a = document.createElement('a')
+    a.download = fileName
+    a.href = window.URL.createObjectURL(blob)
+    const clickEvt = new MouseEvent('click', {
+      view: window,
+      bubbles: true,
+      cancelable: true
+    })
+    a.dispatchEvent(clickEvt)
+    a.remove()
+  }
+
   return (
     <>
       <div className="card card-custom shadow">
@@ -44,6 +89,14 @@ const MemberListPage: React.FC = () => {
             </div>
           </div>
           <div className="card-toolbar pt-12 pb-6">
+            <button
+              type="button"
+              id="kt_add_member_form_pdf_button"
+              className="btn btn-secondary fw-bolder fs-6 px-7 py-3 me-3"
+              onClick={exportToCsv}
+            >
+              <span className="indicator-label">Membros Assembleia</span>
+            </button>
             <Link
               className="btn btn-primary fw-bolder fs-6 px-7 py-3"
               to="/members/add"

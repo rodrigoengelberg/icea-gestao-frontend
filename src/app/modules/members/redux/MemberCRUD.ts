@@ -86,6 +86,12 @@ export function getAllMembers() {
   return axios.get<MemberModel[]>(MEMBERS_URL)
 }
 
+export function getMembersCanVote() {
+  return axios.get<MemberModel[]>(
+    MEMBERS_URL + '/search?member_function=Membro&member_status=Ativo'
+  )
+}
+
 export function getNationalities() {
   return axios.get<NationalityModel[]>(MEMBERS_NATIONALITIES_URL)
 }
