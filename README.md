@@ -53,6 +53,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - [TypeORM](https://typeorm.io) | [Postgresql](https://www.postgresql.org)
 - [React Native Picker](https://github.com/react-native-picker/picker)
 - [React Native Collapsible ](https://github.com/oblador/react-native-collapsible)
+- [Vercel ](https://vercel.com)
 
 ## :rocket: Executando
 
