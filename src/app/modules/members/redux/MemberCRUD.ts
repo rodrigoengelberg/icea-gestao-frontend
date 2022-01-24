@@ -82,8 +82,8 @@ export function getMemberById(memberId: string) {
   return axios.get<MemberModel>(MEMBERS_URL + '/' + memberId)
 }
 
-export function getAllMembers() {
-  return axios.get<MemberModel[]>(MEMBERS_URL)
+export async function getAllMembers() {
+  return await axios.get<MemberModel[]>(MEMBERS_URL)
 }
 
 export function getMembersCanVote() {

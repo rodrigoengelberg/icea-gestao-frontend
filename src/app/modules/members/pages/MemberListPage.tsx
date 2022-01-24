@@ -1,7 +1,9 @@
 /*eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { Link, useHistory } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import DataTable from 'react-data-table-component'
+import 'react-data-table-component-extensions/dist/index.css'
 
 import { MemberModel } from '../models/MemberModel'
 import { getAllMembers, getMembersCanVote } from '../redux/MemberCRUD'
@@ -14,23 +16,46 @@ interface IParamsExport {
 }
 
 const MemberListPage: React.FC = () => {
-  const history = useHistory()
+  // const history = useHistory()
   const [members, setMembers] = useState<MemberModel[]>([])
   const dispatch = useDispatch()
+  let dataTable: MemberModel[] = []
 
-  const calculateRange = (data: any, rowsPerPage: any) => {
-    const range = []
-    const num = Math.ceil(data.length / rowsPerPage)
-    let i = 1;
-    for (let i = 1; i <= num; i++) {
-      range.push(i)
+  const columns = [
+    {
+      name: 'Nome',
+      selector: (row: MemberModel) => row.first_name,
+      sortable: true
+    },
+    {
+      name: 'E-mail',
+      selector: (row: MemberModel) => row.email,
+      sortable: true
+    },
+    {
+      name: 'Situação',
+      selector: (row: MemberModel) =>
+        row.member_spiritual && row.member_spiritual.member_status.length > 0
+          ? row.member_spiritual.member_status
+          : 'Não informado',
+      sortable: true
+    },
+    {
+      name: 'Gênero',
+      selector: (row: MemberModel) => row.gender,
+      sortable: true
+    },
+    {
+      name: 'Situação',
+      selector: (row: MemberModel) => row.member_spiritual,
+      sortable: true
+    },
+    {
+      name: 'Nascionalidade',
+      selector: (row: MemberModel) => row.nationality,
+      sortable: true
     }
-    return range
-  }
-
-  const sliceData = (data: any, page: any, rowsPerPage: any) => {
-    return data.slice((page - 1) * rowsPerPage, page * rowsPerPage)
-  }
+  ]
 
   const exportToCsv = () => {
     let membersVote: MemberModel[]
@@ -61,6 +86,7 @@ const MemberListPage: React.FC = () => {
       getAllMembers()
         .then(({ data: members }) => {
           setMembers(members)
+          members.map(member => dataTable.push(member))
           dispatch(membersSaga.actions.fulfillMembers(members))
         })
         .catch(() => {
@@ -69,9 +95,9 @@ const MemberListPage: React.FC = () => {
     }
   }, [])
 
-  const selectedMember = (member: MemberModel) => {
-    history.push('/members/edit/' + member.id)
-  }
+  // const selectedMember = (member: MemberModel) => {
+  //   history.push('/members/edit/' + member.id)
+  // }
 
   const downloadFile = ({ data, fileName, fileType }: IParamsExport) => {
     const blob = new Blob([data], { type: fileType })
@@ -121,7 +147,22 @@ const MemberListPage: React.FC = () => {
 
           <div className="card-body">
             {/*begin::Table */}
-            <table className="table table-row-dashed table-hover table-row-gray-300 gy-7">
+
+            {dataTable && dataTable.length > 0 ? (
+              <DataTable
+                columns={columns}
+                data={dataTable}
+                noHeader
+                defaultSortFieldId="id"
+                defaultSortAsc={false}
+                pagination
+                highlightOnHover
+              />
+            ) : (
+              <div>Não há membros cadastrados</div>
+            )}
+
+            {/* <table className="table table-row-dashed table-hover table-row-gray-300 gy-7">
               <thead>
                 <tr className="fw-bolder fs-6 text-gray-800">
                   <th>Nome</th>
@@ -158,7 +199,7 @@ const MemberListPage: React.FC = () => {
                   <div>Não há membros cadastrados</div>
                 )}
               </tbody>
-            </table>
+            </table> */}
             {/*end::Table */}
           </div>
         </div>
