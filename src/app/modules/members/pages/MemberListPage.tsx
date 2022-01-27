@@ -148,7 +148,7 @@ const MemberListPage: React.FC = () => {
           <div className="card-body">
             {/*begin::Table */}
 
-            {dataTable && dataTable.length > 0 ? (
+            {/* {dataTable && dataTable.length > 0 ? (
               <DataTable
                 columns={columns}
                 data={dataTable}
@@ -160,9 +160,9 @@ const MemberListPage: React.FC = () => {
               />
             ) : (
               <div>Não há membros cadastrados</div>
-            )}
+            )} */}
 
-            {/* <table className="table table-row-dashed table-hover table-row-gray-300 gy-7">
+            <table className="table table-row-dashed table-hover table-row-gray-300 gy-7">
               <thead>
                 <tr className="fw-bolder fs-6 text-gray-800">
                   <th>Nome</th>
@@ -199,8 +199,8 @@ const MemberListPage: React.FC = () => {
                   <div>Não há membros cadastrados</div>
                 )}
               </tbody>
-            </table> */
-            {/*end::Table
+            </table>
+
           </div>
         </div>
       </div>
