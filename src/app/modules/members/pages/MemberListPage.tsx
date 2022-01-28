@@ -1,7 +1,7 @@
 /*eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 // import DataTable from 'react-data-table-component'
 import 'react-data-table-component-extensions/dist/index.css'
 
@@ -16,7 +16,7 @@ interface IParamsExport {
 }
 
 const MemberListPage: React.FC = () => {
-  // const history = useHistory()
+  const history = useHistory()
   const [members, setMembers] = useState<MemberModel[]>([])
   const dispatch = useDispatch()
   let dataTable: MemberModel[] = []
@@ -95,9 +95,9 @@ const MemberListPage: React.FC = () => {
     }
   }, [])
 
-  // const selectedMember = (member: MemberModel) => {
-  //   history.push('/members/edit/' + member.id)
-  // }
+  const selectedMember = (member: MemberModel) => {
+    history.push('/members/edit/' + member.id)
+  }
 
   const downloadFile = ({ data, fileName, fileType }: IParamsExport) => {
     const blob = new Blob([data], { type: fileType })
