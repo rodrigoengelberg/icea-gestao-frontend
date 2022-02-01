@@ -21,41 +21,41 @@ const MemberListPage: React.FC = () => {
   const dispatch = useDispatch()
   let dataTable: MemberModel[] = []
 
-  const columns = [
-    {
-      name: 'Nome',
-      selector: (row: MemberModel) => row.first_name,
-      sortable: true
-    },
-    {
-      name: 'E-mail',
-      selector: (row: MemberModel) => row.email,
-      sortable: true
-    },
-    {
-      name: 'Situação',
-      selector: (row: MemberModel) =>
-        row.member_spiritual && row.member_spiritual.member_status.length > 0
-          ? row.member_spiritual.member_status
-          : 'Não informado',
-      sortable: true
-    },
-    {
-      name: 'Gênero',
-      selector: (row: MemberModel) => row.gender,
-      sortable: true
-    },
-    {
-      name: 'Situação',
-      selector: (row: MemberModel) => row.member_spiritual,
-      sortable: true
-    },
-    {
-      name: 'Nascionalidade',
-      selector: (row: MemberModel) => row.nationality,
-      sortable: true
-    }
-  ]
+  // const columns = [
+  //   {
+  //     name: 'Nome',
+  //     selector: (row: MemberModel) => row.first_name,
+  //     sortable: true
+  //   },
+  //   {
+  //     name: 'E-mail',
+  //     selector: (row: MemberModel) => row.email,
+  //     sortable: true
+  //   },
+  //   {
+  //     name: 'Situação',
+  //     selector: (row: MemberModel) =>
+  //       row.member_spiritual && row.member_spiritual.member_status.length > 0
+  //         ? row.member_spiritual.member_status
+  //         : 'Não informado',
+  //     sortable: true
+  //   },
+  //   {
+  //     name: 'Gênero',
+  //     selector: (row: MemberModel) => row.gender,
+  //     sortable: true
+  //   },
+  //   {
+  //     name: 'Situação',
+  //     selector: (row: MemberModel) => row.member_spiritual,
+  //     sortable: true
+  //   },
+  //   {
+  //     name: 'Nascionalidade',
+  //     selector: (row: MemberModel) => row.nationality,
+  //     sortable: true
+  //   }
+  // ]
 
   const exportToCsv = () => {
     let membersVote: MemberModel[]
