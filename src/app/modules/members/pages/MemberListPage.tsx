@@ -2,8 +2,8 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { Link, useHistory } from 'react-router-dom'
-// import DataTable from 'react-data-table-component'
-import 'react-data-table-component-extensions/dist/index.css'
+import { MDBDataTable, MDBDataTableV5 } from 'mdbreact'
+// import 'react-data-table-component-extensions/dist/index.css'
 
 import { MemberModel } from '../models/MemberModel'
 import { getAllMembers, getMembersCanVote } from '../redux/MemberCRUD'
@@ -56,6 +56,90 @@ const MemberListPage: React.FC = () => {
   //     sortable: true
   //   }
   // ]
+
+  const [datatable, setDatatable] = React.useState({
+    columns: [
+      {
+        label: 'Name',
+        field: 'name',
+        width: 150,
+        attributes: {
+          'aria-controls': 'DataTable',
+          'aria-label': 'Name',
+        },
+      },
+      {
+        label: 'Position',
+        field: 'position',
+        width: 270,
+      },
+      {
+        label: 'Office',
+        field: 'office',
+        width: 200,
+      },
+      {
+        label: 'Age',
+        field: 'age',
+        sort: 'asc',
+        width: 100,
+      },
+      {
+        label: 'Start date',
+        field: 'date',
+        sort: 'disabled',
+        width: 150,
+      },
+      {
+        label: 'Salary',
+        field: 'salary',
+        sort: 'disabled',
+        width: 100,
+      },
+    ],
+    rows: [
+      {
+        name: 'Tiger Nixon',
+        position: 'System Architect',
+        office: 'Edinburgh',
+        age: '61',
+        date: '2011/04/25',
+        salary: '$320',
+      },
+      {
+        name: 'Garrett Winters',
+        position: 'Accountant',
+        office: 'Tokyo',
+        age: '63',
+        date: '2011/07/25',
+        salary: '$170',
+      },
+      {
+        name: 'Ashton Cox',
+        position: 'Junior Technical Author',
+        office: 'San Francisco',
+        age: '66',
+        date: '2009/01/12',
+        salary: '$86',
+      },
+      {
+        name: 'Cedric Kelly',
+        position: 'Senior Javascript Developer',
+        office: 'Edinburgh',
+        age: '22',
+        date: '2012/03/29',
+        salary: '$433',
+      },
+      {
+        name: 'Airi Satou',
+        position: 'Accountant',
+        office: 'Tokyo',
+        age: '33',
+        date: '2008/11/28',
+        salary: '$162',
+      },
+    ],
+  })
 
   const exportToCsv = () => {
     let membersVote: MemberModel[]
@@ -146,23 +230,15 @@ const MemberListPage: React.FC = () => {
           </div>
 
           <div className="card-body">
-            {/*begin::Table */}
 
-            {/* {dataTable && dataTable.length > 0 ? (
-              <DataTable
-                columns={columns}
-                data={dataTable}
-                noHeader
-                defaultSortFieldId="id"
-                defaultSortAsc={false}
-                pagination
-                highlightOnHover
-              />
-            ) : (
-              <div>Não há membros cadastrados</div>
-            )} */}
+          <MDBDataTable
+            striped
+            bordered
+            small
+            data={datatable}
+          />
 
-            <table className="table table-row-dashed table-hover table-row-gray-300 gy-7">
+            {/* <table className="table table-row-dashed table-hover table-row-gray-300 gy-7">
               <thead>
                 <tr className="fw-bolder fs-6 text-gray-800">
                   <th>Nome</th>
@@ -199,7 +275,7 @@ const MemberListPage: React.FC = () => {
                   <div>Não há membros cadastrados</div>
                 )}
               </tbody>
-            </table>
+            </table> */}
 
           </div>
         </div>
