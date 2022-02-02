@@ -1,8 +1,8 @@
 /*eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { Link, useHistory } from 'react-router-dom'
-import { MDBDataTable, MDBDataTableV5 } from 'mdbreact'
+import { Link } from 'react-router-dom'
+import { MDBDataTable } from 'mdbreact'
 // import 'react-data-table-component-extensions/dist/index.css'
 
 import { MemberModel } from '../models/MemberModel'
@@ -16,10 +16,9 @@ interface IParamsExport {
 }
 
 const MemberListPage: React.FC = () => {
-  const history = useHistory()
+  // const history = useHistory()
   const [members, setMembers] = useState<MemberModel[]>([])
   const dispatch = useDispatch()
-  let dataTable: MemberModel[] = []
 
   // const columns = [
   //   {
@@ -57,7 +56,7 @@ const MemberListPage: React.FC = () => {
   //   }
   // ]
 
-  const [datatable, setDatatable] = React.useState({
+  const [datatable] = React.useState({
     columns: [
       {
         label: 'Name',
@@ -65,37 +64,37 @@ const MemberListPage: React.FC = () => {
         width: 150,
         attributes: {
           'aria-controls': 'DataTable',
-          'aria-label': 'Name',
-        },
+          'aria-label': 'Name'
+        }
       },
       {
         label: 'Position',
         field: 'position',
-        width: 270,
+        width: 270
       },
       {
         label: 'Office',
         field: 'office',
-        width: 200,
+        width: 200
       },
       {
         label: 'Age',
         field: 'age',
         sort: 'asc',
-        width: 100,
+        width: 100
       },
       {
         label: 'Start date',
         field: 'date',
         sort: 'disabled',
-        width: 150,
+        width: 150
       },
       {
         label: 'Salary',
         field: 'salary',
         sort: 'disabled',
-        width: 100,
-      },
+        width: 100
+      }
     ],
     rows: [
       {
@@ -104,7 +103,7 @@ const MemberListPage: React.FC = () => {
         office: 'Edinburgh',
         age: '61',
         date: '2011/04/25',
-        salary: '$320',
+        salary: '$320'
       },
       {
         name: 'Garrett Winters',
@@ -112,7 +111,7 @@ const MemberListPage: React.FC = () => {
         office: 'Tokyo',
         age: '63',
         date: '2011/07/25',
-        salary: '$170',
+        salary: '$170'
       },
       {
         name: 'Ashton Cox',
@@ -120,7 +119,7 @@ const MemberListPage: React.FC = () => {
         office: 'San Francisco',
         age: '66',
         date: '2009/01/12',
-        salary: '$86',
+        salary: '$86'
       },
       {
         name: 'Cedric Kelly',
@@ -128,7 +127,7 @@ const MemberListPage: React.FC = () => {
         office: 'Edinburgh',
         age: '22',
         date: '2012/03/29',
-        salary: '$433',
+        salary: '$433'
       },
       {
         name: 'Airi Satou',
@@ -136,9 +135,9 @@ const MemberListPage: React.FC = () => {
         office: 'Tokyo',
         age: '33',
         date: '2008/11/28',
-        salary: '$162',
-      },
-    ],
+        salary: '$162'
+      }
+    ]
   })
 
   const exportToCsv = () => {
@@ -170,7 +169,7 @@ const MemberListPage: React.FC = () => {
       getAllMembers()
         .then(({ data: members }) => {
           setMembers(members)
-          members.map(member => dataTable.push(member))
+          // members.map(member => setDatatable(member))
           dispatch(membersSaga.actions.fulfillMembers(members))
         })
         .catch(() => {
@@ -179,9 +178,9 @@ const MemberListPage: React.FC = () => {
     }
   }, [])
 
-  const selectedMember = (member: MemberModel) => {
-    history.push('/members/edit/' + member.id)
-  }
+  // const selectedMember = (member: MemberModel) => {
+  //   history.push('/members/edit/' + member.id)
+  // }
 
   const downloadFile = ({ data, fileName, fileType }: IParamsExport) => {
     const blob = new Blob([data], { type: fileType })
@@ -230,13 +229,7 @@ const MemberListPage: React.FC = () => {
           </div>
 
           <div className="card-body">
-
-          <MDBDataTable
-            striped
-            bordered
-            small
-            data={datatable}
-          />
+            <MDBDataTable striped bordered small data={datatable} />
 
             {/* <table className="table table-row-dashed table-hover table-row-gray-300 gy-7">
               <thead>
@@ -276,7 +269,6 @@ const MemberListPage: React.FC = () => {
                 )}
               </tbody>
             </table> */}
-
           </div>
         </div>
       </div>
