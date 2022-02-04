@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { MDBDataTable } from 'mdbreact'
-// import 'react-data-table-component-extensions/dist/index.css'
 
 import { MemberModel } from '../models/MemberModel'
 import { getAllMembers, getMembersCanVote } from '../redux/MemberCRUD'
@@ -59,7 +58,7 @@ const MemberListPage: React.FC = () => {
   const [datatable] = React.useState({
     columns: [
       {
-        label: 'Name',
+        label: 'Nome',
         field: 'name',
         width: 150,
         attributes: {
@@ -68,29 +67,29 @@ const MemberListPage: React.FC = () => {
         }
       },
       {
-        label: 'Position',
+        label: 'E-mail',
         field: 'position',
         width: 270
       },
       {
-        label: 'Office',
+        label: 'Situação',
         field: 'office',
         width: 200
       },
       {
-        label: 'Age',
+        label: 'Gênero',
         field: 'age',
         sort: 'asc',
         width: 100
       },
       {
-        label: 'Start date',
+        label: 'Estado civil',
         field: 'date',
         sort: 'disabled',
         width: 150
       },
       {
-        label: 'Salary',
+        label: 'Nascionalidade',
         field: 'salary',
         sort: 'disabled',
         width: 100
