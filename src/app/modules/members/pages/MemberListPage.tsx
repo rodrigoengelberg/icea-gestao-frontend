@@ -14,10 +14,15 @@ interface IParamsExport {
   fileType: any
 }
 
+interface IPageList {
+  pagelist: any
+}
+
 const MemberListPage: React.FC = () => {
   // const history = useHistory()
   const [members, setMembers] = useState<MemberModel[]>([])
   const dispatch = useDispatch()
+  const [state, setState] = useState<IPageList>()
 
   // const columns = [
   //   {
@@ -95,7 +100,7 @@ const MemberListPage: React.FC = () => {
         width: 100
       }
     ],
-    rows: []
+    rows: state?.pagelist
   })
 
   const exportToCsv = () => {
@@ -127,7 +132,7 @@ const MemberListPage: React.FC = () => {
       getAllMembers()
         .then(({ data: members }) => {
           setMembers(members)
-          // members.map(member => setDatatable(member))
+          setState({ pagelist: members })
           dispatch(membersSaga.actions.fulfillMembers(members))
         })
         .catch(() => {
@@ -187,7 +192,14 @@ const MemberListPage: React.FC = () => {
           </div>
 
           <div className="card-body">
-            <MDBDataTable striped bordered small data={datatable} />
+            <MDBDataTable
+              striped
+              displayEntries={false}
+              hover
+              bordered
+              small
+              data={datatable}
+            />
 
             {/* <table className="table table-row-dashed table-hover table-row-gray-300 gy-7">
               <thead>
