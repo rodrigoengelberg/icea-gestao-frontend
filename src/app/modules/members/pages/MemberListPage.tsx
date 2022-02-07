@@ -1,7 +1,7 @@
 /*eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { Link, useHistory } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { MDBDataTable } from 'mdbreact'
 
 import { MemberModel } from '../models/MemberModel'
@@ -15,7 +15,7 @@ interface IParamsExport {
 }
 
 const MemberListPage: React.FC = () => {
-  const history = useHistory()
+  // const history = useHistory()
   const [members, setMembers] = useState<MemberModel[]>([])
   const dispatch = useDispatch()
 
@@ -136,9 +136,9 @@ const MemberListPage: React.FC = () => {
     }
   }, [])
 
-  const selectedMember = (member: MemberModel) => {
-    history.push('/members/edit/' + member.id)
-  }
+  // const selectedMember = (member: MemberModel) => {
+  //   history.push('/members/edit/' + member.id)
+  // }
 
   const downloadFile = ({ data, fileName, fileType }: IParamsExport) => {
     const blob = new Blob([data], { type: fileType })
