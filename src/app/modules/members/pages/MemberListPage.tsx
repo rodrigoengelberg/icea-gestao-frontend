@@ -1,7 +1,7 @@
 /*eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { Link, useHistory } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { MDBDataTable } from 'mdbreact'
 
 import { MemberModel } from '../models/MemberModel'
@@ -19,46 +19,46 @@ interface IPageList {
 }
 
 const MemberListPage: React.FC = () => {
-  const history = useHistory()
+  // const history = useHistory()
   const [members, setMembers] = useState<MemberModel[]>([])
   const dispatch = useDispatch()
   const [state, setState] = useState<IPageList>()
 
-  const columns = [
-    {
-      name: 'Nome',
-      selector: (row: MemberModel) => row.first_name,
-      sortable: true
-    },
-    {
-      name: 'E-mail',
-      selector: (row: MemberModel) => row.email,
-      sortable: true
-    },
-    {
-      name: 'Situação',
-      selector: (row: MemberModel) =>
-        row.member_spiritual && row.member_spiritual.member_status.length > 0
-          ? row.member_spiritual.member_status
-          : 'Não informado',
-      sortable: true
-    },
-    {
-      name: 'Gênero',
-      selector: (row: MemberModel) => row.gender,
-      sortable: true
-    },
-    {
-      name: 'Situação',
-      selector: (row: MemberModel) => row.member_spiritual,
-      sortable: true
-    },
-    {
-      name: 'Nascionalidade',
-      selector: (row: MemberModel) => row.nationality,
-      sortable: true
-    }
-  ]
+  // const columns = [
+  //   {
+  //     name: 'Nome',
+  //     selector: (row: MemberModel) => row.first_name,
+  //     sortable: true
+  //   },
+  //   {
+  //     name: 'E-mail',
+  //     selector: (row: MemberModel) => row.email,
+  //     sortable: true
+  //   },
+  //   {
+  //     name: 'Situação',
+  //     selector: (row: MemberModel) =>
+  //       row.member_spiritual && row.member_spiritual.member_status.length > 0
+  //         ? row.member_spiritual.member_status
+  //         : 'Não informado',
+  //     sortable: true
+  //   },
+  //   {
+  //     name: 'Gênero',
+  //     selector: (row: MemberModel) => row.gender,
+  //     sortable: true
+  //   },
+  //   {
+  //     name: 'Situação',
+  //     selector: (row: MemberModel) => row.member_spiritual,
+  //     sortable: true
+  //   },
+  //   {
+  //     name: 'Nascionalidade',
+  //     selector: (row: MemberModel) => row.nationality,
+  //     sortable: true
+  //   }
+  // ]
 
   const [datatable] = React.useState({
     columns: [
@@ -141,9 +141,9 @@ const MemberListPage: React.FC = () => {
     }
   }, [])
 
-  const selectedMember = (member: MemberModel) => {
-    history.push('/members/edit/' + member.id)
-  }
+  // const selectedMember = (member: MemberModel) => {
+  //   history.push('/members/edit/' + member.id)
+  // }
 
   const downloadFile = ({ data, fileName, fileType }: IParamsExport) => {
     const blob = new Blob([data], { type: fileType })
