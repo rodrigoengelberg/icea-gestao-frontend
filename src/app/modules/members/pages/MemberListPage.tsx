@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { MDBDataTable } from 'mdbreact'
+import SmartDataTable from 'react-smart-data-table'
 
 import { MemberModel } from '../models/MemberModel'
 import { getAllMembers, getMembersCanVote } from '../redux/MemberCRUD'
@@ -14,94 +14,62 @@ interface IParamsExport {
   fileType: any
 }
 
-interface IPageList {
-  pagelist: any
-}
+// interface IPageList {
+//   pagelist: any
+// }
 
 const MemberListPage: React.FC = () => {
   // const history = useHistory()
   const [members, setMembers] = useState<MemberModel[]>([])
   const dispatch = useDispatch()
-  const [state, setState] = useState<IPageList>()
+  // const [setState] = useState<IPageList>()
 
-  // const columns = [
-  //   {
-  //     name: 'Nome',
-  //     selector: (row: MemberModel) => row.first_name,
-  //     sortable: true
+  // const headers = {
+  //   first_name: {
+  //     text: 'Nome',
+  //     invisible: false,
+  //     sortable: true,
+  //     filterable: true,
+  //     tranform: (value: string, index: any, row: any) => {
+  //       return value + ' ' + row.last_name
+  //     }
   //   },
-  //   {
-  //     name: 'E-mail',
-  //     selector: (row: MemberModel) => row.email,
-  //     sortable: true
+  //   email: {
+  //     text: 'E-mail',
+  //     invisible: false,
+  //     sortable: true,
+  //     filterable: true
   //   },
-  //   {
-  //     name: 'Situação',
-  //     selector: (row: MemberModel) =>
-  //       row.member_spiritual && row.member_spiritual.member_status.length > 0
-  //         ? row.member_spiritual.member_status
-  //         : 'Não informado',
-  //     sortable: true
+  //   'member_spiritual.member_status': {
+  //     text: 'Situação',
+  //     invisible: false,
+  //     sortable: true,
+  //     filterable: true
   //   },
-  //   {
-  //     name: 'Gênero',
-  //     selector: (row: MemberModel) => row.gender,
-  //     sortable: true
+  //   gender: {
+  //     text: 'Gênero',
+  //     invisible: false,
+  //     sortable: true,
+  //     filterable: true
   //   },
-  //   {
-  //     name: 'Situação',
-  //     selector: (row: MemberModel) => row.member_spiritual,
-  //     sortable: true
+  //   marital_status: {
+  //     text: 'Estado civil',
+  //     invisible: false,
+  //     sortable: true,
+  //     filterable: true
   //   },
-  //   {
-  //     name: 'Nascionalidade',
-  //     selector: (row: MemberModel) => row.nationality,
-  //     sortable: true
+  //   nationality: {
+  //     text: 'Nascionalidade',
+  //     invisible: false,
+  //     sortable: true,
+  //     filterable: true
   //   }
-  // ]
+  // }
 
-  const [datatable] = React.useState({
-    columns: [
-      {
-        label: 'Nome',
-        field: 'first_name',
-        width: 150,
-        attributes: {
-          'aria-controls': 'DataTable',
-          'aria-label': 'Name'
-        }
-      },
-      {
-        label: 'E-mail',
-        field: 'email',
-        width: 270
-      },
-      {
-        label: 'Situação',
-        field: 'member_spiritual',
-        width: 200
-      },
-      {
-        label: 'Gênero',
-        field: 'gender',
-        sort: 'asc',
-        width: 100
-      },
-      {
-        label: 'Estado civil',
-        field: 'marital_status',
-        sort: 'disabled',
-        width: 150
-      },
-      {
-        label: 'Nascionalidade',
-        field: 'nationality',
-        sort: 'disabled',
-        width: 100
-      }
-    ],
-    rows: state?.pagelist
-  })
+  // const onRowClick = (event, { rowData, rowIndex, tableData }) => {
+  //   // The following results should be identical
+  //   console.log(rowData, tableData[rowIndex])
+  // }
 
   const exportToCsv = () => {
     let membersVote: MemberModel[]
@@ -132,7 +100,7 @@ const MemberListPage: React.FC = () => {
       getAllMembers()
         .then(({ data: members }) => {
           setMembers(members)
-          setState({ pagelist: members })
+          // setState({ pagelist: members })
           dispatch(membersSaga.actions.fulfillMembers(members))
         })
         .catch(() => {
@@ -140,6 +108,24 @@ const MemberListPage: React.FC = () => {
         })
     }
   }, [])
+
+  const testData = []
+  const numResults = 100
+  const perPage = 10
+
+  for (let i = 0; i < numResults; i++) {
+    testData.push({
+      _id: i,
+      fullName: 'Teste',
+      'email.address': 'teste@teste.com',
+      phone_number: 123456,
+      address: {
+        city: 'Anápolis City',
+        state: 'GO',
+        country: 'Brasil'
+      }
+    })
+  }
 
   // const selectedMember = (member: MemberModel) => {
   //   history.push('/members/edit/' + member.id)
@@ -192,13 +178,15 @@ const MemberListPage: React.FC = () => {
           </div>
 
           <div className="card-body">
-            <MDBDataTable
-              striped
-              displayEntries={false}
-              hover
-              bordered
-              small
-              data={datatable}
+            <SmartDataTable
+              className="table table-row-dashed table-hover table-row-gray-300 gy-7"
+              pagination="true"
+              // headers={headers}
+              data={testData}
+              dataKey="pagelist"
+              name="test-table"
+              perPage={perPage}
+              paginator={testData.length < perPage ? () => null : undefined}
             />
 
             {/* <table className="table table-row-dashed table-hover table-row-gray-300 gy-7">
