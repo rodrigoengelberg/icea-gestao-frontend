@@ -111,7 +111,7 @@ const MemberListPage: React.FC = () => {
 
   const testData = []
   const numResults = 100
-  const perPage = 10
+  const perPage = 5
 
   for (let i = 0; i < numResults; i++) {
     testData.push({

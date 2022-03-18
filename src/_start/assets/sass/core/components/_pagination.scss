@@ -3,143 +3,143 @@
 //
 
 .pagination {
-	display:flex;
-	flex-wrap: wrap;
-	justify-content: center;
-	margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0;
 }
 
 .page-item {
-    margin-right: $pagination-item-space;
+  margin-right: $pagination-item-space;
 
-	&:last-child {
-        margin-right: 0;
+  &:last-child {
+    margin-right: 0;
+  }
+
+  .page-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: $btn-border-radius;
+    height: $pagination-item-height;
+    min-width: $pagination-item-height;
+    font-weight: $pagination-font-weight;
+    font-size: $pagination-font-size;
+
+    i {
+      font-size: $pagination-icon-font-size;
     }
 
-	.page-link {
-		display:flex;
-		justify-content: center;
-		align-items: center;
-		border-radius: $btn-border-radius;
-		height: $pagination-item-height;
-		min-width: $pagination-item-height;
-		font-weight: $pagination-font-weight;
-		font-size: $pagination-font-size;
+    .previous,
+    .next {
+      display: block;
+      height: $pagination-icon-height;
+      width: $pagination-icon-height;
+    }
+  }
 
-		i {
-			font-size: $pagination-icon-font-size;
-		}
+  &.next:not(:hover):not(:focus):not(.disabled),
+  &.previous:not(:hover):not(:focus):not(.disabled) {
+    .page-link {
+      background-color: $pagination-item-bg;
 
-		.previous,
-		.next {
-			display: block;
-			height: $pagination-icon-height;
-			width: $pagination-icon-height;
-		}
-	}
+      i {
+        color: $pagination-color;
+      }
 
-	&.next:not(:hover):not(:focus):not(.disabled),
-	&.previous:not(:hover):not(:focus):not(.disabled) {
-		.page-link {
-			background-color: $pagination-item-bg;
+      .svg-icon {
+        @include svg-icon-color($pagination-color);
+      }
 
-			i {
-				color: $pagination-color;
-			}
-	
-			.svg-icon {
-				@include svg-icon-color($pagination-color);
-			}
+      .previous {
+        @include svg-bg-icon(arrow-start, $pagination-color);
+      }
 
-			.previous {
-				@include svg-bg-icon(arrow-start, $pagination-color);
-			}
+      .next {
+        @include svg-bg-icon(arrow-end, $pagination-color);
+      }
+    }
+  }
 
-			.next {
-				@include svg-bg-icon(arrow-end, $pagination-color);
-			}
-		}
-	}
+  &:focus:not(.disabled) {
+    .page-link {
+      i {
+        color: $pagination-focus-color;
+      }
 
-	&:focus:not(.disabled) {
-		.page-link {
-			i {
-				color: $pagination-focus-color;
-			}
-	
-			.svg-icon {
-				@include svg-icon-color($pagination-focus-color);
-			}			
+      .svg-icon {
+        @include svg-icon-color($pagination-focus-color);
+      }
 
-			.previous {
-				@include svg-bg-icon(arrow-start, $pagination-focus-color);
-			}
+      .previous {
+        @include svg-bg-icon(arrow-start, $pagination-focus-color);
+      }
 
-			.next {
-				@include svg-bg-icon(arrow-end, $pagination-focus-color);
-			}
-		}
-	}
+      .next {
+        @include svg-bg-icon(arrow-end, $pagination-focus-color);
+      }
+    }
+  }
 
-	&:hover:not(.disabled) {
-		.page-link {
-			i {
-				color: $pagination-hover-color;
-			}
-	
-			.svg-icon {
-				@include svg-icon-color($pagination-hover-color);
-			}
+  &:hover:not(.disabled) {
+    .page-link {
+      i {
+        color: $pagination-hover-color;
+      }
 
-			.previous {
-				@include svg-bg-icon(arrow-start, $pagination-hover-color);
-			}
+      .svg-icon {
+        @include svg-icon-color($pagination-hover-color);
+      }
 
-			.next {
-				@include svg-bg-icon(arrow-end, $pagination-hover-color);
-			}
-		}
-	}
+      .previous {
+        @include svg-bg-icon(arrow-start, $pagination-hover-color);
+      }
 
-	&.active {
-		.page-link {
-			i {
-				color: $pagination-active-color;
-			}
-	
-			.svg-icon {
-				@include svg-icon-color($pagination-active-color);
-			}
+      .next {
+        @include svg-bg-icon(arrow-end, $pagination-hover-color);
+      }
+    }
+  }
 
-			.previous {
-				@include svg-bg-icon(arrow-start, $pagination-active-color);
-			}
+  &.active {
+    .page-link {
+      i {
+        color: $pagination-active-color;
+      }
 
-			.next {
-				@include svg-bg-icon(arrow-end, $pagination-active-color);
-			}
-		}
-	}
+      .svg-icon {
+        @include svg-icon-color($pagination-active-color);
+      }
 
-	&.disabled {
-		.page-link {
-			i {
-				color: $pagination-disabled-color;
-			}
-	
-			.svg-icon {
-				@include svg-icon-color($pagination-disabled-color);
-			}
+      .previous {
+        @include svg-bg-icon(arrow-start, $pagination-active-color);
+      }
 
-			.previous {
-				@include svg-bg-icon(arrow-start, $pagination-disabled-color);
-			}
+      .next {
+        @include svg-bg-icon(arrow-end, $pagination-active-color);
+      }
+    }
+  }
 
-			.next {
-				@include svg-bg-icon(arrow-end, $pagination-disabled-color);
-			}
-		}
-	}
+  &.disabled {
+    .page-link {
+      i {
+        color: $pagination-disabled-color;
+      }
+
+      .svg-icon {
+        @include svg-icon-color($pagination-disabled-color);
+      }
+
+      .previous {
+        @include svg-bg-icon(arrow-start, $pagination-disabled-color);
+      }
+
+      .next {
+        @include svg-bg-icon(arrow-end, $pagination-disabled-color);
+      }
+    }
+  }
 }
 
 //
@@ -147,161 +147,69 @@
 //
 
 .rsdt {
-	display:flex;
-	flex-wrap: wrap;
-	justify-content: center;
-	margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0;
 }
 
 .rsdt-paginate {
-    margin-right: $pagination-item-space;
+  margin-right: $pagination-item-space;
 
-	&:last-child {
-        margin-right: 0;
+  &:last-child {
+    margin-right: 0;
+  }
+
+  .button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: $btn-border-radius;
+    height: $pagination-item-height;
+    min-width: $pagination-item-height;
+    font-weight: $pagination-font-weight;
+    font-size: $pagination-font-size;
+
+    .previous,
+    .next {
+      display: block;
+      height: $pagination-icon-height;
+      width: $pagination-icon-height;
     }
+    background-color: $pagination-item-bg;
+    color: $pagination-color;
+  }
 
-	.button {
-		display:flex;
-		justify-content: center;
-		align-items: center;
-		border-radius: $btn-border-radius;
-		height: $pagination-item-height;
-		min-width: $pagination-item-height;
-		font-weight: $pagination-font-weight;
-		font-size: $pagination-font-size;
+  &.next:not(:hover):not(:focus):not(.disabled),
+  &.previous:not(:hover):not(:focus):not(.disabled) {
+    .button {
+      background-color: $pagination-item-bg;
+      color: $pagination-color;
+    }
+  }
 
-		i {
-			font-size: $pagination-icon-font-size;
-		}
+  &:focus:not(.disabled) {
+    .button {
+      color: $pagination-focus-color;
+    }
+  }
 
-		.previous,
-		.next {
-			display: block;
-			height: $pagination-icon-height;
-			width: $pagination-icon-height;
-		}
-	}
+  &:hover:not(.disabled) {
+    .button {
+      color: $pagination-hover-color;
+    }
+  }
 
-	.button {
-		background-color: $pagination-item-bg;
+  &.active {
+    .button {
+			background-color: $gray-400;
+      color: $pagination-active-color;
+    }
+  }
 
-		i {
-			color: $pagination-color;
-		}
-
-		.svg-icon {
-			@include svg-icon-color($pagination-color);
-		}
-
-		.previous {
-			@include svg-bg-icon(arrow-start, $pagination-color);
-		}
-
-		.next {
-			@include svg-bg-icon(arrow-end, $pagination-color);
-		}
-	}
-
-	&.next:not(:hover):not(:focus):not(.disabled),
-	&.previous:not(:hover):not(:focus):not(.disabled) {
-		.button {
-			background-color: $pagination-item-bg;
-
-			i {
-				color: $pagination-color;
-			}
-	
-			.svg-icon {
-				@include svg-icon-color($pagination-color);
-			}
-
-			.previous {
-				@include svg-bg-icon(arrow-start, $pagination-color);
-			}
-
-			.next {
-				@include svg-bg-icon(arrow-end, $pagination-color);
-			}
-		}
-	}
-
-	&:focus:not(.disabled) {
-		.button {
-			i {
-				color: $pagination-focus-color;
-			}
-	
-			.svg-icon {
-				@include svg-icon-color($pagination-focus-color);
-			}			
-
-			.previous {
-				@include svg-bg-icon(arrow-start, $pagination-focus-color);
-			}
-
-			.next {
-				@include svg-bg-icon(arrow-end, $pagination-focus-color);
-			}
-		}
-	}
-
-	&:hover:not(.disabled) {
-		.button {
-			i {
-				color: $pagination-hover-color;
-			}
-	
-			.svg-icon {
-				@include svg-icon-color($pagination-hover-color);
-			}
-
-			.previous {
-				@include svg-bg-icon(arrow-start, $pagination-hover-color);
-			}
-
-			.next {
-				@include svg-bg-icon(arrow-end, $pagination-hover-color);
-			}
-		}
-	}
-
-	&.active {
-		.button {
-			i {
-				color: $pagination-active-color;
-			}
-	
-			.svg-icon {
-				@include svg-icon-color($pagination-active-color);
-			}
-
-			.previous {
-				@include svg-bg-icon(arrow-start, $pagination-active-color);
-			}
-
-			.next {
-				@include svg-bg-icon(arrow-end, $pagination-active-color);
-			}
-		}
-	}
-
-	&.disabled {
-		.button {
-			i {
-				color: $pagination-disabled-color;
-			}
-	
-			.svg-icon {
-				@include svg-icon-color($pagination-disabled-color);
-			}
-
-			.previous {
-				@include svg-bg-icon(arrow-start, $pagination-disabled-color);
-			}
-
-			.next {
-				@include svg-bg-icon(arrow-end, $pagination-disabled-color);
-			}
-		}
-	}
+  &.disabled {
+    .button {
+      color: $pagination-disabled-color;
+    }
+  }
 }
