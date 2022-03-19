@@ -146,70 +146,34 @@
 // Pagination React Smart Data Table
 //
 
-.rsdt {
+.rsdt-paginate {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   margin: 0;
 }
 
-.rsdt-paginate {
+.button {
   margin-right: $pagination-item-space;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: $btn-border-radius;
+  background-color: $pagination-item-bg;
+  color: $pagination-color;
+  height: $pagination-item-height;
+  min-width: $pagination-item-height;
+  font-weight: $pagination-font-weight;
+  font-size: $pagination-font-size;
 
-  &:last-child {
-    margin-right: 0;
-  }
-
-  .button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: $btn-border-radius;
-    height: $pagination-item-height;
-    min-width: $pagination-item-height;
-    font-weight: $pagination-font-weight;
-    font-size: $pagination-font-size;
-
-    .previous,
-    .next {
-      display: block;
-      height: $pagination-icon-height;
-      width: $pagination-icon-height;
-    }
-    background-color: $pagination-item-bg;
-    color: $pagination-color;
-  }
-
-  &.next:not(:hover):not(:focus):not(.disabled),
-  &.previous:not(:hover):not(:focus):not(.disabled) {
-    .button {
-      background-color: $pagination-item-bg;
-      color: $pagination-color;
-    }
-  }
-
-  &:focus:not(.disabled) {
-    .button {
-      color: $pagination-focus-color;
-    }
-  }
-
-  &:hover:not(.disabled) {
-    .button {
-      color: $pagination-hover-color;
-    }
+  &:hover:not(:disabled):not(.active) {
+    color: $pagination-hover-color;
+    background-color: $secondary;
   }
 
   &.active {
-    .button {
-			background-color: $gray-400;
-      color: $pagination-active-color;
-    }
-  }
-
-  &.disabled {
-    .button {
-      color: $pagination-disabled-color;
-    }
+    color: $primary-inverse;
+    background-color: $primary;
   }
 }
