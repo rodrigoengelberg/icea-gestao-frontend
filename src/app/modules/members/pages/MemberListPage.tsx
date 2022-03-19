@@ -1,7 +1,9 @@
 /*eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { Link, useHistory } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import SmartDataTable from 'react-smart-data-table'
+import moment from 'moment'
 
 import { MemberModel } from '../models/MemberModel'
 import { getAllMembers, getMembersCanVote } from '../redux/MemberCRUD'
@@ -13,10 +15,65 @@ interface IParamsExport {
   fileType: any
 }
 
+interface IMemberList {
+  name: string
+  email?: string
+  status?: string
+  gender: string
+  marital_status?: string
+  birth_day?: string
+}
+
 const MemberListPage: React.FC = () => {
-  const history = useHistory()
+  // const history = useHistory()
   const [members, setMembers] = useState<MemberModel[]>([])
   const dispatch = useDispatch()
+  const [membersList, setMembersList] = useState<IMemberList[]>([])
+  const perPage = 5
+
+  const headers = {
+    name: {
+      text: 'Nome',
+      invisible: false,
+      sortable: true,
+      filterable: true
+    },
+    email: {
+      text: 'E-mail',
+      invisible: false,
+      sortable: true,
+      filterable: true
+    },
+    status: {
+      text: 'Situação',
+      invisible: false,
+      sortable: true,
+      filterable: true
+    },
+    gender: {
+      text: 'Gênero',
+      invisible: false,
+      sortable: true,
+      filterable: true
+    },
+    marital_status: {
+      text: 'Estado civil',
+      invisible: false,
+      sortable: true,
+      filterable: true
+    },
+    birth_day: {
+      text: 'Aniversário',
+      invisible: false,
+      sortable: true,
+      filterable: true
+    }
+  }
+
+  // const onRowClick = (event, { rowData, rowIndex, tableData }) => {
+  //   // The following results should be identical
+  //   console.log(rowData, tableData[rowIndex])
+  // }
 
   const exportToCsv = () => {
     let membersVote: MemberModel[]
@@ -47,6 +104,19 @@ const MemberListPage: React.FC = () => {
       getAllMembers()
         .then(({ data: members }) => {
           setMembers(members)
+          const membersList: IMemberList[] = []
+          members.forEach(member => {
+            const memberList = {
+              name: member.first_name + ' ' + member.last_name,
+              email: member.email,
+              status: member.member_spiritual.member_status,
+              gender: member.gender,
+              marital_status: member.marital_status,
+              birth_day: moment(member.birth_date).format('DD/MM/YYYY')
+            }
+            membersList?.push(memberList)
+          })
+          setMembersList(membersList)
           dispatch(membersSaga.actions.fulfillMembers(members))
         })
         .catch(() => {
@@ -55,9 +125,9 @@ const MemberListPage: React.FC = () => {
     }
   }, [])
 
-  const selectedMember = (member: MemberModel) => {
-    history.push('/members/edit/' + member.id)
-  }
+  // const selectedMember = (member: MemberModel) => {
+  //   history.push('/members/edit/' + member.id)
+  // }
 
   const downloadFile = ({ data, fileName, fileType }: IParamsExport) => {
     const blob = new Blob([data], { type: fileType })
@@ -106,8 +176,17 @@ const MemberListPage: React.FC = () => {
           </div>
 
           <div className="card-body">
-            {/*begin::Table */}
-            <table className="table table-row-dashed table-hover table-row-gray-300 gy-7">
+            <SmartDataTable
+              className="table table-row-dashed table-hover table-row-gray-300 gy-7"
+              pagination="true"
+              headers={headers}
+              data={membersList}
+              name="members-table"
+              perPage={perPage}
+              paginator={membersList.length < perPage ? () => null : undefined}
+            />
+
+            {/* <table className="table table-row-dashed table-hover table-row-gray-300 gy-7">
               <thead>
                 <tr className="fw-bolder fs-6 text-gray-800">
                   <th>Nome</th>
@@ -144,8 +223,7 @@ const MemberListPage: React.FC = () => {
                   <div>Não há membros cadastrados</div>
                 )}
               </tbody>
-            </table>
-            {/*end::Table */}
+            </table> */}
           </div>
         </div>
       </div>
