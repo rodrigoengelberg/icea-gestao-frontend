@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import SmartDataTable from 'react-smart-data-table'
+import moment from 'moment'
 
 import { MemberModel } from '../models/MemberModel'
 import { getAllMembers, getMembersCanVote } from '../redux/MemberCRUD'
@@ -14,57 +15,60 @@ interface IParamsExport {
   fileType: any
 }
 
-// interface IPageList {
-//   pagelist: any
-// }
+interface IMemberList {
+  name: string
+  email?: string
+  status?: string
+  gender: string
+  marital_status?: string
+  birth_day?: string
+}
 
 const MemberListPage: React.FC = () => {
   // const history = useHistory()
   const [members, setMembers] = useState<MemberModel[]>([])
   const dispatch = useDispatch()
-  // const [setState] = useState<IPageList>()
+  const [membersList, setMembersList] = useState<IMemberList[]>([])
+  const perPage = 5
 
-  // const headers = {
-  //   first_name: {
-  //     text: 'Nome',
-  //     invisible: false,
-  //     sortable: true,
-  //     filterable: true,
-  //     tranform: (value: string, index: any, row: any) => {
-  //       return value + ' ' + row.last_name
-  //     }
-  //   },
-  //   email: {
-  //     text: 'E-mail',
-  //     invisible: false,
-  //     sortable: true,
-  //     filterable: true
-  //   },
-  //   'member_spiritual.member_status': {
-  //     text: 'Situação',
-  //     invisible: false,
-  //     sortable: true,
-  //     filterable: true
-  //   },
-  //   gender: {
-  //     text: 'Gênero',
-  //     invisible: false,
-  //     sortable: true,
-  //     filterable: true
-  //   },
-  //   marital_status: {
-  //     text: 'Estado civil',
-  //     invisible: false,
-  //     sortable: true,
-  //     filterable: true
-  //   },
-  //   nationality: {
-  //     text: 'Nascionalidade',
-  //     invisible: false,
-  //     sortable: true,
-  //     filterable: true
-  //   }
-  // }
+  const headers = {
+    name: {
+      text: 'Nome',
+      invisible: false,
+      sortable: true,
+      filterable: true
+    },
+    email: {
+      text: 'E-mail',
+      invisible: false,
+      sortable: true,
+      filterable: true
+    },
+    status: {
+      text: 'Situação',
+      invisible: false,
+      sortable: true,
+      filterable: true
+    },
+    gender: {
+      text: 'Gênero',
+      invisible: false,
+      sortable: true,
+      filterable: true
+    },
+    marital_status: {
+      text: 'Estado civil',
+      invisible: false,
+      sortable: true,
+      filterable: true
+    },
+    birth_day: {
+      text: 'Aniversário',
+      invisible: false,
+      sortable: true,
+      filterable: true
+    }
+  }
 
   // const onRowClick = (event, { rowData, rowIndex, tableData }) => {
   //   // The following results should be identical
@@ -100,7 +104,19 @@ const MemberListPage: React.FC = () => {
       getAllMembers()
         .then(({ data: members }) => {
           setMembers(members)
-          // setState({ pagelist: members })
+          const membersList: IMemberList[] = []
+          members.forEach(member => {
+            const memberList = {
+              name: member.first_name + ' ' + member.last_name,
+              email: member.email,
+              status: member.member_spiritual.member_status,
+              gender: member.gender,
+              marital_status: member.marital_status,
+              birth_day: moment(member.birth_date).format('DD/MM/YYYY')
+            }
+            membersList?.push(memberList)
+          })
+          setMembersList(membersList)
           dispatch(membersSaga.actions.fulfillMembers(members))
         })
         .catch(() => {
@@ -108,24 +124,6 @@ const MemberListPage: React.FC = () => {
         })
     }
   }, [])
-
-  const testData = []
-  const numResults = 100
-  const perPage = 5
-
-  for (let i = 0; i < numResults; i++) {
-    testData.push({
-      _id: i,
-      fullName: 'Teste',
-      'email.address': 'teste@teste.com',
-      phone_number: 123456,
-      address: {
-        city: 'Anápolis City',
-        state: 'GO',
-        country: 'Brasil'
-      }
-    })
-  }
 
   // const selectedMember = (member: MemberModel) => {
   //   history.push('/members/edit/' + member.id)
@@ -181,12 +179,11 @@ const MemberListPage: React.FC = () => {
             <SmartDataTable
               className="table table-row-dashed table-hover table-row-gray-300 gy-7"
               pagination="true"
-              // headers={headers}
-              data={testData}
-              dataKey="pagelist"
-              name="test-table"
+              headers={headers}
+              data={membersList}
+              name="members-table"
               perPage={perPage}
-              paginator={testData.length < perPage ? () => null : undefined}
+              paginator={membersList.length < perPage ? () => null : undefined}
             />
 
             {/* <table className="table table-row-dashed table-hover table-row-gray-300 gy-7">
