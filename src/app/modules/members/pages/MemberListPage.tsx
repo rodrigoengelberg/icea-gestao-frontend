@@ -1,10 +1,9 @@
 /*eslint-disable react-hooks/exhaustive-deps */
+import moment from 'moment'
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import SmartDataTable from 'react-smart-data-table'
-import moment from 'moment'
-
 import { MemberModel } from '../models/MemberModel'
 import { getAllMembers, getMembersCanVote } from '../redux/MemberCRUD'
 import * as membersSaga from '../redux/MemberRedux'
@@ -16,6 +15,7 @@ interface IParamsExport {
 }
 
 interface IMemberList {
+  id?: string
   name: string
   email?: string
   status?: string
@@ -25,13 +25,17 @@ interface IMemberList {
 }
 
 const MemberListPage: React.FC = () => {
-  // const history = useHistory()
+  const history = useHistory()
   const [members, setMembers] = useState<MemberModel[]>([])
   const dispatch = useDispatch()
   const [membersList, setMembersList] = useState<IMemberList[]>([])
   const perPage = 5
 
   const headers = {
+    id: {
+      text: 'ID',
+      invisible: true
+    },
     name: {
       text: 'Nome',
       invisible: false,
@@ -70,10 +74,9 @@ const MemberListPage: React.FC = () => {
     }
   }
 
-  // const onRowClick = (event, { rowData, rowIndex, tableData }) => {
-  //   // The following results should be identical
-  //   console.log(rowData, tableData[rowIndex])
-  // }
+  const onRowClick = (event: any, { rowData }: any) => {
+    history.push('/members/edit/' + rowData.id)
+  }
 
   const exportToCsv = () => {
     let membersVote: MemberModel[]
@@ -107,6 +110,7 @@ const MemberListPage: React.FC = () => {
           const membersList: IMemberList[] = []
           members.forEach(member => {
             const memberList = {
+              id: member.id,
               name: member.first_name + ' ' + member.last_name,
               email: member.email,
               status: member.member_spiritual.member_status,
@@ -183,6 +187,7 @@ const MemberListPage: React.FC = () => {
               data={membersList}
               name="members-table"
               perPage={perPage}
+              onRowClick={onRowClick}
               paginator={membersList.length < perPage ? () => null : undefined}
             />
 
