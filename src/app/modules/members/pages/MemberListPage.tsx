@@ -29,6 +29,7 @@ const MemberListPage: React.FC = () => {
   const [members, setMembers] = useState<MemberModel[]>([])
   const dispatch = useDispatch()
   const [membersList, setMembersList] = useState<IMemberList[]>([])
+  const [filterValue] = useState<string>('')
   const perPage = 5
 
   const headers = {
@@ -76,6 +77,10 @@ const MemberListPage: React.FC = () => {
 
   const onRowClick = (event: any, { rowData }: any) => {
     history.push('/members/edit/' + rowData.id)
+  }
+
+  const handleOnChange = ({ target }: any) => {
+    alert('Filtro ' + target.value)
   }
 
   const exportToCsv = () => {
@@ -180,7 +185,16 @@ const MemberListPage: React.FC = () => {
           </div>
 
           <div className="card-body">
+            <input
+              type="text"
+              className="form-control form-control-solid"
+              name="filterValue"
+              value={filterValue}
+              placeholder="Filter results..."
+              onChange={handleOnChange}
+            />
             <SmartDataTable
+              sortable={true}
               className="table table-row-dashed table-hover table-row-gray-300 gy-7"
               pagination="true"
               headers={headers}
