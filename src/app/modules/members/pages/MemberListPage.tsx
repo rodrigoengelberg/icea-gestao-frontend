@@ -80,7 +80,10 @@ const MemberListPage: React.FC = () => {
   }
 
   const handleOnChange = ({ target }: any) => {
-    alert('Filtro ' + target.value)
+    const membersListFiltered = membersList.filter(member =>
+      member.name.includes(target)
+    )
+    setMembersList(membersListFiltered ? membersList : membersListFiltered)
   }
 
   const exportToCsv = () => {
