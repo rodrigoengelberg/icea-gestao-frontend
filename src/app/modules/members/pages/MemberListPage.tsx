@@ -80,9 +80,7 @@ const MemberListPage: React.FC = () => {
   }
 
   const handleOnChange = ({ target }: any) => {
-    const membersListFiltered = membersList.filter(member =>
-      member.name.includes(target)
-    )
+    const membersListFiltered = membersList.filter(function (str) { return target.test(str) });
     setMembersList(membersListFiltered ? membersList : membersListFiltered)
   }
 
