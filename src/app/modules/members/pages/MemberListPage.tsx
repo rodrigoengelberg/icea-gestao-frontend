@@ -205,45 +205,7 @@ const MemberListPage: React.FC = () => {
               onRowClick={onRowClick}
               paginator={membersList.length < perPage ? () => null : undefined}
             />
-
-            {/* <table className="table table-row-dashed table-hover table-row-gray-300 gy-7">
-              <thead>
-                <tr className="fw-bolder fs-6 text-gray-800">
-                  <th>Nome</th>
-                  <th>E-mail</th>
-                  <th>Situação</th>
-                  <th>Gênero</th>
-                  <th>Estado civil</th>
-                  <th>Nascionalidade</th>
-                </tr>
-              </thead>
-              <tbody style={{ cursor: 'pointer' }}>
-                {members && members.length > 0 ? (
-                  members.map((member: MemberModel) => {
-                    return (
-                      <tr
-                        key={member.id}
-                        onClick={() => selectedMember(member)}
-                      >
-                        <td>{member.first_name + ' ' + member.last_name}</td>
-                        <td>{member.email}</td>
-                        <td>
-                          {member.member_spiritual &&
-                          member.member_spiritual.member_status.length > 0
-                            ? member.member_spiritual.member_status
-                            : 'Não informado'}
-                        </td>
-                        <td>{member.gender}</td>
-                        <td>{member.marital_status}</td>
-                        <td>{member.nationality}</td>
-                      </tr>
-                    )
-                  })
-                ) : (
-                  <div>Não há membros cadastrados</div>
-                )}
-              </tbody>
-            </table> */}
+            
           </div>
         </div>
       </div>
