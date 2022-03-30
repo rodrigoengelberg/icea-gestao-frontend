@@ -29,7 +29,10 @@ const MemberListPage: React.FC = () => {
   const [members, setMembers] = useState<MemberModel[]>([])
   const dispatch = useDispatch()
   const [membersList, setMembersList] = useState<IMemberList[]>([])
-  const [filterValue] = useState<string>('')
+  const [membersListFiltered, setMembersListFiltered] = useState<IMemberList[]>(
+    []
+  )
+  const [filterValue, setFilterValue] = useState<string>('')
   const perPage = 5
 
   const headers = {
@@ -80,10 +83,43 @@ const MemberListPage: React.FC = () => {
   }
 
   const handleOnChange = ({ target }: any) => {
-    const membersListFiltered = membersList.filter(function (str) { 
-      return target.test(str) 
-    });
-    setMembersList(membersListFiltered ? membersList : membersListFiltered)
+    const searchString = target.value
+
+    if (!searchString || typeof searchString !== 'string') {
+      setFilterValue(searchString)
+      setMembersListFiltered(membersList)
+      return false
+    }
+
+    const searchLower = searchString.toLowerCase()
+
+    const membersListFilteredReturn = membersListFiltered.filter(member => {
+      if (member.name.toLowerCase().includes(searchLower)) {
+        return true
+      }
+
+      if (member.email?.toLowerCase().includes(searchLower)) {
+        return true
+      }
+
+      //now we search in albums as well; we store values in an array
+      // let filteredAlbums = band.albums.filter(album => {
+      //   if (album.name.toLowerCase().includes(searchLower)) {
+      //     return true //this is a return for albums
+      //   }
+
+      //   return false //this is a return for albums
+      // })
+
+      // if (filteredAlbums.length > 0) {
+      //   return true
+      // }
+
+      return false
+    })
+
+    setFilterValue(searchString)
+    setMembersList(membersListFilteredReturn)
   }
 
   const exportToCsv = () => {
@@ -129,6 +165,7 @@ const MemberListPage: React.FC = () => {
             membersList?.push(memberList)
           })
           setMembersList(membersList)
+          setMembersListFiltered(membersList)
           dispatch(membersSaga.actions.fulfillMembers(members))
         })
         .catch(() => {
@@ -193,7 +230,7 @@ const MemberListPage: React.FC = () => {
               className="form-control form-control-solid"
               name="filterValue"
               value={filterValue}
-              placeholder="Filter results..."
+              placeholder="Buscar por Nome ou Email"
               onChange={handleOnChange}
             />
             <SmartDataTable
@@ -207,7 +244,6 @@ const MemberListPage: React.FC = () => {
               onRowClick={onRowClick}
               paginator={membersList.length < perPage ? () => null : undefined}
             />
-            
           </div>
         </div>
       </div>
