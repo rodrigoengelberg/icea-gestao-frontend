@@ -87,13 +87,15 @@ const MemberListPage: React.FC = () => {
 
     if (!searchString || typeof searchString !== 'string') {
       setFilterValue(searchString)
+      setMembersList(membersList)
       setMembersListFiltered(membersList)
+      dispatch(membersSaga.actions.fulfillMembers(members))
       return false
     }
 
-    const searchLower = searchString.toLowerCase()
+    const searchLower = searchString.toLowerCase().trim()
 
-    const membersListFilteredReturn = membersListFiltered.filter(member => {
+    const membersListFilteredReturn = membersList.filter(member => {
       if (member.name.toLowerCase().includes(searchLower)) {
         return true
       }
@@ -119,7 +121,7 @@ const MemberListPage: React.FC = () => {
     })
 
     setFilterValue(searchString)
-    setMembersList(membersListFilteredReturn)
+    setMembersListFiltered(membersListFilteredReturn)
   }
 
   const exportToCsv = () => {
@@ -223,26 +225,27 @@ const MemberListPage: React.FC = () => {
               Novo Membro
             </Link>
           </div>
-
+          <input
+            type="text"
+            className="form-control form-control-solid"
+            name="filterValue"
+            value={filterValue}
+            placeholder="Buscar por Nome ou Email"
+            onChange={handleOnChange}
+          />
           <div className="card-body">
-            <input
-              type="text"
-              className="form-control form-control-solid"
-              name="filterValue"
-              value={filterValue}
-              placeholder="Buscar por Nome ou Email"
-              onChange={handleOnChange}
-            />
             <SmartDataTable
               sortable={true}
               className="table table-row-dashed table-hover table-row-gray-300 gy-7"
               pagination="true"
               headers={headers}
-              data={membersList}
+              data={membersListFiltered}
               name="members-table"
               perPage={perPage}
               onRowClick={onRowClick}
-              paginator={membersList.length < perPage ? () => null : undefined}
+              paginator={
+                membersListFiltered.length < perPage ? () => null : undefined
+              }
             />
           </div>
         </div>
