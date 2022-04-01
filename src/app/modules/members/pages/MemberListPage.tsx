@@ -104,19 +104,6 @@ const MemberListPage: React.FC = () => {
         return true
       }
 
-      //now we search in albums as well; we store values in an array
-      // let filteredAlbums = band.albums.filter(album => {
-      //   if (album.name.toLowerCase().includes(searchLower)) {
-      //     return true //this is a return for albums
-      //   }
-
-      //   return false //this is a return for albums
-      // })
-
-      // if (filteredAlbums.length > 0) {
-      //   return true
-      // }
-
       return false
     })
 
