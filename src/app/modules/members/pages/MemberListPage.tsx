@@ -149,7 +149,9 @@ const MemberListPage: React.FC = () => {
               status: member.member_spiritual.member_status,
               gender: member.gender,
               marital_status: member.marital_status,
-              birth_day: moment(member.birth_date).format('DD/MM/YYYY')
+              birth_day: member.birth_date
+                ? moment(member.birth_date).format('DD/MM/YYYY')
+                : '-'
             }
             membersList?.push(memberList)
           })
