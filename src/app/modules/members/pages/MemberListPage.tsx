@@ -29,6 +29,10 @@ const MemberListPage: React.FC = () => {
   const [members, setMembers] = useState<MemberModel[]>([])
   const dispatch = useDispatch()
   const [membersList, setMembersList] = useState<IMemberList[]>([])
+  const [membersListFiltered, setMembersListFiltered] = useState<IMemberList[]>(
+    []
+  )
+  const [filterValue, setFilterValue] = useState<string>('')
   const perPage = 5
 
   const headers = {
@@ -78,6 +82,35 @@ const MemberListPage: React.FC = () => {
     history.push('/members/edit/' + rowData.id)
   }
 
+  const handleOnChange = ({ target }: any) => {
+    const searchString = target.value
+
+    if (!searchString || typeof searchString !== 'string') {
+      setFilterValue(searchString)
+      setMembersList(membersList)
+      setMembersListFiltered(membersList)
+      dispatch(membersSaga.actions.fulfillMembers(members))
+      return false
+    }
+
+    const searchLower = searchString.toLowerCase().trim()
+
+    const membersListFilteredReturn = membersList.filter(member => {
+      if (member.name.toLowerCase().includes(searchLower)) {
+        return true
+      }
+
+      if (member.email?.toLowerCase().includes(searchLower)) {
+        return true
+      }
+
+      return false
+    })
+
+    setFilterValue(searchString)
+    setMembersListFiltered(membersListFilteredReturn)
+  }
+
   const exportToCsv = () => {
     let membersVote: MemberModel[]
 
@@ -121,6 +154,7 @@ const MemberListPage: React.FC = () => {
             membersList?.push(memberList)
           })
           setMembersList(membersList)
+          setMembersListFiltered(membersList)
           dispatch(membersSaga.actions.fulfillMembers(members))
         })
         .catch(() => {
@@ -178,57 +212,28 @@ const MemberListPage: React.FC = () => {
               Novo Membro
             </Link>
           </div>
-
+          <input
+            type="text"
+            className="form-control form-control-solid"
+            name="filterValue"
+            value={filterValue}
+            placeholder="Buscar por Nome ou Email"
+            onChange={handleOnChange}
+          />
           <div className="card-body">
             <SmartDataTable
+              sortable={true}
               className="table table-row-dashed table-hover table-row-gray-300 gy-7"
               pagination="true"
               headers={headers}
-              data={membersList}
+              data={membersListFiltered}
               name="members-table"
               perPage={perPage}
               onRowClick={onRowClick}
-              paginator={membersList.length < perPage ? () => null : undefined}
+              paginator={
+                membersListFiltered.length < perPage ? () => null : undefined
+              }
             />
-
-            {/* <table className="table table-row-dashed table-hover table-row-gray-300 gy-7">
-              <thead>
-                <tr className="fw-bolder fs-6 text-gray-800">
-                  <th>Nome</th>
-                  <th>E-mail</th>
-                  <th>Situação</th>
-                  <th>Gênero</th>
-                  <th>Estado civil</th>
-                  <th>Nascionalidade</th>
-                </tr>
-              </thead>
-              <tbody style={{ cursor: 'pointer' }}>
-                {members && members.length > 0 ? (
-                  members.map((member: MemberModel) => {
-                    return (
-                      <tr
-                        key={member.id}
-                        onClick={() => selectedMember(member)}
-                      >
-                        <td>{member.first_name + ' ' + member.last_name}</td>
-                        <td>{member.email}</td>
-                        <td>
-                          {member.member_spiritual &&
-                          member.member_spiritual.member_status.length > 0
-                            ? member.member_spiritual.member_status
-                            : 'Não informado'}
-                        </td>
-                        <td>{member.gender}</td>
-                        <td>{member.marital_status}</td>
-                        <td>{member.nationality}</td>
-                      </tr>
-                    )
-                  })
-                ) : (
-                  <div>Não há membros cadastrados</div>
-                )}
-              </tbody>
-            </table> */}
           </div>
         </div>
       </div>
