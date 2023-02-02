@@ -11,6 +11,8 @@
     "noFallthroughCasesInSwitch": true,
     "module": "esnext",
     "moduleResolution": "node",
+    "suppressImplicitAnyIndexErrors": true,
+    "ignoreDeprecations": "5.0",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
