@@ -466,7 +466,7 @@ const MemberForm: React.FC<IMemberProps> = props => {
                         type="text"
                         name="first_name"
                         autoComplete="off"
-                      />{' '}
+                      />
                       {formik.touched.first_name && formik.errors.first_name && (
                         <div className="fv-plugins-message-container">
                           <div className="fv-help-block">
