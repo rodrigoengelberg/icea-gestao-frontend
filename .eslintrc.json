@@ -16,7 +16,7 @@
   "plugins": ["react", "@typescript-eslint", "prettier"],
   "rules": {
     "@typescript-eslint/no-use-before-define": 0,
-    "prettier/prettier": [2, "error", {
+    "prettier/prettier": ["error", {
       "endOfLine":"auto"
     }],
     "no-use-before-define": 0,
