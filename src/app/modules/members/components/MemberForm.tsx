@@ -1,32 +1,32 @@
 /*eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect, useState } from 'react'
+import MomentUtils from '@date-io/moment'
+import Grid from '@material-ui/core/Grid'
 import {
-  MuiPickersUtilsProvider,
-  KeyboardDatePicker
+  KeyboardDatePicker,
+  MuiPickersUtilsProvider
 } from '@material-ui/pickers'
 import clsx from 'clsx'
-import { Link, useHistory } from 'react-router-dom'
-import { toast } from 'react-toastify'
 import { useFormik } from 'formik'
-import Grid from '@material-ui/core/Grid'
-import MomentUtils from '@date-io/moment'
 import moment, { Moment } from 'moment'
 import 'moment/locale/pt-br'
+import React, { useEffect, useState } from 'react'
+import { Link, useHistory } from 'react-router-dom'
+import { toast } from 'react-toastify'
 import * as Yup from 'yup'
 
 import {
+  deleteMember,
   getNationalities,
-  getOccupations,
-  deleteMember
+  getOccupations
 } from '../redux/MemberCRUD'
 
+import { KTSVG } from '../../../../_start/helpers/components/KTSVG'
 import {
-  getStatesFromIBGE,
-  getCitiesFromIBGE
+  getCitiesFromIBGE,
+  getStatesFromIBGE
 } from '../../shared/services/UtilsService'
 import { NationalityModel } from '../models/NationalityModel'
 import { OccupationModel } from '../models/OccupationModel'
-import { KTSVG } from '../../../../_start/helpers/components/KTSVG'
 
 interface IMemberProps {
   onSubmit: any
