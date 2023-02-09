@@ -16,5 +16,8 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
+  "paths": {
+    "react": ["./node_modules/@types/react"]
+  },
   "include": ["src", "src/app/modules/patrimonies/models/.ts"]
 }
