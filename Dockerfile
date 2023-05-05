@@ -1,9 +1,13 @@
-FROM node:14.20.1-alpine3.15 AS build
+FROM node:14-alpine AS build
+
 RUN apk add git 
 
 WORKDIR /front
 
-# RUN git clone https://github.com/rodrigoengelberg/icea-gestao-frontend .
+RUN git clone https://github.com/rodrigoengelberg/icea-gestao-frontend .
+
+RUN npm install
+RUN npm run build
 
 ARG react_app_front_name
 ARG react_app_api_url
@@ -11,16 +15,12 @@ ARG react_app_api_url
 ENV REACT_APP_FRONT_NAME=${react_app_front_name}
 ENV REACT_APP_API_URL=${react_app_api_url}
 
-COPY package.json ./
+FROM node:14-alpine
 
-RUN npm install
+WORKDIR /api
 
-COPY . ./
-
-RUN npm run build
-
-COPY --from=build /front/build/ ./
+COPY --from=build /front/dist/ ./
 
 EXPOSE 3005
 
-CMD ["npm", "run", "dev"]
+CMD ["npm", "run", "start"]
