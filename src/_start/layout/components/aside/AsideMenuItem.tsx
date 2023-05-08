@@ -10,6 +10,7 @@ type Props = {
   hasBullet?: boolean
   free?: boolean
   exclusive?: boolean
+  children?: any
 }
 
 const AsideMenuItem: React.FC<Props> = ({
