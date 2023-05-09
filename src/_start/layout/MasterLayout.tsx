@@ -12,7 +12,11 @@ import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 // import { ExploreMain } from '../partials'
 
-const MasterLayout: React.FC = ({ children }) => {
+type Props = {
+  children?: any
+}
+
+const MasterLayout: React.FC<Props> = ({ children }) => {
   return (
     <PageDataProvider>
       <div className="d-flex flex-column flex-root">

@@ -8,7 +8,7 @@ import { createPortal } from 'react-dom'
  * @param className CSS classname
  * @param el HTML element to create.  default: div
  */
-const Portal: React.FC<{ className?: string }> = ({
+const Portal: React.FC<{ className?: string; children?: any }> = ({
   children,
   className = ''
 }) => {

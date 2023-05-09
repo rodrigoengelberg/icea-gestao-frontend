@@ -6,6 +6,7 @@ import { KTSVG, toAbsoluteUrl } from '../../../helpers'
 type Props = {
   className: string
   innerPadding?: string
+  children?: any
 }
 
 const StatsWidget6: React.FC<Props> = ({

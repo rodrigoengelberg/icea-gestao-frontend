@@ -9,6 +9,14 @@ export interface PageLink {
   isPro?: boolean
 }
 
+type Props = {
+  title?: string
+  description?: string
+  submenu?: Array<PageLink>
+  breadcrumbs?: Array<PageLink>
+  children?: any
+}
+
 export interface PageDataContextModel {
   moduleName?: string
   setModuleName: (_moduleName: string) => void
@@ -30,7 +38,7 @@ const PageDataContext = createContext<PageDataContextModel>({
   setPageDescription: (_description: string) => {}
 })
 
-const PageDataProvider: React.FC = ({ children }) => {
+const PageDataProvider: React.FC<Props> = ({ children }) => {
   const [moduleName, setModuleName] = useState<string>('')
   const [pageTitle, setPageTitle] = useState<string>('')
   const [pageDescription, setPageDescription] = useState<string>('')
@@ -59,13 +67,6 @@ function usePageData() {
   return useContext(PageDataContext)
 }
 
-type Props = {
-  title?: string
-  description?: string
-  submenu?: Array<PageLink>
-  breadcrumbs?: Array<PageLink>
-}
-
 const PageDataContainer: React.FC<Props> = ({
   submenu,
   breadcrumbs,
@@ -90,7 +91,7 @@ const PageDataContainer: React.FC<Props> = ({
   return <>{children}</>
 }
 
-const PageTitle: React.FC = ({ children }) => {
+const PageTitle: React.FC<Props> = ({ children }) => {
   const { setPageTitle } = usePageData()
   useEffect(() => {
     if (children) {
@@ -103,7 +104,7 @@ const PageTitle: React.FC = ({ children }) => {
   return <></>
 }
 
-const PageDescription: React.FC = ({ children }) => {
+const PageDescription: React.FC<Props> = ({ children }) => {
   const { setPageDescription } = usePageData()
   useEffect(() => {
     if (children) {
@@ -116,7 +117,7 @@ const PageDescription: React.FC = ({ children }) => {
   return <></>
 }
 
-const ModuleName: React.FC = ({ children }) => {
+const ModuleName: React.FC<Props> = ({ children }) => {
   const { setModuleName } = usePageData()
   useEffect(() => {
     if (children) {
