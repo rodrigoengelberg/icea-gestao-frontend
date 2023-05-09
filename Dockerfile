@@ -6,7 +6,7 @@ WORKDIR /front
 
 RUN git clone https://github.com/rodrigoengelberg/icea-gestao-frontend .
 
-RUN npm install --legacy-peer-deps
+RUN npm install
 RUN npm run build
 
 ARG react_app_front_name
