@@ -4,7 +4,11 @@ import clsx from 'clsx'
 import { useTheme } from '../core'
 import { DrawerComponent } from '../../assets/ts/components'
 
-const Content: React.FC = ({ children }) => {
+type Props = {
+  children?: any
+}
+
+const Content: React.FC<Props> = ({ children }) => {
   const { config } = useTheme()
   const location = useLocation()
   useEffect(() => {
