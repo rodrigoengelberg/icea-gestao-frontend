@@ -99,7 +99,7 @@
     "@types/nouislider": "^9.0.8",
     "@types/object-path": "^0.11.0",
     "@types/prismjs": "^1.16.2",
-    "@types/react": "18.1.0",
+    "@types/react": "^17.0.40",
     "@types/react-dom": "^17.0.1",
     "@types/react-copy-to-clipboard": "^5.0.0",
     "@types/react-redux": "^7.1.13",
@@ -107,6 +107,7 @@
     "moment": "^2.29.1"
   },
   "resolutions": {
-    "@types/react": "18.1.0"
+    "@types/react": "17.0.40",
+    "@types/react-dom": "17.0.1"
   }
 }
