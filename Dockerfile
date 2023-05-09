@@ -19,7 +19,7 @@ FROM node:14-alpine
 
 WORKDIR /api
 
-COPY --from=build /front/dist/ ./
+COPY --from=build /front/build/ ./
 
 EXPOSE 3005
 
