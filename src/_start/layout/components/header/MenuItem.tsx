@@ -8,6 +8,7 @@ type Props = {
   to: string
   title: string
   free?: boolean
+  children?: any
 }
 
 const MenuItem: React.FC<Props> = ({ children, to, title, free = false }) => {

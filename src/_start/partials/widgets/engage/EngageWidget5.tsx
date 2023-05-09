@@ -5,6 +5,7 @@ import { toAbsoluteUrl } from '../../../helpers'
 type Props = {
   className: string
   innerPadding?: string
+  children?: any
 }
 
 const EngageWidget5: React.FC<Props> = ({
