@@ -7,7 +7,7 @@ import { KTSVG, toAbsoluteUrl } from '../../helpers'
 type Props = {
   show: boolean
   handleClose: () => void
-  children: any
+  children?: any
 }
 
 const MenuModal: React.FC<Props> = ({ show, handleClose, children }) => {
