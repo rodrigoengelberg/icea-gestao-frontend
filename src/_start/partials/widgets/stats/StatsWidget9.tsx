@@ -6,6 +6,7 @@ import { Carousel } from 'bootstrap'
 type Props = {
   className: string
   innerPadding?: string
+  children?: any
 }
 
 const StatsWidget9: React.FC<Props> = ({
