@@ -18,6 +18,10 @@ export interface ThemeContextModel {
   setTheme: (_themeConfig: Partial<IThemeConfig>) => void
 }
 
+type Props = {
+  children?: any
+}
+
 const ThemeContext = createContext<ThemeContextModel>({
   config: DefaultThemeConfig,
   classes: getEmptyCssClasses(),
@@ -39,7 +43,7 @@ const disableSplashScreen = () => {
   }
 }
 
-const ThemeProvider: React.FC = ({ children }) => {
+const ThemeProvider: React.FC<Props> = ({ children }) => {
   const [config, setConfig] = useState(ThemeSetup.config)
   const [classes, setClasses] = useState(ThemeSetup.classes)
   const [attributes, setAttributes] = useState(ThemeSetup.attributes)
