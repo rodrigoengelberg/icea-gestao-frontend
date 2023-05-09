@@ -17,10 +17,10 @@ ENV REACT_APP_API_URL=${react_app_api_url}
 
 FROM node:14-alpine
 
-WORKDIR /api
+WORKDIR /front
 
 COPY --from=build /front/build/ ./
 
 EXPOSE 3005
 
-CMD ["npm", "run", "start"]
+CMD ["react-scripts", "start"]
