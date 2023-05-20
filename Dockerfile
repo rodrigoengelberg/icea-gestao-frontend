@@ -23,4 +23,4 @@ COPY --from=build /front/ ./
 
 EXPOSE 3005
 
-CMD ["npm", "run", "dev"]
+CMD ["npm", "run", "start"]
