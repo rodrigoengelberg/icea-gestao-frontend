@@ -92,6 +92,8 @@ Aguarde alguns instantes.
 
 Caso tudo dê certo, o resultado esperado é abrir um servidor na porta 3333, você pode acessar em http://localhost:3333/.
 
+Se estiver rodando em container no docker pelo projeto icea-gesta-runner o endereço de acesso será http://localhost:8801/.
+
 ## :memo: Licença
 
 Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para mais detalhes.
